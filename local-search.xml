@@ -64,6 +64,12 @@
     
     
     
+    <tags>
+      
+      <tag>NewStarCTF</tag>
+      
+    </tags>
+    
   </entry>
   
   
@@ -375,25 +381,6 @@
     <content type="html"><![CDATA[]]></content>
     
     
-    
-  </entry>
-  
-  
-  
-  <entry>
-    <title>NewStarCTF_Week1_Crypto</title>
-    <link href="/2022/10/19/NewStarCTF_Week1_Crypto/"/>
-    <url>/2022/10/19/NewStarCTF_Week1_Crypto/</url>
-    
-    <content type="html"><![CDATA[<p>这是NewStarCTF第一周比赛Crypto方向的wp</p>]]></content>
-    
-    
-    
-    <tags>
-      
-      <tag>NewStarCTF</tag>
-      
-    </tags>
     
   </entry>
   
