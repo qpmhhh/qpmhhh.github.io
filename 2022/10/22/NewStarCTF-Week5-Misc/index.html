@@ -16,16 +16,21 @@
   <meta name="author" content="qpm">
   <meta name="keywords" content="">
   
-    <meta property="og:type" content="article">
+    <meta name="description" content="最后的流量分析直接用Wireshark打开，按协议类型排序，看到了神奇的东西：应该是hacker用sql盲注的过程手动拼接每次的最后一个字符得到flag：  flag{c84bb04a-8663-4ee2-9449-349f1ee83e11}  奇怪的文本1&amp;#123;&amp;#123;&amp;#125;&amp;#x27;91&gt;0viti&amp;#x27;yvAp014g8&lt;8lSB1a&amp;#123;Sf[ak">
+<meta property="og:type" content="article">
 <meta property="og:title" content="NewStarCTF_Week5_Misc">
 <meta property="og:url" content="https://qpmhhh.github.io/2022/10/22/NewStarCTF-Week5-Misc/index.html">
 <meta property="og:site_name" content="qpm&#39;s blog">
+<meta property="og:description" content="最后的流量分析直接用Wireshark打开，按协议类型排序，看到了神奇的东西：应该是hacker用sql盲注的过程手动拼接每次的最后一个字符得到flag：  flag{c84bb04a-8663-4ee2-9449-349f1ee83e11}  奇怪的文本1&amp;#123;&amp;#123;&amp;#125;&amp;#x27;91&gt;0viti&amp;#x27;yvAp014g8&lt;8lSB1a&amp;#123;Sf[ak">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://qpmhhh.github.io/img/5M1.png">
+<meta property="og:image" content="https://qpmhhh.github.io/img/5M2.png">
 <meta property="article:published_time" content="2022-10-22T15:45:40.000Z">
-<meta property="article:modified_time" content="2022-10-23T06:20:59.242Z">
+<meta property="article:modified_time" content="2022-10-24T05:09:57.280Z">
 <meta property="article:author" content="qpm">
 <meta property="article:tag" content="NewStarCTF">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://qpmhhh.github.io/img/5M1.png">
   
   
   
@@ -217,7 +222,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          0 字
+          4.1k 字
         
       </span>
     
@@ -228,7 +233,7 @@
         
         
         
-          1 分钟
+          34 分钟
         
       </span>
     
@@ -271,7 +276,25 @@
             
               <div class="markdown-body">
                 
-                
+                <h1 id="最后的流量分析"><a href="#最后的流量分析" class="headerlink" title="最后的流量分析"></a>最后的流量分析</h1><p>直接用Wireshark打开，按协议类型排序，看到了神奇的东西：<br><img src="/img/5M1.png" srcset="/img/loading.gif" lazyload><br>应该是hacker用sql盲注的过程<br>手动拼接每次的最后一个字符得到flag：</p>
+<blockquote>
+<p>flag{c84bb04a-8663-4ee2-9449-349f1ee83e11}</p>
+</blockquote>
+<h1 id="奇怪的文本"><a href="#奇怪的文本" class="headerlink" title="奇怪的文本"></a>奇怪的文本</h1><figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs txt">&#123;&#123;&#125;&#x27;91&gt;0viti&#x27;yvAp014g8&lt;8lSB1a&#123;Sf[aktt&#125;vSCSyCt&#123;y&#123;S&gt;48[a&lt;[&#123;iiA&#123;fCp&#x27;i1_&lt;gpg&#125;&lt;l[lA1&#125;gCf&lt;&lt;AB&#125;&lt;8i4&gt;vl4B4i9BA&lt;ap&#125;vS&lt;Ak0lyklCB4&gt;BS&#x27;f0_a&#125;a[9fy&#x27;g&gt;Bv&gt;yyy8pvtfiCy4[&gt;S0&#x27;g&#123;Ai9f&#x27;8g1SBky[0&#123;&gt;0gf1algtkB9&#x27;&#125;49aS[81&#125;ylk0[&lt;&#123;CpBt&#125;pt1a9ktyyak&#123;ki14_0BlfCA&#125;0yf&#125;4lB4a0SSk&#x27;pf98a&lt;B894gA_tfv&#x27;y&#123;v9S&lt;l&#123;flgp_p&lt;4fSgA_[9&#123;C&#125;gik&#x27;laygiAk&#123;&#125;vSytt&#x27;&#123;&#123;9v&#123;0[8ayailf&#125;t&#125;1p&gt;&lt;&#123;pga80Bkp8ta9Ciap&#123;S&gt;_ty14Bp8B0CA_CA[Sl0pf_&#125;8S&#123;g84_&#125;akp[y&#123;&#x27;1SS4&lt;t&gt;gt&gt;&#123;tiv&#125;_y&#123;&#125;8&#125;l0S&#125;&#x27;&#123;p&#125;48y&#123;&#125;0vtaga4pCa[f_fk&#x27;v&lt;_&gt;t&#125;[&#x27;k9A0p&gt;&lt;agiy0ly&#125;0S1&lt;14vCtgSl9SS_l4ykf101Cf&#123;009y_g&#125;8tCSf40tlt[894ifi&#123;&gt;CgB&#123;il&#123;4C4[[igy&#125;&gt;_&#x27;aiyB[0S11&#x27;S_A4y8lfA&#x27;g1vllC&#123;&lt;&lt;&#x27;_Bp&#x27;gtvp01ktC09vltfplAglB&#125;plfCvl8Sk4f0&#123;ya808l[y&#123;lByl4k&gt;lafa_&#125;kC9aSlp&#123;&lt;k4vCt&gt;CSi&#125;[1v0A&lt;flv8[yA9&lt;CfAlaki&#123;&#123;viBffyl&#125;g[&#125;&#x27;gg&lt;fS9aByaa&lt;t[a&lt;&#125;Bv&gt;_g&#123;aS0g4gCpA&#x27;&lt;yp4_A_gA&#123;i&#125;Si_S&#125;S18&#123;CgvgB8AC&#125;fC_&lt;8&#125;p1gSa9CBAt[Bfv[Bfp_8&gt;1a[&#123;fkAv9SCf&lt;t9&#123;Bfk&#123;y19pS&gt;&#125;aAS0BySSp08&gt;C_fgS[&#125;Cpyat&gt;ta&gt;i0&lt;A4gfka&lt;_&#x27;&gt;&#125;&#123;v1&lt;_Bap&#123;v1y0kS&lt;8lgy19ffC9y0&gt;&#123;[via&#x27;yil48kC1Cf&#123;C&gt;9gllgll&gt;SC4_[i9C&#125;tgBA&lt;iCB9g[a&#123;SifvlB8pt0[A&#123;&gt;gf19B[1l_4pSit9&#125;&gt;ll800&gt;[8_&lt;&lt;Ay0&lt;la0lA&lt;[_va&lt;t[AlBtt[yg4f0l4f[SSlpllgy&#125;&lt;8Ak[C&gt;4ASgAS&gt;&#123;[0AC0Bfp440_ig&lt;&#123;a&#x27;8yB[[v&#125;Ck&lt;ffkgf&#123;8iAappv118f[0tl480aii&gt;y&#123;BkCSiyByg&#123;yi&gt;4yCi4f99&#x27;ppaBa&#125;ylkv&#123;a9Ak4p&#123;AAa&gt;i1ykf__l&#123;&#x27;1Sl4taAk[v9vf0ak&#x27;&#125;ky9if00yif8_48ykl&#x27;9gf98Bip0f[4&#125;l0l&lt;0&#x27;fC_lak9&#123;a8aif98StlfpA&#123;&gt;B&#123;S8akg_fkA[pt8v&#x27;_fiyg8SCg4vt09&#123;Bi9CavBp48BylS[&#123;i0k0&lt;tv&#x27;99gClgp&gt;&#123;A&#123;gAfpB&lt;v1iCS1f8f11f&lt;&#x27;SB04t&gt;k&#123;v&#125;&lt;4C&#x27;al1Bkl0l8gl&gt;_fSyAB&gt;_Ak1aABkC&lt;yvBA&gt;[&#x27;gB018&#x27;1BA&#125;4Ba&#123;tttyS&#125;f&lt;1pCSvaf&gt;4t0a&gt;k1_08kl941f88&#x27;&#123;&#x27;Sp1ik[A9_y9&gt;i[40[kvlC911&#125;&#123;&#123;0l&gt;Cl&lt;&#123;[t4&#123;_Bl&#x27;8Cfa&#123;vgiB0[0gfkB&#125;0l98gpC1&gt;&gt;8f0Bg&#x27;g1gapSp&#x27;tSy4[4A41&gt;C8l8&#123;&#x27;&#x27;fBpk_&#x27;&lt;lptC_v8&#x27;tig9A0f8Bavf[klgf8gSkafv0&#123;a8vykg9A&#123;kik_84f8iB48yvCkf&#123;i&lt;&#x27;A11Ap&#123;&lt;&lt;A40_&#125;p4ACiCipBvg4&lt;t_iB0Al&#x27;8&#125;4aB&#125;_&gt;&#123;1&#x27;8t8fCgv&gt;iCAl&lt;SAC&#125;gigtf80lgl4&#125;aa&gt;_1l4a9ifB&#123;a9&lt;&lt;&#125;4l9aaSyffvlS09yki00B9p8_&lt;91ikBAtp&#125;v9g4[1l14Bl&#123;_Cy9Avai&#125;A&gt;lS[&#123;&#123;avSBgg&#123;y9ly&#125;SS&#125;gtgg_f0014lyfvAC&#125;BBCvla_aS1&#125;g0gtB[tlppg_aa4ky&#x27;y8fApB9i&#x27;v&gt;kfSt4[14iyg&#123;0fgAt&#x27;fSBSC&#x27;4&gt;pBS&lt;8l[&#125;&gt;SS8a&gt;8iACtlaf_k&#125;g4S&#123;SB4&#123;&#125;CA0&#x27;4k0ga84tAv8&#125;t4BkfC&#x27;tSvtl8p&#125;Sl_&lt;&#x27;&gt;ff&gt;f&gt;AAtpy&#123;8a&#123;Sg&#x27;&#x27;pCB4&#x27;&#x27;aBBAC&#x27;0&#x27;gCCa1&gt;a_9yf&#123;9A9a<br></code></pre></td></tr></table></figure>
+<p>太奇怪了，看着什么都不像（看不懂，怪不得J1an单身/doge）<br>看到大群说这道题白给才想到<br>直接字频分析:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs python">f=<span class="hljs-built_in">open</span>(<span class="hljs-string">&#x27;task.txt&#x27;</span>,<span class="hljs-string">&#x27;r&#x27;</span>)<br>ft=f.read()<br>fd=&#123;&#125;<br><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> ft:<br>    <span class="hljs-keyword">if</span> i <span class="hljs-keyword">not</span> <span class="hljs-keyword">in</span> fd.keys():<br>        fd[i]=<span class="hljs-number">0</span><br>    <span class="hljs-keyword">else</span>:<br>        fd[i]+=<span class="hljs-number">1</span><br>fd_new=<span class="hljs-built_in">sorted</span>(fd.items(),  key=<span class="hljs-keyword">lambda</span> d: d[<span class="hljs-number">1</span>], reverse=<span class="hljs-literal">True</span>)<br><span class="hljs-comment">#print(fd_new)</span><br><span class="hljs-keyword">for</span> i,j <span class="hljs-keyword">in</span> fd_new:<br>    <span class="hljs-built_in">print</span>(i,end=<span class="hljs-string">&#x27;&#x27;</span>)<br></code></pre></td></tr></table></figure>
+<p>得到flag：</p>
+<blockquote>
+<p>flag{S0B48yCA}</p>
+</blockquote>
+<h1 id="Yesec-no-drumsticks-5"><a href="#Yesec-no-drumsticks-5" class="headerlink" title="Yesec no drumsticks 5"></a>Yesec no drumsticks 5</h1><p>说是要用git，就在网上查了git泄露，然后看到了<a target="_blank" rel="noopener" href="https://www.jianshu.com/p/0ea09975169d">大佬的博客</a>，然后看到了<a target="_blank" rel="noopener" href="https://github.com/gakki429/Git_Extract">Git_Extract</a>，然后尝试用了一下，然后……就没有然后了。。。<br><img src="/img/5M2.png" srcset="/img/loading.gif" lazyload><br>直接出flag，超爱的好不好</p>
+<blockquote>
+<p>flag{Yesec#1s#c@ibi}</p>
+</blockquote>
+<h1 id="后面不会做了……"><a href="#后面不会做了……" class="headerlink" title="后面不会做了……"></a>后面不会做了……</h1><blockquote>
+<p>qpm是个新手，以上过程如有不正确之处，请联系<a href="mailto:&#113;&#x70;&#x6d;&#x68;&#x68;&#x68;&#64;&#x71;&#x71;&#46;&#x63;&#111;&#x6d;">&#113;&#x70;&#x6d;&#x68;&#x68;&#x68;&#64;&#x71;&#x71;&#46;&#x63;&#111;&#x6d;</a>改正，感谢观看！</p>
+</blockquote>
+
                 
               </div>
             
