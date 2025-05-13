@@ -19,15 +19,15 @@
   <meta name="author" content="qpm">
   <meta name="keywords" content="">
   
-    <meta name="description" content="原始数据输送带工作拉力F： N输送带工作速度v： m&#x2F;s滚筒直径D： mm滚筒及输送带效率$ \eta_{带}&#x3D;0.96 $ 以下所有查表若无特殊说明均是《机械设计课程设计(第3版)》里面的。 ##电机型号选择 电动机功率选择计算工作机所需的功率$$P_w &#x3D; Fv &#x3D; F0_value \times v0_value W&#x3D;f1_value kW$">
+    <meta name="description" content="原始数据输送带工作拉力F： N输送带工作速度v： m&#x2F;s滚筒直径D： mm滚筒及输送带效率$ \eta_{带}&#x3D;0.96 $ 以下所有查表若无特殊说明均是《机械设计课程设计(第3版)》里面的。 电机型号选择电动机功率选择计算工作机所需的功率$$P_w &#x3D; Fv &#x3D; F0_value \times v0_value W&#x3D;f1_value kW$$ 初">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Design">
 <meta property="og:url" content="https://qpmhhh.github.io/2025/05/03/Design/index.html">
 <meta property="og:site_name" content="qpm&#39;s blog123">
-<meta property="og:description" content="原始数据输送带工作拉力F： N输送带工作速度v： m&#x2F;s滚筒直径D： mm滚筒及输送带效率$ \eta_{带}&#x3D;0.96 $ 以下所有查表若无特殊说明均是《机械设计课程设计(第3版)》里面的。 ##电机型号选择 电动机功率选择计算工作机所需的功率$$P_w &#x3D; Fv &#x3D; F0_value \times v0_value W&#x3D;f1_value kW$">
+<meta property="og:description" content="原始数据输送带工作拉力F： N输送带工作速度v： m&#x2F;s滚筒直径D： mm滚筒及输送带效率$ \eta_{带}&#x3D;0.96 $ 以下所有查表若无特殊说明均是《机械设计课程设计(第3版)》里面的。 电机型号选择电动机功率选择计算工作机所需的功率$$P_w &#x3D; Fv &#x3D; F0_value \times v0_value W&#x3D;f1_value kW$$ 初">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2025-05-03T08:55:56.000Z">
-<meta property="article:modified_time" content="2025-05-13T05:19:41.579Z">
+<meta property="article:modified_time" content="2025-05-13T12:22:03.631Z">
 <meta property="article:author" content="qpm">
 <meta name="twitter:card" content="summary_large_image">
   
@@ -239,7 +239,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          669 字
+          2k 字
         
       </span>
     
@@ -250,7 +250,7 @@
         
         
         
-          6 分钟
+          17 分钟
         
       </span>
     
@@ -301,14 +301,33 @@
             
               <div class="markdown-body">
                 
-                <h3 id="原始数据"><a href="#原始数据" class="headerlink" title="原始数据"></a>原始数据</h3><p>输送带工作拉力F：<input value="9340" type="text" class="input" id="F0" onchange="change(this)"> N<br>输送带工作速度v：<input value="1.05" type="text" class="input" id="v0" onchange="change(this)"> m&#x2F;s<br>滚筒直径D：<input value="620" type="text" class="input" id="D0" onchange="change(this)"> mm<br>滚筒及输送带效率<span>$ \eta_{带}&#x3D;0.96 $</span></p>
+                <h3 id="原始数据"><a href="#原始数据" class="headerlink" title="原始数据"></a>原始数据</h3><p>输送带工作拉力F：<input value="9340" type="text" class="input" id="F0" onchange="change_html(this)"> N<br>输送带工作速度v：<input value="1.05" type="text" class="input" id="v0" onchange="change_html(this)"> m&#x2F;s<br>滚筒直径D：<input value="620" type="text" class="input" id="D0" onchange="change_html(this)"> mm<br>滚筒及输送带效率<span>$ \eta_{带}&#x3D;0.96 $</span></p>
 <p>以下所有查表若无特殊说明均是《机械设计课程设计(第3版)》里面的。</p>
-<p>##电机型号选择</p>
-<h3 id="电动机功率选择"><a href="#电动机功率选择" class="headerlink" title="电动机功率选择"></a>电动机功率选择</h3><p>计算工作机所需的功率<br><span id="f1"><br>$$<br>P_w &#x3D; Fv &#x3D; F0_value \times v0_value W&#x3D;f1_value kW<br>$$<br></span></p>
-<p>初选：联轴器为弹性连轴器，滚动轴承为圆锥滚子滚动轴承，齿轮为精度等级为 7 的闭式圆柱斜齿轮，带传动为普通 V 带传动。根据查表(表2.3，P8)，总效率为:<br><span id="f2"><br>$$<br>\eta_{总}&#x3D;\eta_{带} \eta_{齿轮}^2 \eta_{轴承}^3 \eta_{联轴器} \eta_{工} &#x3D; 0.96 \times 0.98^2 \times 0.98^3 \times 0.99 \times 0.94 &#x3D; 0.799<br>$$<br></span></p>
+<h2 id="电机型号选择"><a href="#电机型号选择" class="headerlink" title="电机型号选择"></a>电机型号选择</h2><h3 id="电动机功率选择"><a href="#电动机功率选择" class="headerlink" title="电动机功率选择"></a>电动机功率选择</h3><p>计算工作机所需的功率<br><span id="f1"><br>$$<br>P_w &#x3D; Fv &#x3D; F0_value \times v0_value W&#x3D;f1_value kW<br>$$<br></span></p>
+<p>初选：联轴器为弹性连轴器，滚动轴承为圆锥滚子滚动轴承，齿轮为精度等级为 7 的闭式圆柱斜齿轮，带传动为普通 V 带传动。根据查表(表2.3，P8)，分效率为：<br><span>$ \eta_{带}&#x3D;0.96 $</span><br><span>$ \eta_{齿轮}&#x3D; $</span><input value="0.98" type="text" class="input" id="e1" onchange="change_html(this)"><br><span>$ \eta_{轴承}&#x3D; $</span><input value="0.98" type="text" class="input" id="e2" onchange="change_html(this)"><br><span>$ \eta_{联轴器}&#x3D; $</span><input value="0.99" type="text" class="input" id="e3" onchange="change_html(this)"><br><span>$ \eta_{工}&#x3D; $</span><input value="0.94" type="text" class="input" id="e4" onchange="change_html(this)"><br>总效率为:<br><span id="f2"><br>$$<br>\eta_{总}&#x3D;\eta_{带} \eta_{齿轮}^2 \eta_{轴承}^3 \eta_{联轴器} \eta_{工} &#x3D; e0_value \times e1_value^2 \times e2_value^3 \times e3_value \times e4_value &#x3D; f2_value<br>$$<br></span></p>
 <p>计算电机所需的功率：<br><span id="f3"><br>$$<br>P_d &#x3D; \frac{P_w}{\eta_{总}} &#x3D; \frac{f1_value}{f2_value} &#x3D; f3_value kW<br>$$<br></span></p>
-<p>考虑到在各零件设计时需要有一定的工况参数为<span>$ K_A&#x3D; $</span><input value="1.2" type="text" class="input" id="K0" onchange="change(this)"><br>，则电动机的额定功率：<br><span id="f4"><br>$$<br>P_{ed} \ge K_A \times P_d &#x3D; K0_value \times f3_value kW &#x3D; f4_value kW<br>$$<br></span><br>查表(表18.1，P199)，选取电动机额定功率。后面和电机转速一起确定电机型号。</p>
-<h3 id="选择电动机转速"><a href="#选择电动机转速" class="headerlink" title="选择电动机转速"></a>选择电动机转速</h3><p>计算工作机主轴转速：<br><span id="f5"><br>$$<br>n_w &#x3D; \frac{60 \times 1000v}{\pi D}&#x3D;\frac{60 \times 1000 \times v0_value}{\pi \times D0_value} r&#x2F;min &#x3D; f5_value r&#x2F;min<br>$$<br></span><br>传动比<span>$ i_{带}&#x3D; $</span>2 ~ 4,一级圆柱齿轮传动比<span>$ i_{1}&#x3D;i_{2}&#x3D; $</span>3 ~ 6，可计算电动机转速的合理范围为：<br><span id="f6"><br>$$<br>n_d &#x3D; n_w i_1 i_2 i_{带} &#x3D; n00_value \sim n01_value rpm<br>$$<br></span><br>依照前面算的额定功率和转速，选择的电机型号为：<select id="s1" ><option value=0>占位符</option><option value=1> 占位符</option></select></p>
+<p>考虑到在各零件设计时需要有一定的工况参数(《机械设计》表2.6，P350，原因见下面带传动设计)为<span>$ K_A&#x3D; $</span><input value="1.2" type="text" class="input" id="K0" onchange="change_html(this)"><br>，则电动机的额定功率：<br><span id="f4"><br>$$<br>P_{ed} \ge K_A \times P_d &#x3D; K0_value \times f3_value kW &#x3D; f4_value kW<br>$$<br></span><br>查表(表18.1，P199)，选取电动机额定功率。后面和电机转速一起确定电机型号。</p>
+<h3 id="选择电动机转速"><a href="#选择电动机转速" class="headerlink" title="选择电动机转速"></a>选择电动机转速</h3><p>计算工作机主轴转速：<br><span id="f5"><br>$$<br>n_w &#x3D; \frac{60 \times 1000v}{\pi D}&#x3D;\frac{60 \times 1000 \times v0_value}{\pi \times D0_value} r&#x2F;min &#x3D; f5_value r&#x2F;min<br>$$<br></span><br>传动比<span>$ i_{带}&#x3D; $</span>2 ~ 4,一级圆柱齿轮传动比<span>$ i_{1}&#x3D;i_{2}&#x3D; $</span>3 ~ 6，可计算电动机转速的合理范围为：<br><span id="f6"><br>$$<br>n_d &#x3D; n_w i_1 i_2 i_{带} &#x3D; n00_value \sim n01_value rpm<br>$$<br></span><br>依照前面算的额定功率和转速，选择的电机型号为：<select id="s1" onchange="change_html(this)"><option value=0>占位符</option><option value=1> 占位符</option></select></p>
+<p align="center">所选电机参数表</p>
+<table id="t1">
+    <tr>
+    	<th>电机型号</th>
+        <th>同步转速/rpm</th>
+        <th>额定功率/kW</th>
+        <th>满载转速/rpm</th>
+        <th>堵转转矩/Nm</th>
+        <th>最大转矩/Nm</th>
+    </tr>
+</table>
+<p id="warning0" class="warning"></p>
+
+<h3 id="总传动比及其分配"><a href="#总传动比及其分配" class="headerlink" title="总传动比及其分配"></a>总传动比及其分配</h3><p>传动装置的总传动比为：<br><span id="f7"><br>$$<br>i &#x3D; \frac{n_m}{n_w} &#x3D; \frac{n1_value}{f5_value} &#x3D; f7_value<br>$$<br></span><br>取V带的传动比<span>$ i_{带}&#x3D; $</span><input value="3" type="text" class="input" id="i0" onchange="change_html(this)"><br>查表(表2.4，P10)得：一级齿轮传动比<span id="i1">$ i_1&#x3D;i1_value $</span>，二级齿轮传动比<span id="i2">$ i_2&#x3D;i2_value $</span></p>
+<p id="warning1" class="warning"></p>
+
+<h3 id="各轴运动和动力参数计算"><a href="#各轴运动和动力参数计算" class="headerlink" title="各轴运动和动力参数计算"></a>各轴运动和动力参数计算</h3><h4 id="计算各轴输入功率"><a href="#计算各轴输入功率" class="headerlink" title="计算各轴输入功率"></a>计算各轴输入功率</h4><p>小带轮轴功率<br><span id="P1"><br>$$<br>P_d &#x3D; f4_value kW<br>$$<br></span><br>齿轮轴Ⅰ功率<br><span id="P2"><br>$$<br>P_{Ⅰ} &#x3D; P_d \times \eta_{带}&#x3D;P1_value \times e0_value kW&#x3D;P2_value kW<br>$$<br></span><br>齿轮轴Ⅱ功率<br><span id="P3"><br>$$<br>P_{Ⅱ} &#x3D; P_{Ⅰ} \times \eta_{带} \times \eta_{齿轮} \times \eta_{轴承}&#x3D;P2_value \times e0_value \times e1_value \times e2_value kW&#x3D;P3_value kW<br>$$<br></span><br>齿轮轴Ⅲ功率<br><span id="P4"><br>$$<br>P_{Ⅲ} &#x3D; P_{Ⅱ} \times \eta_{带} \times \eta_{齿轮} \times \eta_{轴承}&#x3D;P3_value \times e0_value \times e1_value \times e2_value kW&#x3D;P4_value kW<br>$$<br></span></p>
+<h4 id="计算各轴转速"><a href="#计算各轴转速" class="headerlink" title="计算各轴转速"></a>计算各轴转速</h4><p>小带轮轴转速<br><span id="n2"><br>$$<br>n_d &#x3D; n_m &#x3D; n1_value rpm<br>$$<br></span><br>齿轮轴Ⅰ转速<br><span id="n3"><br>$$<br>n_{Ⅰ} &#x3D; \frac{n_d}{i_{带}} &#x3D; \frac{n2_value}{i0_value} rpm&#x3D; n3_value rpm<br>$$<br></span><br>齿轮轴Ⅱ转速<br><span id="n4"><br>$$<br>n_{Ⅱ} &#x3D; \frac{n_{Ⅰ}}{i_1} &#x3D; \frac{n3_value}{i1_value} rpm&#x3D; n4_value rpm<br>$$<br></span><br>齿轮轴Ⅲ转速<br><span id="n5"><br>$$<br>n_{Ⅲ} &#x3D; \frac{n_{Ⅱ}}{i_2} &#x3D; \frac{n4_value}{i2_value} rpm&#x3D; n5_value rpm<br>$$<br></span></p>
+<h4 id="计算各轴转矩"><a href="#计算各轴转矩" class="headerlink" title="计算各轴转矩"></a>计算各轴转矩</h4><p>小带轮轴转矩<br><span id="T1"><br>$$<br>T_d &#x3D; 9550 \frac{P_d}{n_d} &#x3D; 9550 \times \frac{P1_value}{n2_value} &#x3D; T1_value Nm<br>$$<br></span><br>齿轮轴Ⅰ转矩<br><span id="T2"><br>$$<br>T_{Ⅰ} &#x3D; 9550 \frac{P_{Ⅰ}}{n_{Ⅰ}} &#x3D; 9550 \times \frac{P2_value}{n3_value} &#x3D; T2_value Nm<br>$$<br></span><br>齿轮轴Ⅱ转矩<br><span id="T3"><br>$$<br>T_{Ⅱ} &#x3D; 9550 \frac{P_{Ⅱ}}{n_{Ⅱ}} &#x3D; 9550 \times \frac{P3_value}{n4_value} &#x3D; T3_value Nm<br>$$<br></span><br>齿轮轴Ⅲ转矩<br><span id="T4"><br>$$<br>T_{Ⅲ} &#x3D; 9550 \frac{P_{Ⅲ}}{n_{Ⅲ}} &#x3D; 9550 \times \frac{P4_value}{n5_value} &#x3D; T4_value Nm<br>$$<br></span></p>
+<h2 id="传动零件的设计计算"><a href="#传动零件的设计计算" class="headerlink" title="传动零件的设计计算"></a>传动零件的设计计算</h2><h3 id="V带传动设计"><a href="#V带传动设计" class="headerlink" title="V带传动设计"></a>V带传动设计</h3><h4 id="计算功率"><a href="#计算功率" class="headerlink" title="计算功率"></a>计算功率</h4><p>使用寿命15000时，使用年份10年，每年以300天记，则每天工作<span>$ 15000&#x2F;10&#x2F;300 &#x3D; 5 $</span>小时，查附表2.6得工作情况系数<span id="K1">$ K_A &#x3D; K0_value $</span>,可得计算功率:<br><span id="f8"><br>$$<br>P_{ca} &#x3D; K_A \times P_{ed} &#x3D; K0_value \times P0_value kW &#x3D; f8_value kW<br>$$<br></span></p>
 <script>  
 MathJax = {  
 	tex: {  
@@ -320,7 +339,12 @@ let v0_value = parseFloat(document.getElementById("v0").value);
 let D0_value = parseFloat(document.getElementById("D0").value);
 const f1 = document.getElementById("f1");
 let f1_value = F0_value*v0_value/1000;
-let f2_value = 0.799;
+let e0_value = 0.96;
+let e1_value = parseFloat(document.getElementById("e1").value);
+let e2_value = parseFloat(document.getElementById("e2").value);
+let e3_value = parseFloat(document.getElementById("e3").value);
+let e4_value = parseFloat(document.getElementById("e4").value);
+let f2_value = e0_value*(e1_value**2)*(e2_value**3)*e3_value*e4_value;
 const f3 = document.getElementById("f3");
 let f3_value = f1_value/f2_value;
 let K0_value = parseFloat(document.getElementById("K0").value);
@@ -332,47 +356,212 @@ const f6 = document.getElementById("f6");
 let n00_value = f5_value*2*3*3;
 let n01_value = f5_value*4*6*6;
 const s1 = document.getElementById("s1");
-let P0_value = 0;
-let n0_value = 0;
-let n1_value = 0;
+let P0_value = 1;
+let n0_value = 1;
+let n1_value = 1;
+var motor_choose_result = [];
+const t1 = document.getElementById("t1");
+let tr1 = document.createElement("tr");
+const warning0 = document.getElementById("warning0");
+const f7 = document.getElementById("f7");
+let f7_value = n1_value/f5_value;
+let i0_value = parseFloat(document.getElementById("i0").value);
+let i1_value = 1;
+let i2_value = 1;
+const warning1 = document.getElementById("warning1");
+const P1 = document.getElementById("P1");
+let P1_value = f4_value;
+const P2 = document.getElementById("P2");
+let P2_value = P1_value * e0_value;
+const P3 = document.getElementById("P3");
+let P3_value = P2_value * e0_value * e1_value * e2_value;
+const P4 = document.getElementById("P4");
+let P4_value = P3_value * e0_value * e1_value * e2_value;
+const n2 = document.getElementById("n2");
+let n2_value = n1_value;
+const n3 = document.getElementById("n3");
+let n3_value = n2_value/i0_value;
+const n4 = document.getElementById("n4");
+let n4_value = n3_value/i1_value;
+const n5 = document.getElementById("n5");
+let n5_value = n4_value/i2_value;
+const T1 = document.getElementById("T1");
+let T1_value = 9550*P1_value/n2_value;
+const T2 = document.getElementById("T2");
+let T2_value = 9550*P2_value/n3_value;
+const T3 = document.getElementById("T3");
+let T3_value = 9550*P3_value/n4_value;
+const T4 = document.getElementById("T4");
+let T4_value = 9550*P4_value/n5_value;
+const K1 = document.getElementById("K1");
+const f8 = document.getElementById("f8");
+let f8_value = K0_value*P0_value;
 
 const formula_chain= {
 "F0":[f1],
 "v0":[f1,f5],
 "D0":[f5],
 "f1":[f3],
-"K0":[f4],
+"K0":[f4,K1,f8],
+"e1":[f2,P3],
+"e2":[f2,P3],
+"e3":[f2],
+"e4":[f2],
+"f2":[f3],
 "f3":[f4],
-"f5":[f6]
+"f4":[P1,T1],
+"f5":[f6,f7],
+"s1":[s1,f7],
+"f7":[i0,n2,f8],
+"i0":[i0,n3],
+"P1":[P2,T1],
+"P2":[P3,T2],
+"P3":[P4,T3],
+"P4":[T4],
+"n2":[n3],
+"n3":[n4,T2],
+"n4":[n5,T3],
+"n5":[T4],
+
 };
 </script>  
 
 <script>
+f8.latex_update = function(){
+    f8_value = K0_value*P0_value;
+    f8.textContent = `$$ P_{ca} = K_A \\times P_{ed} = ${K0_value} \\times ${P0_value} kW = ${f8_value} kW $$`;
+	window.MathJax.typesetPromise([f8]);
+	change_html(f8);
+};
+K1.latex_update = function(){
+    K0_value = parseFloat(document.getElementById("K0").value);
+    K1.textContent = `$ K_A = ${K0_value} $`;
+	window.MathJax.typesetPromise([K1]);
+};
+T4.latex_update = function(){
+    T4_value = 9550*P4_value/n5_value;
+    T4.textContent = `$$ T_{Ⅲ} = 9550 \\frac{P_{Ⅲ}}{n_{Ⅲ}} = 9550 \\times \\frac{${P4_value}}{${n5_value}} = ${T4_value} Nm $$`;
+	window.MathJax.typesetPromise([T4]);
+	change_html(T4);
+};
+T3.latex_update = function(){
+    T3_value = 9550*P3_value/n4_value;
+    T3.textContent = `$$ T_{Ⅱ} = 9550 \\frac{P_{Ⅱ}}{n_{Ⅱ}} = 9550 \\times \\frac{${P3_value}}{${n4_value}} = ${T3_value} Nm $$`;
+	window.MathJax.typesetPromise([T3]);
+	change_html(T3);
+};
+T2.latex_update = function(){
+    T2_value = 9550*P2_value/n3_value;
+    T2.textContent = `$$ T_{Ⅰ} = 9550 \\frac{P_{Ⅰ}}{n_{Ⅰ}} = 9550 \\times \\frac{${P2_value}}{${n3_value}} = ${T2_value} Nm $$`;
+	window.MathJax.typesetPromise([T2]);
+	change_html(T2);
+};
+T1.latex_update = function(){
+    T1_value = 9550*P1_value/n2_value;
+    T1.textContent = `$$ T_d = 9550 \\frac{P_d}{n_d} = 9550 \\times \\frac{${P1_value}}{${n2_value}} = ${T1_value} Nm $$`;
+	window.MathJax.typesetPromise([T1]);
+	change_html(T1);
+};
+n5.latex_update = function(){
+    n5_value = n4_value/i2_value;
+    n5.textContent = `$$ n_{Ⅲ} = \\frac{n_{Ⅱ}}{i_2} = \\frac{${n4_value}}{${i2_value}} rpm= ${n5_value} rpm $$`;
+	window.MathJax.typesetPromise([n5]);
+	change_html(n5);
+};
+n4.latex_update = function(){
+    n4_value = n3_value/i1_value;
+    n4.textContent = `$$ n_{Ⅱ} = \\frac{n_{Ⅰ}}{i_1} = \\frac{${n3_value}}{${i1_value}} rpm= ${n4_value} rpm $$`;
+	window.MathJax.typesetPromise([n4]);
+	change_html(n4);
+};
+n3.latex_update = function(){
+    n3_value = n2_value/i0_value;
+    n3.textContent = `$$ n_{Ⅰ} = \\frac{n_d}{i_{带}} = \\frac{${n2_value}}{${i0_value}} rpm= ${n3_value} rpm $$`;
+	window.MathJax.typesetPromise([n3]);
+	change_html(n3);
+};
+n2.latex_update = function(){
+    n2_value = n1_value;
+    n2.textContent = `$$ n_d = n_m = ${n1_value} rpm $$`;
+	window.MathJax.typesetPromise([n2]);
+	change_html(n2);
+};
+P4.latex_update = function(){
+    P4_value = P3_value * e0_value * e1_value * e2_value;
+    P4.textContent = `$$ P_{Ⅲ} = P_{Ⅱ} \\times \\eta_{带} \\times \\eta_{齿轮} \\times \\eta_{轴承}=${P3_value} \\times ${e0_value} \\times ${e1_value} \\times ${e2_value} kW=${P4_value} kW $$`;
+	window.MathJax.typesetPromise([P4]);
+	change_html(P4);
+};
+P3.latex_update = function(){
+    P3_value = P2_value * e0_value * e1_value * e2_value;
+    P3.textContent = `$$ P_{Ⅱ} = P_{Ⅰ} \\times \\eta_{带} \\times \\eta_{齿轮} \\times \\eta_{轴承}=${P2_value} \\times ${e0_value} \\times ${e1_value} \\times ${e2_value} kW=${P3_value} kW $$`;
+	window.MathJax.typesetPromise([P3]);
+	change_html(P3);
+};
+P2.latex_update = function(){
+    P2_value = P1_value * e0_value;
+    P2.textContent = `$$ P_{Ⅰ} = P_d \\times \\eta_{带}=${P1_value} \\times ${e0_value} kW=${P2_value} kW $$`;
+	window.MathJax.typesetPromise([P2]);
+	change_html(P2);
+};
+P1.latex_update = function(){
+    P1_value = f4_value;
+    P1.textContent = `$$ P_d = ${f4_value} $$`;
+	window.MathJax.typesetPromise([P1]);
+	change_html(P1);
+};
+i0.latex_update = function(){
+    choose_trans_ratio();
+    i1.textContent = `$ i_1=${i1_value} $`;
+    i2.textContent = `$ i_2=${i2_value} $`;
+	window.MathJax.typesetPromise([i1,i2]);
+};
+f7.latex_update = function(){
+    f7_value = n1_value/f5_value;
+    f7.textContent = `$$ i = \\frac{n_m}{n_w} = \\frac{${n1_value}}{${f5_value}} = ${f7_value} $$`;
+	window.MathJax.typesetPromise([f7]);
+	change_html(f7);
+};
+s1.latex_update = function(){
+    update_motor_var_and_t1();
+};
 f6.latex_update = function(){
     n00_value = f5_value*2*3*3;
     n01_value = f5_value*4*6*6;
     f6.textContent = `$$ n_d = n_w i_1 i_2 i_{带} = ${n00_value} \\sim ${n01_value} rpm $$`;
 	window.MathJax.typesetPromise([f6]);
-	change(f6);
+	change_html(f6);
 	choose_motor();
 };
 f5.latex_update = function(){
     f5_value = 60*1000*v0_value/(Math.PI*D0_value);
     f5.textContent = `$$ n_w = \\frac{60 \\times 1000v}{\\pi D}=\\frac{60 \\times 1000 \\times ${v0_value}}{\\pi \\times ${D0_value}} r/min = ${f5_value} r/min $$`;
 	window.MathJax.typesetPromise([f5]);
-	change(f5);
+	change_html(f5);
 };
 f4.latex_update = function(){
+	K0_value = parseFloat(document.getElementById("K0").value);
     f4_value = K0_value*f3_value;
     f4.textContent = `$$ P_{ed} \\ge K_A \\times P_d = ${K0_value} \\times ${f3_value} kW = ${f4_value} kW $$`;
 	window.MathJax.typesetPromise([f4]);
-	change(f4);
+	change_html(f4);
+	choose_motor();
 };
 f3.latex_update = function(){
     f3_value = f1_value/f2_value;
     f3.textContent = `$$ P_d = \\frac{P_w}{\\eta_{总}}= \\frac{${f1_value}}{${f2_value}} = ${f3_value} kW $$`;
 	window.MathJax.typesetPromise([f3]);
-	change(f3);
+	change_html(f3);
+};
+f2.latex_update = function(){
+    e1_value = parseFloat(document.getElementById("e1").value);
+	e2_value = parseFloat(document.getElementById("e2").value);
+	e3_value = parseFloat(document.getElementById("e3").value);
+	e4_value = parseFloat(document.getElementById("e4").value);
+	f2_value = e0_value*(e1_value**2)*(e2_value**3)*e3_value*e4_value;
+    f2.textContent = `$$ \\eta_{总}=\\eta_{带} \\eta_{齿轮}^2 \\eta_{轴承}^3 \\eta_{联轴器} \\eta_{工} = ${e0_value} \\times ${e1_value}^2 \\times ${e2_value}^3 \\times ${e3_value} \\times ${e4_value} = ${f2_value} $$`;
+	window.MathJax.typesetPromise([f2]);
+	change_html(f2);
 };
 f1.latex_update = function(){
     F0_value = parseFloat(document.getElementById("F0").value);
@@ -380,55 +569,101 @@ f1.latex_update = function(){
     f1_value = F0_value*v0_value/1000;
     f1.textContent = `$$ P_w = Fv=${F0_value} \\times ${v0_value} W=${f1_value} kW $$`;
 	window.MathJax.typesetPromise([f1]);
-	change(f1);
+	change_html(f1);
 };
-function change(e){
+
+function change_html(e){
     var the_id = e.getAttribute("id");
     if (!(the_id in formula_chain))
         return;
     for (let i of formula_chain[the_id]) {
         i.latex_update();
-    }
+    };
 };
+
+function choose_trans_ratio(){
+	warning1.innerText = "";
+	i0_value = parseFloat(document.getElementById("i0").value);
+	var gear_ratio = f7_value/i0_value;
+	var best_item = T2_4[0];
+	var delta_ratio = T2_4[0][0]-gear_ratio;
+	T2_4.forEach(a_item => {
+            if(Math.abs(a_item[0]-gear_ratio)<Math.abs(delta_ratio)){
+                best_item = a_item;
+                delta_ratio = a_item[0]-gear_ratio;
+                i1_value = a_item[1];
+            	i2_value = a_item[2];
+            }
+        });
+    //console.log(i1_value);
+    //console.log(i2_value);
+    if(Math.abs(delta_ratio)>1){
+    	warning1.innerText = "传动比差值大于1，请尝试在上文选择其他电机型号";
+    }
+}
+
 function choose_motor(){
-	if(n00_value>1500 || n01_value<1000){
+	warning0.innerText = "";
+	if(n00_value>1500 || n01_value<1000 || f4_value>90){
 		s1.options.length=0;
-		s1.options[0]="没有适合你的型号，请联系作者添加，后面所有的计算均不可信";
+		s1.options[0]=new Option("没有适合你的型号，请联系作者添加，后面所有的计算均不可信",0);
+		warning0.innerText = "没有适合你的型号，请联系作者添加，后面所有的计算均不可信";
+		if(t1.contains(tr1)){
+			t1.removeChild(tr1);
+			tr1.innerHTML = "";
+		};
 		return -1;
-	}
-    var result = [];
+	};
+    motor_choose_result = [];
     var i = 0;
     if(n00_value<=940){
     	for (i=0; i < T18_1_dividing; i++) {
             if(f4_value<=T18_1[i][2]){
-                result.push(i);
+                motor_choose_result.push(i);
                 break;
-            }
-        }
-    }
+            };
+        };
+    };
     if(n01_value>=1500){
     	for (i=T18_1_dividing; i < T18_1.length; i++) {
             if(f4_value<=T18_1[i][2]){
-                result.push(i);
+                motor_choose_result.push(i);
                 break;
-            }
-        }
-    }
+            };
+        };
+    };
     s1.options.length=0;
-    for(i in result){
-    	s1.options[s1.length] = new Option(T18_1[result[i]][0],i);
-    }
+    for(i in motor_choose_result){
+    	s1.options[s1.length] = new Option(T18_1[motor_choose_result[i]][0],i);
+    };
     s1[0].selected=true;
-    P0_value = T18_1[result[s1.options[s1.selectedIndex].value]][2];
-    n0_value = T18_1[result[s1.options[s1.selectedIndex].value]][1];
-    n1_value = T18_1[result[s1.options[s1.selectedIndex].value]][3];
-    console.log(n1_value);
-    console.log(P0_value);
+    update_motor_var_and_t1();
+};
+function update_motor_var_and_t1(){
+	let motor_type_index = motor_choose_result[s1.options[s1.selectedIndex].value];
+    P0_value = T18_1[motor_type_index][2];
+    n0_value = T18_1[motor_type_index][1];
+    n1_value = T18_1[motor_type_index][3];
+    //console.log(n1_value);
+    //console.log(P0_value);
+    if(t1.contains(tr1)){
+		t1.removeChild(tr1);
+		tr1.innerHTML = "";
+	};
+    T18_1[motor_type_index].forEach(item => {
+        let cell = document.createElement('td');
+        cell.appendChild(document.createTextNode(item));
+        tr1.appendChild(cell);
+        });
+    t1.appendChild(tr1);
+    f7.latex_update();
 };
 window.onload = function() {
-    change(F0);
-    change(v0);
-    change(D0);
+    change_html(F0);
+    change_html(v0);
+    change_html(D0);
+    change_html(e1);
+    change_html(K0);
 };
 </script> 
 
@@ -437,6 +672,7 @@ window.onload = function() {
 <script> 
 const T18_1 = [["Y90S-6",1000,0.75,910,2,2],["Y90L-6",1000,1.1,910,2,2],["Y100L-6",1000,1.5,940,2,2],["Y112M-6",1000,2.2,940,2,2],["Y132S-6",1000,3,960,2,2],["Y132M1-6",1000,4,960,2,2],["Y132M2-6",1000,5.5,960,2,2],["Y160M-6",1000,7.5,970,2,2],["Y160L-6",1000,11,970,2,2],["Y180L-6",1000,15,970,1.8,2],["Y200L1-6",1000,18.5,970,1.8,2],["Y200L2-6",1000,22,970,1.8,2],["Y225M-6",1000,30,980,1.8,2],["Y250M-6",1000,37,980,1.8,2],["Y280S-6",1000,45,980,1.8,2],["Y280M-6",1000,55,980,1.8,2],["Y801-4",1500,0.55,1390,2.2,2.2],["Y802-4",1500,0.75,1390,2.2,2.2],["Y90S-4",1500,1.1,1400,2.2,2.2],["Y90L-4",1500,1.5,1400,2.2,2.2],["Y100L1-4",1500,2.2,1420,2.2,2.2],["Y100L2-4",1500,3,1420,2.2,2.2],["Y112M-4",1500,4,1440,2.2,2.2],["Y132S-4",1500,5.5,1440,2.2,2.2],["Y132M-4",1500,7.5,1440,2.2,2.2],["Y160M-4",1500,11,1460,2.2,2.2],["Y160L-4",1500,15,1460,2.2,2.2],["Y180M-4",1500,18.5,1470,2,2.2],["Y180L-4",1500,22,1470,2,2.2],["Y200L-4",1500,30,1470,2,2.2],["Y225S-4",1500,37,1480,1.9,2.2],["Y225M-4",1500,45,1480,1.9,2.2],["Y250M-4",1500,55,1480,1.9,2.2],["Y280S-4",1500,75,1480,1.9,2.2],["Y280M-4",1500,90,1480,1.9,2.2]];
 const T18_1_dividing = 16;
+const T2_4 = [[6.3,2.5,2.5],[7.1,2.8,2.5],[8,3.15,2.5],[9,3.15,2.8],[10,3.55,2.8],[11.2,4,2.8],[12.5,4,3.15],[14,4.5,3.15],[16,5,3.15],[18,5.6,3.15],[20,5.6,3.55],[22.4,6.3,3.55]];
 //console.log(T18_1[16]);//"Y801-4"
 </script> 
 

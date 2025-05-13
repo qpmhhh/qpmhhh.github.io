@@ -12,3 +12,9 @@
   border-color: #007bff;
   box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
 }
+
+.warning {
+  color: rgb(255, 0, 0);
+  font-size: 30px;
+  align: center;
+}
