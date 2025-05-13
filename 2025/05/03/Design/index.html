@@ -1,0 +1,841 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/fluid.png">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="qpm">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="原始数据输送带工作拉力F： N输送带工作速度v： m&#x2F;s滚筒直径D： mm滚筒及输送带效率$ \eta_{带}&#x3D;0.96 $ 以下所有查表若无特殊说明均是《机械设计课程设计(第3版)》里面的。 ##电机型号选择 电动机功率选择计算工作机所需的功率$$P_w &#x3D; Fv &#x3D; F0_value \times v0_value W&#x3D;f1_value kW$">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Design">
+<meta property="og:url" content="https://qpmhhh.github.io/2025/05/03/Design/index.html">
+<meta property="og:site_name" content="qpm&#39;s blog123">
+<meta property="og:description" content="原始数据输送带工作拉力F： N输送带工作速度v： m&#x2F;s滚筒直径D： mm滚筒及输送带效率$ \eta_{带}&#x3D;0.96 $ 以下所有查表若无特殊说明均是《机械设计课程设计(第3版)》里面的。 ##电机型号选择 电动机功率选择计算工作机所需的功率$$P_w &#x3D; Fv &#x3D; F0_value \times v0_value W&#x3D;f1_value kW$">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2025-05-03T08:55:56.000Z">
+<meta property="article:modified_time" content="2025-05-13T05:19:41.579Z">
+<meta property="article:author" content="qpm">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+  
+  <title>Design - qpm&#39;s blog123</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+  
+<link rel="stylesheet" href="/css/input_css.css">
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"qpmhhh.github.io","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":"pO7P7mOWzR36NhFzs9TCZQ4L-MdYXbMMI","app_key":"bKqt1od9PmjqZ4RnkH9FAKKz","server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+
+
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>QPM</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="Design"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2025-05-03 16:55" pubdate>
+          2025年5月3日 下午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          669 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          6 分钟
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="leancloud-page-views-container" class="post-meta" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="leancloud-page-views"></span> 次
+        </span>
+        
+      
+      
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">Design</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h3 id="原始数据"><a href="#原始数据" class="headerlink" title="原始数据"></a>原始数据</h3><p>输送带工作拉力F：<input value="9340" type="text" class="input" id="F0" onchange="change(this)"> N<br>输送带工作速度v：<input value="1.05" type="text" class="input" id="v0" onchange="change(this)"> m&#x2F;s<br>滚筒直径D：<input value="620" type="text" class="input" id="D0" onchange="change(this)"> mm<br>滚筒及输送带效率<span>$ \eta_{带}&#x3D;0.96 $</span></p>
+<p>以下所有查表若无特殊说明均是《机械设计课程设计(第3版)》里面的。</p>
+<p>##电机型号选择</p>
+<h3 id="电动机功率选择"><a href="#电动机功率选择" class="headerlink" title="电动机功率选择"></a>电动机功率选择</h3><p>计算工作机所需的功率<br><span id="f1"><br>$$<br>P_w &#x3D; Fv &#x3D; F0_value \times v0_value W&#x3D;f1_value kW<br>$$<br></span></p>
+<p>初选：联轴器为弹性连轴器，滚动轴承为圆锥滚子滚动轴承，齿轮为精度等级为 7 的闭式圆柱斜齿轮，带传动为普通 V 带传动。根据查表(表2.3，P8)，总效率为:<br><span id="f2"><br>$$<br>\eta_{总}&#x3D;\eta_{带} \eta_{齿轮}^2 \eta_{轴承}^3 \eta_{联轴器} \eta_{工} &#x3D; 0.96 \times 0.98^2 \times 0.98^3 \times 0.99 \times 0.94 &#x3D; 0.799<br>$$<br></span></p>
+<p>计算电机所需的功率：<br><span id="f3"><br>$$<br>P_d &#x3D; \frac{P_w}{\eta_{总}} &#x3D; \frac{f1_value}{f2_value} &#x3D; f3_value kW<br>$$<br></span></p>
+<p>考虑到在各零件设计时需要有一定的工况参数为<span>$ K_A&#x3D; $</span><input value="1.2" type="text" class="input" id="K0" onchange="change(this)"><br>，则电动机的额定功率：<br><span id="f4"><br>$$<br>P_{ed} \ge K_A \times P_d &#x3D; K0_value \times f3_value kW &#x3D; f4_value kW<br>$$<br></span><br>查表(表18.1，P199)，选取电动机额定功率。后面和电机转速一起确定电机型号。</p>
+<h3 id="选择电动机转速"><a href="#选择电动机转速" class="headerlink" title="选择电动机转速"></a>选择电动机转速</h3><p>计算工作机主轴转速：<br><span id="f5"><br>$$<br>n_w &#x3D; \frac{60 \times 1000v}{\pi D}&#x3D;\frac{60 \times 1000 \times v0_value}{\pi \times D0_value} r&#x2F;min &#x3D; f5_value r&#x2F;min<br>$$<br></span><br>传动比<span>$ i_{带}&#x3D; $</span>2 ~ 4,一级圆柱齿轮传动比<span>$ i_{1}&#x3D;i_{2}&#x3D; $</span>3 ~ 6，可计算电动机转速的合理范围为：<br><span id="f6"><br>$$<br>n_d &#x3D; n_w i_1 i_2 i_{带} &#x3D; n00_value \sim n01_value rpm<br>$$<br></span><br>依照前面算的额定功率和转速，选择的电机型号为：<select id="s1" ><option value=0>占位符</option><option value=1> 占位符</option></select></p>
+<script>  
+MathJax = {  
+	tex: {  
+		inlineMath: [['$', '$'], ['\\(', '\\)']]  
+	}  
+}; 
+let F0_value = parseFloat(document.getElementById("F0").value);
+let v0_value = parseFloat(document.getElementById("v0").value);
+let D0_value = parseFloat(document.getElementById("D0").value);
+const f1 = document.getElementById("f1");
+let f1_value = F0_value*v0_value/1000;
+let f2_value = 0.799;
+const f3 = document.getElementById("f3");
+let f3_value = f1_value/f2_value;
+let K0_value = parseFloat(document.getElementById("K0").value);
+const f4 = document.getElementById("f4");
+let f4_value = K0_value*f3_value;
+const f5 = document.getElementById("f5");
+let f5_value = 60*1000*v0_value/(Math.PI*D0_value);
+const f6 = document.getElementById("f6");
+let n00_value = f5_value*2*3*3;
+let n01_value = f5_value*4*6*6;
+const s1 = document.getElementById("s1");
+let P0_value = 0;
+let n0_value = 0;
+let n1_value = 0;
+
+const formula_chain= {
+"F0":[f1],
+"v0":[f1,f5],
+"D0":[f5],
+"f1":[f3],
+"K0":[f4],
+"f3":[f4],
+"f5":[f6]
+};
+</script>  
+
+<script>
+f6.latex_update = function(){
+    n00_value = f5_value*2*3*3;
+    n01_value = f5_value*4*6*6;
+    f6.textContent = `$$ n_d = n_w i_1 i_2 i_{带} = ${n00_value} \\sim ${n01_value} rpm $$`;
+	window.MathJax.typesetPromise([f6]);
+	change(f6);
+	choose_motor();
+};
+f5.latex_update = function(){
+    f5_value = 60*1000*v0_value/(Math.PI*D0_value);
+    f5.textContent = `$$ n_w = \\frac{60 \\times 1000v}{\\pi D}=\\frac{60 \\times 1000 \\times ${v0_value}}{\\pi \\times ${D0_value}} r/min = ${f5_value} r/min $$`;
+	window.MathJax.typesetPromise([f5]);
+	change(f5);
+};
+f4.latex_update = function(){
+    f4_value = K0_value*f3_value;
+    f4.textContent = `$$ P_{ed} \\ge K_A \\times P_d = ${K0_value} \\times ${f3_value} kW = ${f4_value} kW $$`;
+	window.MathJax.typesetPromise([f4]);
+	change(f4);
+};
+f3.latex_update = function(){
+    f3_value = f1_value/f2_value;
+    f3.textContent = `$$ P_d = \\frac{P_w}{\\eta_{总}}= \\frac{${f1_value}}{${f2_value}} = ${f3_value} kW $$`;
+	window.MathJax.typesetPromise([f3]);
+	change(f3);
+};
+f1.latex_update = function(){
+    F0_value = parseFloat(document.getElementById("F0").value);
+	v0_value = parseFloat(document.getElementById("v0").value);
+    f1_value = F0_value*v0_value/1000;
+    f1.textContent = `$$ P_w = Fv=${F0_value} \\times ${v0_value} W=${f1_value} kW $$`;
+	window.MathJax.typesetPromise([f1]);
+	change(f1);
+};
+function change(e){
+    var the_id = e.getAttribute("id");
+    if (!(the_id in formula_chain))
+        return;
+    for (let i of formula_chain[the_id]) {
+        i.latex_update();
+    }
+};
+function choose_motor(){
+	if(n00_value>1500 || n01_value<1000){
+		s1.options.length=0;
+		s1.options[0]="没有适合你的型号，请联系作者添加，后面所有的计算均不可信";
+		return -1;
+	}
+    var result = [];
+    var i = 0;
+    if(n00_value<=940){
+    	for (i=0; i < T18_1_dividing; i++) {
+            if(f4_value<=T18_1[i][2]){
+                result.push(i);
+                break;
+            }
+        }
+    }
+    if(n01_value>=1500){
+    	for (i=T18_1_dividing; i < T18_1.length; i++) {
+            if(f4_value<=T18_1[i][2]){
+                result.push(i);
+                break;
+            }
+        }
+    }
+    s1.options.length=0;
+    for(i in result){
+    	s1.options[s1.length] = new Option(T18_1[result[i]][0],i);
+    }
+    s1[0].selected=true;
+    P0_value = T18_1[result[s1.options[s1.selectedIndex].value]][2];
+    n0_value = T18_1[result[s1.options[s1.selectedIndex].value]][1];
+    n1_value = T18_1[result[s1.options[s1.selectedIndex].value]][3];
+    console.log(n1_value);
+    console.log(P0_value);
+};
+window.onload = function() {
+    change(F0);
+    change(v0);
+    change(D0);
+};
+</script> 
+
+
+
+<script> 
+const T18_1 = [["Y90S-6",1000,0.75,910,2,2],["Y90L-6",1000,1.1,910,2,2],["Y100L-6",1000,1.5,940,2,2],["Y112M-6",1000,2.2,940,2,2],["Y132S-6",1000,3,960,2,2],["Y132M1-6",1000,4,960,2,2],["Y132M2-6",1000,5.5,960,2,2],["Y160M-6",1000,7.5,970,2,2],["Y160L-6",1000,11,970,2,2],["Y180L-6",1000,15,970,1.8,2],["Y200L1-6",1000,18.5,970,1.8,2],["Y200L2-6",1000,22,970,1.8,2],["Y225M-6",1000,30,980,1.8,2],["Y250M-6",1000,37,980,1.8,2],["Y280S-6",1000,45,980,1.8,2],["Y280M-6",1000,55,980,1.8,2],["Y801-4",1500,0.55,1390,2.2,2.2],["Y802-4",1500,0.75,1390,2.2,2.2],["Y90S-4",1500,1.1,1400,2.2,2.2],["Y90L-4",1500,1.5,1400,2.2,2.2],["Y100L1-4",1500,2.2,1420,2.2,2.2],["Y100L2-4",1500,3,1420,2.2,2.2],["Y112M-4",1500,4,1440,2.2,2.2],["Y132S-4",1500,5.5,1440,2.2,2.2],["Y132M-4",1500,7.5,1440,2.2,2.2],["Y160M-4",1500,11,1460,2.2,2.2],["Y160L-4",1500,15,1460,2.2,2.2],["Y180M-4",1500,18.5,1470,2,2.2],["Y180L-4",1500,22,1470,2,2.2],["Y200L-4",1500,30,1470,2,2.2],["Y225S-4",1500,37,1480,1.9,2.2],["Y225M-4",1500,45,1480,1.9,2.2],["Y250M-4",1500,55,1480,1.9,2.2],["Y280S-4",1500,75,1480,1.9,2.2],["Y280M-4",1500,90,1480,1.9,2.2]];
+const T18_1_dividing = 16;
+//console.log(T18_1[16]);//"Y801-4"
+</script> 
+
+
+
+
+<script id="MathJax-script" async  	src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">  </script>
+
+
+
+
+
+
+
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>Design</div>
+      <div>https://qpmhhh.github.io/2025/05/03/Design/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>qpm</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2025年5月3日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  
+  
+    <article id="comments" lazyload>
+      
+  <div id="valine"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#valine', function() {
+      Fluid.utils.createScript('https://lib.baomitu.com/valine/1.5.1/Valine.min.js', function() {
+        var options = Object.assign(
+          {"appId":"pO7P7mOWzR36NhFzs9TCZQ4L-MdYXbMMI","appKey":"bKqt1od9PmjqZ4RnkH9FAKKz","path":"window.location.pathname","placeholder":"需要科学上网才能评论","avatar":"retro","meta":["nick","mail","link"],"requiredFields":[],"pageSize":10,"lang":"zh-CN","highlight":true,"recordIP":true,"serverURLs":"https://po7p7mow.api.lncldglobal.com","emojiCDN":null,"emojiMaps":null,"enableQQ":false},
+          {
+            el: "#valine",
+            path: window.location.pathname
+          }
+        )
+        new Valine(options);
+        Fluid.utils.waitElementVisible('#valine .vcontent', () => {
+          var imgSelector = '#valine .vcontent img:not(.vemoji)';
+          Fluid.plugins.imageCaption(imgSelector);
+          Fluid.plugins.fancyBox(imgSelector);
+        })
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+    </article>
+  
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="leancloud-site-pv-container" style="display: none">
+        总访问量 
+        <span id="leancloud-site-pv"></span>
+         次
+      </span>
+    
+    
+      <span id="leancloud-site-uv-container" style="display: none">
+        总访客数 
+        <span id="leancloud-site-uv"></span>
+         人
+      </span>
+    
+    
+
+  
+
+</div>
+
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script defer src="/js/leancloud.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
