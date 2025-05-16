@@ -27,7 +27,7 @@
 <meta property="og:description" content="原始数据输送带工作拉力F： N输送带工作速度v： m&#x2F;s滚筒直径D： mm滚筒及输送带效率$ \eta_{带}&#x3D; $ 以下所有查表若无特殊说明均是《机械设计课程设计(第3版)》里面的。 电机型号选择电动机功率选择计算工作机所需的功率$$P_w &#x3D; Fv &#x3D; F0_value \times v0_value W&#x3D;f1_value kW$$ 初选：联轴">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2025-05-03T08:55:56.000Z">
-<meta property="article:modified_time" content="2025-05-16T10:30:54.149Z">
+<meta property="article:modified_time" content="2025-05-16T11:47:28.846Z">
 <meta property="article:author" content="qpm">
 <meta name="twitter:card" content="summary_large_image">
   
@@ -403,18 +403,19 @@ function formatDegree(value) {
 let F0_value = parseFloat(document.getElementById("F0").value);
 let v0_value = parseFloat(document.getElementById("v0").value);
 let D0_value = parseFloat(document.getElementById("D0").value);
-const f1 = document.getElementById("f1");
-let f1_value = F0_value*v0_value/1000;
-const fe0 = document.getElementById("fe0");
 let e0_value = parseFloat(document.getElementById("e0").value);
 let e1_value = parseFloat(document.getElementById("e1").value);
 let e2_value = parseFloat(document.getElementById("e2").value);
 let e3_value = parseFloat(document.getElementById("e3").value);
 let e4_value = parseFloat(document.getElementById("e4").value);
+let K0_value = parseFloat(document.getElementById("K0").value);
+let i0_value = parseFloat(document.getElementById("i0").value);
+const f1 = document.getElementById("f1");
+let f1_value = F0_value*v0_value/1000;
+const fe0 = document.getElementById("fe0");
 let f2_value = e0_value*(e1_value**2)*(e2_value**3)*e3_value*e4_value;
 const f3 = document.getElementById("f3");
 let f3_value = f1_value/f2_value;
-let K0_value = parseFloat(document.getElementById("K0").value);
 const f4 = document.getElementById("f4");
 let f4_value = K0_value*f3_value;
 const f5 = document.getElementById("f5");
@@ -432,7 +433,6 @@ let tr1 = document.createElement("tr");
 const warning0 = document.getElementById("warning0");
 const f7 = document.getElementById("f7");
 let f7_value = n1_value/f5_value;
-let i0_value = parseFloat(document.getElementById("i0").value);
 let i1_value = 1;
 let i2_value = 1;
 const warning1 = document.getElementById("warning1");
@@ -1248,7 +1248,6 @@ f8.latex_update = function(){
 	change_html(f8);
 };
 K1.latex_update = function(){
-    K0_value = parseFloat(document.getElementById("K0").value);
     K1.textContent = `$ K_A = ${K0_value} $`;
 	window.MathJax.typesetPromise([K1]);
 };
@@ -1348,13 +1347,13 @@ f6.latex_update = function(){
 	choose_motor();
 };
 f5.latex_update = function(){
+	
     f5_value = 60*1000*v0_value/(Math.PI*D0_value);
     f5.textContent = `$$ n_w = \\frac{60 \\times 1000v}{\\pi D}=\\frac{60 \\times 1000 \\times ${v0_value}}{\\pi \\times ${D0_value}} r/min = ${f5_value} r/min $$`;
 	window.MathJax.typesetPromise([f5]);
 	change_html(f5);
 };
 f4.latex_update = function(){
-	K0_value = parseFloat(document.getElementById("K0").value);
     f4_value = K0_value*f3_value;
     f4.textContent = `$$ P_{ed} \\ge K_A \\times P_d = ${K0_value} \\times ${f3_value} kW = ${f4_value} kW $$`;
 	window.MathJax.typesetPromise([f4]);
@@ -1368,25 +1367,17 @@ f3.latex_update = function(){
 	change_html(f3);
 };
 fe0.latex_update = function(){
-    e0_value = parseFloat(document.getElementById("e0").value);
     fe0.textContent = `$ \\eta_{带}=${e0_value} $`;
 	window.MathJax.typesetPromise([fe0]);
 	change_html(fe0);
 };
 f2.latex_update = function(){
-	e0_value = parseFloat(document.getElementById("e0").value);
-    e1_value = parseFloat(document.getElementById("e1").value);
-	e2_value = parseFloat(document.getElementById("e2").value);
-	e3_value = parseFloat(document.getElementById("e3").value);
-	e4_value = parseFloat(document.getElementById("e4").value);
 	f2_value = e0_value*(e1_value**2)*(e2_value**3)*e3_value*e4_value;
     f2.textContent = `$$ \\eta_{总}=\\eta_{带} \\eta_{齿轮}^2 \\eta_{轴承}^3 \\eta_{联轴器} \\eta_{工} = ${e0_value} \\times ${e1_value}^2 \\times ${e2_value}^3 \\times ${e3_value} \\times ${e4_value} = ${f2_value} $$`;
 	window.MathJax.typesetPromise([f2]);
 	change_html(f2);
 };
 f1.latex_update = function(){
-    F0_value = parseFloat(document.getElementById("F0").value);
-	v0_value = parseFloat(document.getElementById("v0").value);
     f1_value = F0_value*v0_value/1000;
     f1.textContent = `$$ P_w = Fv=${F0_value} \\times ${v0_value} W=${f1_value} kW $$`;
 	window.MathJax.typesetPromise([f1]);
@@ -1423,6 +1414,7 @@ function change_html(e){
     if (!(the_id in formula_chain))
         return;
     
+    update_init();
     for (let i of formula_chain[the_id]) {
         i.latex_update();
     };
@@ -1659,6 +1651,18 @@ function update_g2(){
     g33_value = parseFloat(document.getElementById("g33").value);
     g34_value = parseFloat(document.getElementById("g34").value);
     g35_value = parseFloat(document.getElementById("g35").value);
+}
+function update_init(){
+	F0_value = parseFloat(document.getElementById("F0").value);
+    v0_value = parseFloat(document.getElementById("v0").value);
+    D0_value = parseFloat(document.getElementById("D0").value);
+    e0_value = parseFloat(document.getElementById("e0").value);
+    e1_value = parseFloat(document.getElementById("e1").value);
+    e2_value = parseFloat(document.getElementById("e2").value);
+    e3_value = parseFloat(document.getElementById("e3").value);
+    e4_value = parseFloat(document.getElementById("e4").value);
+    K0_value = parseFloat(document.getElementById("K0").value);
+    i0_value = parseFloat(document.getElementById("i0").value);
 }
 window.onload = function() {
 	window.addEventListener('message',function(e){
