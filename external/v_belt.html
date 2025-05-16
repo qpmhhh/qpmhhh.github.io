@@ -44,7 +44,7 @@
             fill: #333;
         }
         .belt-type-label {
-            font-size: 16px;
+            font-size: 12px;
             font-weight: bold;
             fill: navy;
         }
@@ -288,37 +288,37 @@ function drawChart() {
     });
     
     // 添加轴标题
-    //svg.appendChild(createSvgElement('text', {
-    //    x: margin.left + chartWidth / 2,
-    //    y: svgHeight - 15, // X轴标题位置
-    //    'text-anchor': 'middle',
-    //    class: 'axis-title'
-    //})).textContent = '设计功率 P₀/kW';
+    svg.appendChild(createSvgElement('text', {
+        x: margin.left + chartWidth / 2,
+        y: svgHeight - 15, // X轴标题位置
+        'text-anchor': 'middle',
+        class: 'axis-title'
+    })).textContent = '设计功率 P₀/kW';
     
      // Y轴标题旋转并定位
-     //svg.appendChild(createSvgElement('text', {
-     //   x: 15, // Y轴标题位置
-     //   y: margin.top + chartHeight / 2,
-     //   'text-anchor': 'middle',
-     //   'dominant-baseline': 'hanging',
-     //   transform: `rotate(-90 ${15}, ${margin.top + chartHeight / 2})`, // 旋转和旋转中心
-     //   class: 'axis-title'
-     //})).textContent = '小带轮转速 n₁/r·min⁻¹';
+     svg.appendChild(createSvgElement('text', {
+        x: 15, // Y轴标题位置
+        y: margin.top + chartHeight / 2,
+        'text-anchor': 'middle',
+        'dominant-baseline': 'hanging',
+        transform: `rotate(-90 ${15}, ${margin.top + chartHeight / 2})`, // 旋转和旋转中心
+        class: 'axis-title'
+     })).textContent = '小带轮转速 n₁/r·min⁻¹';
     
      // 添加图表标题
-     //svg.appendChild(createSvgElement('text', {
-     //   x: svgWidth / 2,
-     //   y: 20,
-     //   'text-anchor': 'middle',
-     //   class: 'axis-title'
-     //})).textContent = '普通 V 带选型图';
+     svg.appendChild(createSvgElement('text', {
+        x: svgWidth / 2,
+        y: 20,
+        'text-anchor': 'middle',
+        class: 'axis-title'
+     })).textContent = '普通 V 带选型图';
 
 
     // 将 SVG 添加到页面容器
     container.appendChild(svg);
 }
 // 页面加载完成后绘制图表
-window.onload = drawChart;
+// window.onload = drawChart;
 </script>
 
 <script>
@@ -511,6 +511,7 @@ let line_py = createSvgElement('line', {
             y2: margin.top + chartHeight,
             class: 'dashed-line'
         })
+let resultBeltType = "";
 function createPosition(){
     circle_p.textContent = "●";
     svg.appendChild(circle_p);
@@ -534,8 +535,20 @@ function changePosition(input_p=-1,input_n=-1){
     line_py.setAttribute('x2',mapPToX(p));
     line_py.setAttribute('y2',mapNToY(n));
     let beltType1 = VbeltChart.getBeltType(p, n);
-    console.log(`P=${p}kW, n=${n}r/min 推荐带型: ${beltType1}`);
+    //console.log(`P=${p}kW, n=${n}r/min 推荐带型: ${beltType1}`);
+    resultBeltType = beltType1;
+    window.parent.postMessage(resultBeltType, "*");
 };
+
+window.onload = function(){
+    drawChart();
+    window.addEventListener('message',function(e){
+       changePosition(e.data[0],e.data[1]);
+    })
+    
+};
+
+
 </script>
 </body>
 </html>
