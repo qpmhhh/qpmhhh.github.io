@@ -27,7 +27,7 @@
 <meta property="og:description" content="原始数据输送带工作拉力F： N输送带工作速度v： m&#x2F;s滚筒直径D： mm滚筒及输送带效率$ \eta_{带}&#x3D; $ 以下所有查表若无特殊说明均是《机械设计课程设计(第3版)》里面的。 电机型号选择电动机功率选择计算工作机所需的功率$$P_w &#x3D; Fv &#x3D; F0_value \times v0_value W&#x3D;f1_value kW$$ 初选：联轴">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2025-05-03T08:55:56.000Z">
-<meta property="article:modified_time" content="2025-05-16T11:47:28.846Z">
+<meta property="article:modified_time" content="2025-05-19T12:44:37.507Z">
 <meta property="article:author" content="qpm">
 <meta name="twitter:card" content="summary_large_image">
   
@@ -239,7 +239,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          9.1k 字
+          8.9k 字
         
       </span>
     
@@ -250,7 +250,7 @@
         
         
         
-          76 分钟
+          75 分钟
         
       </span>
     
@@ -306,7 +306,7 @@
 <h2 id="电机型号选择"><a href="#电机型号选择" class="headerlink" title="电机型号选择"></a>电机型号选择</h2><h3 id="电动机功率选择"><a href="#电动机功率选择" class="headerlink" title="电动机功率选择"></a>电动机功率选择</h3><p>计算工作机所需的功率<br><span id="f1"><br>$$<br>P_w &#x3D; Fv &#x3D; F0_value \times v0_value W&#x3D;f1_value kW<br>$$<br></span></p>
 <p>初选：联轴器为弹性连轴器，滚动轴承为圆锥滚子滚动轴承，齿轮为精度等级为 7 的闭式圆柱斜齿轮，带传动为普通 V 带传动。根据查表(表2.3，P8)，分效率为：<br><span id="fe0">$ \eta_{带}&#x3D;e0_value $</span><br><span>$ \eta_{齿轮}&#x3D; $</span><input value="0.98" type="text" class="input" id="e1" onchange="change_html(this)"><br><span>$ \eta_{轴承}&#x3D; $</span><input value="0.98" type="text" class="input" id="e2" onchange="change_html(this)"><br><span>$ \eta_{联轴器}&#x3D; $</span><input value="0.99" type="text" class="input" id="e3" onchange="change_html(this)"><br><span>$ \eta_{工}&#x3D; $</span><input value="0.94" type="text" class="input" id="e4" onchange="change_html(this)"><br>总效率为:<br><span id="f2"><br>$$<br>\eta_{总}&#x3D;\eta_{带} \eta_{齿轮}^2 \eta_{轴承}^3 \eta_{联轴器} \eta_{工} &#x3D; e0_value \times e1_value^2 \times e2_value^3 \times e3_value \times e4_value &#x3D; f2_value<br>$$<br></span></p>
 <p>计算电机所需的功率：<br><span id="f3"><br>$$<br>P_d &#x3D; \frac{P_w}{\eta_{总}} &#x3D; \frac{f1_value}{f2_value} &#x3D; f3_value kW<br>$$<br></span></p>
-<p>考虑到在各零件设计时需要有一定的工况参数(《机械设计》表2.6，P350，原因见下面带传动设计)为<span>$ K_A&#x3D; $</span><input value="1.2" type="text" class="input" id="K0" onchange="change_html(this)"><br>，则电动机的额定功率：<br><span id="f4"><br>$$<br>P_{ed} \ge K_A \times P_d &#x3D; K0_value \times f3_value kW &#x3D; f4_value kW<br>$$<br></span><br>查表(表18.1，P199)，选取电动机额定功率。后面和电机转速一起确定电机型号。</p>
+<p>考虑到在各零件设计时需要有一定的工况参数(《机械设计》表2.6，P350，原因见下面带传动设计)为<span>$ K_A&#x3D; $</span><input value="1.3" type="text" class="input" id="K0" onchange="change_html(this)"><br>，则电动机的额定功率：<br><span id="f4"><br>$$<br>P_{ed} \ge K_A \times P_d &#x3D; K0_value \times f3_value kW &#x3D; f4_value kW<br>$$<br></span><br>查表(表18.1，P199)，选取电动机额定功率。后面和电机转速一起确定电机型号。</p>
 <h3 id="选择电动机转速"><a href="#选择电动机转速" class="headerlink" title="选择电动机转速"></a>选择电动机转速</h3><p>计算工作机主轴转速：<br><span id="f5"><br>$$<br>n_w &#x3D; \frac{60 \times 1000v}{\pi D}&#x3D;\frac{60 \times 1000 \times v0_value}{\pi \times D0_value} r&#x2F;min &#x3D; f5_value r&#x2F;min<br>$$<br></span><br>传动比<span>$ i_{带}&#x3D; $</span>2 ~ 4,一级圆柱齿轮传动比<span>$ i_{1}&#x3D;i_{2}&#x3D; $</span>3 ~ 6，可计算电动机转速的合理范围为：<br><span id="f6"><br>$$<br>n_d &#x3D; n_w i_1 i_2 i_{带} &#x3D; n00_value \sim n01_value rpm<br>$$<br></span><br>依照前面算的额定功率和转速，选择的电机型号为：<select id="s1" onchange="change_html(this)"><option value=0>占位符</option><option value=1> 占位符</option></select></p>
 <p align="center">所选电机参数表</p>
 <table id="t1">
@@ -324,10 +324,10 @@
 <h3 id="总传动比及其分配"><a href="#总传动比及其分配" class="headerlink" title="总传动比及其分配"></a>总传动比及其分配</h3><p>传动装置的总传动比为：<br><span id="f7"><br>$$<br>i &#x3D; \frac{n_m}{n_w} &#x3D; \frac{n1_value}{f5_value} &#x3D; f7_value<br>$$<br></span><br>取V带的传动比<span>$ i_{带}&#x3D; $</span><input value="3" type="text" class="input" id="i0" onchange="change_html(this)"><br>查表(表2.4，P10)得：一级齿轮传动比<span id="i1">$ i_1&#x3D;i1_value $</span>，二级齿轮传动比<span id="i2">$ i_2&#x3D;i2_value $</span></p>
 <p id="warning1" class="warning"></p>
 
-<h3 id="各轴运动和动力参数计算"><a href="#各轴运动和动力参数计算" class="headerlink" title="各轴运动和动力参数计算"></a>各轴运动和动力参数计算</h3><h4 id="计算各轴输入功率"><a href="#计算各轴输入功率" class="headerlink" title="计算各轴输入功率"></a>计算各轴输入功率</h4><p>小带轮轴功率<br><span id="P1"><br>$$<br>P_d &#x3D; f4_value kW<br>$$<br></span><br>齿轮轴Ⅰ功率<br><span id="P2"><br>$$<br>P_{Ⅰ} &#x3D; P_d \times \eta_{带}&#x3D;P1_value \times e0_value kW&#x3D;P2_value kW<br>$$<br></span><br>齿轮轴Ⅱ功率<br><span id="P3"><br>$$<br>P_{Ⅱ} &#x3D; P_{Ⅰ} \times \eta_{带} \times \eta_{齿轮} \times \eta_{轴承}&#x3D;P2_value \times e0_value \times e1_value \times e2_value kW&#x3D;P3_value kW<br>$$<br></span><br>齿轮轴Ⅲ功率<br><span id="P4"><br>$$<br>P_{Ⅲ} &#x3D; P_{Ⅱ} \times \eta_{带} \times \eta_{齿轮} \times \eta_{轴承}&#x3D;P3_value \times e0_value \times e1_value \times e2_value kW&#x3D;P4_value kW<br>$$<br></span></p>
+<h3 id="各轴运动和动力参数计算"><a href="#各轴运动和动力参数计算" class="headerlink" title="各轴运动和动力参数计算"></a>各轴运动和动力参数计算</h3><h4 id="计算各轴输入功率"><a href="#计算各轴输入功率" class="headerlink" title="计算各轴输入功率"></a>计算各轴输入功率</h4><p>小带轮轴功率<br><span id="P1"><br>$$<br>P_d &#x3D; f3_value kW<br>$$<br></span><br>齿轮轴Ⅰ功率<br><span id="P2"><br>$$<br>P_{Ⅰ} &#x3D; P_d \times \eta_{带}&#x3D;P1_value \times e0_value kW&#x3D;P2_value kW<br>$$<br></span><br>齿轮轴Ⅱ功率<br><span id="P3"><br>$$<br>P_{Ⅱ} &#x3D; P_{Ⅰ}\times \eta_{齿轮} \times \eta_{轴承}&#x3D;P2_value \times e1_value \times e2_value kW&#x3D;P3_value kW<br>$$<br></span><br>齿轮轴Ⅲ功率<br><span id="P4"><br>$$<br>P_{Ⅲ} &#x3D; P_{Ⅱ} \times \eta_{齿轮} \times \eta_{轴承}&#x3D;P3_value \times e1_value \times e2_value kW&#x3D;P4_value kW<br>$$<br></span></p>
 <h4 id="计算各轴转速"><a href="#计算各轴转速" class="headerlink" title="计算各轴转速"></a>计算各轴转速</h4><p>小带轮轴转速<br><span id="n2"><br>$$<br>n_d &#x3D; n_m &#x3D; n1_value rpm<br>$$<br></span><br>齿轮轴Ⅰ转速<br><span id="n3"><br>$$<br>n_{Ⅰ} &#x3D; \frac{n_d}{i_{带}} &#x3D; \frac{n2_value}{i0_value} rpm&#x3D; n3_value rpm<br>$$<br></span><br>齿轮轴Ⅱ转速<br><span id="n4"><br>$$<br>n_{Ⅱ} &#x3D; \frac{n_{Ⅰ}}{i_1} &#x3D; \frac{n3_value}{i1_value} rpm&#x3D; n4_value rpm<br>$$<br></span><br>齿轮轴Ⅲ转速<br><span id="n5"><br>$$<br>n_{Ⅲ} &#x3D; \frac{n_{Ⅱ}}{i_2} &#x3D; \frac{n4_value}{i2_value} rpm&#x3D; n5_value rpm<br>$$<br></span></p>
 <h4 id="计算各轴转矩"><a href="#计算各轴转矩" class="headerlink" title="计算各轴转矩"></a>计算各轴转矩</h4><p>小带轮轴转矩<br><span id="T1"><br>$$<br>T_d &#x3D; 9550 \frac{P_d}{n_d} &#x3D; 9550 \times \frac{P1_value}{n2_value} &#x3D; T1_value Nm<br>$$<br></span><br>齿轮轴Ⅰ转矩<br><span id="T2"><br>$$<br>T_{Ⅰ} &#x3D; 9550 \frac{P_{Ⅰ}}{n_{Ⅰ}} &#x3D; 9550 \times \frac{P2_value}{n3_value} &#x3D; T2_value Nm<br>$$<br></span><br>齿轮轴Ⅱ转矩<br><span id="T3"><br>$$<br>T_{Ⅱ} &#x3D; 9550 \frac{P_{Ⅱ}}{n_{Ⅱ}} &#x3D; 9550 \times \frac{P3_value}{n4_value} &#x3D; T3_value Nm<br>$$<br></span><br>齿轮轴Ⅲ转矩<br><span id="T4"><br>$$<br>T_{Ⅲ} &#x3D; 9550 \frac{P_{Ⅲ}}{n_{Ⅲ}} &#x3D; 9550 \times \frac{P4_value}{n5_value} &#x3D; T4_value Nm<br>$$<br></span></p>
-<h2 id="传动零件的设计计算"><a href="#传动零件的设计计算" class="headerlink" title="传动零件的设计计算"></a>传动零件的设计计算</h2><h3 id="V带传动设计"><a href="#V带传动设计" class="headerlink" title="V带传动设计"></a>V带传动设计</h3><h4 id="计算功率"><a href="#计算功率" class="headerlink" title="计算功率"></a>计算功率</h4><p>使用寿命15000时，使用年份10年，每年以300天记，则每天工作<span>$ 15000&#x2F;10&#x2F;300 &#x3D; 5 $</span>小时，查附表2.6(《机械设计》，P350)得工作情况系数<span id="K1">$ K_A &#x3D; K0_value $</span>(修改请在前面电机功率选择里面改),可得计算功率:<br><span id="f8"><br>$$<br>P_{ca} &#x3D; K_A \times P_{ed} &#x3D; K0_value \times P0_value kW &#x3D; f8_value kW<br>$$<br></span></p>
+<h2 id="传动零件的设计计算"><a href="#传动零件的设计计算" class="headerlink" title="传动零件的设计计算"></a>传动零件的设计计算</h2><h3 id="V带传动设计"><a href="#V带传动设计" class="headerlink" title="V带传动设计"></a>V带传动设计</h3><h4 id="计算功率"><a href="#计算功率" class="headerlink" title="计算功率"></a>计算功率</h4><p>每班是8小时，两班制为16小时，查附表2.6(《机械设计》，P350)得工作情况系数<span id="K1">$ K_A &#x3D; K0_value $</span>(修改请在前面电机功率选择里面改),可得计算功率:<br><span id="f8"><br>$$<br>P_{ca} &#x3D; K_A \times P_{ed} &#x3D; K0_value \times P0_value kW &#x3D; f8_value kW<br>$$<br></span></p>
 <h4 id="带型选择"><a href="#带型选择" class="headerlink" title="带型选择"></a>带型选择</h4><p>由所求得功率和转速，根据附图2.1(《机械设计》，P353，也可以参考下图)可查得，选择的带型为<span id="f9">A</span>型带。</p>
 <p id="warning2" class="warning"></p>
 <iframe src="/external/v_belt.html" width="100%" height="300" frameborder="no" align="center" id="v_belt"></iframe>
@@ -354,9 +354,10 @@
 <p>端面重合度按下式计算：<br><span id="f40"><br>$$<br>\alpha_{at1} &#x3D; arccos(\frac{Z_1 cos \alpha_t}{z_1 + 2h_{an}^{<em>} cos \beta}) &#x3D; arccos(\frac{g0_value cos N4_value °}{g0_value + 2  cos g13_value °}) &#x3D; N6_value °<br>$$<br>$$<br>\alpha_{at2} &#x3D; arccos(\frac{Z_2 cos \alpha_t}{z_2 + 2h_{an}^{</em>} cos \beta}) &#x3D; arccos(\frac{f27_value cos N4_value °}{f27_value + 2  cos g13_value °}) &#x3D; N7_value °<br>$$<br>$$<br>\varepsilon_{\alpha } &#x3D; \frac{z_1 (tan \alpha_{at1} - tan \alpha_{t}) + z_2 (tan \alpha_{at2} - tan \alpha_{t})}{2 \pi } &#x3D; \frac{g0_value \times (tan N6_value ° - tan N4_value ° ) + f27_value \times (tan tan N7_value ° - tan N4_value ° )}{2 \times ${Math.PI}} &#x3D; f40_value<br>$$<br></span></p>
 <p>接触疲劳强度极限<span>$  \sigma_{Hlim1} &#x3D; \sigma_{Hlim2}&#x3D; $</span><input value="1000" type="text" class="input" id="g5" onchange="change_html(this)">MPa(查《机械设计》图12.6,p390)</p>
 <p>小齿轮传递转矩为<span id="f28">$  T_{Ⅰ} &#x3D; T2_value $</span><br>应力循环次数为<br><span id="f29"><br>$$<br>N_1 &#x3D; 60n_1 j L_h &#x3D; 60 \times n3_value \times 1 \times (2 \times 8 \times 300 \times 10) &#x3D; N0_value<br>$$<br>$$<br>N_2 &#x3D; \frac{N_1}{i_1} &#x3D; \frac{N_1}{i1_value} &#x3D; N1_value<br>$$<br></span><br>接触疲劳寿命系数<span>$  K_{HN1} &#x3D; $</span><input value="0.92" type="text" class="input" id="g6" onchange="change_html(this)"><br><span>$  K_{HN2} &#x3D; $</span><input value="0.96" type="text" class="input" id="g7" onchange="change_html(this)">(查《机械设计》图12.4,p387，这个一定要查表改！！！！！！！！！！！！！！！！！！！！！！！！！不改其实也看不出来)<br>接触疲劳许用应力(取失效概率为1%，安全系数<span>$  S_H &#x3D; 1 $</span>)<br><span id="f30"><br>$$<br>[\sigma_{H}]<em>1 &#x3D; \frac{K</em>{HN1} \sigma_{Hlim1}}{S_H} &#x3D; \frac{g6_value \times g5_value}{1} &#x3D; N2_value MPa<br>$$<br>$$<br>[\sigma_{H}]<em>2 &#x3D; \frac{K</em>{HN2} \sigma_{Hlim2}}{S_H} &#x3D; \frac{g7_value \times g5_value}{1} &#x3D; N3_value MPa<br>$$<br></span><br>取<span id="f31">$ [\sigma_{H}] &#x3D; f31_value MPa $</span></p>
-<p>试算小齿轮分度圆直径：<br><span id="f32"><br>$$<br>d_{1t} \ge \sqrt[3]{\frac{2 K_t T_1}{\phi_d \varepsilon_{\alpha }} \times \frac{i_i+1}{i_1} \times (\frac{Z_H Z_E}{[\sigma_H ]} )^2 } &#x3D; \sqrt[3]{\frac{2 \times g1_value \times f28_value \times 1000}{g2_value \times f40_value} \times \frac{i1_value+1}{i1_value} \times (\frac{f39_value \times g3_value}{f31_value} )^2 } &#x3D; f32_value mm<br>$$<br></span><br>计算圆周速度：<br><span id="f33"><br>$$<br>v &#x3D; \frac{\pi d_{1t} n_1}{60 \times 1000} &#x3D; \frac{${Math.PI} \times f32_value \times n3_value}{60 \times 1000} &#x3D; f33_value m&#x2F;s<br>$$<br></span><br>计算齿宽：<br><span id="f34"><br>$$<br>b &#x3D; \phi_d d_{1t} &#x3D; g2_value \times f32_value &#x3D; f34_value mm<br>$$<br></span><br>计算齿宽与齿高之比：<br><span id="f35"><br>$$<br>\frac{b}{h} &#x3D; \frac{\phi_d z_1}{2.25 cos \beta} &#x3D; \frac{g2_value \times g0_value}{2.25 \times g13_value} &#x3D; f35_value<br>$$<br></span><br>计算载荷系数K:<br>由圆周速度和精度查得<span>$  K_v &#x3D; $</span><input value="1.06" type="text" class="input" id="g8" onchange="change_html(this)">(查《机械设计》图12.1,p385)<br>齿间载荷分配系数<span>$ K_{\alpha}  &#x3D; $</span><input value="1.2" type="text" class="input" id="g9" onchange="change_html(this)">(查《机械设计》表12.2,p383)<br>使用系数<span>$  K_A &#x3D; $</span><input value="1.0" type="text" class="input" id="g10" onchange="change_html(this)">(查《机械设计》表12.1,p382)<br>不知道叫什么系数<span>$  K_{H\beta} &#x3D; $</span><input value="1.55" type="text" class="input" id="g11" onchange="change_html(this)">(查《机械设计》表12.3,p383)<br>则载荷系数为<br><span id="f36"><br>$$<br>K &#x3D; K_A K_v K_{\alpha} K_{H\beta}&#x3D; g10_value \times g8_value \times g9_value \times g11_value &#x3D; f36_value<br>$$<br></span><br>按实际的载荷系数修正分度圆直径：<br><span id="f37"><br>$$<br>d_1 &#x3D; d_{1t} \sqrt[3]{\frac{K}{K_t}} &#x3D; f32_value \times \sqrt[3]{\frac{f36_value}{g1_value}} &#x3D; f37_value mm<br>$$<br></span><br>计算模数<br><span id="f38"><br>$$<br>m &#x3D; \frac{d_1 cos\beta}{z_1} &#x3D; \frac{f37_value \times cos g13_value}{g0_value} &#x3D; f38_value<br>$$<br></span></p>
-<h5 id="按齿根弯曲疲劳强度设计"><a href="#按齿根弯曲疲劳强度设计" class="headerlink" title="按齿根弯曲疲劳强度设计"></a>按齿根弯曲疲劳强度设计</h5><p>齿向载荷分布系数<span>$  K_{F\beta} &#x3D; $</span><input value="1.38" type="text" class="input" id="g12" onchange="change_html(this)">(查《机械设计》图12.2,p386)<br>载荷系数为<br><span id="f41"><br>$$<br>K &#x3D; K_A K_v K_{\alpha} K_{F \beta } &#x3D;  g10_value \times g8_value \times g9_value \times g12_value &#x3D; f41_value<br>$$<br></span><br>当量齿数为<br><span id="f42"><br>$$<br>z_{v1} &#x3D; \frac{z_1}{c_os^3 \beta} &#x3D; \frac{g0_value}{cos^3 g13_value} &#x3D; N8_value<br>$$<br>$$<br>z_{v2} &#x3D; \frac{z_2}{c_os^3 \beta} &#x3D; \frac{f27_value}{cos^3 g13_value} &#x3D; N9_value<br>$$<br></span><br>齿形系数和应力校正系数：<br><span id="f43"><br>$$<br>Y_{Fa1} &#x3D; N10_value,Y_{sa1} &#x3D; N11_value<br>$$<br>$$<br>Y_{Fa2} &#x3D; N12_value,Y_{sa2} &#x3D; N13_value<br>$$<br></span><br>轴面重合度：<br><span id="f44"><br>$$<br>\varepsilon_{\beta} &#x3D; 0.318 \phi_{d} z_1 tan \beta &#x3D; 0.318 \times g2_value \times g0_value \times tan g13_value ° &#x3D; f44_value<br>$$<br></span><br>取<span id="f45">$ \varepsilon_{\beta} &#x3D; f45_value $</span>，计算螺旋角影响系数：<br><span id="f46"><br>$$<br>Y_{\beta} &#x3D; 1- \varepsilon_{\beta} \times \beta &#x2F; 120 ° &#x3D; 1- f45_value \times g13_value ° &#x2F; 120 ° &#x3D; f46_value<br>$$<br></span><br>弯曲疲劳强度极限<span>$  \sigma_{Flim1} &#x3D; \sigma_{Flim2}&#x3D; $</span><input value="500" type="text" class="input" id="g14" onchange="change_html(this)">MPa(查《机械设计》图12.5,p387)<br>弯曲疲劳寿命系数<span>$  K_{FN1} &#x3D; $</span><input value="0.86" type="text" class="input" id="g15" onchange="change_html(this)"><br><span>$  K_{FN2} &#x3D; $</span><input value="0.88" type="text" class="input" id="g16" onchange="change_html(this)">(查《机械设计》图12.3,p386)<br>取安全系数<span>$  S_F &#x3D; $</span><input value="1.4" type="text" class="input" id="g17" onchange="change_html(this)"><br><span id="f47"><br>$$<br>[\sigma_{F}]<em>1 &#x3D; \frac{K</em>{FN1} \sigma_{Flim1}}{S_F} &#x3D; \frac{g15_value \times g14_value}{g17_value} &#x3D; N14_value MPa<br>$$<br>$$<br>[\sigma_{F}]<em>2 &#x3D; \frac{K</em>{FN2} \sigma_{Flim2}}{S_F} &#x3D; \frac{g16_value \times g14_value}{g17_value} &#x3D; N15_value MPa<br>$$<br></span><br>确定<span>$  Y_{Fa } Y_{sa} &#x2F; [\sigma_{F}] $</span><br><span id="f48"><br>$$<br>\frac{Y_{Fa1} Y_{sa1}}{[\sigma_{F}]} &#x3D; \frac{N10_value \times N11_value}{N14_value} &#x3D; N16_value<br>$$<br>$$<br>\frac{Y_{Fa2} Y_{sa2}}{[\sigma_{F}]} &#x3D; \frac{N12_value \times N13_value}{N15_value} &#x3D; N17_value<br>$$<br></span><br>取较大值<span id="f49">$  Y_{Fa } Y_{sa} &#x2F; [\sigma_{F}] &#x3D; f49_value $</span>代入公式计算模数<br><span id="f50"><br>$$<br>m_{n} \ge \sqrt[3]{\frac{2 K T_1 Y_\beta cos^2 \beta}{\phi_d \varepsilon_{\alpha } z_{1}^{2}} \times (\frac{Y_{Fa} Y_{sa}}{[\sigma_{F}]}} &#x3D; \sqrt[3]{\frac{2 \times f41_value \times f28_value f46_value \times cos^2 g13_value °}{g2_value f40_value \times g0_value ^{2}} \times f49_value} &#x3D; f50_value<br>$$<br></span></p>
-<h3 id="几何尺寸计算"><a href="#几何尺寸计算" class="headerlink" title="几何尺寸计算"></a>几何尺寸计算</h3><p>根据两种设计算出的模数确定最终模数：<br><span id="f51"><br>$$<br>m_{n1} &#x3D; f38_value<br>$$<br>$$<br>m_{n2} \ge f50_value<br>$$<br>则最终模数为$ m &#x3D; f51_value $<br></span><br>中心距<br><span id="f52"><br>$$<br>a &#x3D; m_n (z_1 + z_2)&#x2F;(2 cos \beta) &#x3D; f51_value \times (g0_value + f27_value)&#x2F;(2 \times cos g13_value °) mm &#x3D; f52_value mm<br>$$<br></span><br>取中心距<span id="f53">$  a &#x3D; f53_value mm  $</span><br>修正螺旋角：<br><span id="f54"><br>$$<br>\beta &#x3D; arccos[m_n (z_1+z_2)&#x2F;(2a)] &#x3D; arccos[f51_value \times (g0_value + f27_value)&#x2F;(2 \times f53_value)] &#x3D; f54_value &#x3D; N18_value<br>$$<br></span><br>分度圆直径<br><span id="f55"><br>$$<br>d_1 &#x3D; \frac{m_n z_1}{cos \beta} &#x3D; \frac{f51_value \times g0_value}{cos N18_value} &#x3D; N19_value mm<br>$$<br>$$<br>d_2 &#x3D; \frac{m_n z_2}{cos \beta} &#x3D; \frac{f51_value \times f27_value}{cos N18_value} &#x3D; N20_value mm<br>$$<br></span><br>齿宽<br><span id="f56"><br>$$<br>b &#x3D; \phi_d d_l &#x3D; g2_value \times N19_value &#x3D; f56_value mm<br>$$<br></span><br>取<span id="f57">$  B_2 &#x3D; N21_value，B_1 &#x3D; B_2 + 5 &#x3D; N22_value  $</span></p>
+<p>试算小齿轮分度圆直径：<br><span id="f32"><br>$$<br>d_{1t} \ge \sqrt[3]{\frac{2 K_t T_1}{\phi_d \varepsilon_{\alpha }} \times \frac{i_i+1}{i_1} \times (\frac{Z_H Z_E}{[\sigma_H ]} )^2 } &#x3D; \sqrt[3]{\frac{2 \times g1_value \times f28_value \times 1000}{g2_value \times f40_value} \times \frac{i1_value+1}{i1_value} \times (\frac{f39_value \times g3_value}{f31_value} )^2 } &#x3D; f32_value mm<br>$$<br></span><br>计算圆周速度：<br><span id="f33"><br>$$<br>v &#x3D; \frac{\pi d_{1t} n_1}{60 \times 1000} &#x3D; \frac{${Math.PI} \times f32_value \times n3_value}{60 \times 1000} &#x3D; f33_value m&#x2F;s<br>$$<br></span><br>计算齿宽：<br><span id="f34"><br>$$<br>b &#x3D; \phi_d d_{1t} &#x3D; g2_value \times f32_value &#x3D; f34_value mm<br>$$<br></span><br>计算齿宽与齿高之比：<br><span id="f35"><br>$$<br>\frac{b}{h} &#x3D; \frac{\phi_d z_1}{2.25 cos \beta} &#x3D; \frac{g2_value \times g0_value}{2.25 \times g13_value} &#x3D; f35_value<br>$$<br></span><br>计算载荷系数K:<br>由圆周速度和精度查得<span>$  K_v &#x3D; $</span><input value="1.06" type="text" class="input" id="g8" onchange="change_html(this)">(查《机械设计》图12.1,p385)<br>齿间载荷分配系数<span>$ K_{\alpha}  &#x3D; $</span><input value="1.2" type="text" class="input" id="g9" onchange="change_html(this)">(查《机械设计》表12.2,p383)<br>使用系数<span>$  K_A &#x3D; $</span><input value="1.0" type="text" class="input" id="g10" onchange="change_html(this)">(查《机械设计》表12.1,p382)<br>不知道叫什么系数<span>$  K_{H\beta} &#x3D; $</span><input value="1.55" type="text" class="input" id="g11" onchange="change_html(this)">(查《机械设计》表12.3,p383)<br>则载荷系数为<br><span id="f36"><br>$$<br>K &#x3D; K_A K_v K_{\alpha} K_{H\beta}&#x3D; g10_value \times g8_value \times g9_value \times g11_value &#x3D; f36_value<br>$$<br></span><br>按实际的载荷系数修正分度圆直径：<br><span id="f37"><br>$$<br>d_1 &#x3D; d_{1t} \sqrt[3]{\frac{K}{K_t}} &#x3D; f32_value \times \sqrt[3]{\frac{f36_value}{g1_value}} &#x3D; f37_value mm<br>$$<br></span><br>计算模数<br><span id="f38"><br>$$<br>m &#x3D; \frac{d_1 cos\beta}{z_1} &#x3D; \frac{f37_value \times cos g13_value}{g0_value} &#x3D; f38_value<br>$$<br></span><br><span id="f51"><br>则取模数为$ m &#x3D; f51_value $<br></span></p>
+<h5 id="按齿根弯曲疲劳强度设计"><a href="#按齿根弯曲疲劳强度设计" class="headerlink" title="按齿根弯曲疲劳强度设计"></a>按齿根弯曲疲劳强度设计</h5><p>齿向载荷分布系数<span>$  K_{F\beta} &#x3D; $</span><input value="1.38" type="text" class="input" id="g12" onchange="change_html(this)">(查《机械设计》图12.2,p386)<br>载荷系数为<br><span id="f41"><br>$$<br>K &#x3D; K_A K_v K_{\alpha} K_{F \beta } &#x3D;  g10_value \times g8_value \times g9_value \times g12_value &#x3D; f41_value<br>$$<br></span><br>当量齿数为<br><span id="f42"><br>$$<br>z_{v1} &#x3D; \frac{z_1}{c_os^3 \beta} &#x3D; \frac{g0_value}{cos^3 g13_value} &#x3D; N8_value<br>$$<br>$$<br>z_{v2} &#x3D; \frac{z_2}{c_os^3 \beta} &#x3D; \frac{f27_value}{cos^3 g13_value} &#x3D; N9_value<br>$$<br></span><br>齿形系数和应力校正系数：<br><span id="f43"><br>$$<br>Y_{Fa1} &#x3D; N10_value,Y_{sa1} &#x3D; N11_value<br>$$<br>$$<br>Y_{Fa2} &#x3D; N12_value,Y_{sa2} &#x3D; N13_value<br>$$<br></span><br>轴面重合度：<br><span id="f44"><br>$$<br>\varepsilon_{\beta} &#x3D; 0.318 \phi_{d} z_1 tan \beta &#x3D; 0.318 \times g2_value \times g0_value \times tan g13_value ° &#x3D; f44_value<br>$$<br></span><br>取<span id="f45">$ \varepsilon_{\beta} &#x3D; f45_value $</span>，计算螺旋角影响系数：<br><span id="f46"><br>$$<br>Y_{\beta} &#x3D; 1- \varepsilon_{\beta} \times \beta &#x2F; 120 ° &#x3D; 1- f45_value \times g13_value ° &#x2F; 120 ° &#x3D; f46_value<br>$$<br></span><br>弯曲疲劳强度极限<span>$  \sigma_{Flim1} &#x3D; \sigma_{Flim2}&#x3D; $</span><input value="500" type="text" class="input" id="g14" onchange="change_html(this)">MPa(查《机械设计》图12.5,p387)<br>弯曲疲劳寿命系数<span>$  K_{FN1} &#x3D; $</span><input value="0.86" type="text" class="input" id="g15" onchange="change_html(this)"><br><span>$  K_{FN2} &#x3D; $</span><input value="0.88" type="text" class="input" id="g16" onchange="change_html(this)">(查《机械设计》图12.3,p386)<br>取安全系数<span>$  S_F &#x3D; $</span><input value="1.4" type="text" class="input" id="g17" onchange="change_html(this)"><br><span id="f47"><br>$$<br>[\sigma_{F}]<em>1 &#x3D; \frac{K</em>{FN1} \sigma_{Flim1}}{S_F} &#x3D; \frac{g15_value \times g14_value}{g17_value} &#x3D; N14_value MPa<br>$$<br>$$<br>[\sigma_{F}]<em>2 &#x3D; \frac{K</em>{FN2} \sigma_{Flim2}}{S_F} &#x3D; \frac{g16_value \times g14_value}{g17_value} &#x3D; N15_value MPa<br>$$<br></span></p>
+<p>校核小齿轮：<br><span id="f48"><br>$$<br>\frac{2KT_1 Y_{\beta} cos^2 \beta}{\phi_d \varepsilon_{\alpha} z_1^{2} m_n^{3}} Y_{Fa1} Y_{sa1} &#x3D; \frac{2 \times f36_value \times f28_value \times 1000 \times f46_value \times cos^2 g13_value°}{g2_value \times f44_value \times g0_value ^{2} \times f51_value ^{3}} \times N10_value \times N11_value &#x3D; f48_value \le [\sigma_{F}]_1 &#x3D; N14_value Mpa<br>$$<br></span><br>校核大齿轮：<br><span id="f49"><br>$$<br>0<br>$$<br></span></p>
+<h5 id="几何尺寸计算"><a href="#几何尺寸计算" class="headerlink" title="几何尺寸计算"></a>几何尺寸计算</h5><p>中心距<br><span id="f52"><br>$$<br>a &#x3D; m_n (z_1 + z_2)&#x2F;(2 cos \beta) &#x3D; f51_value \times (g0_value + f27_value)&#x2F;(2 \times cos g13_value °) mm &#x3D; f52_value mm<br>$$<br></span><br>取中心距<span id="f53">$  a &#x3D; f53_value mm  $</span><br>修正螺旋角：<br><span id="f54"><br>$$<br>\beta &#x3D; arccos[m_n (z_1+z_2)&#x2F;(2a)] &#x3D; arccos[f51_value \times (g0_value + f27_value)&#x2F;(2 \times f53_value)] &#x3D; f54_value &#x3D; N18_value<br>$$<br></span><br>分度圆直径<br><span id="f55"><br>$$<br>d_1 &#x3D; \frac{m_n z_1}{cos \beta} &#x3D; \frac{f51_value \times g0_value}{cos N18_value} &#x3D; N19_value mm<br>$$<br>$$<br>d_2 &#x3D; \frac{m_n z_2}{cos \beta} &#x3D; \frac{f51_value \times f27_value}{cos N18_value} &#x3D; N20_value mm<br>$$<br></span><br>齿宽<br><span id="f56"><br>$$<br>b &#x3D; \phi_d d_l &#x3D; g2_value \times N19_value &#x3D; f56_value mm<br>$$<br></span><br>取<span id="f57">$  B_2 &#x3D; N21_value，B_1 &#x3D; B_2 + 5 &#x3D; N22_value  $</span></p>
 <h4 id="低速齿轮传动设计"><a href="#低速齿轮传动设计" class="headerlink" title="低速齿轮传动设计"></a>低速齿轮传动设计</h4><p>低速齿轮设计同理，于是我CV了一下，有问题请随时提出。<br>大、小齿轮都选用硬齿面。选大、小齿轮的材料均为 45 钢，并经调质后表面淬火，齿面硬度为HRC1&#x3D;HRC2&#x3D;45 。初选 7 级精度（GB&#x2F;T 10095.1—2001）。选用<strong>斜齿轮</strong>。<br>选小齿轮齿数为：<input value="27" type="text" class="input" id="g18" onchange="change_html(this)"><br>则大齿轮齿数<span id="f58">$  z_2 &#x3D; i z_1 &#x3D; f58_value $</span><br>取大齿轮齿数为<span id="f59">$  z_2 &#x3D; f59_value $</span><br>初选螺旋角为<span>$  \beta &#x3D;  $</span><input value="15" type="text" class="input" id="g31" onchange="change_html(this)">°<br>齿轮压力角为<span>$  \alpha_n &#x3D; 20° $</span></p>
 <h5 id="按齿面接触强度设计-1"><a href="#按齿面接触强度设计-1" class="headerlink" title="按齿面接触强度设计"></a>按齿面接触强度设计</h5><p>载荷系数<span>$  K_t $</span>：<input value="1.5" type="text" class="input" id="g19" onchange="change_html(this)"></p>
 <p>齿宽系数<span>$  \phi_d $</span>：<input value="1" type="text" class="input" id="g20" onchange="change_html(this)">(查《机械设计》表12.5,p384)</p>
@@ -365,9 +366,10 @@
 <p>端面重合度按下式计算：<br><span id="f72"><br>$$<br>\alpha_{at1} &#x3D; arccos(\frac{Z_1 cos \alpha_t}{z_1 + 2h_{an}^{<em>} cos \beta}) &#x3D; arccos(\frac{g18_value cos N27_value °}{g18_value + 2  cos g31_value °}) &#x3D; N29_value °<br>$$<br>$$<br>\alpha_{at2} &#x3D; arccos(\frac{Z_2 cos \alpha_t}{z_2 + 2h_{an}^{</em>} cos \beta}) &#x3D; arccos(\frac{f59_value cos N27_value °}{f59_value + 2  cos g31_value °}) &#x3D; N30_value °<br>$$<br>$$<br>\varepsilon_{\alpha } &#x3D; \frac{z_1 (tan \alpha_{at1} - tan \alpha_{t}) + z_2 (tan \alpha_{at2} - tan \alpha_{t})}{2 \pi } &#x3D; \frac{g18_value \times (tan N29_value ° - tan N27_value ° ) + f59_value \times (tan tan N30_value ° - tan N27_value ° )}{2 \times ${Math.PI}} &#x3D; f72_value<br>$$<br></span></p>
 <p>接触疲劳强度极限<span>$  \sigma_{Hlim1} &#x3D; \sigma_{Hlim2}&#x3D; $</span><input value="1000" type="text" class="input" id="g23" onchange="change_html(this)">MPa(查《机械设计》图12.6,p390)</p>
 <p>小齿轮传递转矩为<span id="f60">$  T_{Ⅰ} &#x3D; T2_value $</span><br>应力循环次数为<br><span id="f61"><br>$$<br>N_1 &#x3D; 60n_2 j L_h &#x3D; 60 \times n4_value \times 1 \times (2 \times 8 \times 300 \times 10) &#x3D; N23_value<br>$$<br>$$<br>N_2 &#x3D; \frac{N_1}{i_1} &#x3D; \frac{N_1}{i2_value} &#x3D; N24_value<br>$$<br></span><br>接触疲劳寿命系数<span>$  K_{HN24} &#x3D; $</span><input value="0.92" type="text" class="input" id="g24" onchange="change_html(this)"><br><span>$  K_{HN25} &#x3D; $</span><input value="0.96" type="text" class="input" id="g25" onchange="change_html(this)">(查《机械设计》图12.4,p387，这个一定要查表改！！！！！！！！！！！！！！！！！！！！！！！！！不改其实也看不出来)<br>接触疲劳许用应力(取失效概率为1%，安全系数<span>$  S_H &#x3D; 1 $</span>)<br><span id="f62"><br>$$<br>[\sigma_{H}]<em>1 &#x3D; \frac{K</em>{HN24} \sigma_{Hlim1}}{S_H} &#x3D; \frac{g24_value \times g23_value}{1} &#x3D; N25_value MPa<br>$$<br>$$<br>[\sigma_{H}]<em>2 &#x3D; \frac{K</em>{HN25} \sigma_{Hlim2}}{S_H} &#x3D; \frac{g25_value \times g23_value}{1} &#x3D; N26_value MPa<br>$$<br></span><br>取<span id="f63">$ [\sigma_{H}] &#x3D; f63_value MPa $</span></p>
-<p>试算小齿轮分度圆直径：<br><span id="f64"><br>$$<br>d_{1t} \ge \sqrt[3]{\frac{2 K_t T_1}{\phi_d \varepsilon_{\alpha }} \times \frac{i_i+1}{i_1} \times (\frac{Z_H Z_E}{[\sigma_H ]} )^2 } &#x3D; \sqrt[3]{\frac{2 \times g19_value \times f60_value \times 1000}{g20_value \times f72_value} \times \frac{i1_value+1}{i1_value} \times (\frac{f71_value \times g21_value}{f63_value} )^2 } &#x3D; f64_value mm<br>$$<br></span><br>计算圆周速度：<br><span id="f65"><br>$$<br>v &#x3D; \frac{\pi d_{1t} n_1}{60 \times 1000} &#x3D; \frac{${Math.PI} \times f64_value \times n3_value}{60 \times 1000} &#x3D; f65_value m&#x2F;s<br>$$<br></span><br>计算齿宽：<br><span id="f66"><br>$$<br>b &#x3D; \phi_d d_{1t} &#x3D; g20_value \times f64_value &#x3D; f66_value mm<br>$$<br></span><br>计算齿宽与齿高之比：<br><span id="f67"><br>$$<br>\frac{b}{h} &#x3D; \frac{\phi_d z_1}{2.25 cos \beta} &#x3D; \frac{g20_value \times g18_value}{2.25 \times g31_value} &#x3D; f67_value<br>$$<br></span><br>计算载荷系数K:<br>由圆周速度和精度查得<span>$  K_v &#x3D; $</span><input value="1.06" type="text" class="input" id="g26" onchange="change_html(this)">(查《机械设计》图12.1,p385)<br>齿间载荷分配系数<span>$ K_{\alpha}  &#x3D; $</span><input value="1.2" type="text" class="input" id="g27" onchange="change_html(this)">(查《机械设计》表12.2,p383)<br>使用系数<span>$  K_A &#x3D; $</span><input value="1.0" type="text" class="input" id="g28" onchange="change_html(this)">(查《机械设计》表12.1,p382)<br>不知道叫什么系数<span>$  K_{H\beta} &#x3D; $</span><input value="1.55" type="text" class="input" id="g29" onchange="change_html(this)">(查《机械设计》表12.3,p383)<br>则载荷系数为<br><span id="f68"><br>$$<br>K &#x3D; K_A K_v K_{\alpha} K_{H\beta}&#x3D; g28_value \times g26_value \times g27_value \times g29_value &#x3D; f68_value<br>$$<br></span><br>按实际的载荷系数修正分度圆直径：<br><span id="f69"><br>$$<br>d_1 &#x3D; d_{1t} \sqrt[3]{\frac{K}{K_t}} &#x3D; f64_value \times \sqrt[3]{\frac{f68_value}{g19_value}} &#x3D; f69_value mm<br>$$<br></span><br>计算模数<br><span id="f70"><br>$$<br>m &#x3D; \frac{d_1 cos\beta}{z_1} &#x3D; \frac{f69_value \times cos g31_value}{g18_value} &#x3D; f70_value<br>$$<br></span></p>
-<h5 id="按齿根弯曲疲劳强度设计-1"><a href="#按齿根弯曲疲劳强度设计-1" class="headerlink" title="按齿根弯曲疲劳强度设计"></a>按齿根弯曲疲劳强度设计</h5><p>齿向载荷分布系数<span>$  K_{F\beta} &#x3D; $</span><input value="1.38" type="text" class="input" id="g30" onchange="change_html(this)">(查《机械设计》图12.2,p386)<br>载荷系数为<br><span id="f73"><br>$$<br>K &#x3D; K_A K_v K_{\alpha} K_{F \beta } &#x3D;  g28_value \times g26_value \times g27_value \times g30_value &#x3D; f73_value<br>$$<br></span><br>当量齿数为<br><span id="f74"><br>$$<br>z_{v1} &#x3D; \frac{z_1}{c_os^3 \beta} &#x3D; \frac{g18_value}{cos^3 g31_value} &#x3D; N31_value<br>$$<br>$$<br>z_{v2} &#x3D; \frac{z_2}{c_os^3 \beta} &#x3D; \frac{f59_value}{cos^3 g31_value} &#x3D; N32_value<br>$$<br></span><br>齿形系数和应力校正系数：<br><span id="f75"><br>$$<br>Y_{Fa1} &#x3D; N33_value,Y_{sa1} &#x3D; N34_value<br>$$<br>$$<br>Y_{Fa2} &#x3D; N35_value,Y_{sa2} &#x3D; N36_value<br>$$<br></span><br>轴面重合度：<br><span id="f76"><br>$$<br>\varepsilon_{\beta} &#x3D; 0.318 \phi_{d} z_1 tan \beta &#x3D; 0.318 \times g20_value \times g18_value \times tan g31_value ° &#x3D; f76_value<br>$$<br></span><br>取<span id="f77">$ \varepsilon_{\beta} &#x3D; f77_value $</span>，计算螺旋角影响系数：<br><span id="f78"><br>$$<br>Y_{\beta} &#x3D; 1- \varepsilon_{\beta} \times \beta &#x2F; 120 ° &#x3D; 1- f77_value \times g31_value ° &#x2F; 120 ° &#x3D; f78_value<br>$$<br></span><br>弯曲疲劳强度极限<span>$  \sigma_{Flim1} &#x3D; \sigma_{Flim2}&#x3D; $</span><input value="500" type="text" class="input" id="g32" onchange="change_html(this)">MPa(查《机械设计》图12.5,p387)<br>弯曲疲劳寿命系数<span>$  K_{FN24} &#x3D; $</span><input value="0.86" type="text" class="input" id="g33" onchange="change_html(this)"><br><span>$  K_{FN25} &#x3D; $</span><input value="0.88" type="text" class="input" id="g34" onchange="change_html(this)">(查《机械设计》图12.3,p386)<br>取安全系数<span>$  S_F &#x3D; $</span><input value="1.4" type="text" class="input" id="g35" onchange="change_html(this)"><br><span id="f79"><br>$$<br>[\sigma_{F}]<em>1 &#x3D; \frac{K</em>{FN24} \sigma_{Flim1}}{S_F} &#x3D; \frac{g33_value \times g32_value}{g35_value} &#x3D; N37_value MPa<br>$$<br>$$<br>[\sigma_{F}]<em>2 &#x3D; \frac{K</em>{FN25} \sigma_{Flim2}}{S_F} &#x3D; \frac{g34_value \times g32_value}{g35_value} &#x3D; N38_value MPa<br>$$<br></span><br>确定<span>$  Y_{Fa } Y_{sa} &#x2F; [\sigma_{F}] $</span><br><span id="f80"><br>$$<br>\frac{Y_{Fa1} Y_{sa1}}{[\sigma_{F}]} &#x3D; \frac{N33_value \times N34_value}{N37_value} &#x3D; N39_value<br>$$<br>$$<br>\frac{Y_{Fa2} Y_{sa2}}{[\sigma_{F}]} &#x3D; \frac{N35_value \times N36_value}{N38_value} &#x3D; N40_value<br>$$<br></span><br>取较大值<span id="f81">$  Y_{Fa } Y_{sa} &#x2F; [\sigma_{F}] &#x3D; f81_value $</span>代入公式计算模数<br><span id="f82"><br>$$<br>m_{n} \ge \sqrt[3]{\frac{2 K T_1 Y_\beta cos^2 \beta}{\phi_d \varepsilon_{\alpha } z_{1}^{2}} \times (\frac{Y_{Fa} Y_{sa}}{[\sigma_{F}]}} &#x3D; \sqrt[3]{\frac{2 \times f73_value \times f60_value f78_value \times cos^2 g31_value °}{g20_value f72_value \times g18_value ^{2}} \times f81_value} &#x3D; f82_value<br>$$<br></span></p>
-<h3 id="几何尺寸计算-1"><a href="#几何尺寸计算-1" class="headerlink" title="几何尺寸计算"></a>几何尺寸计算</h3><p>根据两种设计算出的模数确定最终模数：<br><span id="f83"><br>$$<br>m_{n1} &#x3D; f70_value<br>$$<br>$$<br>m_{n2} \ge f82_value<br>$$<br>则最终模数为$ m &#x3D; f83_value $<br></span><br>中心距<br><span id="f84"><br>$$<br>a &#x3D; m_n (z_1 + z_2)&#x2F;(2 cos \beta) &#x3D; f83_value \times (g18_value + f59_value)&#x2F;(2 \times cos g31_value °) mm &#x3D; f84_value mm<br>$$<br></span><br>取中心距<span id="f85">$  a &#x3D; f85_value mm  $</span><br>修正螺旋角：<br><span id="f86"><br>$$<br>\beta &#x3D; arccos[m_n (z_1+z_2)&#x2F;(2a)] &#x3D; arccos[f83_value \times (g18_value + f59_value)&#x2F;(2 \times f85_value)] &#x3D; f86_value &#x3D; N41_value<br>$$<br></span><br>分度圆直径<br><span id="f87"><br>$$<br>d_1 &#x3D; \frac{m_n z_1}{cos \beta} &#x3D; \frac{f83_value \times g18_value}{cos N41_value} &#x3D; N42_value mm<br>$$<br>$$<br>d_2 &#x3D; \frac{m_n z_2}{cos \beta} &#x3D; \frac{f83_value \times f59_value}{cos N41_value} &#x3D; N43_value mm<br>$$<br></span><br>齿宽<br><span id="f88"><br>$$<br>b &#x3D; \phi_d d_l &#x3D; g20_value \times N42_value &#x3D; f88_value mm<br>$$<br></span><br>取<span id="f89">$  B_2 &#x3D; N44_value，B_1 &#x3D; B_2 + 5 &#x3D; N45_value  $</span></p>
+<p>试算小齿轮分度圆直径：<br><span id="f64"><br>$$<br>d_{1t} \ge \sqrt[3]{\frac{2 K_t T_1}{\phi_d \varepsilon_{\alpha }} \times \frac{i_i+1}{i_1} \times (\frac{Z_H Z_E}{[\sigma_H ]} )^2 } &#x3D; \sqrt[3]{\frac{2 \times g19_value \times f60_value \times 1000}{g20_value \times f72_value} \times \frac{i1_value+1}{i1_value} \times (\frac{f71_value \times g21_value}{f63_value} )^2 } &#x3D; f64_value mm<br>$$<br></span><br>计算圆周速度：<br><span id="f65"><br>$$<br>v &#x3D; \frac{\pi d_{1t} n_1}{60 \times 1000} &#x3D; \frac{${Math.PI} \times f64_value \times n3_value}{60 \times 1000} &#x3D; f65_value m&#x2F;s<br>$$<br></span><br>计算齿宽：<br><span id="f66"><br>$$<br>b &#x3D; \phi_d d_{1t} &#x3D; g20_value \times f64_value &#x3D; f66_value mm<br>$$<br></span><br>计算齿宽与齿高之比：<br><span id="f67"><br>$$<br>\frac{b}{h} &#x3D; \frac{\phi_d z_1}{2.25 cos \beta} &#x3D; \frac{g20_value \times g18_value}{2.25 \times g31_value} &#x3D; f67_value<br>$$<br></span><br>计算载荷系数K:<br>由圆周速度和精度查得<span>$  K_v &#x3D; $</span><input value="1.06" type="text" class="input" id="g26" onchange="change_html(this)">(查《机械设计》图12.1,p385)<br>齿间载荷分配系数<span>$ K_{\alpha}  &#x3D; $</span><input value="1.2" type="text" class="input" id="g27" onchange="change_html(this)">(查《机械设计》表12.2,p383)<br>使用系数<span>$  K_A &#x3D; $</span><input value="1.0" type="text" class="input" id="g28" onchange="change_html(this)">(查《机械设计》表12.1,p382)<br>不知道叫什么系数<span>$  K_{H\beta} &#x3D; $</span><input value="1.55" type="text" class="input" id="g29" onchange="change_html(this)">(查《机械设计》表12.3,p383)<br>则载荷系数为<br><span id="f68"><br>$$<br>K &#x3D; K_A K_v K_{\alpha} K_{H\beta}&#x3D; g28_value \times g26_value \times g27_value \times g29_value &#x3D; f68_value<br>$$<br></span><br>按实际的载荷系数修正分度圆直径：<br><span id="f69"><br>$$<br>d_1 &#x3D; d_{1t} \sqrt[3]{\frac{K}{K_t}} &#x3D; f64_value \times \sqrt[3]{\frac{f68_value}{g19_value}} &#x3D; f69_value mm<br>$$<br></span><br>计算模数<br><span id="f70"><br>$$<br>m &#x3D; \frac{d_1 cos\beta}{z_1} &#x3D; \frac{f69_value \times cos g31_value}{g18_value} &#x3D; f70_value<br>$$<br></span><br><span id="f83">则最终模数为$ m &#x3D; f83_value $</span></p>
+<h5 id="按齿根弯曲疲劳强度设计-1"><a href="#按齿根弯曲疲劳强度设计-1" class="headerlink" title="按齿根弯曲疲劳强度设计"></a>按齿根弯曲疲劳强度设计</h5><p>齿向载荷分布系数<span>$  K_{F\beta} &#x3D; $</span><input value="1.38" type="text" class="input" id="g30" onchange="change_html(this)">(查《机械设计》图12.2,p386)<br>载荷系数为<br><span id="f73"><br>$$<br>K &#x3D; K_A K_v K_{\alpha} K_{F \beta } &#x3D;  g28_value \times g26_value \times g27_value \times g30_value &#x3D; f73_value<br>$$<br></span><br>当量齿数为<br><span id="f74"><br>$$<br>z_{v1} &#x3D; \frac{z_1}{c_os^3 \beta} &#x3D; \frac{g18_value}{cos^3 g31_value} &#x3D; N31_value<br>$$<br>$$<br>z_{v2} &#x3D; \frac{z_2}{c_os^3 \beta} &#x3D; \frac{f59_value}{cos^3 g31_value} &#x3D; N32_value<br>$$<br></span><br>齿形系数和应力校正系数：<br><span id="f75"><br>$$<br>Y_{Fa1} &#x3D; N33_value,Y_{sa1} &#x3D; N34_value<br>$$<br>$$<br>Y_{Fa2} &#x3D; N35_value,Y_{sa2} &#x3D; N36_value<br>$$<br></span><br>轴面重合度：<br><span id="f76"><br>$$<br>\varepsilon_{\beta} &#x3D; 0.318 \phi_{d} z_1 tan \beta &#x3D; 0.318 \times g20_value \times g18_value \times tan g31_value ° &#x3D; f76_value<br>$$<br></span><br>取<span id="f77">$ \varepsilon_{\beta} &#x3D; f77_value $</span>，计算螺旋角影响系数：<br><span id="f78"><br>$$<br>Y_{\beta} &#x3D; 1- \varepsilon_{\beta} \times \beta &#x2F; 120 ° &#x3D; 1- f77_value \times g31_value ° &#x2F; 120 ° &#x3D; f78_value<br>$$<br></span><br>弯曲疲劳强度极限<span>$  \sigma_{Flim1} &#x3D; \sigma_{Flim2}&#x3D; $</span><input value="500" type="text" class="input" id="g32" onchange="change_html(this)">MPa(查《机械设计》图12.5,p387)<br>弯曲疲劳寿命系数<span>$  K_{FN24} &#x3D; $</span><input value="0.86" type="text" class="input" id="g33" onchange="change_html(this)"><br><span>$  K_{FN25} &#x3D; $</span><input value="0.88" type="text" class="input" id="g34" onchange="change_html(this)">(查《机械设计》图12.3,p386)<br>取安全系数<span>$  S_F &#x3D; $</span><input value="1.4" type="text" class="input" id="g35" onchange="change_html(this)"><br><span id="f79"><br>$$<br>[\sigma_{F}]<em>1 &#x3D; \frac{K</em>{FN24} \sigma_{Flim1}}{S_F} &#x3D; \frac{g33_value \times g32_value}{g35_value} &#x3D; N37_value MPa<br>$$<br>$$<br>[\sigma_{F}]<em>2 &#x3D; \frac{K</em>{FN25} \sigma_{Flim2}}{S_F} &#x3D; \frac{g34_value \times g32_value}{g35_value} &#x3D; N38_value MPa<br>$$<br></span></p>
+<p>校核小齿轮：<br><span id="f80"><br>$$<br>\frac{2KT_1 Y_{\beta} cos^2 \beta}{\phi_d \varepsilon_{\alpha} z_1^{2} m_n^{3}} Y_{Fa1} Y_{sa1} &#x3D; \frac{2 \times f68_value \times f60_value \times 1000 \times f78_value \times cos^2 g31_value°}{g20_value \times f76_value \times g18_value ^{2} \times f83_value ^{3}} \times N33_value \times N34_value &#x3D; f80_value \le [\sigma_{F}]_1 &#x3D; N37_value Mpa<br>$$<br></span><br>校核大齿轮：<br><span id="f81"><br>$$<br>0<br>$$<br></span></p>
+<h5 id="几何尺寸计算-1"><a href="#几何尺寸计算-1" class="headerlink" title="几何尺寸计算"></a>几何尺寸计算</h5><p>中心距<br><span id="f84"><br>$$<br>a &#x3D; m_n (z_1 + z_2)&#x2F;(2 cos \beta) &#x3D; f83_value \times (g18_value + f59_value)&#x2F;(2 \times cos g31_value °) mm &#x3D; f84_value mm<br>$$<br></span><br>取中心距<span id="f85">$  a &#x3D; f85_value mm  $</span><br>修正螺旋角：<br><span id="f86"><br>$$<br>\beta &#x3D; arccos[m_n (z_1+z_2)&#x2F;(2a)] &#x3D; arccos[f83_value \times (g18_value + f59_value)&#x2F;(2 \times f85_value)] &#x3D; f86_value &#x3D; N41_value<br>$$<br></span><br>分度圆直径<br><span id="f87"><br>$$<br>d_1 &#x3D; \frac{m_n z_1}{cos \beta} &#x3D; \frac{f83_value \times g18_value}{cos N41_value} &#x3D; N42_value mm<br>$$<br>$$<br>d_2 &#x3D; \frac{m_n z_2}{cos \beta} &#x3D; \frac{f83_value \times f59_value}{cos N41_value} &#x3D; N43_value mm<br>$$<br></span><br>齿宽<br><span id="f88"><br>$$<br>b &#x3D; \phi_d d_l &#x3D; g20_value \times N42_value &#x3D; f88_value mm<br>$$<br></span><br>取<span id="f89">$  B_2 &#x3D; N44_value，B_1 &#x3D; B_2 + 5 &#x3D; N45_value  $</span></p>
 <script>  
 MathJax = {  
 	tex: {  
@@ -592,15 +594,15 @@ let f46_value = 1-f45_value*g13_value/120;
 const f47 = document.getElementById("f47");
 let N14_value = g15_value * g14_value / g17_value;
 let N15_value = g16_value * g14_value / g17_value;
-const f48 = document.getElementById("f48");
-let N16_value = N10_value*N11_value/N14_value;
-let N17_value = N12_value*N13_value/N15_value;
-const f49 = document.getElementById("f49");
-let f49_value = 1.3;
-const f50 = document.getElementById("f50");
-let f50_value = Math.cbrt(2*f41_value*f28_value*f46_value*mcos(g13_value)*mcos(g13_value)/g2_value/f40_value/g0_value/g0_value*f49_value);
+
 const f51 = document.getElementById("f51");
-let f51_value = Math.max(f38_value,f50_value);
+let f51_value = Math.ceil(f38_value);
+const f48 = document.getElementById("f48");
+let f48_value = 2*f36_value*f28_value*1000*f46_value*mcos(g13_value)**2/g2_value/f44_value/(g0_value**2*f51_value**3)*N10_value*N11_value;
+const f49 = document.getElementById("f49");
+let f49_value = 2*f36_value*f28_value*1000*f46_value*mcos(g13_value)**2/g2_value/f44_value/(f27_value**2*f51_value**3)*N12_value*N13_value;
+
+
 const f52 = document.getElementById("f52");
 let f52_value = f51_value*(g0_value + f27_value)/(2*mcos(g13_value));
 const f53 = document.getElementById("f53");
@@ -672,15 +674,14 @@ let f78_value = 1-f77_value*g31_value/120;
 const f79 = document.getElementById("f79");
 let N37_value = g33_value * g32_value / g35_value;
 let N38_value = g34_value * g32_value / g35_value;
-const f80 = document.getElementById("f80");
-let N39_value = N33_value*N34_value/N37_value;
-let N40_value = N35_value*N36_value/N38_value;
-const f81 = document.getElementById("f81");
-let f81_value = 1.3;
-const f82 = document.getElementById("f82");
-let f82_value = Math.cbrt(2*f73_value*f60_value*f78_value*mcos(g31_value)*mcos(g31_value)/g20_value/f72_value/g18_value/g18_value*f81_value);
+
 const f83 = document.getElementById("f83");
-let f83_value = Math.max(f70_value,f82_value);
+let f83_value = Math.ceil(f70_value);
+const f80 = document.getElementById("f80");
+let f80_value = 2*f68_value*f60_value*1000*f78_value*mcos(g31_value)**2/g20_value/f76_value/(g18_value**2*f83_value**3)*N33_value*N34_value;
+const f81 = document.getElementById("f81");
+let f81_value = 2*f68_value*f60_value*1000*f78_value*mcos(g31_value)**2/g20_value/f76_value/(f59_value**2*f83_value**3)*N35_value*N36_value;
+
 const f84 = document.getElementById("f84");
 let f84_value = f83_value*(g18_value + f59_value)/(2*mcos(g31_value));
 const f85 = document.getElementById("f85");
@@ -713,7 +714,7 @@ const formula_chain= {
 "f3":[f4],
 "f4":[P1,T1],
 "f5":[f6,f7],
-"s1":[s1,f7],
+"s1":[s1,f7,n2],
 "f7":[i0,n2,f8],
 "i0":[i0,n3,f11,f19],
 "P1":[P2,T1],
@@ -739,8 +740,8 @@ const formula_chain= {
 "f23":[f24],
 "f24":[f25],
 
-"g0":[f26,f27,f39,f40,f28,f29,f30,f31,f32,f33,f34,f35,f36,f37,f38,f41,f42,f43,f44,f45,f46,f47,f48,f49,f50,f51,f52,f53,f54,f55,f56,f57],
-"g18":[f58,f59,f71,f72,f60,f61,f62,f63,f64,f65,f66,f67,f68,f69,f70,f73,f74,f75,f76,f77,f78,f79,f80,f81,f82,f83,f84,f85,f86,f87,f88,f89],
+"g0":[f26,f27,f39,f40,f28,f29,f30,f31,f32,f33,f34,f35,f36,f37,f38,f41,f42,f43,f44,f45,f46,f47,f48,f49,f51,f52,f53,f54,f55,f56,f57],
+"g18":[f58,f59,f71,f72,f60,f61,f62,f63,f64,f65,f66,f67,f68,f69,f70,f73,f74,f75,f76,f77,f78,f79,f80,f81,f83,f84,f85,f86,f87,f88,f89],
 
 
 };
@@ -751,7 +752,7 @@ f89.latex_update = function(){
 	N44_value = Math.ceil(f88_value/5)*5;
 	N45_value = N44_value+5;
 	f89.textContent = `$  B_2 = ${N44_value} mm，B_1 = B_2 + 5 = ${N45_value} mm $`;
-	window.MathJax.typesetPromise([f58,f59,f71,f72,f60,f61,f62,f63,f64,f65,f66,f67,f68,f69,f70,f73,f74,f75,f76,f77,f78,f79,f80,f81,f82,f83,f84,f85,f86,f87,f88,f89]);
+	window.MathJax.typesetPromise([f58,f59,f71,f72,f60,f61,f62,f63,f64,f65,f66,f67,f68,f69,f70,f73,f74,f75,f76,f77,f78,f79,f80,f81,f83,f84,f85,f86,f87,f88,f89]);
 };
 f88.latex_update = function(){
 	f88_value = g20_value * N42_value;
@@ -781,43 +782,18 @@ f84.latex_update = function(){
 	f84.textContent = `$$ a = m_n (z_1 + z_2)/(2 cos \\beta) = ${f83_value} \\times (${g18_value} + ${f59_value})/(2 \\times cos ${g31_value} °) mm = ${f84_value} mm $$`;
 };
 f83.latex_update = function(){
-	f83_value = Math.max(f70_value,f82_value);
-	for(i in T12_0){
-		if(f83_value-T12_0[i] < 0){
-			f83_value = T12_0[i];
-			break;
-		}
-	}
-	f83.textContent = `$$
-    m_{n1} = ${f70_value}
-    $$
-    $$
-    m_{n2} \\ge ${f82_value}
-    $$
-    则最终模数为$ m = ${f83_value} $`;
+	f83.textContent = `则取模数为$ m = ${f83_value} $`;
 };
-f82.latex_update = function(){
-	f82_value = Math.cbrt(2*f73_value*f60_value*1000*f78_value*mcos(g31_value)*mcos(g31_value)/g20_value/f72_value/g18_value/g18_value*f81_value);
-	f82.textContent = `$$ m_{n} \\ge \\sqrt[3]{\\frac{2 K T_2 Y_\\beta cos^2 \\beta}{\\phi_d \\varepsilon_{\\alpha } z_{1}^{2}} \\times (\\frac{Y_{Fa} Y_{sa}}{[\\sigma_{F}]}}) = \\sqrt[3]{\\frac{2 \\times ${f73_value} \\times ${f60_value} \\times 1000 \\times  ${f78_value} \\times cos^2 ${g31_value} °}{${g20_value} ${f72_value} \\times ${g18_value} ^{2}} \\times ${f81_value}} = ${f82_value} $$`;
-};
+
 f81.latex_update = function(){
-	if(N39_value >= N40_value){
-		f81_value = N39_value;
-	}else{
-		f81_value = N40_value;
-	}
-	f81.textContent = `$  Y_{Fa } Y_{sa} / [\\sigma_{F}] = ${f81_value} $`;
+	f81_value = 2*f68_value*f60_value*1000*f78_value*mcos(g31_value)**2/g20_value/f76_value/(f59_value**2*f83_value**3)*N35_value*N36_value;
+	f81.textContent = `$$ \\frac{2KT_1 Y_{\\beta} cos^2 \\beta}{\\phi_d \\varepsilon_{\\alpha} z_2^{2} m_n^{3}} Y_{Fa2} Y_{sa2} = \\frac{2 \\times ${f68_value} \\times ${f60_value} \\times 1000 \\times ${f78_value} \\times cos^2 ${g31_value}°}{${g20_value} \\times ${f76_value} \\times ${f59_value} ^{2} \\times ${f83_value} ^{3}} \\times ${N35_value} \\times ${N36_value} = ${f81_value} MPa \\le [\\sigma_{F}]_2 = ${N38_value} Mpa $$`;
 };
 f80.latex_update = function(){
-	N39_value = N33_value*N34_value/N37_value;
-	N40_value = N35_value*N36_value/N38_value;
-	f80.textContent = `$$
-    \\frac{Y_{Fa1} Y_{sa1}}{[\\sigma_{F}]} = \\frac{${N33_value} \\times ${N34_value}}{${N37_value}} = ${N39_value}
-    $$
-    $$
-    \\frac{Y_{Fa2} Y_{sa2}}{[\\sigma_{F}]} = \\frac{${N35_value} \\times ${N36_value}}{${N38_value}} = ${N40_value}
-    $$`;
+	f80_value = 2*f68_value*f60_value*1000*f78_value*mcos(g31_value)**2/g20_value/f76_value/(g18_value**2*f83_value**3)*N33_value*N34_value;
+	f80.textContent = `$$ \\frac{2KT_1 Y_{\\beta} cos^2 \\beta}{\\phi_d \\varepsilon_{\\alpha} z_1^{2} m_n^{3}} Y_{Fa1} Y_{sa1} = \\frac{2 \\times ${f68_value} \\times ${f60_value} \\times 1000 \\times ${f78_value} \\times cos^2 ${g31_value}°}{${g20_value} \\times ${f76_value} \\times ${g18_value} ^{2} \\times ${f83_value} ^{3}} \\times ${N33_value} \\times ${N34_value} = ${f80_value} MPa \\le [\\sigma_{F}]_1 = ${N37_value} Mpa $$`;
 };
+
 f79.latex_update = function(){
 	N37_value = g33_value * g32_value / g35_value;
 	N38_value = g34_value * g32_value / g35_value;
@@ -870,6 +846,12 @@ f73.latex_update = function(){
 };
 f70.latex_update = function(){
 	f70_value = f69_value/g18_value*mcos(g31_value);
+	for(i in T12_0){
+		if(f70_value-T12_0[i] < 0){
+			f83_value = T12_0[i];
+			break;
+		}
+	}
 	f70.textContent = `$$ m = \\frac{d_1 cos\\beta}{z_1} = \\frac{${f69_value} \\times cos ${g31_value} °}{${g18_value}} = ${f70_value} $$`;
 };
 f69.latex_update = function(){
@@ -943,7 +925,7 @@ f57.latex_update = function(){
 	N21_value = Math.ceil(f56_value/5)*5;
 	N22_value = N21_value+5;
 	f57.textContent = `$  B_2 = ${N21_value} mm，B_1 = B_2 + 5 = ${N22_value} mm $`;
-	window.MathJax.typesetPromise([f26,f27,f39,f40,f28,f29,f30,f31,f32,f33,f34,f35,f36,f37,f38,f41,f42,f43,f44,f45,f46,f47,f48,f49,f50,f51,f52,f53,f54,f55,f56,f57]);
+	window.MathJax.typesetPromise([f26,f27,f39,f40,f28,f29,f30,f31,f32,f33,f34,f35,f36,f37,f38,f41,f42,f43,f44,f45,f46,f47,f48,f49,f51,f52,f53,f54,f55,f56,f57]);
 };
 f56.latex_update = function(){
 	f56_value = g2_value * N19_value;
@@ -973,42 +955,16 @@ f52.latex_update = function(){
 	f52.textContent = `$$ a = m_n (z_1 + z_2)/(2 cos \\beta) = ${f51_value} \\times (${g0_value} + ${f27_value})/(2 \\times cos ${g13_value} °) mm = ${f52_value} mm $$`;
 };
 f51.latex_update = function(){
-	f51_value = Math.max(f38_value,f50_value);
-	for(i in T12_0){
-		if(f51_value-T12_0[i] < 0){
-			f51_value = T12_0[i];
-			break;
-		}
-	}
-	f51.textContent = `$$
-    m_{n1} = ${f38_value}
-    $$
-    $$
-    m_{n2} \\ge ${f50_value}
-    $$
-    则最终模数为$ m = ${f51_value} $`;
+	f51.textContent = `则取模数为$ m = ${f51_value} $`;
 };
-f50.latex_update = function(){
-	f50_value = Math.cbrt(2*f41_value*f28_value*1000*f46_value*mcos(g13_value)*mcos(g13_value)/g2_value/f40_value/g0_value/g0_value*f49_value);
-	f50.textContent = `$$ m_{n} \\ge \\sqrt[3]{\\frac{2 K T_1 Y_\\beta cos^2 \\beta}{\\phi_d \\varepsilon_{\\alpha } z_{1}^{2}} \\times (\\frac{Y_{Fa} Y_{sa}}{[\\sigma_{F}]}}) = \\sqrt[3]{\\frac{2 \\times ${f41_value} \\times ${f28_value} \\times 1000 \\times  ${f46_value} \\times cos^2 ${g13_value} °}{${g2_value} ${f40_value} \\times ${g0_value} ^{2}} \\times ${f49_value}} = ${f50_value} $$`;
-};
+
 f49.latex_update = function(){
-	if(N16_value >= N17_value){
-		f49_value = N16_value;
-	}else{
-		f49_value = N17_value;
-	}
-	f49.textContent = `$  Y_{Fa } Y_{sa} / [\\sigma_{F}] = ${f49_value} $`;
+	f49_value = 2*f36_value*f28_value*1000*f46_value*mcos(g13_value)**2/g2_value/f44_value/(f27_value**2*f51_value**3)*N12_value*N13_value;
+	f49.textContent = `$$ \\frac{2KT_1 Y_{\\beta} cos^2 \\beta}{\\phi_d \\varepsilon_{\\alpha} z_2^{2} m_n^{3}} Y_{Fa2} Y_{sa2} = \\frac{2 \\times ${f36_value} \\times ${f28_value} \\times 1000 \\times ${f46_value} \\times cos^2 ${g13_value}°}{${g2_value} \\times ${f44_value} \\times ${f27_value} ^{2} \\times ${f51_value} ^{3}} \\times ${N12_value} \\times ${N13_value} = ${f49_value} MPa \\le [\\sigma_{F}]_1 = ${N15_value} Mpa $$`;
 };
 f48.latex_update = function(){
-	N16_value = N10_value*N11_value/N14_value;
-	N17_value = N12_value*N13_value/N15_value;
-	f48.textContent = `$$
-    \\frac{Y_{Fa1} Y_{sa1}}{[\\sigma_{F}]} = \\frac{${N10_value} \\times ${N11_value}}{${N14_value}} = ${N16_value}
-    $$
-    $$
-    \\frac{Y_{Fa2} Y_{sa2}}{[\\sigma_{F}]} = \\frac{${N12_value} \\times ${N13_value}}{${N15_value}} = ${N17_value}
-    $$`;
+	f48_value = 2*f36_value*f28_value*1000*f46_value*mcos(g13_value)**2/g2_value/f44_value/(g0_value**2*f51_value**3)*N10_value*N11_value;
+	f48.textContent = `$$ \\frac{2KT_1 Y_{\\beta} cos^2 \\beta}{\\phi_d \\varepsilon_{\\alpha} z_1^{2} m_n^{3}} Y_{Fa1} Y_{sa1} = \\frac{2 \\times ${f36_value} \\times ${f28_value} \\times 1000 \\times ${f46_value} \\times cos^2 ${g13_value}°}{${g2_value} \\times ${f44_value} \\times ${g0_value} ^{2} \\times ${f51_value} ^{3}} \\times ${N10_value} \\times ${N11_value} = ${f48_value} MPa \\le [\\sigma_{F}]_2 = ${N14_value} Mpa $$`;
 };
 f47.latex_update = function(){
 	N14_value = g15_value * g14_value / g17_value;
@@ -1062,6 +1018,12 @@ f41.latex_update = function(){
 };
 f38.latex_update = function(){
 	f38_value = f37_value/g0_value*mcos(g13_value);
+	for(i in T12_0){
+		if(f38_value-T12_0[i] < 0){
+			f51_value = T12_0[i];
+			break;
+		}
+	}
 	f38.textContent = `$$ m = \\frac{d_1 cos\\beta}{z_1} = \\frac{${f37_value} \\times cos ${g13_value} °}{${g0_value}} = ${f38_value} $$`;
 };
 f37.latex_update = function(){
@@ -1301,13 +1263,13 @@ n2.latex_update = function(){
 };
 P4.latex_update = function(){
     P4_value = P3_value * e0_value * e1_value * e2_value;
-    P4.textContent = `$$ P_{Ⅲ} = P_{Ⅱ} \\times \\eta_{带} \\times \\eta_{齿轮} \\times \\eta_{轴承}=${P3_value} \\times ${e0_value} \\times ${e1_value} \\times ${e2_value} kW=${P4_value} kW $$`;
+    P4.textContent = `$$ P_{Ⅲ} = P_{Ⅱ} \\times \\eta_{齿轮} \\times \\eta_{轴承}=${P3_value} \\times ${e1_value} \\times ${e2_value} kW=${P4_value} kW $$`;
 	window.MathJax.typesetPromise([P4]);
 	change_html(P4);
 };
 P3.latex_update = function(){
     P3_value = P2_value * e0_value * e1_value * e2_value;
-    P3.textContent = `$$ P_{Ⅱ} = P_{Ⅰ} \\times \\eta_{带} \\times \\eta_{齿轮} \\times \\eta_{轴承}=${P2_value} \\times ${e0_value} \\times ${e1_value} \\times ${e2_value} kW=${P3_value} kW $$`;
+    P3.textContent = `$$ P_{Ⅱ} = P_{Ⅰ} \\times \\eta_{齿轮} \\times \\eta_{轴承}=${P2_value} \\times ${e1_value} \\times ${e2_value} kW=${P3_value} kW $$`;
 	window.MathJax.typesetPromise([P3]);
 	change_html(P3);
 };
@@ -1318,13 +1280,14 @@ P2.latex_update = function(){
 	change_html(P2);
 };
 P1.latex_update = function(){
-    P1_value = f4_value;
-    P1.textContent = `$$ P_d = ${f4_value} $$`;
+    P1_value = f3_value;
+    P1.textContent = `$$ P_d = ${f3_value} $$`;
 	window.MathJax.typesetPromise([P1]);
 	change_html(P1);
 };
 i0.latex_update = function(){
     choose_trans_ratio();
+    console.log("i0000000000");
     i1.textContent = `$ i_1=${i1_value} $`;
     i2.textContent = `$ i_2=${i2_value} $`;
 	window.MathJax.typesetPromise([i1,i2]);
@@ -1350,8 +1313,8 @@ f5.latex_update = function(){
 	
     f5_value = 60*1000*v0_value/(Math.PI*D0_value);
     f5.textContent = `$$ n_w = \\frac{60 \\times 1000v}{\\pi D}=\\frac{60 \\times 1000 \\times ${v0_value}}{\\pi \\times ${D0_value}} r/min = ${f5_value} r/min $$`;
-	window.MathJax.typesetPromise([f5]);
-	change_html(f5);
+    window.MathJax.typesetPromise([f5]);
+    change_html(f5);
 };
 f4.latex_update = function(){
     f4_value = K0_value*f3_value;
