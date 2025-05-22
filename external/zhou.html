@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>中间轴结构图 - 专业版</title>
+    <style>
+        canvas {
+            border: 1px solid #ccc;
+            display: block;
+            margin: 20px auto;
+            background-color: white;
+        }
+        body {
+            font-family: sans-serif;
+            font-size: 12px; /* 设置默认文字大小 */
+        }
+    </style>
+</head>
+<body>
+
+    <canvas id="shaftCanvas" width="1000" height="550"></canvas>
+
+<script>
+
+function drawShaft(segments,type="middle") {
+    const canvas = document.getElementById('shaftCanvas');
+    if (!canvas.getContext) {
+        alert('您的浏览器不支持 Canvas！');
+        return;
+    }
+    const ctx = canvas.getContext('2d');
+
+    // --- 绘图参数 ---
+    const scale = 2.5; // 比例尺： 1 毫米对应多少像素
+    const padding = 80; // 留白边距
+
+    // 根据分段长度计算总长度 (以几何形状为准)
+    const totalLength = segments.reduce((sum, seg) => sum + seg.len, 0); // 280.5 mm
+
+    // 计算绘图区域的中心线 Y 坐标
+    const centerLineY = canvas.height / 2;
+    const startX = padding; // 轴左端在 Canvas 上的 X 坐标
+
+    // 键槽数据
+    const middleKeyway = {
+        shaftSegmentIndex: 4,
+        r: 5*scale, // 键槽半径
+        x: 0,
+        l: 0,
+    };
+    if(type=="middle"){
+        keyway = [middleKeyway];
+    }
+
+
+
+    // --- 辅助绘图函数 ---
+
+    // 设置线宽
+    function setLineWidth(ctx, width) {
+        ctx.lineWidth = width;
+    }
+
+    // 绘制填充的箭头
+    function drawFilledArrowhead(ctx, x, y, angle, size = 7) {
+        ctx.save();
+        ctx.translate(x, y);
+        ctx.rotate(angle);
+        ctx.beginPath();
+        ctx.moveTo(0, 0);
+        ctx.lineTo(-size, size / 3);
+        ctx.lineTo(-size, -size / 3);
+        ctx.closePath();
+        ctx.fill();
+        ctx.restore();
+    }
+
+    // 绘制水平尺寸标注
+    function drawHorizontalDimension(ctx, x1_mm, x2_mm, y_mm, y_offset_mm, text) {
+        const x1 = startX + x1_mm * scale;
+        const x2 = startX + x2_mm * scale;
+        const y = centerLineY + y_offset_mm * scale; // 标注线 Y 坐标
+        const textY = y - 5; // 文字 Y 坐标，稍微偏离尺寸线
+
+        ctx.save();
+        setLineWidth(ctx, 1); // 尺寸线细线
+        ctx.strokeStyle = 'black';
+        ctx.fillStyle = 'black';
+        ctx.font = '16px Arial';
+        ctx.textAlign = 'center';
+        ctx.textBaseline = 'bottom'; // 文字在尺寸线下方或上方
+
+        // 尺寸界线 (从标注点向外延伸一小段)
+        ctx.beginPath();
+        //ctx.moveTo(x1, centerLineY + (segments[0].dia/2 + Math.abs(y_offset_mm)) * scale * Math.sign(y_offset_mm) * -1); // 辅助定位，从轴轮廓位置向标注线延伸
+        ctx.moveTo(x1, centerLineY+Math.sign(y_offset_mm)*y_mm*scale);
+        ctx.lineTo(x1, y+y_offset_mm/4);
+        ctx.stroke();
+
+        ctx.beginPath();
+        //ctx.moveTo(x2, centerLineY + (segments[segments.length-1].dia/2 + Math.abs(y_offset_mm)) * scale * Math.sign(y_offset_mm) * -1); // 辅助定位
+        ctx.moveTo(x2, centerLineY+Math.sign(y_offset_mm)*y_mm*scale);
+        ctx.lineTo(x2, y+y_offset_mm/4);
+        ctx.stroke();
+
+
+        // 尺寸线
+        ctx.beginPath();
+        ctx.moveTo(x1, y);
+        ctx.lineTo(x2, y);
+        ctx.stroke();
+
+        // 箭头
+        drawFilledArrowhead(ctx, x1, y, Math.PI); // 指向左侧
+        drawFilledArrowhead(ctx, x2, y, 0); // 指向右侧
+
+        // 文字
+        ctx.fillText(text, (x1 + x2) / 2, textY);
+
+        ctx.restore();
+    }
+
+    // 绘制垂直尺寸标注 (标注直径)
+    function drawVerticalDimension(ctx, diameter, x_mm, y_offset_mm, text) {
+        const radius = (diameter / 2) * scale;
+        const y_top = centerLineY - radius; // 直径顶部 Y
+        const y_bottom = centerLineY + radius; // 直径底部 Y
+        const x = startX + x_mm * scale;
+        const textY = centerLineY + y_offset_mm * scale; // 文字Y坐标 (y_offset_mm 控制上下)
+        const textX = x; // 文字X坐标 (y_offset_mm 控制左右)
+        const fontSize = 16;
+
+        ctx.save();
+        setLineWidth(ctx, 1);
+        ctx.strokeStyle = 'black';
+        ctx.fillStyle = 'black';
+        ctx.font = `${fontSize}px Arial`;
+        ctx.textAlign = 'left';
+        ctx.textBaseline = 'middle';
+
+        // 尺寸界线 (从轴轮廓向外延伸)
+        // ctx.beginPath();
+        // ctx.moveTo(x, y_top);
+        // ctx.lineTo(x + 10, y_top); // 向左或向右延伸
+        // ctx.stroke();
+
+        // ctx.beginPath();
+        // ctx.moveTo(x, y_bottom);
+        // ctx.lineTo(x + 10, y_bottom); // 向左或向右延伸
+        // ctx.stroke();
+
+        // 尺寸线
+        ctx.beginPath();
+        ctx.moveTo(x , y_top);
+        ctx.lineTo(x , y_bottom);
+        ctx.stroke();
+
+         // 箭头
+        drawFilledArrowhead(ctx, x, y_top, -Math.PI/2); // 指向上
+        drawFilledArrowhead(ctx, x, y_bottom, Math.PI/2); // 指向下
+
+        // 文字 (在直径前添加 φ 符号)
+        ctx.rotate(-Math.PI / 2);
+        ctx.fillStyle="white";
+        const { width } = ctx.measureText(`φ${text}`);
+        ctx.fillRect(-textY, textX-fontSize/2, width, fontSize);
+        ctx.fillStyle="black";
+        ctx.fillText(`φ${text}`, -textY, textX);
+
+        ctx.restore();
+    }
+
+    // 绘制文字标签
+    function drawLabel(ctx, text, labelX_mm, labelY_mm, left = 1) {
+        const labelX = startX + labelX_mm * scale;
+        const labelY = centerLineY + labelY_mm * scale;
+
+        ctx.save();
+        setLineWidth(ctx, 1);
+        ctx.strokeStyle = 'black';
+        ctx.fillStyle = 'black';
+        ctx.font = '16px Arial';
+
+        // 绘制文字
+        ctx.save();
+        ctx.translate(labelX, labelY);
+        if(left){ctx.textAlign = 'left';}else{ctx.textAlign = 'right';};
+        ctx.textBaseline = 'bottom';
+        ctx.fillText(text, 0, 0);
+        ctx.restore();
+
+    }
+
+    // 绘制点划线 (中心线常用)
+    function drawDotDashLine(ctx, x1, y1, x2, y2, pattern = [10, 5, 2, 5]) { // 长划，间隙，点，间隙
+        ctx.save();
+        ctx.setLineDash(pattern);
+        setLineWidth(ctx, 1); // 中心线细线
+        ctx.strokeStyle = 'gray';
+        ctx.beginPath();
+        ctx.moveTo(x1, y1);
+        ctx.lineTo(x2, y2);
+        ctx.stroke();
+        ctx.restore(); // 恢复实线模式
+    }
+
+    // 绘制键槽
+    function drawKeyway(ctx, x, y, r, l){
+        ctx.beginPath();
+        ctx.arc(x+r,y+r,r,0.5*Math.PI,1.5*Math.PI);
+        ctx.moveTo(x+r, y);
+        ctx.lineTo(x+r+l, y);
+        ctx.arc(x+r+l,y+r,r,1.5*Math.PI,0.5*Math.PI);
+        ctx.moveTo(x+r+l,y+2*r);
+        ctx.lineTo(x+r, y+2*r);
+        ctx.stroke();
+    }
+
+    // 绘制轴体
+    function drawShaft(ctx, x, len, dia, mode=0, chamfer=1.5){
+        // 绘制轴体
+        const rectX = startX + x * scale; 
+        const rectY = centerLineY - (dia / 2) * scale; 
+        const rectWidth = len * scale; 
+        const rectHeight = dia * scale;
+        if(mode){
+            // TODO：绘制带有倒角的轴体
+            ctx.moveTo(startX, rectY);
+            // 绘制轴体
+            ctx.strokeRect(rectX, rectY, rectWidth, rectHeight);
+        }
+        else{
+            // 移动到左端上边起点
+            ctx.moveTo(startX, rectY);
+            // 绘制轴体
+            ctx.strokeRect(rectX, rectY, rectWidth, rectHeight);
+        }
+        
+    }
+
+    // 格式化轴参数
+    let shaftSegments = [];
+    let verticalDimensionX_mm = [];
+    let dashLineX_mm = [];
+    let dashLineMiddleIndex = [0,5,6,7];
+    let tempDia = segments[0].dia;
+    let tempLen = 0;
+    let tempVerLen = 0;
+    let maxDia_mm = 0;
+    let tempDashLen = 0;
+    segments.forEach((seg,index) =>{
+        tempDashLen+=seg.len;
+        if(seg.dia > maxDia_mm){
+            maxDia_mm = seg.dia;
+        }
+        if(seg.dia == tempDia){
+            tempLen += seg.len;
+        }
+        else{
+            shaftSegments.push({"dia":tempDia,"len":tempLen});
+            verticalDimensionX_mm.push([tempVerLen+tempLen/2,tempDia]);
+            tempVerLen += tempLen;
+            tempDia = seg.dia;
+            tempLen = seg.len;
+        }
+        if(index==(segments.length-1)){
+            shaftSegments.push({"dia":tempDia,"len":tempLen});
+            verticalDimensionX_mm.push([tempVerLen+tempLen/2,tempDia]);
+            tempVerLen += tempLen;
+            tempDia = seg.dia;
+            tempLen = seg.len;
+        }
+        if(type=="middle"){
+            if(dashLineMiddleIndex.includes(index)){
+                dashLineX_mm.push(tempDashLen);
+            }
+        }
+    });
+    //console.log(shaftSegments);
+    //console.log(dashLineX_mm);
+
+    // --- 开始绘制 ---
+
+    // 绘制中心线 (稍微超出轴的两端)
+    drawDotDashLine(ctx, startX - padding / 4, centerLineY, startX + totalLength * scale + padding / 4, centerLineY);
+
+    // 分界虚线
+    ctx.setLineDash([12, 8]);
+    dashLineX_mm.forEach(x=>{
+        ctx.beginPath();
+        ctx.moveTo(startX+x*scale, centerLineY+maxDia_mm*scale/2); // 起点
+        ctx.lineTo(startX+x*scale, centerLineY-maxDia_mm*scale/2); // 终点
+        // 描边路径，绘制虚线
+        ctx.stroke();
+    })
+    ctx.setLineDash([]);
+
+    // 绘制轴的轮廓 (粗实线)
+    setLineWidth(ctx, 2); // 轴轮廓使用粗线
+    ctx.strokeStyle = 'black';
+    let currentX_mm = 0; // 当前 X 坐标 (像素)
+    shaftSegments.forEach((seg, index) => {
+        if(index == 0 || index == shaftSegments.length-1){
+            drawShaft(ctx,currentX_mm,seg.len,seg.dia,1);
+        }
+        else{
+            drawShaft(ctx,currentX_mm,seg.len,seg.dia,0);
+        }
+        currentX_mm = currentX_mm + seg["len"];
+    });
+    ctx.save();
+
+    // --- 绘制键槽 (粗实线) ---
+    let keywaySegStartX_mm = 0;
+    let keywayPadding = 4*scale;
+    for(let i = 0; i < shaftSegments.length; i++) {
+        keywaySegStartX_mm += shaftSegments[i].len;
+        for(j in keyway){
+            if(keyway[j].shaftSegmentIndex == i+1){
+                keyway[j].x = startX + keywaySegStartX_mm *scale + keywayPadding;
+                keyway[j].l = shaftSegments[i+1].len *scale - keyway[j].r*2 - keywayPadding*2;
+                drawKeyway(ctx,keyway[j].x,centerLineY-keyway[j].r,keyway[j].r,keyway[j].l);
+            }
+        }
+    }
+
+    // --- 绘制尺寸标注 ---
+
+    // 水平长度标注 (上方)
+    let currentX_mm_dim = 0;
+    let ymm_padding = 10;
+    segments.forEach((seg) => {
+        drawHorizontalDimension(ctx, currentX_mm_dim, currentX_mm_dim + seg.len, seg.dia/2, -(maxDia_mm/2+ymm_padding), seg.len.toString());
+        currentX_mm_dim += seg.len;
+    });
+
+     // 水平长度标注 (下方)
+     drawHorizontalDimension(ctx, 0, totalLength, segments[0].dia/2, maxDia_mm/2+ymm_padding*2, `(${totalLength})`);
+
+     // 标注 (从左侧 φ70 台阶开始到右侧 φ60 台阶前 - 按图纸位置)
+     const box_inner_start_mm = segments[0].len + segments[1].len; 
+     const box_inner_end_mm = totalLength - segments[segments.length-1].len - segments[segments.length-2].len;
+     const box_inner_len_mm =  box_inner_end_mm - box_inner_start_mm;
+     drawHorizontalDimension(ctx, box_inner_start_mm, box_inner_end_mm, segments[0].dia/2, -(maxDia_mm/2+ymm_padding*3), `${box_inner_len_mm}`); 
+    
+    let xmm_padding = 6;
+     // 垂直直径标注 (分散标注，避免拥挤)
+    for(dim of verticalDimensionX_mm){
+        drawVerticalDimension(ctx, dim[1], dim[0], xmm_padding, `${dim[1]}`);
+    }
+    // console.log(verticalDimensionX_mm);
+
+
+
+    // --- 绘制文字标注 ---
+
+    // "箱内壁" (左侧)
+    const boxWallLabelX1_mm = box_inner_start_mm; 
+    const boxWallLabelY_mm = -(maxDia_mm/2+ymm_padding*2);
+    drawLabel(ctx, "箱内壁", boxWallLabelX1_mm, boxWallLabelY_mm);
+
+    // "箱内壁" (右侧)
+    const boxWallLabelX2_mm = box_inner_end_mm; 
+    drawLabel(ctx, "箱内壁", boxWallLabelX2_mm, boxWallLabelY_mm, 0);
+
+    // "轴承端面" (左侧)
+    const bearingLeftLabelX1_mm = dashLineX_mm[0];
+    const bearingLeftLabelY_mm = maxDia_mm/2;
+    drawLabel(ctx, "轴承端面", bearingLeftLabelX1_mm, bearingLeftLabelY_mm,0);
+
+    // "轴承端面" (右侧)
+    const bearingLeftLabelX2_mm = dashLineX_mm[dashLineX_mm.length-1];
+    drawLabel(ctx, "轴承端面", bearingLeftLabelX2_mm, bearingLeftLabelY_mm);
+
+    // 图纸编号和名称 (左侧下方)
+    const captionX_mm = totalLength/2-20;
+    const captionY_mm = (maxDia_mm/2+ymm_padding*3);
+    drawLabel(ctx, "中间轴结构图", captionX_mm, captionY_mm);
+
+
+};
+
+// --- 轴的几何数据 (单位：毫米) ---
+// const testSegments = [
+//     { len: 23.75, dia: 60 },
+//     { len: 10, dia: 60 }, 
+//     { len: 12, dia: 70 },
+//     { len: 100, dia: 99.08 }, 
+//     { len: 10, dia: 70 }, 
+//     { len: 60, dia: 65 }, 
+//     { len: 12, dia: 60 }, 
+//     { len: 10, dia: 60 },
+//     { len: 23.75, dia: 60 } // 无台阶
+// ];
+
+window.onload = function(){
+    window.addEventListener('message',function(e){
+        drawShaft(e.data[0]);
+    })
+    
+};
+
+
+</script>
+</body>
+</html>

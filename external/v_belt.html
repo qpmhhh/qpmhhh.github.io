@@ -537,7 +537,7 @@ function changePosition(input_p=-1,input_n=-1){
     let beltType1 = VbeltChart.getBeltType(p, n);
     //console.log(`P=${p}kW, n=${n}r/min 推荐带型: ${beltType1}`);
     resultBeltType = beltType1;
-    window.parent.postMessage(resultBeltType, "*");
+    window.parent.postMessage(["v_belt",resultBeltType], "*");
 };
 
 window.onload = function(){
