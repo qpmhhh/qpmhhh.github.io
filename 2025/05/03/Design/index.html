@@ -27,7 +27,7 @@
 <meta property="og:description" content="原始数据输送带工作拉力F： N输送带工作速度v： m&#x2F;s滚筒直径D： mm滚筒及输送带效率$ \eta_{带}&#x3D; $ 以下所有查表若无特殊说明均是《机械设计课程设计(第3版)》里面的。 电机型号选择电动机功率选择计算工作机所需的功率$$P_w &#x3D; Fv &#x3D; F0_value \times v0_value W&#x3D;f1_value">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2025-05-03T08:55:56.000Z">
-<meta property="article:modified_time" content="2025-05-22T09:39:20.652Z">
+<meta property="article:modified_time" content="2025-05-22T10:38:41.478Z">
 <meta property="article:author" content="qpm">
 <meta name="twitter:card" content="summary_large_image">
   
@@ -349,7 +349,7 @@
 <h4 id="带型选择"><a href="#带型选择" class="headerlink" title="带型选择"></a>带型选择</h4><p>由所求得功率和转速，根据附图2.1(《机械设计》，P353，也可以参考下图)可查得，选择的带型为<span id="f9">A</span>型带。</p>
 <p id="warning2" class="warning"></p>
 <div style="width: 100%; height: 300px;">
-<iframe src="/external/v_belt.html" frameborder="no" id="v_belt" style="width: 600px; height: 400px;transform-origin: left top; transform: scale(0.8, 0.75)"></iframe>
+<iframe src="/external/v_belt.html" frameborder="no" id="v_belt" style="width: 600px; height: 400px;transform-origin: left top; transform: scale(0.8, 0.75);overflow:scroll;"></iframe>
 </div>
 
 <h4 id="带轮设计"><a href="#带轮设计" class="headerlink" title="带轮设计"></a>带轮设计</h4><p>由附表2.7(《机械设计》，P352)取主动轮基准直径为：<br><span id="f10"><br>$$<br>D_1 &#x3D; f10_value mm<br>$$<br></span><br>根据式<span>$ D_2 &#x3D; i_{带}*D_1 $</span>计算从动轮基准直径<span>$ D_2 $</span>，得<br><span id="f11"><br>$$<br>D_2 &#x3D; i_{带}<em>D_1 &#x3D; i0_value</em>f10_value mm &#x3D; f11_value mm<br>$$<br></span><br>由附表2.7(《机械设计》，P352)取从动轮基准直径为：<br><span id="f12"><br>$$<br>D_2 &#x3D; f12_value mm<br>$$<br></span></p>
@@ -1780,9 +1780,16 @@ function draw_shaft_middle(){
 		{ len: d5_value, dia: d1_value },
 		{ len: G0_value, dia: d1_value } // 无台阶
 	];
-	zhou_m.onload = function() {
-		zhou_m.contentWindow.postMessage([segments], "*");
-	};
+	if (zhou_m.onload){
+        zhou_m.contentWindow.postMessage([segments], "*");
+	} else {
+		zhou_m.onload = function(){
+			zhou_m.contentWindow.postMessage([segments], "*");
+		};
+	}
+	// setTimeout(function(){
+    // 	zhou_m.contentWindow.postMessage([segments], "*");
+	// }, 500);
 }
 window.onload = function() {
 	window.addEventListener('message',function(e){
