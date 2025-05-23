@@ -17,7 +17,7 @@
 </head>
 <body>
 
-    <canvas id="shaftCanvas" width="1000" height="550"></canvas>
+    <canvas id="shaftCanvas" width="1200" height="550"></canvas>
 
 <script>
 
@@ -30,16 +30,20 @@ function drawShaft(segments,type="middle") {
     canvas.width = canvas.width;
     const ctx = canvas.getContext('2d');
 
-    // --- 绘图参数 ---
-    const scale = 2.5; // 比例尺： 1 毫米对应多少像素
-    const padding = 80; // 留白边距
-
     // 根据分段长度计算总长度 (以几何形状为准)
-    const totalLength = segments.reduce((sum, seg) => sum + seg.len, 0); // 280.5 mm
+    const totalLength = segments.reduce((sum, seg) => sum + seg.len, 0); 
+    let scale = 2.5;
+    // --- 绘图参数 ---
+    if(totalLength*2.5>1000){
+        scale = 2; // 比例尺： 1 毫米对应多少像素
+    }
+    const padding = 80; // 留白边距
 
     // 计算绘图区域的中心线 Y 坐标
     const centerLineY = canvas.height / 2;
     const startX = padding; // 轴左端在 Canvas 上的 X 坐标
+
+    let shaftName = ""
 
     // 键槽数据
     const middleKeyway = {
@@ -48,8 +52,35 @@ function drawShaft(segments,type="middle") {
         x: 0,
         l: 0,
     };
+    const highKeyway = {
+        shaftSegmentIndex: 8,
+        r: 5*scale, // 键槽半径
+        x: 0,
+        l: 0,
+    };
+    const lowKeyway1 = {
+        shaftSegmentIndex: 0,
+        r: 5*scale, // 键槽半径
+        x: 0,
+        l: 0,
+    };
+    const lowKeyway2 = {
+        shaftSegmentIndex: 3,
+        r: 5*scale, // 键槽半径
+        x: 0,
+        l: 0,
+    };
     if(type=="middle"){
         keyway = [middleKeyway];
+        shaftName = "中间轴";
+    }
+    else if(type=="high"){
+        keyway = [highKeyway];
+        shaftName = "高速轴";
+    }
+    else if(type=="low"){
+        keyway = [lowKeyway1,lowKeyway2];
+        shaftName = "低速轴";
     }
 
 
@@ -263,20 +294,19 @@ function drawShaft(segments,type="middle") {
             tempDia = seg.dia;
             tempLen = seg.len;
         }
-        if(index==(segments.length-1)){
+        if(index==(segments.length-1) && seg.dia == tempDia){
             shaftSegments.push({"dia":tempDia,"len":tempLen});
             verticalDimensionX_mm.push([tempVerLen+tempLen/2,tempDia]);
-            tempVerLen += tempLen;
-            tempDia = seg.dia;
-            tempLen = seg.len;
         }
+        
         if(type=="middle"){
             if(dashLineMiddleIndex.includes(index)){
                 dashLineX_mm.push(tempDashLen);
             }
         }
     });
-    //console.log(shaftSegments);
+    // console.log(segments);
+    // console.log(shaftSegments);
     //console.log(dashLineX_mm);
 
     // --- 开始绘制 ---
@@ -314,14 +344,14 @@ function drawShaft(segments,type="middle") {
     let keywaySegStartX_mm = 0;
     let keywayPadding = 4*scale;
     for(let i = 0; i < shaftSegments.length; i++) {
-        keywaySegStartX_mm += shaftSegments[i].len;
         for(j in keyway){
-            if(keyway[j].shaftSegmentIndex == i+1){
+            if(keyway[j].shaftSegmentIndex == i){
                 keyway[j].x = startX + keywaySegStartX_mm *scale + keywayPadding;
-                keyway[j].l = shaftSegments[i+1].len *scale - keyway[j].r*2 - keywayPadding*2;
+                keyway[j].l = shaftSegments[i].len *scale - keyway[j].r*2 - keywayPadding*2;
                 drawKeyway(ctx,keyway[j].x,centerLineY-keyway[j].r,keyway[j].r,keyway[j].l);
             }
         }
+        keywaySegStartX_mm += shaftSegments[i].len;
     }
 
     // --- 绘制尺寸标注 ---
@@ -337,12 +367,14 @@ function drawShaft(segments,type="middle") {
      // 水平长度标注 (下方)
      drawHorizontalDimension(ctx, 0, totalLength, segments[0].dia/2, maxDia_mm/2+ymm_padding*2, `(${totalLength})`);
 
-     // 标注 (从左侧 φ70 台阶开始到右侧 φ60 台阶前 - 按图纸位置)
-     const box_inner_start_mm = segments[0].len + segments[1].len; 
-     const box_inner_end_mm = totalLength - segments[segments.length-1].len - segments[segments.length-2].len;
-     const box_inner_len_mm =  box_inner_end_mm - box_inner_start_mm;
-     drawHorizontalDimension(ctx, box_inner_start_mm, box_inner_end_mm, segments[0].dia/2, -(maxDia_mm/2+ymm_padding*3), `${box_inner_len_mm}`); 
-    
+    const box_inner_start_mm = segments[0].len + segments[1].len; 
+    const box_inner_end_mm = totalLength - segments[segments.length-1].len - segments[segments.length-2].len;
+    const box_inner_len_mm =  box_inner_end_mm - box_inner_start_mm;
+    if(type=="middle"){
+    // 标注 (从左侧 φ70 台阶开始到右侧 φ60 台阶前 - 按图纸位置)
+        drawHorizontalDimension(ctx, box_inner_start_mm, box_inner_end_mm, segments[0].dia/2, -(maxDia_mm/2+ymm_padding*3), `${box_inner_len_mm}`); 
+    }
+     
     let xmm_padding = 6;
      // 垂直直径标注 (分散标注，避免拥挤)
     for(dim of verticalDimensionX_mm){
@@ -353,29 +385,30 @@ function drawShaft(segments,type="middle") {
 
 
     // --- 绘制文字标注 ---
-
-    // "箱内壁" (左侧)
     const boxWallLabelX1_mm = box_inner_start_mm; 
     const boxWallLabelY_mm = -(maxDia_mm/2+ymm_padding*2);
-    drawLabel(ctx, "箱内壁", boxWallLabelX1_mm, boxWallLabelY_mm);
-
-    // "箱内壁" (右侧)
     const boxWallLabelX2_mm = box_inner_end_mm; 
-    drawLabel(ctx, "箱内壁", boxWallLabelX2_mm, boxWallLabelY_mm, 0);
-
-    // "轴承端面" (左侧)
     const bearingLeftLabelX1_mm = dashLineX_mm[0];
     const bearingLeftLabelY_mm = maxDia_mm/2;
-    drawLabel(ctx, "轴承端面", bearingLeftLabelX1_mm, bearingLeftLabelY_mm,0);
-
-    // "轴承端面" (右侧)
     const bearingLeftLabelX2_mm = dashLineX_mm[dashLineX_mm.length-1];
-    drawLabel(ctx, "轴承端面", bearingLeftLabelX2_mm, bearingLeftLabelY_mm);
+    if(type=="middle"){
+        // "箱内壁" (左侧)
+        drawLabel(ctx, "箱内壁", boxWallLabelX1_mm, boxWallLabelY_mm);
+
+        // "箱内壁" (右侧)
+        drawLabel(ctx, "箱内壁", boxWallLabelX2_mm, boxWallLabelY_mm, 0);
+
+        // "轴承端面" (左侧)
+        drawLabel(ctx, "轴承端面", bearingLeftLabelX1_mm, bearingLeftLabelY_mm,0);
+
+        // "轴承端面" (右侧)
+        drawLabel(ctx, "轴承端面", bearingLeftLabelX2_mm, bearingLeftLabelY_mm);
+    }
 
     // 图纸编号和名称 (左侧下方)
     const captionX_mm = totalLength/2-20;
     const captionY_mm = (maxDia_mm/2+ymm_padding*3);
-    drawLabel(ctx, "中间轴结构图", captionX_mm, captionY_mm);
+    drawLabel(ctx, `${shaftName}结构图`, captionX_mm, captionY_mm);
 
 
 };
@@ -392,10 +425,34 @@ function drawShaft(segments,type="middle") {
 //     { len: 10, dia: 60 },
 //     { len: 23.75, dia: 60 } // 无台阶
 // ];
+// const testSegments = [
+//     { len: 30.75, dia: 45 },
+//     { len: 10, dia: 52 }, 
+//     { len: 115, dia: 45 },
+//     { len: 60, dia: 61.82 }, 
+//     { len: 7, dia: 45 }, 
+//     { len: 5, dia: 52 }, 
+//     { len: 30.75, dia: 45 }, 
+//     { len: 62.25, dia: 40 },
+//     { len: 100, dia: 35 },
+// ];
+// const testSegments = [
+//     { len: 150, dia: 70 },
+//     { len: 60, dia: 75 }, 
+//     { len: 50.25, dia: 80 },
+//     { len: 115, dia: 85 }, 
+//     { len: 10, dia: 90 }, 
+//     { len: 62, dia: 80 }, 
+//     { len: 10, dia: 90 }, 
+//     { len: 38.25, dia: 80 },
+// ];
+// drawShaft(testSegments,"low");
+
 
 window.onload = function(){
     window.addEventListener('message',function(e){
-        drawShaft(e.data[0]);
+        console.log(e.data);
+        drawShaft(e.data[0],e.data[1]);
     })
     
 };

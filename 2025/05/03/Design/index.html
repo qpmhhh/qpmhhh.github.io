@@ -27,7 +27,7 @@
 <meta property="og:description" content="原始数据输送带工作拉力F： N输送带工作速度v： m&#x2F;s滚筒直径D： mm滚筒及输送带效率$ \eta_{带}&#x3D; $ 以下所有查表若无特殊说明均是《机械设计课程设计(第3版)》里面的。 电机型号选择电动机功率选择计算工作机所需的功率$$P_w &#x3D; Fv &#x3D; F0_value \times v0_value W&#x3D;f1_value">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2025-05-03T08:55:56.000Z">
-<meta property="article:modified_time" content="2025-05-22T10:38:41.478Z">
+<meta property="article:modified_time" content="2025-05-23T03:03:20.276Z">
 <meta property="article:author" content="qpm">
 <meta name="twitter:card" content="summary_large_image">
   
@@ -239,7 +239,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          9.7k 字
+          12k 字
         
       </span>
     
@@ -250,7 +250,7 @@
         
         
         
-          81 分钟
+          99 分钟
         
       </span>
     
@@ -348,7 +348,7 @@
 <h2 id="传动零件的设计计算"><a href="#传动零件的设计计算" class="headerlink" title="传动零件的设计计算"></a>传动零件的设计计算</h2><h3 id="V带传动设计"><a href="#V带传动设计" class="headerlink" title="V带传动设计"></a>V带传动设计</h3><h4 id="计算功率"><a href="#计算功率" class="headerlink" title="计算功率"></a>计算功率</h4><p>每班是8小时，两班制为16小时，查附表2.6(《机械设计》，P350)得工作情况系数<span id="K1">$ K_A &#x3D; K0_value $</span>(修改请在前面电机功率选择里面改),可得计算功率:<br><span id="f8"><br>$$<br>P_{ca} &#x3D; K_A \times P_{ed} &#x3D; K0_value \times P0_value kW &#x3D; f8_value kW<br>$$<br></span></p>
 <h4 id="带型选择"><a href="#带型选择" class="headerlink" title="带型选择"></a>带型选择</h4><p>由所求得功率和转速，根据附图2.1(《机械设计》，P353，也可以参考下图)可查得，选择的带型为<span id="f9">A</span>型带。</p>
 <p id="warning2" class="warning"></p>
-<div style="width: 100%; height: 300px;">
+<div style="width: 100%; height: 300px;overflow-y: hidden;overflow-x: scroll;">
 <iframe src="/external/v_belt.html" frameborder="no" id="v_belt" style="width: 600px; height: 400px;transform-origin: left top; transform: scale(0.8, 0.75);overflow:scroll;"></iframe>
 </div>
 
@@ -389,7 +389,7 @@
 <h5 id="按齿根弯曲疲劳强度校核-1"><a href="#按齿根弯曲疲劳强度校核-1" class="headerlink" title="按齿根弯曲疲劳强度校核"></a>按齿根弯曲疲劳强度校核</h5><p>齿向载荷分布系数<span>$  K_{F\beta} &#x3D; $</span><input value="1.38" type="text" class="input" id="g30" onchange="change_html(this)">(查《机械设计》图12.2,p386)<br>载荷系数为<br><span id="f73"><br>$$<br>K &#x3D; K_A K_v K_{\alpha} K_{F \beta } &#x3D;  g28_value \times g26_value \times g27_value \times g30_value &#x3D; f73_value<br>$$<br></span><br>当量齿数为<br><span id="f74"><br>$$<br>z_{v1} &#x3D; \frac{z_1}{c_os^3 \beta} &#x3D; \frac{g18_value}{cos^3 g31_value} &#x3D; N31_value<br>$$<br>$$<br>z_{v2} &#x3D; \frac{z_2}{c_os^3 \beta} &#x3D; \frac{f59_value}{cos^3 g31_value} &#x3D; N32_value<br>$$<br></span><br>齿形系数和应力校正系数：<br><span id="f75"><br>$$<br>Y_{Fa1} &#x3D; N33_value,Y_{sa1} &#x3D; N34_value<br>$$<br>$$<br>Y_{Fa2} &#x3D; N35_value,Y_{sa2} &#x3D; N36_value<br>$$<br></span><br>轴面重合度：<br><span id="f76"><br>$$<br>\varepsilon_{\beta} &#x3D; 0.318 \phi_{d} z_1 tan \beta &#x3D; 0.318 \times g20_value \times g18_value \times tan g31_value ° &#x3D; f76_value<br>$$<br></span><br>取<span id="f77">$ \varepsilon_{\beta} &#x3D; f77_value $</span>，计算螺旋角影响系数：<br><span id="f78"><br>$$<br>Y_{\beta} &#x3D; 1- \varepsilon_{\beta} \times \beta &#x2F; 120 ° &#x3D; 1- f77_value \times g31_value ° &#x2F; 120 ° &#x3D; f78_value<br>$$<br></span><br>弯曲疲劳强度极限<span>$  \sigma_{Flim1} &#x3D; \sigma_{Flim2}&#x3D; $</span><input value="500" type="text" class="input" id="g32" onchange="change_html(this)">MPa(查《机械设计》图12.5,p387)<br>弯曲疲劳寿命系数<span>$  K_{FN24} &#x3D; $</span><input value="0.86" type="text" class="input" id="g33" onchange="change_html(this)"><br><span>$  K_{FN25} &#x3D; $</span><input value="0.88" type="text" class="input" id="g34" onchange="change_html(this)">(查《机械设计》图12.3,p386)<br>取安全系数<span>$  S_F &#x3D; $</span><input value="1.4" type="text" class="input" id="g35" onchange="change_html(this)"><br><span id="f79"><br>$$<br>[\sigma_{F}]<em>1 &#x3D; \frac{K</em>{FN24} \sigma_{Flim1}}{S_F} &#x3D; \frac{g33_value \times g32_value}{g35_value} &#x3D; N37_value MPa<br>$$<br>$$<br>[\sigma_{F}]<em>2 &#x3D; \frac{K</em>{FN25} \sigma_{Flim2}}{S_F} &#x3D; \frac{g34_value \times g32_value}{g35_value} &#x3D; N38_value MPa<br>$$<br></span></p>
 <p>校核小齿轮：<br><span id="f80"><br>$$<br>\frac{2KT_1 Y_{\beta} cos^2 \beta}{\phi_d \varepsilon_{\alpha} z_1^{2} m_n^{3}} Y_{Fa1} Y_{sa1} &#x3D; \frac{2 \times f68_value \times f60_value \times 1000 \times f78_value \times cos^2 g31_value°}{g20_value \times f76_value \times g18_value ^{2} \times f83_value ^{3}} \times N33_value \times N34_value &#x3D; f80_value \le [\sigma_{F}]_1 &#x3D; N37_value Mpa<br>$$<br></span><br>校核大齿轮：<br><span id="f81"><br>$$<br>0<br>$$<br></span><br><strong>校核合格（请看一眼上面两式是不是真的合格）</strong></p>
 <h5 id="几何尺寸计算-1"><a href="#几何尺寸计算-1" class="headerlink" title="几何尺寸计算"></a>几何尺寸计算</h5><p>中心距<br><span id="f84"><br>$$<br>a &#x3D; m_n (z_1 + z_2)&#x2F;(2 cos \beta) &#x3D; f83_value \times (g18_value + f59_value)&#x2F;(2 \times cos g31_value °) mm &#x3D; f84_value mm<br>$$<br></span><br>取中心距<span id="f85">$  a &#x3D; f85_value mm  $</span><br>修正螺旋角：<br><span id="f86"><br>$$<br>\beta &#x3D; arccos[m_n (z_1+z_2)&#x2F;(2a)] &#x3D; arccos[f83_value \times (g18_value + f59_value)&#x2F;(2 \times f85_value)] &#x3D; f86_value &#x3D; N41_value<br>$$<br></span><br>分度圆直径<br><span id="f87"><br>$$<br>d_1 &#x3D; \frac{m_n z_1}{cos \beta} &#x3D; \frac{f83_value \times g18_value}{cos N41_value} &#x3D; N42_value mm<br>$$<br>$$<br>d_2 &#x3D; \frac{m_n z_2}{cos \beta} &#x3D; \frac{f83_value \times f59_value}{cos N41_value} &#x3D; N43_value mm<br>$$<br></span><br>齿宽<br><span id="f88"><br>$$<br>b &#x3D; \phi_d d_l &#x3D; g20_value \times N42_value &#x3D; f88_value mm<br>$$<br></span><br>取<span id="f89">$  B_2 &#x3D; N44_value，B_1 &#x3D; B_2 + 5 &#x3D; N45_value  $</span></p>
-<h3 id="轴的设计"><a href="#轴的设计" class="headerlink" title="轴的设计"></a>轴的设计</h3><h4 id="中间轴-选择轴的材料"><a href="#中间轴-选择轴的材料" class="headerlink" title="中间轴-选择轴的材料"></a>中间轴-选择轴的材料</h4><p>选用45钢，调质，硬度为230HBS。</p>
+<h3 id="中间轴的设计"><a href="#中间轴的设计" class="headerlink" title="中间轴的设计"></a>中间轴的设计</h3><h4 id="中间轴-选择轴的材料"><a href="#中间轴-选择轴的材料" class="headerlink" title="中间轴-选择轴的材料"></a>中间轴-选择轴的材料</h4><p>选用45钢，调质，硬度为230HBS。</p>
 <h4 id="估算轴的最小直径"><a href="#估算轴的最小直径" class="headerlink" title="估算轴的最小直径"></a>估算轴的最小直径</h4><p>由教材或设计手册中查取<span>$ A&#x3D; $</span><input value="110" type="text" class="input" id="d0" onchange="change_html(this)"><br><span id="f90"><br>$$<br>d \ge A \sqrt[3]{\frac{P}{n}} &#x3D; d0_value \times \sqrt[3]{\frac{P3_value}{n4_value}} &#x3D; f90_value mm<br>$$<br></span><br>因为中间轴两端弯矩和转矩均为零，也没有键槽，所以可选其最小直径<span id="f91">$ d&#x3D; f91_value mm $</span></p>
 <h4 id="中间轴的结构设计"><a href="#中间轴的结构设计" class="headerlink" title="中间轴的结构设计"></a>中间轴的结构设计</h4><p>考虑轴的结构及轴的刚度，取装滚动轴承处轴径<span>$ A&#x3D; $</span><select id="d1" onchange="change_html(this)"><option value=0>70</option></select>mm</p>
 <p>根据轴的直径初选滚动轴承，选定圆锥滚子轴承，由轴颈<span id="f92">$ d&#x3D; d1_value mm $</span>选定圆锥滚子轴承<select id="d2" onchange="change_html(this)"><option value=0>“30214”</option></select>，正装布置。</p>
@@ -403,8 +403,9 @@
 <p>则箱内壁宽：<br><span id="f94"><br>$$<br>b_{内} &#x3D; B_2 + B_3 + Δ + 2Δ_1 &#x3D; N22_value + N45_value + d3_value + 2 \times d4_value &#x3D; f94_value mm<br>$$<br></span></p>
 <p>中间轴总长：<br><span id="f95"><br>$$<br>l_{中} &#x3D; b_{内} + 2Δ_2 + 2T’ &#x3D; f94_value + 2 \times d5_value + 2 \times G0_value &#x3D; f95_value mm<br>$$<br></span></p>
 <p>画出中间轴结构示意图(低速齿轮轴径按小齿轮齿顶圆直径算，高速齿轮轴径按轴承处轴径加5算)如图：</p>
-<div style="width: 100%; height: 300px;">
-<iframe src="" frameborder="no" id="zhou_m" style="width: 1000px; height: 550px;transform-origin: left top; transform: scale(0.5, 0.5);"></iframe>
+<div style="width: 100%; height: 300px;overflow-y: hidden;overflow-x: scroll;
+">
+<iframe src="" frameborder="no" id="zhou_m" style="width: 1400px; height: 550px;transform-origin: left top; transform: scale(0.5, 0.5);"></iframe>
 </div>
 
 <p>选择箱体连接螺栓直径<span>$ d_2&#x3D; $</span><select id="d6" onchange="change_html(this)"><option value=0>8</option></select> mm</p>
@@ -415,14 +416,57 @@
 <p>可以得减速箱外壁宽度<br><span id="f98"><br>$$<br>b_{外} &#x3D; b_{内} + 2h_1 &#x3D; f94_value + 2 \times f97_value mm<br>$$<br></span></p>
 <p>取轴端倒角为C<input value="1.5" type="text" class="input" id="d8" onchange="change_html(this)">,各轴肩处的圆角半径则由各轴肩决定。</p>
 <p>在设计完中间轴的基础上可以接着设计高速轴和低速轴结构。</p>
-<script>  
+<h3 id="高速轴的设计"><a href="#高速轴的设计" class="headerlink" title="高速轴的设计"></a>高速轴的设计</h3><h4 id="高速轴-选择轴的材料"><a href="#高速轴-选择轴的材料" class="headerlink" title="高速轴-选择轴的材料"></a>高速轴-选择轴的材料</h4><p>选用45钢，调质，硬度为230HBS。</p>
+<h4 id="估算轴的最小直径-1"><a href="#估算轴的最小直径-1" class="headerlink" title="估算轴的最小直径"></a>估算轴的最小直径</h4><p>由教材或设计手册中查取<span>$ A&#x3D; $</span><input value="110" type="text" class="input" id="d9" onchange="change_html(this)"><br><span id="f100"><br>$$<br>d \ge A \sqrt[3]{\frac{P}{n}} &#x3D; d9_value \times \sqrt[3]{\frac{P2_value}{n3_value}} &#x3D; f100_value mm<br>$$<br></span></p>
+<h4 id="高速轴结构设计"><a href="#高速轴结构设计" class="headerlink" title="高速轴结构设计"></a>高速轴结构设计</h4><p>考虑带轮需要键槽等结构要求，以及轴的刚度，取装带轮处轴径<span>$ d_{带}&#x3D; $</span><select id="d10" onchange="change_html(this)"><option value=0>45</option></select>mm</p>
+<p>取密封处的直径<span id="f101">$ d_{密}&#x3D; f101_value mm $</span> </p>
+<p>那么，滚动轴承处轴径<span id="f102">$ d_{滚动}&#x3D; f102_value mm $</span>。</p>
+<p>根据轴的直径初选滚动轴承，选定圆锥滚子滚动轴承，由轴颈<span id="f103">$ d&#x3D; f102_value mm $</span>。选定滚动轴承<select id="d11" onchange="change_html(this)"><option value=0>“30211”</option></select>，正装布置。</p>
+<p id="warning6" class="warning"></p>
+
+<p>查表可得(网上找的表)，滚动轴承宽度<span id="f104">$ T’&#x3D; G5_value mm、B’&#x3D; G6_value mm、a’&#x3D; G7_value mm $ 滚动轴承的安装尺寸为 $ d_a &#x3D; G8_value mm $ </span> </p>
+<p><span id="f105">$ 高速齿轮的分度圆直径为d1&#x3D; ${N19_value} mm，齿根圆直径为df1 &#x3D; ${N19_value-2.5 * f51_value} mm。 $</span></p>
+<p>因此(我不知道怎么就”因此”了)，选带退刀槽结构的齿轮轴，退刀槽直径为<span id="f106">$ d_{退} &#x3D; f106_value $</span>mm </p>
+<p>选带轮侧端面据端盖螺钉距离为<span>$ l_3 &#x3D; $</span><input value="20" type="text" class="input" id="d12" onchange="change_html(this)"> mm；</p>
+<p>端盖螺钉为<span>$ M $</span><select id="d13" onchange="change_html(this)"><option value=0>8</option></select> mm，对应的螺栓头高度<span id="f107">$ k &#x3D; f107_value $</span> mm；</p>
+<p>轴承端盖厚度<span>$ t &#x3D; $</span><input value="10" type="text" class="input" id="d14" onchange="change_html(this)"> mm；并由前面已知计算：带轮宽度至少为<br><span id="f108"><br>$$<br>d_{带轮} &#x3D; (z-1)e+2f &#x3D; (${f22_value} - 1) \times ${T2_1[f9_value.slice(0, 1)][0]} + 2 \times ${T2_1[f9_value.slice(0, 1)][1]} &#x3D; ${f108_value} mm<br>$$<br></span><br>(z为带的根数，e和f由《机械设计》表2.1查得，P346)<br>取带轮宽度为<span id="f109">$ d_{带轮} &#x3D; f109_value $</span> mm</p>
+<p>高速轴伸出段长为：<br><span id="f110"><br>$$<br>l_s &#x3D; d_{带轮} + l_3 + k + t &#x3D; f109_value + d12_value + f106_value + d14_value &#x3D; f110_value mm<br>$$<br></span><br>圆整为<span id="f111">$ l_s &#x3D; f111_value mm $</span><br>即取<span id="f112">$ l_3 &#x3D; f112_value mm $</span> </p>
+<p>取滚动轴承端面到箱内壁距离<span>$ Δ_2 &#x3D; $</span><input value="10" type="text" class="input" id="d15" onchange="change_html(this)"> mm</p>
+<p>则另一未伸出端在箱体凸缘内的长度为：<br><span id="f113"><br>$$<br>l_4 &#x3D; T + Δ_2 &#x3D; G5_value + d15_value &#x3D; f113_value mm<br>$$<br></span><br>高速轴总长为：<br><span id="f114"><br>$$<br>l_高 &#x3D; l_s + h_1 + b_{内} + l_4 &#x3D; f109_value + f97_value + f94_value + f113_value &#x3D; f114_value mm<br>$$<br></span><br>取轴端倒角为C1.5,各轴肩处的圆角半径则由各轴肩决定<br>画出高速轴结构示意图(右边轴承挡板按5mm算，退刀槽宽度按”齿轮端面到箱内壁距离-5”算)如图：</p>
+<div style="width: 100%; height: 300px;overflow-y: hidden;overflow-x: scroll;
+">
+<iframe src="" frameborder="no" id="zhou_h" style="width: 1400px; height: 550px;transform-origin: left top; transform: scale(0.5, 0.5);"></iframe>
+</div>
+
+<h3 id="低速轴的设计"><a href="#低速轴的设计" class="headerlink" title="低速轴的设计"></a>低速轴的设计</h3><h4 id="低速轴-选择轴的材料"><a href="#低速轴-选择轴的材料" class="headerlink" title="低速轴-选择轴的材料"></a>低速轴-选择轴的材料</h4><p>选用45钢，调质，硬度为230HBS。</p>
+<h4 id="估算轴的最小直径-2"><a href="#估算轴的最小直径-2" class="headerlink" title="估算轴的最小直径"></a>估算轴的最小直径</h4><p>由教材或设计手册中查取<span>$ A&#x3D; $</span><input value="110" type="text" class="input" id="d16" onchange="change_html(this)"><br><span id="f115"><br>$$<br>d \ge A \sqrt[3]{\frac{P}{n}} &#x3D; d16_value \times \sqrt[3]{\frac{P4_value}{n5_value}} &#x3D; f115_value mm<br>$$<br></span></p>
+<h4 id="低速轴结构设计"><a href="#低速轴结构设计" class="headerlink" title="低速轴结构设计"></a>低速轴结构设计</h4><p>考虑带轮需要键槽等结构要求，以及轴的刚度，取装联轴器处轴径<span>$ d_{带}&#x3D; $</span><select id="d17" onchange="change_html(this)"><option value=0>70</option></select>mm</p>
+<p>取密封处的直径<span id="f116">$ d_{密}&#x3D; f116_value mm $</span> </p>
+<p>那么，滚动轴承处轴径<span id="f117">$ d_{滚动}&#x3D; f117_value mm $</span>。</p>
+<p>根据轴的直径初选滚动轴承，选定圆锥滚子滚动轴承，由轴颈<span id="f118">$ d&#x3D; f117_value mm $</span>。选定滚动轴承<select id="d18" onchange="change_html(this)"><option value=0>“30211”</option></select>，正装布置。</p>
+<p id="warning7" class="warning"></p>
+
+<p>查表可得(网上找的表)，滚动轴承宽度<span id="f119">$ T’&#x3D; G9_value mm、B’&#x3D; G10_value mm、a’&#x3D; G11_value mm $ 滚动轴承的安装尺寸为 $ d_a &#x3D; G12_value mm $ </span> </p>
+<p><span id="f120"> 低速齿轮的分度圆直径为 $ d_1&#x3D; ${N43_value} mm $ ，齿根圆直径为 $ d_{f1} &#x3D; ${N43_value-2.5 * f83_value} mm $ </span></p>
+<p>选带轮侧端面据端盖螺钉距离为<span>$ l_5 &#x3D; $</span><input value="20" type="text" class="input" id="d19" onchange="change_html(this)"> mm；</p>
+<p>端盖螺钉为<span>$ M $</span><select id="d20" onchange="change_html(this)"><option value=0>8</option></select> mm，对应的螺栓头高度<span id="f122">$ k &#x3D; f122_value $</span> mm；</p>
+<p>轴承端盖厚度<span>$ t &#x3D; $</span><input value="10" type="text" class="input" id="d21" onchange="change_html(this)"> mm；<br>预留联轴器配合长度为<span>$ B_5&#x3D; $</span><input value="150" type="text" class="input" id="d23" onchange="change_html(this)"> mm；</p>
+<p>低速轴伸出段长为：<br><span id="f125"><br>$$<br>l_s &#x3D; d_{带轮} + l_5 + k + t &#x3D; d23_value + d19_value + f121_value + d21_value &#x3D; f125_value mm<br>$$<br></span><br>圆整为<span id="f126">$ l_s &#x3D; f126_value mm $</span><br>即取<span id="f127">$ l_5 &#x3D; f127_value mm $</span> </p>
+<p>取滚动轴承端面到箱内壁距离<span>$ Δ_2 &#x3D; $</span><input value="10" type="text" class="input" id="d22" onchange="change_html(this)"> mm</p>
+<p>则另一未伸出端在箱体凸缘内的长度为：<br><span id="f128"><br>$$<br>l_6 &#x3D; T + Δ_2 &#x3D; G9_value + d22_value &#x3D; f128_value mm<br>$$<br></span><br>低速轴总长为：<br><span id="f129"><br>$$<br>l_{低} &#x3D; l_s + h_1 + b_{内} + l_6 &#x3D; f126_value + f97_value + f94_value + f128_value &#x3D; f129_value mm<br>$$<br></span><br>取轴端倒角为C1.5,各轴肩处的圆角半径则由各轴肩决定<br>画出低速轴结构示意图(齿轮轴径按轴承处轴径加5算，齿轮挡板和未伸出部分轴承挡板按中间轴里面的齿轮端面间距算)如图：</p>
+<div style="width: 100%; height: 300px;overflow-y: hidden;overflow-x: scroll;
+">
+<iframe src="" frameborder="no" id="zhou_l" style="width: 1400px; height: 550px;transform-origin: left top; transform: scale(0.5, 0.5);"></iframe>
+</div>
+
+<h3 id=""><a href="#" class="headerlink" title=""></a></h3><script>  
 MathJax = {  
 	tex: {  
 		inlineMath: [['$', '$'], ['\\(', '\\)']]  
 	}  
 };
 </script>
-<script id="MathJax-script" async  	src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">  </script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">  </script>
 
 <script>
 function mtan(a){
@@ -792,9 +836,93 @@ const f98 = document.getElementById("f98");
 let f98_value = f94_value + 2 * f97_value;
 
 
+const d10 = document.getElementById("d10");
+const d11 = document.getElementById("d11");
+let d9_value = parseFloat(document.getElementById("d9").value);
+let d10_value = parseFloat(d10.options[d10.selectedIndex].text);
+let d11_value = d11.options[d11.selectedIndex].text;
+let d12_value = parseFloat(document.getElementById("d12").value);
+let d13_value = parseFloat(document.getElementById("d13").value);
+let d14_value = parseFloat(document.getElementById("d14").value);
+let d15_value = parseFloat(document.getElementById("d15").value);
+
+const f100 = document.getElementById("f100");
+let f100_value = 1;
+const f101 = document.getElementById("f101");
+let f101_value = d10_value+5;
+const f102 = document.getElementById("f102");
+let f102_value = 1;
+const warning6 = document.getElementById("warning6");
+const f103 = document.getElementById("f103");
+let fit_bearing2 = [];
+const f104 = document.getElementById("f104");
+let G5_value = 0;
+let G6_value = 0;
+let G7_value = 0;
+let G8_value = 0;
+const f105 = document.getElementById("f105");
+let f105_value = N19_value-2.5 * f51_value;
+const f106 = document.getElementById("f106");
+let f106_value = Math.floor(f105_value/5)*5;
+const f107 = document.getElementById("f107");
+let f107_value = 5.3;
+const f108 = document.getElementById("f108");
+let f108_value = 1;
+const f109 = document.getElementById("f109");
+let f109_value = 1;
+const f110 = document.getElementById("f110");
+let f110_value = f109_value + d12_value + f106_value + d14_value;
+const f111 = document.getElementById("f111");
+let f111_value = Math.ceil(f110_value);
+const f112 = document.getElementById("f112");
+let f112_value = f111_value-(f109_value + f106_value + d14_value);
+const f113 = document.getElementById("f113");
+let f113_value = G5_value + d15_value;
+const f114 = document.getElementById("f114");
+let f114_value = f109_value + f97_value + f94_value + f113_value;
+const zhou_h = document.getElementById("zhou_h");
 
 
+const d17 = document.getElementById("d17");
+const d18 = document.getElementById("d18");
+let d16_value = parseFloat(document.getElementById("d16").value);
+let d17_value = parseFloat(d17.options[d17.selectedIndex].text);
+let d18_value = d18.options[d18.selectedIndex].text;
+let d19_value = parseFloat(document.getElementById("d19").value);
+let d20_value = parseFloat(document.getElementById("d20").value);
+let d21_value = parseFloat(document.getElementById("d21").value);
+let d22_value = parseFloat(document.getElementById("d22").value);
+let d23_value = parseFloat(document.getElementById("d23").value);
 
+const f115 = document.getElementById("f115");
+let f115_value = 1;
+const f116 = document.getElementById("f116");
+let f116_value = d17_value+5;
+const f117 = document.getElementById("f117");
+let f117_value = 1;
+const warning7 = document.getElementById("warning7");
+const f118 = document.getElementById("f118");
+let fit_bearing3 = [];
+const f119 = document.getElementById("f119");
+let G9_value = 0;
+let G10_value = 0;
+let G11_value = 0;
+let G12_value = 0;
+const f120 = document.getElementById("f120");
+let f120_value = N19_value-2.5 * f51_value;
+const f122 = document.getElementById("f122");
+let f122_value = 5.3;
+const f125 = document.getElementById("f125");
+let f125_value = d23_value + d19_value + f122_value + d21_value;
+const f126 = document.getElementById("f126");
+let f126_value = Math.ceil(f125_value);
+const f127 = document.getElementById("f127");
+let f127_value = f126_value-(d23_value + f122_value + d21_value);
+const f128 = document.getElementById("f128");
+let f128_value = G9_value + d22_value;
+const f129 = document.getElementById("f129");
+let f129_value = d23_value + f97_value + f94_value + f128_value;
+const zhou_l = document.getElementById("zhou_l");
 
 
 
@@ -805,6 +933,8 @@ const formula_chain= {
 "g0":[f26,f27,f39,f40,f28,f29,f30,f31,f32,f33,f34,f35,f36,f37,f38,f41,f42,f43,f44,f45,f46,f47,f48,f49,f51,f52,f53,f54,f55,f56,f57],
 "g18":[f58,f59,f71,f72,f60,f61,f62,f63,f64,f65,f66,f67,f68,f69,f70,f73,f74,f75,f76,f77,f78,f79,f80,f81,f83,f84,f85,f86,f87,f88,f89],
 "d0":[f90,f91,f92,f99,f93,f94,f95,f96,f97,f98],
+"d9":[f100,f101,f102,f103,f104,f105,f106,f107,f108,f109,f110,f111,f112,f113,f114],
+"d16":[f115,f116,f117,f118,f119,f120,f122,f125,f126,f127,f128,f129],
 
 
 };
@@ -822,6 +952,151 @@ const formula_chain= {
 
 
 <script>
+f129.latex_update = function(){
+	f129_value = f126_value + f97_value + f94_value + f128_value;
+	f129.textContent = `$$ l_{低} = l_s + h_1 + b_{内} + l_6 = ${f126_value} + ${f97_value} + ${f94_value} + ${f128_value} = ${f129_value} mm $$`;
+	draw_shaft_low();
+	window.MathJax.typesetPromise([f115,f116,f117,f118,f119,f120,f122,f125,f126,f127,f128,f129]);
+};
+f128.latex_update = function(){
+	f128_value = G9_value + d22_value;
+	f128.textContent = `$$ l_6 = T + Δ_2 = ${G9_value} + ${d22_value} = ${f128_value} mm $$`;
+};
+f127.latex_update = function(){
+	f127_value = Math.round((f126_value-(d23_value + f122_value + d21_value))*10)/10;
+	f127.textContent = `$ l_5 = ${f127_value} mm $`;
+};
+f126.latex_update = function(){
+	f126_value = Math.ceil(f125_value);
+	f126.textContent = `$ l_s = ${f126_value} mm $`;
+};
+f125.latex_update = function(){
+	f125_value = d23_value + d19_value + f122_value + d21_value;
+	f125.textContent = `$$ l_s = B_5 + l_5 + k + t = ${d23_value} + ${d19_value} + ${f122_value} + ${d21_value} = ${f125_value} mm $$`;
+};
+f122.latex_update = function(){
+	f122_value = 5.3;
+	f122.textContent = `$ k = ${f122_value} $`;
+};
+f120.latex_update = function(){
+	f120_value = N43_value-2.5 * f83_value;
+	f120.textContent = `低速齿轮的分度圆直径为 $ d_4= ${N43_value} mm $ ，齿根圆直径为 $ d_{f4} = ${N43_value-2.5 * f83_value} mm $ `;
+};
+f119.latex_update = function(){
+	G9_value = fit_bearing3[d18.options[d18.selectedIndex].value][3];
+	G10_value = fit_bearing3[d18.options[d18.selectedIndex].value][4];
+	G11_value = fit_bearing3[d18.options[d18.selectedIndex].value][5];
+	G12_value = fit_bearing3[d18.options[d18.selectedIndex].value][6];
+	f119.textContent = `$ T'= ${G9_value} mm、B'= ${G10_value} mm、a'= ${G11_value} mm $ 滚动轴承的安装尺寸为 $ d_a = ${G12_value} mm $ `;
+};
+f118.latex_update = function(){
+	f118.textContent = `$ d= ${f117_value} mm $`;
+};
+f117.latex_update = function(){
+	if(f117_value != f116_value+5){
+		f117_value = f116_value+5;
+		choose_bearing3();
+	}
+	else{
+		f117_value = f116_value+5;
+	}
+	f117.textContent = `$ d_{滚动}= ${f117_value} mm $`;
+};
+f116.latex_update = function(){
+	f116_value = d17_value+5;
+	f116.textContent = `$ d_{密}= ${f116_value} mm $`;
+};
+f115.latex_update = function(){
+	if(f115_value != d16_value* Math.cbrt(P4_value/n5_value)){
+		f115_value = d16_value* Math.cbrt(P4_value/n5_value);
+		choose_journal3();
+	}
+	else{
+		f115_value = d16_value* Math.cbrt(P4_value/n5_value);
+	}
+	
+	f115.textContent = `$$ d \\ge A \\sqrt[3]{\\frac{P}{n}} = ${d16_value} \\times \\sqrt[3]{\\frac{${P4_value}}{${n5_value}}} = ${f115_value} mm $$`;
+};
+
+
+
+f114.latex_update = function(){
+	f114_value = f111_value + f97_value + f94_value + f113_value;
+	f114.textContent = `$$ l_高 = l_s + h_1 + b_{内} + l_4 = ${f111_value} + ${f97_value} + ${f94_value} + ${f113_value} = ${f114_value} mm $$`;
+	draw_shaft_high();
+	window.MathJax.typesetPromise([f100,f101,f102,f103,f104,f105,f106,f107,f108,f109,f110,f111,f112,f113,f114]);
+};
+f113.latex_update = function(){
+	f113_value = G5_value + d15_value;
+	f113.textContent = `$$ l_4 = T + Δ_2 = ${G5_value} + ${d15_value} = ${f113_value} mm $$`;
+};
+f112.latex_update = function(){
+	f112_value = Math.round((f111_value-(f109_value + f107_value + d14_value))*10)/10;
+	f112.textContent = `$ l_3 = ${f112_value} mm $`;
+};
+f111.latex_update = function(){
+	f111_value = Math.ceil(f110_value);
+	f111.textContent = `$ l_s = ${f111_value} mm $`;
+};
+f110.latex_update = function(){
+	f110_value = f109_value + d12_value + f107_value + d14_value;
+	f110.textContent = `$$ l_s = d_{带轮} + l_3 + k + t = ${f109_value} + ${d12_value} + ${f107_value} + ${d14_value} = ${f110_value} mm $$`;
+};
+f109.latex_update = function(){
+	f109_value = Math.ceil(f108_value/5)*5;
+	f109.textContent = `$ d_{带轮} = ${f109_value} $`;
+};
+f108.latex_update = function(){
+	f108_value = (f22_value - 1) * T2_1[f9_value.slice(0, 1)][0] + 2 * T2_1[f9_value.slice(0, 1)][1];
+	f108.textContent = `$$ d_{带轮} = (z-1)e+2f = (${f22_value} - 1) \\times ${T2_1[f9_value.slice(0, 1)][0]} + 2 \\times ${T2_1[f9_value.slice(0, 1)][1]} = ${f108_value} mm $$`;
+};
+f107.latex_update = function(){
+	f107_value = 5.3;
+	f107.textContent = `$ k = ${f107_value} $`;
+};
+f106.latex_update = function(){
+	f106_value = Math.floor(Math.min(f105_value,G8_value)/5)*5;
+	f106.textContent = `$ d_{退} = ${f106_value} $`;
+};
+f105.latex_update = function(){
+	f105_value = N19_value-2.5 * f51_value;
+	f105.textContent = `高速齿轮的分度圆直径为 $ d_1= ${N19_value} mm $ ，齿根圆直径为 $ d_{f1} = ${f105_value} mm $ `;
+};
+f104.latex_update = function(){
+	G5_value = fit_bearing2[d11.options[d11.selectedIndex].value][3];
+	G6_value = fit_bearing2[d11.options[d11.selectedIndex].value][4];
+	G7_value = fit_bearing2[d11.options[d11.selectedIndex].value][5];
+	G8_value = fit_bearing2[d11.options[d11.selectedIndex].value][6];
+	f104.textContent = `$ T'= ${G5_value} mm、B'= ${G6_value} mm、a'= ${G7_value} mm $ 滚动轴承的安装尺寸为 $ d_a = ${G8_value} mm $ `;
+};
+f103.latex_update = function(){
+	f103.textContent = `$ d= ${f102_value} mm $`;
+};
+f102.latex_update = function(){
+	if(f102_value != f101_value+5){
+		f102_value = f101_value+5;
+		choose_bearing2();
+	}
+	else{
+		f102_value = f101_value+5;
+	}
+	f102.textContent = `$ d_{滚动}= ${f102_value} mm $`;
+};
+f101.latex_update = function(){
+	f101_value = d10_value+5;
+	f101.textContent = `$ d_{密}= ${f101_value} mm $`;
+};
+f100.latex_update = function(){
+	if(f100_value != d9_value* Math.cbrt(P2_value/n3_value)){
+		f100_value = d9_value* Math.cbrt(P2_value/n3_value);
+		choose_journal2();
+	}
+	else{
+		f100_value = d9_value* Math.cbrt(P2_value/n3_value);
+	}
+	
+	f100.textContent = `$$ d \\ge A \\sqrt[3]{\\frac{P}{n}} = ${d9_value} \\times \\sqrt[3]{\\frac{${P2_value}}{${n3_value}}} = ${f100_value} mm $$`;
+};
 f98.latex_update = function(){
 	f98_value = f94_value + 2 * f97_value;
 	f98.textContent = `$$ b_{外} = b_{内} + 2h_1 = ${f94_value} + 2 \\times ${f97_value} = ${f98_value} mm $$`;
@@ -1429,6 +1704,22 @@ function change_html(e){
     var the_id = e.getAttribute("id");
 	console.log(the_id);
     if(the_id.slice(0,1) == "d"){
+		if(parseInt(the_id.slice(1))>15){
+			update_d16();
+			for (let i of formula_chain["d16"]) {
+				//console.log(i.id);
+				i.latex_update();
+			};
+			return;
+		}
+		else if(parseInt(the_id.slice(1))>8){
+			update_d9();
+			for (let i of formula_chain["d9"]) {
+				//console.log(i.id);
+				i.latex_update();
+			};
+			return;
+		}
     	update_d0();
     	for (let i of formula_chain["d0"]) {
     		//console.log(i.id);
@@ -1573,6 +1864,7 @@ function dealMessage(data){
 			warning2.innerText = "没有合适的带型，可能要选窄V带，请联系作者添加";
 		};
 		change_html(v_belt);
+		change_html(d9);
 		return;
 	}
 	
@@ -1735,6 +2027,25 @@ function update_d0(){
     d7_value = parseFloat(document.getElementById("d7").value);
     d8_value = parseFloat(document.getElementById("d8").value);
 };
+function update_d9(){
+	d9_value = parseFloat(document.getElementById("d9").value);
+	d10_value = parseFloat(d10.options[d10.selectedIndex].text);
+	d11_value = d11.options[d11.selectedIndex].text;
+	d12_value = parseFloat(document.getElementById("d12").value);
+	d13_value = parseFloat(document.getElementById("d13").value);
+	d14_value = parseFloat(document.getElementById("d14").value);
+	d15_value = parseFloat(document.getElementById("d15").value);
+}
+function update_d16(){
+	d16_value = parseFloat(document.getElementById("d16").value);
+	d17_value = parseFloat(d17.options[d17.selectedIndex].text);
+	d18_value = d18.options[d18.selectedIndex].text;
+	d19_value = parseFloat(document.getElementById("d19").value);
+	d20_value = parseFloat(document.getElementById("d20").value);
+	d21_value = parseFloat(document.getElementById("d21").value);
+	d22_value = parseFloat(document.getElementById("d22").value);
+	d23_value = parseFloat(document.getElementById("d23").value);
+}
 function choose_journal(){
 	d1.options.length = 0;
 	d1.options.add(new Option(f91_value+5,0));
@@ -1746,8 +2057,8 @@ function choose_journal(){
 function choose_bearing(){
 	d2.options.length = 0;
 	warning5.innerText = "";
-	fit_bearing = T_zc.filter((num) => {return num[1] == f92_value;});
-	let default_index = 0;
+	fit_bearing = T_zc.filter((num) => {return num[1] == f92_value && num[6]<1000;});
+	default_index = 0;
 	if(fit_bearing.length == 0){
 		warning5.innerText = "警告，轴承内径不在标准范围内";
 	}
@@ -1781,25 +2092,117 @@ function draw_shaft_middle(){
 		{ len: G0_value, dia: d1_value } // 无台阶
 	];
 	if (zhou_m.onload){
-        zhou_m.contentWindow.postMessage([segments], "*");
+        zhou_m.contentWindow.postMessage([segments,"middle"], "*");
 	} else {
 		zhou_m.onload = function(){
-			zhou_m.contentWindow.postMessage([segments], "*");
+			zhou_m.contentWindow.postMessage([segments,"middle"], "*");
 		};
 	}
-	// setTimeout(function(){
-    // 	zhou_m.contentWindow.postMessage([segments], "*");
-	// }, 500);
+}
+function choose_journal2(){
+	d10.options.length = 0;
+	const temp = Math.ceil(f100_value/5)*5;
+	d10.options.add(new Option(temp+5,0));
+	d10.options.add(new Option(temp+10,1));
+	d10.options.add(new Option(temp+15,2));
+	d10.options[0].selected = true;
+	update_d9();
+};
+function choose_bearing2(){
+	d11.options.length = 0;
+	warning6.innerText = "";
+	fit_bearing2 = T_zc.filter((num) => {return num[1] == f102_value && num[6]<1000;});
+	default_index = 0;
+	if(fit_bearing2.length == 0){
+		warning6.innerText = "警告，轴承内径不在标准范围内";
+	}
+	for(i in fit_bearing2){
+		d11.options.add(new Option(fit_bearing2[i][0],i));
+		if("02" === String(fit_bearing2[i][0]).slice(1,3)){
+			default_index = i;
+		}
+	}
+	d11.options[default_index].selected = true;
+	update_d9();
+};
+function draw_shaft_high(){
+	const high_segments = [
+		{ len: f113_value, dia: f102_value },
+		{ len: d4_value, dia: G8_value }, 
+		{ len: f94_value-d4_value-N22_value-d4_value, dia: f102_value },
+		{ len: N22_value, dia: Math.round((N19_value+2 * f51_value)*100)/100 }, 
+		{ len: d4_value-5, dia: f106_value }, 
+		{ len: 5, dia: G8_value }, 
+		{ len: f113_value, dia: f102_value }, 
+		{ len: f111_value+f97_value-f109_value-f113_value, dia: f101_value },
+		{ len: f109_value, dia: d10_value },
+	];	
+	if (zhou_h.onload){
+        zhou_h.contentWindow.postMessage([high_segments,"high"], "*");
+	} else {
+		zhou_h.onload = function(){
+			zhou_h.contentWindow.postMessage([high_segments,"high"], "*");
+		};
+	}
+}
+function choose_journal3(){
+	d17.options.length = 0;
+	const temp = Math.ceil(f115_value/5)*5;
+	d17.options.add(new Option(temp+5,0));
+	d17.options.add(new Option(temp+10,1));
+	d17.options.add(new Option(temp+15,2));
+	d17.options[0].selected = true;
+	update_d16();
+};
+function choose_bearing3(){
+	d18.options.length = 0;
+	warning7.innerText = "";
+	fit_bearing3 = T_zc.filter((num) => {return num[1] == f117_value && num[6]<1000;});
+	default_index = 0;
+	if(fit_bearing3.length == 0){
+		warning7.innerText = "警告，轴承内径不在标准范围内";
+	}
+	for(i in fit_bearing3){
+		d18.options.add(new Option(fit_bearing3[i][0],i));
+		if("02" === String(fit_bearing3[i][0]).slice(1,3)){
+			default_index = i;
+		}
+	}
+	d18.options[default_index].selected = true;
+	update_d16();
+};
+function draw_shaft_low(){
+	const low_segments = [
+		{ len: d23_value, dia: d17_value },
+		{ len: f126_value+f97_value-(d23_value+d4_value+f128_value), dia: f116_value }, 
+		{ len: d4_value+f128_value, dia: f117_value },
+		{ len: N45_value, dia: f117_value+5 }, 
+		{ len: d3_value, dia: G12_value }, 
+		{ len: f94_value-d3_value*2-N45_value, dia: f117_value }, 
+		{ len: d3_value, dia: G12_value }, 
+		{ len: f128_value, dia: f117_value },
+	];	
+	if (zhou_l.onload){
+        zhou_l.contentWindow.postMessage([low_segments,"low"], "*");
+	} else {
+		zhou_l.onload = function(){
+			zhou_l.contentWindow.postMessage([low_segments,"low"], "*");
+		};
+	}
 }
 window.onload = function() {
 	window.addEventListener('message',function(e){
     	dealMessage(e.data);
     });
 	zhou_m.src = "/external/zhou.html";
+	zhou_h.src = "/external/zhou.html";
+	zhou_l.src = "/external/zhou.html";
     change_html(F0);
     change_html(g0);
     change_html(g18);
 	change_html(d0);
+	//change_html(d9);
+	change_html(d16);
 };
 </script> 
 
@@ -1873,8 +2276,9 @@ const T2_2 = {"Z":0.06,"A":0.10,"B":0.17,"C":0.30};
 const T12_0 =[1,1.25,1.5,2,2.5,3,4,5,6,8,10,12,14,16,20,25,32,40,50];
 const T12_6 =[[17,2.97,1.52],[18,2.91,1.53],[19,2.85,1.54],[20,2.8,1.55],[21,2.76,1.56],[22,2.72,1.57],[23,2.69,1.575],[24,2.65,1.58],[25,2.62,1.59],[26,2.6,1.595],[27,2.57,1.6],[28,2.55,1.61],[29,2.53,1.62],[30,2.52,1.625],[35,2.45,1.65],[40,2.4,1.67],[45,2.35,1.68],[50,2.32,1.7],[60,2.28,1.73],[70,2.24,1.75],[80,2.22,1.77],[90,2.2,1.78],[100,2.18,1.79],[150,2.14,1.83],[200,2.12,1.865]];
 //console.log(T18_1[16]);//"Y801-4"
-const T_zc = [[30302,15,42,14.25,13,9.6],[30203,17,40,13.25,12,9.9],[30303,17,47,15.25,14,10.4],[32303,17,47,20.25,19,12.3],[32904,20,37,12,12,8.2],[32004,20,42,15,15,10.3],[30204,20,47,15.25,14,11.2],[30304,20,52,16.25,15,11.1],[32304,20,52,22.25,21,13.6],["329/22",22,40,12,12,8.5],["320/22",22,44,15,15,10.8],[32905,25,42,12,12,8.7],[32005,25,47,15,15,11.6],[33005,25,47,17,17,11.1],[30205,25,52,16.25,15,12.5],[33205,25,52,22,22,14],[30305,25,62,18.25,17,13],[31305,25,62,18.25,17,20.1],[32305,25,62,25.25,24,15.9],["329/28",28,45,12,12,9],["320/28",28,52,16,16,12.6],["332/28",28,58,24,24,15],[32906,30,47,12,12,9.2],["32006 X2",30,55,17,16,12],[32006,30,55,17,17,13.1],[33006,30,55,20,20,12.8],[30206,30,62,17.25,16,13.8],[32206,30,62,21.25,20,15.6],[33206,30,62,25,25,15.7],[30306,30,72,20.75,19,15.3],[31306,30,72,20.75,19,23.1],[32306,30,72,28.75,27,18.9],["329/32",32,52,14,14,10.2],["320/32",32,58,17,17,14],["332/32",32,65,26,26,16.6],[32907,35,55,14,14,10.1],["32007 X2",35,62,18,17,14],[32007,35,62,18,18,15.1],[33007,35,62,21,21,13.5],[30207,35,72,18.25,17,15.3],[32207,35,72,24.25,23,17.9],[33207,35,72,28,28,18.2],[30307,35,80,22.75,21,16.8],[31307,35,80,22.75,21,25.8],[32307,35,80,32.75,31,20.4],["32908 X2",40,62,15,14,12],[32908,40,62,15,15,11.1],["32008 X2",40,68,19,18,15],[32008,40,68,19,19,14.9],[33008,40,68,22,22,14.5],[33108,40,75,26,26,18],[30208,40,80,19.75,18,16.9],[32208,40,80,24.75,23,18.9],[33208,40,80,32,32,20.8],[30308,40,90,25.25,23,19.5],[31308,40,90,25.25,23,29],[32308,40,90,35.25,33,23.3],["32909 X2",45,68,15,14,13],[32909,45,68,15,15,12.2],["32009 X2",45,75,20,19,16],[32009,45,75,20,20,16.5],[33009,45,75,24,24,15.9],[33109,45,80,26,26,19.1],[30209,45,86,20.75,19,18.6],[32209,45,85,24.75,23,20.1],[33209,45,85,32,32,21.9],[30309,45,100,27.25,25,21.3],[31309,45,100,27.25,25,31.7],[32309,45,100,38.25,36,25.6],["32910 X2",50,72,15,14,15],[32910,50,72,15,15,13],["32010 X2",50,80,20,19,17],[32010,50,80,20,20,17.8],[33010,50,30,24,24,17],[33110,50,85,26,26,20.4],[30210,50,90,21.75,20,20],[32210,50,90,24.75,23,21],[33210,50,90,32,32,23.2],[30310,50,110,29.25,27,23],[31310,50,110,29.25,27,34.8],[32310,50,110,42.25,40,28.2],[32911,55,80,17,17,14.3],["32011 X2",55,90,23,22,19],[32011,55,90,23,23,19.8],[33011,55,90,27,27,19],[33111,55,95,30,30,21.9],[30211,55,100,22.75,21,21],[32211,55,100,26.75,25,22.8],[33211,55,100,35,35,25.1],[30311,55,120,31.5,29,24.9],[31311,55,120,31.5,29,37.5],[32311,55,120,45.5,43,30.4],["32912 X2",60,85,17,16,18],[32912,60,85,17,17,15.1],["32012 X2",60,95,23,22,20],[32612,60,95,23,23,20.9],[33012,60,95,27,27,19.8],[33112,60,100,30,30,23.1],[30212,60,110,23.75,22,22.3],[32212,60,110,29.75,28,25],[33212,60,110,38,38,27.5],[30312,60,130,33.5,31,26.6],[31312,60,130,33.5,31,40.4],[32312,60,130,48.5,46,32.6],[32913,65,90,17,17,16.2],["32013 X2",65,100,23,22,21],[32013,65,100,23,23,22.4],[33013,65,100,27,27,20.9],[33113,65,110,34,34,26],[30213,65,120,24.75,23,23.8],[32213,65,120,32.75,31,27.3],[33213,65,120,41,41,29.5],[30313,65,140,36,33,28.7],[31313,65,140,36,33,44.2],[32313,65,140,51,48,34.3],["32914 X2",70,100,20,19,19],[32914,70,100,20,20,17.6],["32014 X2",70,110,25,24,23],[32014,70,110,25,25,23.8],[33014,70,110,31,31,22],[33114,70,120,37,37,28.2],[30214,70,125,26.25,24,25.8],[32214,70,125,33.25,31,28.8],[33214,70,125,41,41,30.7],[30314,70,150,38,35,30.7],[31314,70,150,38,35,46.8],[32314,70,150,54,51,36.5],[32915,75,105,20,20,18.5],["32015 X2",75,115,25,24,24],[32015,75,115,25,25,25.2],[33015,75,115,31,31,22.8],[33115,75,125,37,37,29.4],[30215,75,130,27.25,25,27.4],[32215,75,130,33.25,31,30],[33215,75,130,41,41,31.9],[30315,75,160,40,37,32],[31315,75,160,40,37,49.7],[32315,75,160,58,55,39.4],[32916,80,110,20,20,19.6],["32016 X2",80,125,29,27,26],[32016,80,125,29,29,26.8],[33016,80,125,36,36,25.2],[33116,80,130,37,37,30.7],[30216,80,140,28.25,26,28.1],[32216,80,140,35.25,33,31.4],[33216,80,140,46,46,35.1],[30316,80,170,42.5,39,34.4],[31316,80,170,42.5,39,52.8],[32316,80,170,61.5,58,42.1],["32917 X2",85,120,23,22,21],[32917,85,120,23,23,21.1],["32017 X2",85,130,29,27,27],[32017,85,130,29,29,28.1],[33017,85,130,36,36,26.2],[33117,85,140,41,41,33.1],[30217,85,150,30.5,28,30.3],[32217,85,150,38.5,36,33.9],[33217,85,150,49,49,36.9],[30317,85,180,44.5,41,35.9],[31317,85,180,44.5,41,55.6],[32317,85,180,63.5,60,43.5],["32918 X2",90,125,23,22,25],[32918,90,125,23,23,22.2],["32018 X2",90,140,32,30,29],[32018,90,140,32,32,30],[33018,90,140,39,39,27.2],[33118,90,150,45,45,34.9],[30218,90,160,32.5,30,32.3],[32218,90,160,42.5,40,36.8],[33218,90,160,55,55,40.8],[30318,90,190,46.5,43,37.5],[31318,90,190,46.5,43,58.5],[32318,90,190,67.5,64,46.2],[32919,95,130,23,23,23.4],["32019 X2",95,145,32,30,30],[32109,95,145,32,32,31.4],[33019,95,145,39,39,28.4],[33119,95,160,49,49,37.3],[30219,95,170,34.5,32,34.2],[32219,95,170,45.5,43,39.2],[33219,95,170,58,58,42.7],[30319,95,200,49.5,45,40.1],[31319,95,200,49.5,45,61.2],[32319,95,200,71.5,67,49],[32920,100,140,25,25,24.3],["32020 X2",100,150,32,30,32],[32020,100,150,32,32,32.8],[33020,100,150,39,39,29.1],[33120,100,165,52,52,40.3],[30220,100,180,37,34,36.4],[32220,100,180,49,46,41.9],[33220,100,180,63,63,45.5],[30320,100,215,51.5,47,42.2],[31320,100,215,56.5,51,68.4],[32320,100,215,77.5,73,52.9],[32921,105,145,25,25,25.4],["32021 X2",105,160,35,33,33],[32021,105,160,35,35,34.6],[33021,105,160,43,43,30.8],[33121,105,175,56,56,42.9],[30221,105,190,39,36,38.5],[32221,105,190,53,50,45],[33221,105,190,68,68,48.6],[30321,105,225,53.5,49,43.6],[31321,105,225,58,53,70],[32321,105,225,81.5,77,55.1],["32922 X2",110,150,25,24,25],[32922,110,150,25,25,26.5],["32022 X2",110,170,38,36,35],[32022,110,170,38,38,36.6],[33022,110,170,47,47,33.2],[33122,110,180,56,56,44],[30222,110,200,41,38,40.4],[32222,110,200,56,53,47.3],[30322,110,240,54.5,50,45.1],[31322,110,240,63,57,75.3],[32322,110,240,84.5,80,57.8],[32924,120,165,29,29,29.3],["32024 X2",120,180,38,36,38],[32024,120,180,38,38,39.3],[33024,120,180,48,48,35.5],[33124,120,200,62,62,47.6],[30224,120,215,43.5,40,44.1],[32224,120,215,61.5,58,52.3],[30324,120,260,59.5,55,49],[31324,120,260,68,62,81.8],[32324,120,260,90.5,86,61.6],["32926 X2",130,180,32,30,30],[32926,130,180,32,32,31.6],["32026 X2",130,200,45,42,42],[32026,130,200,45,45,43.3],[33026,130,200,55,55,42],[30226,130,230,43.75,40,46.1],[32226,130,230,67.75,64,56.6],[30326,130,280,63.75,58,53.2],[31326,130,280,72,66,87.2],["32928 X2",140,190,32,30,32],[32928,140,190,32,32,33.8],["32028 X2",140,210,45,42,44],[32028,140,210,45,45,46],[33028,140,210,56,56,45.1],[30228,140,250,45.75,42,49],[32228,140,250,71.75,68,60.7],[30328,140,300,67.75,62,56.5],[31328,140,300,77,70,94.1],["32930 X2",150,210,38,36,35.6],[32930,150,210,38,38,36.4],["32030 X2",150,225,48,45,47],[32030,150,225,48,48,49.2],[33030,150,225,59,59,48.2],[30230,150,270,49,45,52.4],[32230,150,270,77,73,65.4],[30330,150,320,72,65,60.6],[31330,150,320,82,75,100.1],["32932 X2",160,220,38,36,36],[32932,160,220,38,38,38.7],["32032 X2",160,240,51,48,50],[32032,160,240,51,51,52.6],[30232,160,290,52,48,55.5],[32232,160,290,84,80,70.9],[30332,160,340,75,68,63.3],["32934 X2",170,230,38,36,38],[32934,170,230,38,38,41.9],["32034 X2",170,260,57,54,51],[32034,170,260,57,57,56.4],[30234,170,310,57,52,60.4],[32234,170,310,91,86,76.3],[30334,170,360,80,72,68],[32936,180,250,45,45,54],["32036 X2",180,280,64,60,63],[32036,180,280,64,64,60.1],[30236,180,320,57,52,62.8],[32236,180,320,91,86,78.8],[30336,180,380,83,75,70.9],["32938 X2",190,260,45,42,52],[32938,190,260,45,45,55.2],["32038 X2",190,290,64,60,56],[32038,190,290,64,64,62.8],[30238,190,340,60,55,65],[32238,190,340,97,92,82.1],["32940 X2",200,280,51,48,57],[32940,200,280,51,51,54.2],["32040 X2",200,310,70,66,67],[32040,200,310,70,70,66.9],[30240,200,360,64,58,69.3],[32240,200,360,104,98,85.1],["32944 X2",220,300,51,48,53],[32944,220,300,51,51,50.1],["32044 X2",220,340,76,72,71],[32044,220,340,76,76,73],["32948 X2",240,320,51,48,67],[32948,240,320,51,51,64.7],["32048 X2",240,360,76,72,70],[32048,240,360,76,76,78.4],["32952 X2",260,360,63.5,60,64],[32952,260,360,63.5,63.5,69.6],["32052 X2",260,400,87,82,76],[32052,260,400,87,87,85.6],[32956,280,380,63.5,63.5,74.5],["32056 X2",280,420,87,87,87],[32056,280,420,87,87,90.3],["32960 X2",300,420,76,72,72],[32960,300,420,76,76,80],["32060 X2",300,460,100,95,90],[32060,300,460,100,100,97.7],["32964 X2",320,440,76,72,76],[32964,320,440,76,76,85.1],["32064 X2",320,480,100,95,106],[32064,320,480,100,100,103.5],["32968 X2",340,460,76,72,80],[32968,340,460,76,76,90.5],["32972 X2",360,480,76,72,84],[32972,360,480,76,76,96.2]];
+const T_zc = [[30302,15,42,14.25,13,9.6,21],[30203,17,40,13.25,12,9.9,23],[30303,17,47,15.25,14,10.4,23],[32303,17,47,20.25,19,12.3,23],[32904,20,37,12,12,8.2,10000],[32004,20,42,15,15,10.3,25],[30204,20,47,15.25,14,11.2,26],[30304,20,52,16.25,15,11.1,27],[32304,20,52,22.25,21,13.6,27],["329/22",22,40,12,12,8.5,10000],["320/22",22,44,15,15,10.8,27],[32905,25,42,12,12,8.7,10000],[32005,25,47,15,15,11.6,30],[33005,25,47,17,17,11.1,30],[30205,25,52,16.25,15,12.5,31],[33205,25,52,22,22,14,31],[30305,25,62,18.25,17,13,32],[31305,25,62,18.25,17,20.1,32],[32305,25,62,25.25,24,15.9,32],["329/28",28,45,12,12,9,10000],["320/28",28,52,16,16,12.6,34],["332/28",28,58,24,24,15,34],[32906,30,47,12,12,9.2,10000],["32006 X2",30,55,17,16,12,10000],[32006,30,55,17,17,13.1,36],[33006,30,55,20,20,12.8,36],[30206,30,62,17.25,16,13.8,36],[32206,30,62,21.25,20,15.6,36],[33206,30,62,25,25,15.7,36],[30306,30,72,20.75,19,15.3,37],[31306,30,72,20.75,19,23.1,37],[32306,30,72,28.75,27,18.9,37],["329/32",32,52,14,14,10.2,37],["320/32",32,58,17,17,14,38],["332/32",32,65,26,26,16.6,38],[32907,35,55,14,14,10.1,40],["32007 X2",35,62,18,17,14,10000],[32007,35,62,18,18,15.1,41],[33007,35,62,21,21,13.5,41],[30207,35,72,18.25,17,15.3,42],[32207,35,72,24.25,23,17.9,42],[33207,35,72,28,28,18.2,42],[30307,35,80,22.75,21,16.8,44],[31307,35,80,22.75,21,25.8,44],[32307,35,80,32.75,31,20.4,44],["32908 X2",40,62,15,14,12,10000],[32908,40,62,15,15,11.1,45],["32008 X2",40,68,19,18,15,10000],[32008,40,68,19,19,14.9,46],[33008,40,68,22,22,14.5,46],[33108,40,75,26,26,18,47],[30208,40,80,19.75,18,16.9,47],[32208,40,80,24.75,23,18.9,47],[33208,40,80,32,32,20.8,47],[30308,40,90,25.25,23,19.5,49],[31308,40,90,25.25,23,29,49],[32308,40,90,35.25,33,23.3,49],["32909 X2",45,68,15,14,13,10000],[32909,45,68,15,15,12.2,50],["32009 X2",45,75,20,19,16,10000],[32009,45,75,20,20,16.5,51],[33009,45,75,24,24,15.9,51],[33109,45,80,26,26,19.1,52],[30209,45,86,20.75,19,18.6,52],[32209,45,85,24.75,23,20.1,52],[33209,45,85,32,32,21.9,52],[30309,45,100,27.25,25,21.3,54],[31309,45,100,27.25,25,31.7,54],[32309,45,100,38.25,36,25.6,54],["32910 X2",50,72,15,14,15,10000],[32910,50,72,15,15,13,55],["32010 X2",50,80,20,19,17,10000],[32010,50,80,20,20,17.8,56],[33010,50,30,24,24,17,56],[33110,50,85,26,26,20.4,57],[30210,50,90,21.75,20,20,57],[32210,50,90,24.75,23,21,57],[33210,50,90,32,32,23.2,57],[30310,50,110,29.25,27,23,60],[31310,50,110,29.25,27,34.8,60],[32310,50,110,42.25,40,28.2,60],[32911,55,80,17,17,14.3,61],["32011 X2",55,90,23,22,19,10000],[32011,55,90,23,23,19.8,62],[33011,55,90,27,27,19,62],[33111,55,95,30,30,21.9,62],[30211,55,100,22.75,21,21,64],[32211,55,100,26.75,25,22.8,64],[33211,55,100,35,35,25.1,64],[30311,55,120,31.5,29,24.9,65],[31311,55,120,31.5,29,37.5,65],[32311,55,120,45.5,43,30.4,65],["32912 X2",60,85,17,16,18,10000],[32912,60,85,17,17,15.1,66],["32012 X2",60,95,23,22,20,10000],[32612,60,95,23,23,20.9,67],[33012,60,95,27,27,19.8,67],[33112,60,100,30,30,23.1,67],[30212,60,110,23.75,22,22.3,69],[32212,60,110,29.75,28,25,69],[33212,60,110,38,38,27.5,69],[30312,60,130,33.5,31,26.6,72],[31312,60,130,33.5,31,40.4,72],[32312,60,130,48.5,46,32.6,72],[32913,65,90,17,17,16.2,71],["32013 X2",65,100,23,22,21,10000],[32013,65,100,23,23,22.4,72],[33013,65,100,27,27,20.9,72],[33113,65,110,34,34,26,72],[30213,65,120,24.75,23,23.8,74],[32213,65,120,32.75,31,27.3,74],[33213,65,120,41,41,29.5,74],[30313,65,140,36,33,28.7,77],[31313,65,140,36,33,44.2,77],[32313,65,140,51,48,34.3,77],["32914 X2",70,100,20,19,19,10000],[32914,70,100,20,20,17.6,76],["32014 X2",70,110,25,24,23,10000],[32014,70,110,25,25,23.8,77],[33014,70,110,31,31,22,77],[33114,70,120,37,37,28.2,79],[30214,70,125,26.25,24,25.8,79],[32214,70,125,33.25,31,28.8,79],[33214,70,125,41,41,30.7,79],[30314,70,150,38,35,30.7,82],[31314,70,150,38,35,46.8,82],[32314,70,150,54,51,36.5,82],[32915,75,105,20,20,18.5,81],["32015 X2",75,115,25,24,24,10000],[32015,75,115,25,25,25.2,82],[33015,75,115,31,31,22.8,82],[33115,75,125,37,37,29.4,84],[30215,75,130,27.25,25,27.4,84],[32215,75,130,33.25,31,30,84],[33215,75,130,41,41,31.9,84],[30315,75,160,40,37,32,87],[31315,75,160,40,37,49.7,87],[32315,75,160,58,55,39.4,87],[32916,80,110,20,20,19.6,86],["32016 X2",80,125,29,27,26,10000],[32016,80,125,29,29,26.8,87],[33016,80,125,36,36,25.2,87],[33116,80,130,37,37,30.7,89],[30216,80,140,28.25,26,28.1,90],[32216,80,140,35.25,33,31.4,90],[33216,80,140,46,46,35.1,90],[30316,80,170,42.5,39,34.4,92],[31316,80,170,42.5,39,52.8,92],[32316,80,170,61.5,58,42.1,92],["32917 X2",85,120,23,22,21,10000],[32917,85,120,23,23,21.1,92],["32017 X2",85,130,29,27,27,10000],[32017,85,130,29,29,28.1,92],[33017,85,130,36,36,26.2,92],[33117,85,140,41,41,33.1,95],[30217,85,150,30.5,28,30.3,95],[32217,85,150,38.5,36,33.9,95],[33217,85,150,49,49,36.9,95],[30317,85,180,44.5,41,35.9,99],[31317,85,180,44.5,41,55.6,99],[32317,85,180,63.5,60,43.5,99],["32918 X2",90,125,23,22,25,10000],[32918,90,125,23,23,22.2,97],["32018 X2",90,140,32,30,29,10000],[32018,90,140,32,32,30,99],[33018,90,140,39,39,27.2,99],[33118,90,150,45,45,34.9,100],[30218,90,160,32.5,30,32.3,"I00"],[32218,90,160,42.5,40,36.8,100],[33218,90,160,55,55,40.8,100],[30318,90,190,46.5,43,37.5,104],[31318,90,190,46.5,43,58.5,104],[32318,90,190,67.5,64,46.2,104],[32919,95,130,23,23,23.4,102],["32019 X2",95,145,32,30,30,10000],[32109,95,145,32,32,31.4,104],[33019,95,145,39,39,28.4,104],[33119,95,160,49,49,37.3,105],[30219,95,170,34.5,32,34.2,107],[32219,95,170,45.5,43,39.2,107],[33219,95,170,58,58,42.7,107],[30319,95,200,49.5,45,40.1,109],[31319,95,200,49.5,45,61.2,109],[32319,95,200,71.5,67,49,109],[32920,100,140,25,25,24.3,107],["32020 X2",100,150,32,30,32,10000],[32020,100,150,32,32,32.8,109],[33020,100,150,39,39,29.1,109],[33120,100,165,52,52,40.3,110],[30220,100,180,37,34,36.4,112],[32220,100,180,49,46,41.9,112],[33220,100,180,63,63,45.5,112],[30320,100,215,51.5,47,42.2,114],[31320,100,215,56.5,51,68.4,114],[32320,100,215,77.5,73,52.9,114],[32921,105,145,25,25,25.4,112],["32021 X2",105,160,35,33,33,10000],[32021,105,160,35,35,34.6,115],[33021,105,160,43,43,30.8,115],[33121,105,175,56,56,42.9,115],[30221,105,190,39,36,38.5,117],[32221,105,190,53,50,45,117],[33221,105,190,68,68,48.6,117],[30321,105,225,53.5,49,43.6,119],[31321,105,225,58,53,70,119],[32321,105,225,81.5,77,55.1,119],["32922 X2",110,150,25,24,25,10000],[32922,110,150,25,25,26.5,117],["32022 X2",110,170,38,36,35,10000],[32022,110,170,38,38,36.6,120],[33022,110,170,47,47,33.2,120],[33122,110,180,56,56,44,120],[30222,110,200,41,38,40.4,122],[32222,110,200,56,53,47.3,122],[30322,110,240,54.5,50,45.1,124],[31322,110,240,63,57,75.3,124],[32322,110,240,84.5,80,57.8,124],[32924,120,165,29,29,29.3,127],["32024 X2",120,180,38,36,38,10000],[32024,120,180,38,38,39.3,130],[33024,120,180,48,48,35.5,130],[33124,120,200,62,62,47.6,130],[30224,120,215,43.5,40,44.1,132],[32224,120,215,61.5,58,52.3,132],[30324,120,260,59.5,55,49,134],[31324,120,260,68,62,81.8,134],[32324,120,260,90.5,86,61.6,134],["32926 X2",130,180,32,30,30,10000],[32926,130,180,32,32,31.6,140],["32026 X2",130,200,45,42,42,10000],[32026,130,200,45,45,43.3,140],[33026,130,200,55,55,42,140],[30226,130,230,43.75,40,46.1,144],[32226,130,230,67.75,64,56.6,144],[30326,130,280,63.75,58,53.2,145],[31326,130,280,72,66,87.2,147],["32928 X2",140,190,32,30,32,10000],[32928,140,190,32,32,33.8,150],["32028 X2",140,210,45,42,44,10000],[32028,140,210,45,45,46,150],[33028,140,210,56,56,45.1,150],[30228,140,250,45.75,42,49,154],[32228,140,250,71.75,68,60.7,154],[30328,140,300,67.75,62,56.5,155],[31328,140,300,77,70,94.1,157],["32930 X2",150,210,38,36,35.6,10000],[32930,150,210,38,38,36.4,160],["32030 X2",150,225,48,45,47,10000],[32030,150,225,48,48,49.2,162],[33030,150,225,59,59,48.2,162],[30230,150,270,49,45,52.4,164],[32230,150,270,77,73,65.4,164],[30330,150,320,72,65,60.6,165],[31330,150,320,82,75,100.1,167],["32932 X2",160,220,38,36,36,10000],[32932,160,220,38,38,38.7,170],["32032 X2",160,240,51,48,50,10000],[32032,160,240,51,51,52.6,172],[30232,160,290,52,48,55.5,174],[32232,160,290,84,80,70.9,174],[30332,160,340,75,68,63.3,175],["32934 X2",170,230,38,36,38,10000],[32934,170,230,38,38,41.9,180],["32034 X2",170,260,57,54,51,10000],[32034,170,260,57,57,56.4,182],[30234,170,310,57,52,60.4,188],[32234,170,310,91,86,76.3,188],[30334,170,360,80,72,68,185],[32936,180,250,45,45,54,190],["32036 X2",180,280,64,60,63,10000],[32036,180,280,64,64,60.1,192],[30236,180,320,57,52,62.8,198],[32236,180,320,91,86,78.8,198],[30336,180,380,83,75,70.9,198],["32938 X2",190,260,45,42,52,10000],[32938,190,260,45,45,55.2,200],["32038 X2",190,290,64,60,56,10000],[32038,190,290,64,64,62.8,202],[30238,190,340,60,55,65,208],[32238,190,340,97,92,82.1,208],["32940 X2",200,280,51,48,57,10000],[32940,200,280,51,51,54.2,212],["32040 X2",200,310,70,66,67,10000],[32040,200,310,70,70,66.9,212],[30240,200,360,64,58,69.3,218],[32240,200,360,104,98,85.1,218],["32944 X2",220,300,51,48,53,10000],[32944,220,300,51,51,50.1,232],["32044 X2",220,340,76,72,71,10000],[32044,220,340,76,76,73,234],["32948 X2",240,320,51,48,67,10000],[32948,240,320,51,51,64.7,252],["32048 X2",240,360,76,72,70,10000],[32048,240,360,76,76,78.4,254],["32952 X2",260,360,63.5,60,64,10000],[32952,260,360,63.5,63.5,69.6,272],["32052 X2",260,400,87,82,76,10000],[32052,260,400,87,87,85.6,278],[32956,280,380,63.5,63.5,74.5,292],["32056 X2",280,420,87,87,87,10000],[32056,280,420,87,87,90.3,298],["32960 X2",300,420,76,72,72,10000],[32960,300,420,76,76,80,315],["32060 X2",300,460,100,95,90,10000],[32060,300,460,100,100,97.7,318],["32964 X2",320,440,76,72,76,10000],[32964,320,440,76,76,85.1,335],["32064 X2",320,480,100,95,106,10000],[32064,320,480,100,100,103.5,338],["32968 X2",340,460,76,72,80,10000],[32968,340,460,76,76,90.5,355],["32972 X2",360,480,76,72,84,10000],[32972,360,480,76,76,96.2,375]];
 const T3_16 = [[6,12,10,15],[8,15,13,20],[10,18,14,25],[12,22,18,30],[16,26,21,40],[20,30,26,45],[22,36,30,48],[24,36,30,48],[27,40,34,55],[30,42,36,60]];
+const T2_1 = {"Z":[12,7],"A":[15,9],"B":[19,11.5],"C":[25.5,16]};
 </script> 
 
 
