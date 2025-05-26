@@ -451,7 +451,7 @@ function drawShaft(segments,type="middle") {
 
 window.onload = function(){
     window.addEventListener('message',function(e){
-        console.log(e.data);
+        //console.log(e.data);
         drawShaft(e.data[0],e.data[1]);
     })
     
