@@ -1,0 +1,955 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>轴受力弯矩图</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #f0f0f0;
+            margin: 0;
+            font-family: sans-serif;
+        }
+        canvas {
+            border: 1px solid #ccc;
+            background-color: #fff;
+            box-shadow: 2px 2px 10px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body>
+    <canvas id="shaftDiagramCanvas"></canvas>
+</body>
+</html>
+
+<script>
+
+function drawAllDiagram(points,forces,values,type = "high"){
+    const canvas = document.getElementById('shaftDiagramCanvas');
+    const ctx = canvas.getContext('2d');
+
+    // 图形配置
+    const canvasWidth = 900;
+    const canvasHeight = 1600; // 进一步增加高度以容纳更多内容
+    canvas.width = canvasWidth;
+    canvas.height = canvasHeight;
+
+    const margin = { top: 40, right: 40, bottom: 40, left: 60 };
+    const drawingWidth = canvasWidth - margin.left - margin.right;
+    const drawingHeight = canvasHeight - margin.top - margin.bottom;
+
+    
+
+     // 动态计算轴总长和分段长度
+     const shaftLength = points[points.length - 1].x_mm - points[0].x_mm;
+     const segmentLengths = [];
+     for(let i = 0; i < points.length - 1; i++) {
+         segmentLengths.push({
+             startPoint: points[i],
+             endPoint: points[i+1],
+             length: points[i+1].x_mm - points[i].x_mm
+         });
+     }
+
+    // 图的标题
+    const diagramTitles = [
+        "水平面弯矩图 (N·mm)",
+        "垂直面弯矩图 (N·mm)",
+        "合成弯矩图 (N·mm)",
+        "转矩图 (N·mm)",
+        "计算弯矩图 (N·mm)"
+    ];
+
+    // Force section titles
+    const forceSectionTitles = [
+         "水平面受力 (N)",
+         "垂直面受力 (N)"
+    ];
+
+    // 计算全局最大值以确定Y轴比例尺 (仅弯矩/转矩图)
+    const momentTorqueValues = [
+        ...values.horizontalMoment.map(p => p.value),
+        ...values.verticalMoment.map(p => p.value),
+        ...values.resultantMoment.map(p => p.value),
+        ...values.torque.map(p => p.value),
+        ...values.equivalentMoment.map(p => p.value)
+    ];
+    const maxAbsValue_MomentsTorque = Math.max(...momentTorqueValues.map(Math.abs));
+
+     // 比例尺
+    const scaleX = drawingWidth / shaftLength;
+
+    // 分配垂直空间
+    const numberOfDiagrams = diagramTitles.length; // 5 diagrams
+    const numberOfForceSections = forceSectionTitles.length; // 2 force sections
+    const shaftSketchHeight = 140; // Height for the shaft sketch area (increased for dimensions and components)
+    const forceSectionHeight = 100; // Height for each force section
+    const sectionPadding = 20; // Padding between sections (sketch, forces, diagrams)
+
+    // Calculate space needed for fixed height sections
+    const fixedSectionsHeight = shaftSketchHeight + numberOfForceSections * forceSectionHeight + (numberOfForceSections) * sectionPadding; // No padding after last force section
+
+    // Remaining height for diagrams and padding between them
+    const remainingHeight = drawingHeight - fixedSectionsHeight;
+
+    // Distribute remaining height among diagrams and padding
+    // Let diagramHeight = H, padding = 0.2 * H
+    // 5 * H + 4 * (0.2 * H) = remainingHeight
+    // 5.8 * H = remainingHeight
+    const diagramHeight = remainingHeight / (numberOfDiagrams + (numberOfDiagrams - 1) * 0.2);
+    const paddingBetweenDiagrams = diagramHeight * 0.2;
+
+
+
+    // Font styles
+    const fontSize = 16;
+
+    // Y轴比例尺 for Moments/Torque
+    const scaleY_MomentsTorque = (diagramHeight - fontSize*2) / 2 / maxAbsValue_MomentsTorque; // For center axis diagrams
+    const scaleY_positive_MomentsTorque = (diagramHeight - fontSize*2) / maxAbsValue_MomentsTorque; // For bottom axis diagrams
+
+     // Line styles
+    const thickLine = 2;
+    const thinLine = 0.5;
+    const mainColor = '#000'; // 黑色
+    const hatchingColor = '#666'; // 灰色
+
+    // Hatching spacing
+    const hatchingSpacing = 10; // pixels
+
+    // Function: Convert mm to Canvas X coordinate
+    function mmToCanvasX(mm) {
+        return margin.left + mm * scaleX;
+    }
+
+     // Function: Convert value to Canvas Y coordinate (for diagrams)
+    // diagramTopY: Top Canvas Y coordinate of the diagram area
+    // value: Value at the point
+    // scale: Y-axis scale for this diagram type
+    // isPositiveOnly: If true, axis is at the bottom of the diagram area
+    function valueToCanvasY(diagramTopY, value, scale, isPositiveOnly = false) {
+        const axisY = isPositiveOnly ? diagramTopY + diagramHeight  - fontSize : diagramTopY - fontSize / 2 + diagramHeight / 2;
+        return axisY - value * scale;
+    }
+
+     // Function: Get Canvas Y coordinate for hatching line in a linear diagram
+     function getLinearInterpolatedCanvasY(canvasX, canvasPoints, diagramTopY, scale, isPositiveOnly = false) {
+        // Find the segment containing canvasX
+        let p1 = canvasPoints[0];
+        let p2 = canvasPoints[0];
+        for (let i = 0; i < canvasPoints.length - 1; i++) {
+            if (canvasX >= canvasPoints[i].x && canvasX <= canvasPoints[i+1].x) {
+                 p1 = canvasPoints[i];
+                 p2 = canvasPoints[i+1];
+                 break;
+            }
+             // Handle case where canvasX is exactly at the last point
+             if (i === canvasPoints.length - 2 && canvasX === canvasPoints[canvasPoints.length-1].x) {
+                 p1 = p2 = canvasPoints[canvasPoints.length-1];
+                 break;
+             }
+        }
+         if (!p1 || !p2) { // Should not happen if x is within range
+             // If somehow outside, default to the value at the nearest end point
+             if (canvasX < canvasPoints[0].x) p1 = p2 = canvasPoints[0];
+             else p1 = p2 = canvasPoints[canvasPoints.length - 1];
+             // Recalculate based on the found point
+             return valueToCanvasY(diagramTopY, p1.value, scale, isPositiveOnly);
+         }
+
+
+        // Linear interpolation
+        const segmentLengthX = p2.x - p1.x;
+        let interpolatedValue;
+
+        if (segmentLengthX === 0) { // Vertical line, take value of the second point in the pair for hatching after the point
+             interpolatedValue = p2.value; // Use the value *after* the jump for hatching at the jump x
+        } else {
+             // Interpolate value based on position along the segment
+             interpolatedValue = p1.value + (canvasX - p1.x) / segmentLengthX * (p2.value - p1.value);
+        }
+
+        return valueToCanvasY(diagramTopY, interpolatedValue, scale, isPositiveOnly);
+    }
+
+     // Function: Get Canvas Y coordinate for hatching line in a stepwise diagram
+     function getStepwiseCanvasY(canvasX, canvasPoints, diagramTopY, scale, isPositiveOnly = false) {
+         let segmentValue = canvasPoints[0].value; // Default value for the segment starting at the first point
+
+         // Find the point p such that p.x is the largest x_mm <= current x
+         let currentSegmentStartPoint = canvasPoints[0];
+         for(let i = 0; i < canvasPoints.length; i++){
+             if(canvasPoints[i].x <= canvasX){
+                 currentSegmentStartPoint = canvasPoints[i];
+             } else {
+                 break; // Points are sorted by x, stop when x is greater
+             }
+         }
+
+         // The segment value at canvasX is the value of the point with the largest x <= canvasX,
+         // UNLESS the point at currentSegmentStartPoint.x is the *start* of a vertical jump.
+         // In that case, the value for hatching *at* or *after* that x is the value of the *second* point in the jump pair.
+
+         segmentValue = currentSegmentStartPoint.value; // Default: use the value of the point at the segment start
+
+         // Check if the segment start point is the first of a vertical jump pair
+         const index = canvasPoints.findIndex(p => p === currentSegmentStartPoint);
+         if (index !== -1 && index < canvasPoints.length - 1 && canvasPoints[index+1].x === currentSegmentStartPoint.x) {
+             // Yes, it's a jump start. The value for hatching at this x is the value *after* the jump.
+             segmentValue = canvasPoints[index+1].value;
+         } else if (index === canvasPoints.length - 1 && canvasPoints.length > 1 && canvasPoints[index-1].x === currentSegmentStartPoint.x) {
+             // This is the second point of a jump pair (the end point). Use its value.
+              segmentValue = currentSegmentStartPoint.value;
+         }
+         // Otherwise, use the value of the segment starting at currentSegmentStartPoint.x
+
+
+         return valueToCanvasY(diagramTopY, segmentValue, scale, isPositiveOnly);
+     }
+
+
+    // Function: Draw shaft sketch, components, dimensions, and key point vertical lines
+    function drawShaftLayout(topY,type="high") {
+        const axisY = topY + shaftSketchHeight * 0.4; // Place axis line slightly above center for components
+        const dimensionLineY_upper = topY + shaftSketchHeight * 0.75; // Y for upper dimension lines
+        const dimensionLineY_lower = topY + shaftSketchHeight * 0.9; // Y for lower (total) dimension line
+
+        // Draw key point vertical lines (should go through all sections/diagrams)
+        for (const point of points) {
+            const canvasX = mmToCanvasX(point.x_mm);
+            ctx.beginPath();
+            ctx.strokeStyle = mainColor;
+            ctx.lineWidth = thinLine;
+            // Draw from slightly above the top margin to slightly below the bottom margin
+            ctx.moveTo(canvasX, margin.top);
+            ctx.lineTo(canvasX, canvasHeight - margin.bottom);
+            ctx.stroke();
+
+            if(type=="high"){
+                if(point.name=="D" || point.name=="C"){
+                    continue;
+                }
+            }else if(type=="middle"){
+                if(point.name=="B" || point.name=="C"){
+                    continue;
+                }
+            }else if(type=="low"){
+                if(point.name=="C"){
+                    continue;
+                }
+            }
+            // Label point name
+            ctx.font = '14px Arial';
+            ctx.textAlign = 'center';
+            ctx.fillText(point.name, canvasX + 15, axisY + shaftSketchHeight * 0.2); // Label below the axis line
+        }
+
+         // Draw a simple representation of the shaft itself (rectangle)
+         ctx.beginPath();
+         ctx.strokeStyle = mainColor;
+         ctx.lineWidth = thickLine;
+         const shaftDrawHeight = 25; // Visual height of the shaft rectangle
+         ctx.rect(margin.left, axisY - shaftDrawHeight/2, drawingWidth, shaftDrawHeight);
+         ctx.stroke();
+
+
+        const supportWidth = 20;
+        const supportHeight = 20;
+        const supportY = axisY + shaftDrawHeight/2; // Below the shaft
+        const canvasXA = mmToCanvasX(points.find(p => p.name === 'A').x_mm);
+        const canvasXB = mmToCanvasX(points.find(p => p.name === 'B').x_mm);
+        const canvasXC = mmToCanvasX(points.find(p => p.name === 'C').x_mm);
+        const canvasXD = mmToCanvasX(points.find(p => p.name === 'D').x_mm);
+            
+
+        // Draw component sketches (simplified)
+        const componentColor = '#000';
+        if(type=="high"){
+            ctx.beginPath();
+            ctx.moveTo(canvasXA, supportY);
+            ctx.lineTo(canvasXA - supportWidth/2, supportY + supportHeight);
+            ctx.lineTo(canvasXA + supportWidth/2, supportY + supportHeight);
+            ctx.closePath();
+            ctx.stroke();
+
+            ctx.beginPath();
+            ctx.moveTo(canvasXB, supportY);
+            ctx.lineTo(canvasXB - supportWidth/2, supportY + supportHeight);
+            ctx.lineTo(canvasXB + supportWidth/2, supportY + supportHeight);
+            ctx.closePath();
+            ctx.stroke();
+
+            const pulleyRadius = (shaftDrawHeight + 30) / 2;
+            const pulleyWidth = 20; 
+            ctx.strokeStyle = componentColor;
+            ctx.lineWidth = thickLine;
+            ctx.beginPath();
+            ctx.rect(canvasXD - pulleyWidth/2, axisY - pulleyRadius, pulleyWidth, pulleyRadius * 2);
+            ctx.stroke();
+            ctx.font = '12px Arial';
+            ctx.textAlign = 'center';
+            ctx.fillStyle = componentColor;
+            ctx.fillText('带轮D', canvasXD, axisY - pulleyRadius - 5);
+
+
+ 
+            const gearRadius = (shaftDrawHeight + 10) / 2;
+            const gearWidth = 20; 
+            ctx.strokeStyle = componentColor;
+            ctx.lineWidth = thickLine;
+            ctx.beginPath();
+            ctx.rect(canvasXC - gearWidth/2, axisY - gearRadius, gearWidth, gearRadius * 2);
+            ctx.stroke();
+            ctx.font = '12px Arial';
+            ctx.textAlign = 'center';
+            ctx.fillStyle = componentColor;
+            ctx.fillText('齿轮C', canvasXC, axisY - gearRadius - 5);
+        }else if(type=="middle"){
+            ctx.beginPath();
+            ctx.moveTo(canvasXA, supportY);
+            ctx.lineTo(canvasXA - supportWidth/2, supportY + supportHeight);
+            ctx.lineTo(canvasXA + supportWidth/2, supportY + supportHeight);
+            ctx.closePath();
+            ctx.stroke();
+
+            ctx.beginPath();
+            ctx.moveTo(canvasXD, supportY);
+            ctx.lineTo(canvasXD - supportWidth/2, supportY + supportHeight);
+            ctx.lineTo(canvasXD + supportWidth/2, supportY + supportHeight);
+            ctx.closePath();
+            ctx.stroke();
+            const gearRadius1 = (shaftDrawHeight + 10) / 2;
+            const gearWidth1 = 20; 
+            ctx.strokeStyle = componentColor;
+            ctx.lineWidth = thickLine;
+            ctx.beginPath();
+            ctx.rect(canvasXB - gearWidth1/2, axisY - gearRadius1, gearWidth1, gearRadius1 * 2);
+            ctx.stroke();
+            ctx.font = '12px Arial';
+            ctx.textAlign = 'center';
+            ctx.fillStyle = componentColor;
+            ctx.fillText('齿轮B', canvasXB, axisY - gearRadius1 - 5);
+
+            const gearRadius2 = (shaftDrawHeight + 30) / 2;
+            const gearWidth2 = 20; 
+            ctx.strokeStyle = componentColor;
+            ctx.lineWidth = thickLine;
+            ctx.beginPath();
+            ctx.rect(canvasXC - gearWidth2/2, axisY - gearRadius2, gearWidth2, gearRadius2 * 2);
+            ctx.stroke();
+            ctx.font = '12px Arial';
+            ctx.textAlign = 'center';
+            ctx.fillStyle = componentColor;
+            ctx.fillText('齿轮C', canvasXC, axisY - gearRadius2 - 5);
+        }else if(type=="low"){
+            ctx.beginPath();
+            ctx.moveTo(canvasXA, supportY);
+            ctx.lineTo(canvasXA - supportWidth/2, supportY + supportHeight);
+            ctx.lineTo(canvasXA + supportWidth/2, supportY + supportHeight);
+            ctx.closePath();
+            ctx.stroke();
+
+            ctx.beginPath();
+            ctx.moveTo(canvasXB, supportY);
+            ctx.lineTo(canvasXB - supportWidth/2, supportY + supportHeight);
+            ctx.lineTo(canvasXB + supportWidth/2, supportY + supportHeight);
+            ctx.closePath();
+            ctx.stroke();
+ 
+            const gearRadius = (shaftDrawHeight + 10) / 2;
+            const gearWidth = 20; 
+            ctx.strokeStyle = componentColor;
+            ctx.lineWidth = thickLine;
+            ctx.beginPath();
+            ctx.rect(canvasXC - gearWidth/2, axisY - gearRadius, gearWidth, gearRadius * 2);
+            ctx.stroke();
+            ctx.font = '12px Arial';
+            ctx.textAlign = 'center';
+            ctx.fillStyle = componentColor;
+            ctx.fillText('齿轮C', canvasXC, axisY - gearRadius - 5);
+        }
+        
+
+
+         // Draw dimension lines and text
+         const dimExtensionOffset = 10; // Offset from the shaft layout
+         const dimArrowSize = 5;
+
+         ctx.strokeStyle = mainColor;
+         ctx.lineWidth = thinLine;
+         ctx.font = '12px Arial';
+         ctx.textAlign = 'center';
+         ctx.fillStyle = mainColor;
+
+         // Iterate through segments for dimensions
+         segmentLengths.forEach(segment => {
+             const startX = mmToCanvasX(segment.startPoint.x_mm);
+             const endX = mmToCanvasX(segment.endPoint.x_mm);
+             const dimLineY = dimensionLineY_upper; // Use upper line for segments
+
+             ctx.beginPath();
+             // Extension lines from points
+             ctx.moveTo(startX, axisY + shaftDrawHeight/2 + dimExtensionOffset);
+             ctx.lineTo(startX, dimLineY);
+             ctx.moveTo(endX, axisY + shaftDrawHeight/2 + dimExtensionOffset);
+             ctx.lineTo(endX, dimLineY);
+             // Dimension line
+             ctx.moveTo(startX, dimLineY);
+             ctx.lineTo(endX, dimLineY);
+             // Arrows
+             ctx.moveTo(startX, dimLineY); ctx.lineTo(startX + dimArrowSize, dimLineY - dimArrowSize);
+             ctx.moveTo(startX, dimLineY); ctx.lineTo(startX + dimArrowSize, dimLineY + dimArrowSize);
+             ctx.moveTo(endX, dimLineY); ctx.lineTo(endX - dimArrowSize, dimLineY - dimArrowSize);
+             ctx.moveTo(endX, dimLineY); ctx.lineTo(endX - dimArrowSize, dimLineY + dimArrowSize);
+             ctx.stroke();
+             ctx.fillText(segment.length.toFixed(0), (startX + endX) / 2, dimLineY - 5); // Text above line
+         });
+    }
+
+    function drawArrow(startX, startY, endX, endY, arrowHeadSize, is_vertical=1){
+        // Draw arrow line
+        ctx.moveTo(startX, startY);
+        ctx.lineTo(endX, endY);
+        ctx.stroke();
+        // Draw arrow head
+        ctx.beginPath();
+        ctx.moveTo(endX, endY);
+        if(is_vertical){
+            ctx.lineTo(endX - arrowHeadSize/3, endY + arrowHeadSize);
+            ctx.lineTo(endX + arrowHeadSize/3, endY + arrowHeadSize);
+        }else{ //is_vertical == False
+            ctx.lineTo(endX + arrowHeadSize, endY - arrowHeadSize/3);
+            ctx.lineTo(endX + arrowHeadSize, endY + arrowHeadSize/3);
+        }
+        ctx.closePath();
+        ctx.fill();
+    }
+
+    function drawArcArrow(startX, startY, radius, arrowHeadSize, is_counterclockwise=true){
+        let endX, endY;
+        // Draw arrow line
+        ctx.arc(startX, startY, radius,-Math.PI/6,Math.PI*2/3,true);
+        ctx.stroke();
+        // Draw arrow head
+        ctx.beginPath();
+        if(is_counterclockwise){
+            endX = startX - radius*0.5;
+            endY = startY + radius*0.5*Math.sqrt(3);
+            ctx.moveTo(endX, endY);
+            ctx.lineTo(endX - arrowHeadSize * 0.9396, endY - arrowHeadSize * 0.3420);
+            ctx.lineTo(endX - arrowHeadSize * 0.3420, endY - arrowHeadSize * 0.9396);
+        }else{ //is_counterclockwise == False
+            endX = startX + radius*0.5*Math.sqrt(3);
+            endY = startY - radius*0.5;
+            ctx.moveTo(endX, endY);
+            ctx.lineTo(endX - arrowHeadSize * 0.9396, endY - arrowHeadSize * 0.3420);
+            ctx.lineTo(endX - arrowHeadSize * 0.3420, endY - arrowHeadSize * 0.9396);
+        }
+        ctx.closePath();
+        ctx.fill();
+    }
+
+    function judgeForceDirection(force,dir){
+        if(force<0){
+            if(dir == "up"){
+                return "down";
+            }else if(dir == "down"){
+                return "up";
+            }else if(dir == "left"){
+                return "right";
+            }else if(dir == "right"){
+                return "left";
+            }else if(dir == "clockwise"){
+                return "counterclockwise";
+            }else if(dir == "counterclockwise"){
+                return "clockwise";
+            }
+        }
+        return dir;
+    }
+
+     // Function: Draw force representation section
+     function drawForces(sectionTopY, title, plane) {
+         const sectionCenterY = sectionTopY + forceSectionHeight / 2;
+
+         // Draw section title
+        ctx.font = `${fontSize}px Arial`;
+        ctx.textAlign = 'left';
+        ctx.fillStyle = mainColor;
+        ctx.fillText(title, mmToCanvasX(shaftLength/2)-ctx.measureText(title).width/2, sectionTopY-fontSize); // Position title near the top of the section
+
+        // Draw axis line as force reference
+        ctx.beginPath();
+        ctx.strokeStyle = mainColor;
+        ctx.lineWidth = thinLine;
+        ctx.moveTo(margin.left, sectionCenterY);
+        ctx.lineTo(margin.left + drawingWidth, sectionCenterY);
+        ctx.stroke();
+
+        // Draw arrows and values - Iterate through the ordered points
+        const arrowLength = 30; // pixels
+        const arrowHeadSize = 12; // pixels
+
+         for (const point of points) {
+             const canvasX = mmToCanvasX(point.x_mm);
+             const pointForces = forces[point.name] || []; // Look up forces by point name
+
+             pointForces.filter(f => f.plane === plane).forEach(force => {
+                const value = Math.abs(force.value);
+                const direction = judgeForceDirection(force.value,force.direction);
+                const forceName = force.name;
+
+                ctx.fillStyle = mainColor;
+                ctx.strokeStyle = mainColor;
+                ctx.lineWidth = thickLine; // Use thick line for force arrows
+
+                ctx.beginPath();
+                let startX, startY, endX, endY, radius;
+                let valueTextX, valueTextY;
+                let nameTextX, nameTextY;
+                const textOffset = 5; // Gap between arrow/point and text
+
+                startX = canvasX;
+                endX = canvasX;
+                valueTextX = canvasX;
+                nameTextX = canvasX; // Center texts horizontally at the point X
+                startY = sectionCenterY;
+                endY = sectionCenterY;
+                radius = 15;
+                valueTextY = startY - fontSize; 
+                nameTextY = startY; 
+                ctx.textAlign = 'center'; // Center texts horizontally at the point X
+
+                if (direction === 'up') {
+                    startY = sectionCenterY + arrowLength;
+                    endY = sectionCenterY;
+                    valueTextY = startY + fontSize*2; 
+                    nameTextY = startY + fontSize; 
+                    drawArrow(startX, startY, endX, endY, arrowHeadSize);
+                } else if(direction === 'down') {
+                    startY = sectionCenterY - arrowLength;
+                    endY = sectionCenterY;
+                    valueTextY = startY - fontSize - textOffset; 
+                    nameTextY = startY - textOffset; 
+                    drawArrow(startX, startY, endX, endY, -arrowHeadSize);
+                } else if (direction === 'right') {
+                    startX = canvasX - arrowLength;
+                    endX = canvasX;
+                    valueTextY = startY - fontSize - textOffset; 
+                    nameTextY = startY - textOffset;
+                    valueTextX = startX;
+                    nameTextX = startX;
+                    drawArrow(startX, startY, endX, endY, -arrowHeadSize,0);
+                } else if (direction === 'left') {
+                    startX = canvasX + arrowLength;
+                    endX = canvasX;
+                    valueTextY = startY - fontSize - textOffset; 
+                    nameTextY = startY - textOffset;
+                    valueTextX = startX;
+                    nameTextX = startX;
+                    drawArrow(startX, startY, endX, endY, arrowHeadSize,0);
+                } else if (direction === 'counterclockwise')  { 
+                    startX = canvasX + arrowLength + radius*3;
+                    startY = sectionCenterY;
+                    valueTextX = startX;
+                    nameTextX = startX;
+                    valueTextY = startY - fontSize * 2 - textOffset; 
+                    nameTextY = startY - fontSize - textOffset;
+                    drawArcArrow(startX, startY, radius, arrowHeadSize,1);
+                } else{ //direction === 'clockwise'
+                    startX = canvasX + arrowLength + radius*3;
+                    startY = sectionCenterY;
+                    valueTextX = startX;
+                    nameTextX = startX;
+                    valueTextY = startY + fontSize + textOffset * 2; 
+                    nameTextY = startY + fontSize * 2 + textOffset * 2;
+                    drawArcArrow(startX, startY, radius, arrowHeadSize,0);
+                }
+                
+                // Draw the value text
+                ctx.font = '12px Arial';
+                ctx.fillText(value.toFixed(1), valueTextX, valueTextY);
+
+                // Draw the force name text
+                ctx.font = '12px Arial';
+                ctx.fillText(forceName, nameTextX, nameTextY);
+             });
+         }
+     }
+
+
+    // Function: Draw a single diagram (moment or torque)
+    function drawDiagram(diagramDataPoints, diagramTopY, title, isPositiveOnly = false, isStepwise = false) {
+        const diagramBottomY = diagramTopY + diagramHeight - fontSize;
+        const axisY = isPositiveOnly ? diagramBottomY : diagramTopY  - fontSize /2  + diagramHeight / 2;
+        const currentScale = isPositiveOnly ? scaleY_positive_MomentsTorque : scaleY_MomentsTorque;
+
+
+        // Draw zero axis
+        ctx.beginPath();
+        ctx.strokeStyle = mainColor;
+        ctx.lineWidth = thickLine;
+        ctx.moveTo(margin.left, axisY);
+        ctx.lineTo(margin.left + drawingWidth, axisY);
+        ctx.stroke();
+
+
+        // Convert data points to Canvas coordinates
+        const canvasPoints = diagramDataPoints.map(p => ({
+            x_mm: p.x_mm,
+            value: p.value,
+            x: mmToCanvasX(p.x_mm),
+            y: valueToCanvasY(diagramTopY, p.value, currentScale, isPositiveOnly)
+        }));
+
+        // Draw outline (thick line)
+        ctx.beginPath();
+        ctx.strokeStyle = mainColor;
+        ctx.lineWidth = thickLine;
+        ctx.lineJoin = 'round';
+
+        // Linear diagram
+        ctx.moveTo(canvasPoints[0].x, axisY); // Start on axis
+        canvasPoints.forEach(p => {
+            ctx.lineTo(p.x, p.y);
+        });
+        ctx.lineTo(canvasPoints[canvasPoints.length-1].x, axisY); // End on axis
+
+
+        ctx.stroke();
+
+
+        // Draw hatching (thin vertical lines)
+        ctx.strokeStyle = hatchingColor;
+        ctx.lineWidth = thinLine;
+        ctx.lineJoin = 'miter';
+
+        for (let x = margin.left; x <= margin.left + drawingWidth; x += hatchingSpacing) {
+            let y1 = axisY; // One end is always the axis
+            let y2; // The other end is on the diagram boundary
+
+            y2 = getLinearInterpolatedCanvasY(x, canvasPoints, diagramTopY, currentScale, isPositiveOnly);
+
+            // Ensure hatching lines are within the diagram's vertical bounds
+             const diagramTopBoundary = diagramTopY;
+             const diagramBottomBoundary = diagramBottomY;
+
+             y1 = Math.max(diagramTopBoundary, Math.min(diagramBottomBoundary, y1));
+             y2 = Math.max(diagramTopBoundary, Math.min(diagramBottomBoundary, y2));
+
+             // Ensure y1 is always the upper point, y2 is the lower point for drawing
+             if (y1 > y2) { [y1, y2] = [y2, y1]; }
+
+
+            // Only draw if the line segment has visible length
+             if (Math.abs(y2 - y1) > 0.1) {
+                ctx.beginPath();
+                ctx.moveTo(x, y1);
+                ctx.lineTo(x, y2);
+                ctx.stroke();
+             }
+        }
+
+
+        // Label diagram title
+        ctx.font = `${fontSize}px Arial`;
+        ctx.textAlign = 'left';
+        ctx.fillStyle = mainColor;
+        ctx.fillText(title, mmToCanvasX(shaftLength/2)-ctx.measureText(title).width/2, diagramBottomY+fontSize);
+
+        // Label key point values
+        ctx.font = '12px Arial';
+        ctx.fillStyle = mainColor;
+
+         // Determine decimal places for labels
+         const decimalPlaces = (title.includes("弯矩图") || title.includes("转矩图")) ? 0 : 1; // Use 0 for Moment/Torque, 1 for others if needed
+
+
+         // Labeling logic refined
+         // Iterate through the original diagramDataPoints
+         diagramDataPoints.forEach((p, index) => {
+             const canvasX = mmToCanvasX(p.x_mm);
+             const canvasY = valueToCanvasY(diagramTopY, p.value, currentScale, isPositiveOnly);
+
+             let textX = canvasX;
+             let textY = canvasY;
+             let textAnchorYOffset = (canvasY < axisY) ? -5 : 15; // Default offset
+
+             ctx.textAlign = 'center'; // Default alignment
+
+            let isJumpStart = false;
+            let isJumpEnd = false;
+            // Check if this point is part of a jump pair
+            if (index < diagramDataPoints.length - 1 && diagramDataPoints[index+1].x_mm === p.x_mm) {
+                isJumpStart = true; // This point is the first of a jump pair (value before jump)
+            }
+            if (index > 0 && diagramDataPoints[index-1].x_mm === p.x_mm) {
+                isJumpEnd = true; // This point is the second of a jump pair (value after jump)
+            }
+
+            if (isJumpStart) {
+                // Value before jump, position slightly left
+                ctx.textAlign = 'right';
+                textX -= 5;
+            } else if (isJumpEnd) {
+                // Value after jump, position slightly right
+                ctx.textAlign = 'left';
+                textX += 5;
+            } else {
+                // Single point at this x (start/end point, or non-jump transition)
+                ctx.textAlign = 'center';
+            }
+
+            // Adjust vertical offset based on axis and value being zero
+            if (Math.abs(p.value) < maxAbsValue_MomentsTorque * 0.001) {
+                if (!isPositiveOnly) textAnchorYOffset = axisY - canvasY + 15;
+                else textAnchorYOffset = axisY - canvasY - 5;
+            } else {
+                // Adjust based on diagram boundary proximity
+                if (Math.abs(canvasY - diagramTopY) < 15) textAnchorYOffset = 15;
+                else if (Math.abs(canvasY - diagramBottomY) < 15) textAnchorYOffset = -5;
+            }
+            textY = canvasY + textAnchorYOffset; // Apply calculated offset
+
+              // Only draw if the point is visible within drawing bounds (mostly for safety)
+             if (textX >= margin.left && textX <= margin.left + drawingWidth) {
+                ctx.fillText(p.value.toFixed(decimalPlaces), textX, textY);
+             }
+         });
+    }
+
+    function judgePositiveAndStep(moments){
+        let isPositiveOnly = true;
+        let isStepwise = false;
+        let step_map = {};
+        for(i of moments){
+            if(i.value<0){
+                isPositiveOnly = false;
+                break;
+            }
+            // if(step_map[i.x_mm]){
+            //     isStepwise = true;
+            // }
+            // step_map[i.x_mm] = true;
+        }
+        // console.log([isPositiveOnly,isStepwise]);
+        return [isPositiveOnly,isStepwise];
+    }
+
+    // Draw all sections
+    function drawAll() {
+        ctx.clearRect(0, 0, canvasWidth, canvasHeight);
+
+        let currentSectionTopY = margin.top;
+        let tempIss = [];
+
+        // Draw shaft sketch with components and dimensions
+        drawShaftLayout(currentSectionTopY, type);
+        currentSectionTopY += shaftSketchHeight + sectionPadding;
+
+        // Draw horizontal forces
+        drawForces(currentSectionTopY, forceSectionTitles[0], 'horizontal');
+        currentSectionTopY += forceSectionHeight + sectionPadding;
+
+        // Horizontal Bending Moment
+        tempIss = judgePositiveAndStep(values.horizontalMoment);
+        drawDiagram(values.horizontalMoment, currentSectionTopY, diagramTitles[0], tempIss[0], tempIss[1]);
+        currentSectionTopY += diagramHeight + paddingBetweenDiagrams;
+
+        // Draw vertical forces
+        drawForces(currentSectionTopY, forceSectionTitles[1], 'vertical');
+        currentSectionTopY += forceSectionHeight + sectionPadding;
+
+        // Draw diagrams
+
+        // Vertical Bending Moment
+        tempIss = judgePositiveAndStep(values.verticalMoment);
+         drawDiagram(values.verticalMoment, currentSectionTopY, diagramTitles[1], tempIss[0], tempIss[1]);
+        currentSectionTopY += diagramHeight + paddingBetweenDiagrams;
+
+        // Resultant Bending Moment
+        tempIss = judgePositiveAndStep(values.resultantMoment);
+         drawDiagram(values.resultantMoment, currentSectionTopY, diagramTitles[2], tempIss[0], tempIss[1]);
+        currentSectionTopY += diagramHeight + paddingBetweenDiagrams;
+
+        // Torque
+        tempIss = judgePositiveAndStep(values.torque);
+         drawDiagram(values.torque, currentSectionTopY, diagramTitles[3], tempIss[0], tempIss[1]);
+        currentSectionTopY += diagramHeight + paddingBetweenDiagrams;
+
+        // Equivalent Bending Moment
+        tempIss = judgePositiveAndStep(values.equivalentMoment);
+         drawDiagram(values.equivalentMoment, currentSectionTopY, diagramTitles[4], tempIss[0], tempIss[1]);
+        // currentSectionTopY += diagramHeight + paddingBetweenDiagrams; // This is the last one
+
+    }
+
+    // Draw the diagram
+    drawAll();
+};
+
+
+// // 轴参数 (mm) - 使用有序数组
+// const points = [
+//     { name: 'D', x_mm: 0 },
+//     { name: 'A', x_mm: 175 },
+//     { name: 'C', x_mm: 175 + 58 }, // 233
+//     { name: 'B', x_mm: 175 + 58 + 200 } // 433
+// ];
+
+// // 受力数据 (N) - 使用点名称作为键，方便查找
+// const forces = {
+//     'D': [
+//         { value: 3297.9, direction: 'down', plane: 'vertical', name: 'F_Q' }
+//     ],
+//     'A': [
+//         { value: 9067.4, direction: 'down', plane: 'horizontal', name: 'R_AH' },
+//         { value: 9381.86, direction: 'up', plane: 'vertical', name: 'R_AV' } ,
+//         { value: 3118, direction: 'right', plane: 'vertical', name: 'F_AV2' } ,
+//     ],
+//     'C': [
+//         { value: 11697, direction: 'up', plane: 'horizontal', name: 'F_t1' },
+//         { value: 4406, direction: 'down', plane: 'vertical', name: 'F_r1' } ,
+//         { value: 3118, direction: 'left', plane: 'vertical', name: 'F_a1' } ,
+//         { value: 110000, direction: 'counterclockwise', plane: 'vertical', name: 'M_aC' } ,
+//     ],
+//     'B': [
+//         { value: 2629.5, direction: 'down', plane: 'horizontal', name: 'R_BH' },
+//         { value: 1677.96, direction: 'down', plane: 'vertical', name: 'R_BV' }
+//     ]
+// };
+
+// // 弯矩/转矩/计算弯矩值 (N·mm) - 使用 { x_mm: value } 数组形式
+// const values = {
+//     horizontalMoment: [ 
+//         { x_mm: points[0].x_mm, value: 0 , name: "M_DH"}, // D
+//         { x_mm: points[1].x_mm, value: 0 , name: "M_AH"}, // A
+//         { x_mm: points[2].x_mm, value: 525900 , name: "M_CH"}, // C
+//         { x_mm: points[3].x_mm, value: 0 , name: "M_BH"}  // B
+//     ],
+//     verticalMoment: [ 
+//         { x_mm: points[0].x_mm, value: 0 , name: "M_DV"}, // D
+//         { x_mm: points[1].x_mm, value: -577132.5 , name: "M_AV"}, // A
+//         { x_mm: points[2].x_mm, value: -224262.82 , name: "M_CV1"}, // C
+//         { x_mm: points[2].x_mm, value: -324262.82 , name: "M_CV2"}, // C
+//         { x_mm: points[3].x_mm, value: 0 , name: "M_BV"}  // B
+//     ],
+//     resultantMoment: [ 
+//         { x_mm: points[0].x_mm, value: 0 , name: "M_D"}, // D
+//         { x_mm: points[1].x_mm, value: 577132.5 , name: "M_A"}, // A
+//         { x_mm: points[2].x_mm, value: 623853.18 , name: "M_C1"}, // C (Using M_C2)
+//         { x_mm: points[2].x_mm, value: 323853.18 , name: "M_C2"}, // C (Using M_C2)
+//         { x_mm: points[3].x_mm, value: 0 , name: "M_B"}  // B
+//     ],
+//     torque: [ 
+//         { x_mm: points[0].x_mm, value: 417640 , name: "T_D"}, // D
+//         { x_mm: points[2].x_mm, value: 417640 , name: "T_C1"}, // C before
+//         { x_mm: points[2].x_mm, value: 0 , name: "T_C2"},    // C after
+//         { x_mm: points[3].x_mm, value: 0 , name: "T_B"}     // B
+//     ],
+//     equivalentMoment: [ 
+//         { x_mm: points[0].x_mm, value: 250584 , name: "M_caD"}, // D (M_caD)
+//         { x_mm: points[1].x_mm, value: 629185.40 , name: "M_caA"}, // A (M_caA)
+//         { x_mm: points[2].x_mm, value: 624225.1 , name: "M_caC"}, // C (M_caC1)
+//         { x_mm: points[3].x_mm, value: 0 , name: "M_caB"}  // B
+//     ]
+// };
+
+
+
+
+
+
+
+
+// // 轴参数 (mm) - 使用有序数组
+// const points = [
+//     { name: 'A', x_mm: 0 },
+//     { name: 'B', x_mm: 90 },
+//     { name: 'C', x_mm: 90 + 96 }, 
+//     { name: 'D', x_mm: 90 + 96 + 52 } 
+// ];
+
+// // 受力数据 (N) - 使用点名称作为键，方便查找
+// const forces = {
+//     'A': [
+//         { value: -18026.75, direction: 'up', plane: 'horizontal', name: 'R_AH' },
+//         { value: -1569.53, direction: 'down', plane: 'vertical', name: 'R_AV' } ,
+//         { value: 7000.7, direction: 'left', plane: 'vertical', name: 'F_a3A' } ,
+//     ],
+//     'B': [
+//         { value: 24879.2, direction: 'up', plane: 'horizontal', name: 'F_t3' },
+//         { value: -9406.97, direction: 'down', plane: 'vertical', name: 'F_r3' } ,
+//         { value: -7000.7, direction: 'left', plane: 'vertical', name: 'F_a3' } ,
+//         { value: 130000, direction: 'counterclockwise', plane: 'vertical', name: 'M_a3C' } ,
+//     ],
+//     'C': [
+//         { value: 11697, direction: 'up', plane: 'horizontal', name: 'F_t2' },
+//         { value: 4406, direction: 'down', plane: 'vertical', name: 'F_r2' } ,
+//         { value: 3118, direction: 'left', plane: 'vertical', name: 'F_a2' } ,
+//         { value: 110000, direction: 'counterclockwise', plane: 'vertical', name: 'M_a2C' } ,
+//     ],
+//     'D': [
+//         { value: -18549.45, direction: 'up', plane: 'horizontal', name: 'R_DH' },
+//         { value: 3431.44, direction: 'down', plane: 'vertical', name: 'R_DV' },
+//         { value: -3118, direction: 'left', plane: 'vertical', name: 'F_a2D' } ,
+//     ]
+// };
+
+// // 弯矩/转矩/计算弯矩值 (N·mm) - 使用 { x_mm: value } 数组形式
+// const values = {
+//     horizontalMoment: [ 
+//         { x_mm: points[0].x_mm, value: 0 , name: "M_AH"},
+//         { x_mm: points[1].x_mm, value: 1622407 , name: "M_BH"}, 
+//         { x_mm: points[2].x_mm, value: 964571.60 , name: "M_CH"},
+//         { x_mm: points[3].x_mm, value: 0 , name: "M_DH"}
+//     ],
+//     verticalMoment: [ 
+//         { x_mm: points[0].x_mm, value: 0 , name: "M_AV"}, 
+//         { x_mm: points[1].x_mm, value: 141257.7 , name: "M_BV1"}, 
+//         { x_mm: points[1].x_mm, value: 533923.31 , name: "M_BV2"}, 
+//         { x_mm: points[2].x_mm, value: 218471.54 , name: "M_CV1"}, 
+//         { x_mm: points[2].x_mm, value: 178434, name: "M_CV2"}, 
+//         { x_mm: points[3].x_mm, value: 0 , name: "M_DV"}  
+//     ],
+//     resultantMoment: [ 
+//         { x_mm: points[0].x_mm, value: 0 , name: "M_A"}, 
+//         { x_mm: points[1].x_mm, value: 1628544.8 , name: "M_B1"}, 
+//         { x_mm: points[1].x_mm, value: 1708004.26 , name: "M_B2"}, 
+//         { x_mm: points[2].x_mm, value: 989003.03 , name: "M_C1"}, 
+//         { x_mm: points[2].x_mm, value: 980936 , name: "M_C2"}, 
+//         { x_mm: points[3].x_mm, value: 0 , name: "M_D"} 
+//     ],
+//     torque: [ 
+//         //{ x_mm: points[0].x_mm, value: 0 , name: "T_A"}, 
+//         { x_mm: points[1].x_mm, value: 0 , name: "T_B1"}, 
+//         { x_mm: points[1].x_mm, value: 1395600 , name: "T_B2"}, 
+//         { x_mm: points[2].x_mm, value: 1395600 , name: "T_C1"}, 
+//         { x_mm: points[2].x_mm, value: 0 , name: "T_C2"},
+//         //{ x_mm: points[3].x_mm, value: 0 , name: "T_D"}, 
+//     ],
+//     equivalentMoment: [ 
+//         { x_mm: points[0].x_mm, value: 0 , name: "M_A"}, 
+//         { x_mm: points[1].x_mm, value: 1628544.8 , name: "M_B1"}, 
+//         { x_mm: points[1].x_mm, value: 1902222.5 , name: "M_B2"}, 
+//         { x_mm: points[2].x_mm, value: 1295878.0 , name: "M_C1"}, 
+//         { x_mm: points[2].x_mm, value: 980936.0 , name: "M_C2"}, 
+//         { x_mm: points[3].x_mm, value: 0 , name: "M_D"} 
+//     ]
+// };
+    
+// drawAllDiagram(points,forces,values,"middle");
+
+window.onload = function(){
+    window.addEventListener('message',function(e){
+        // console.log(e.data);
+        drawAllDiagram(e.data[0],e.data[1],e.data[2],e.data[3]);
+    })
+    
+};
+</script>

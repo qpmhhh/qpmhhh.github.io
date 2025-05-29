@@ -27,8 +27,10 @@
 <meta property="og:description" content="原始数据输送带工作拉力F： N输送带工作速度v： m&#x2F;s滚筒直径D： mm滚筒及输送带效率$ \eta_{带}&#x3D; $ 以下所有查表若无特殊说明均是《机械设计课程设计(第3版)》里面的。 电机型号选择电动机功率选择计算工作机所需的功率$$P_w &#x3D; Fv &#x3D; F0_value \times v0_value W&#x3D;f1_value">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://qpmhhh.github.io/img/design_highShaft.jpg">
+<meta property="og:image" content="https://qpmhhh.github.io/img/design_middleShaft.jpg">
+<meta property="og:image" content="https://qpmhhh.github.io/img/design_lowShaft.jpg">
 <meta property="article:published_time" content="2025-05-03T08:55:56.000Z">
-<meta property="article:modified_time" content="2025-05-26T13:15:47.009Z">
+<meta property="article:modified_time" content="2025-05-29T11:29:00.120Z">
 <meta property="article:author" content="qpm">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://qpmhhh.github.io/img/design_highShaft.jpg">
@@ -241,7 +243,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          14k 字
+          17k 字
         
       </span>
     
@@ -252,7 +254,7 @@
         
         
         
-          113 分钟
+          146 分钟
         
       </span>
     
@@ -390,7 +392,7 @@
 <p>试算小齿轮分度圆直径：<br><span id="f64"><br>$$<br>d_{1t} \ge \sqrt[3]{\frac{2 K_t T_1}{\phi_d \varepsilon_{\alpha }} \times \frac{i_i+1}{i_1} \times (\frac{Z_H Z_E}{[\sigma_H ]} )^2 } &#x3D; \sqrt[3]{\frac{2 \times g19_value \times f60_value \times 1000}{g20_value \times f72_value} \times \frac{i1_value+1}{i1_value} \times (\frac{f71_value \times g21_value}{f63_value} )^2 } &#x3D; f64_value mm<br>$$<br></span><br>计算圆周速度：<br><span id="f65"><br>$$<br>v &#x3D; \frac{\pi d_{1t} n_1}{60 \times 1000} &#x3D; \frac{${Math.PI} \times f64_value \times n3_value}{60 \times 1000} &#x3D; f65_value m&#x2F;s<br>$$<br></span><br>计算齿宽：<br><span id="f66"><br>$$<br>b &#x3D; \phi_d d_{1t} &#x3D; g20_value \times f64_value &#x3D; f66_value mm<br>$$<br></span><br>计算齿宽与齿高之比：<br><span id="f67"><br>$$<br>\frac{b}{h} &#x3D; \frac{\phi_d z_1}{2.25 cos \beta} &#x3D; \frac{g20_value \times g18_value}{2.25 \times g31_value} &#x3D; f67_value<br>$$<br></span><br>计算载荷系数K:<br>由圆周速度和精度查得<span>$  K_v &#x3D; $</span><input value="1.06" type="text" class="input" id="g26" onchange="change_html(this)">(查《机械设计》图12.1,p385)<br>齿间载荷分配系数<span>$ K_{\alpha}  &#x3D; $</span><input value="1.2" type="text" class="input" id="g27" onchange="change_html(this)">(查《机械设计》表12.2,p383)<br>使用系数<span>$  K_A &#x3D; $</span><input value="1.25" type="text" class="input" id="g28" onchange="change_html(this)">(查《机械设计》表12.1,p382)<br>不知道叫什么系数<span>$  K_{H\beta} &#x3D; $</span><input value="1.55" type="text" class="input" id="g29" onchange="change_html(this)">(查《机械设计》表12.3,p383)<br>则载荷系数为<br><span id="f68"><br>$$<br>K &#x3D; K_A K_v K_{\alpha} K_{H\beta}&#x3D; g28_value \times g26_value \times g27_value \times g29_value &#x3D; f68_value<br>$$<br></span><br>按实际的载荷系数修正分度圆直径：<br><span id="f69"><br>$$<br>d_1 &#x3D; d_{1t} \sqrt[3]{\frac{K}{K_t}} &#x3D; f64_value \times \sqrt[3]{\frac{f68_value}{g19_value}} &#x3D; f69_value mm<br>$$<br></span><br>计算模数<br><span id="f70"><br>$$<br>m &#x3D; \frac{d_1 cos\beta}{z_1} &#x3D; \frac{f69_value \times cos g31_value}{g18_value} &#x3D; f70_value<br>$$<br></span><br><span id="f83">则最终模数为$ m &#x3D; f83_value $</span></p>
 <h5 id="按齿根弯曲疲劳强度校核-1"><a href="#按齿根弯曲疲劳强度校核-1" class="headerlink" title="按齿根弯曲疲劳强度校核"></a>按齿根弯曲疲劳强度校核</h5><p>齿向载荷分布系数<span>$  K_{F\beta} &#x3D; $</span><input value="1.38" type="text" class="input" id="g30" onchange="change_html(this)">(查《机械设计》图12.2,p386)<br>载荷系数为<br><span id="f73"><br>$$<br>K &#x3D; K_A K_v K_{\alpha} K_{F \beta } &#x3D;  g28_value \times g26_value \times g27_value \times g30_value &#x3D; f73_value<br>$$<br></span><br>当量齿数为<br><span id="f74"><br>$$<br>z_{v1} &#x3D; \frac{z_1}{c_os^3 \beta} &#x3D; \frac{g18_value}{cos^3 g31_value} &#x3D; N31_value<br>$$<br>$$<br>z_{v2} &#x3D; \frac{z_2}{c_os^3 \beta} &#x3D; \frac{f59_value}{cos^3 g31_value} &#x3D; N32_value<br>$$<br></span><br>齿形系数和应力校正系数：<br><span id="f75"><br>$$<br>Y_{Fa1} &#x3D; N33_value,Y_{sa1} &#x3D; N34_value<br>$$<br>$$<br>Y_{Fa2} &#x3D; N35_value,Y_{sa2} &#x3D; N36_value<br>$$<br></span><br>轴面重合度：<br><span id="f76"><br>$$<br>\varepsilon_{\beta} &#x3D; 0.318 \phi_{d} z_1 tan \beta &#x3D; 0.318 \times g20_value \times g18_value \times tan g31_value ° &#x3D; f76_value<br>$$<br></span><br>取<span id="f77">$ \varepsilon_{\beta} &#x3D; f77_value $</span>，计算螺旋角影响系数：<br><span id="f78"><br>$$<br>Y_{\beta} &#x3D; 1- \varepsilon_{\beta} \times \beta &#x2F; 120 ° &#x3D; 1- f77_value \times g31_value ° &#x2F; 120 ° &#x3D; f78_value<br>$$<br></span><br>弯曲疲劳强度极限<span>$  \sigma_{Flim1} &#x3D; \sigma_{Flim2}&#x3D; $</span><input value="500" type="text" class="input" id="g32" onchange="change_html(this)">MPa(查《机械设计》图12.5,p387)<br>弯曲疲劳寿命系数<span>$  K_{FN24} &#x3D; $</span><input value="0.86" type="text" class="input" id="g33" onchange="change_html(this)"><br><span>$  K_{FN25} &#x3D; $</span><input value="0.88" type="text" class="input" id="g34" onchange="change_html(this)">(查《机械设计》图12.3,p386)<br>取安全系数<span>$  S_F &#x3D; $</span><input value="1.4" type="text" class="input" id="g35" onchange="change_html(this)"><br><span id="f79"><br>$$<br>[\sigma_{F}]<em>1 &#x3D; \frac{K</em>{FN24} \sigma_{Flim1}}{S_F} &#x3D; \frac{g33_value \times g32_value}{g35_value} &#x3D; N37_value MPa<br>$$<br>$$<br>[\sigma_{F}]<em>2 &#x3D; \frac{K</em>{FN25} \sigma_{Flim2}}{S_F} &#x3D; \frac{g34_value \times g32_value}{g35_value} &#x3D; N38_value MPa<br>$$<br></span></p>
 <p>校核小齿轮：<br><span id="f80"><br>$$<br>\frac{2KT_1 Y_{\beta} cos^2 \beta}{\phi_d \varepsilon_{\alpha} z_1^{2} m_n^{3}} Y_{Fa1} Y_{sa1} &#x3D; \frac{2 \times f68_value \times f60_value \times 1000 \times f78_value \times cos^2 g31_value°}{g20_value \times f76_value \times g18_value ^{2} \times f83_value ^{3}} \times N33_value \times N34_value &#x3D; f80_value \le [\sigma_{F}]_1 &#x3D; N37_value Mpa<br>$$<br></span><br>校核大齿轮：<br><span id="f81"><br>$$<br>0<br>$$<br></span><br><strong>校核合格（请看一眼上面两式是不是真的合格）</strong></p>
-<h5 id="几何尺寸计算-1"><a href="#几何尺寸计算-1" class="headerlink" title="几何尺寸计算"></a>几何尺寸计算</h5><p>中心距<br><span id="f84"><br>$$<br>a &#x3D; m_n (z_1 + z_2)&#x2F;(2 cos \beta) &#x3D; f83_value \times (g18_value + f59_value)&#x2F;(2 \times cos g31_value °) mm &#x3D; f84_value mm<br>$$<br></span><br>取中心距<span id="f85">$  a &#x3D; f85_value mm  $</span><br>修正螺旋角：<br><span id="f86"><br>$$<br>\beta &#x3D; arccos[m_n (z_1+z_2)&#x2F;(2a)] &#x3D; arccos[f83_value \times (g18_value + f59_value)&#x2F;(2 \times f85_value)] &#x3D; f86_value &#x3D; N41_value<br>$$<br></span><br>分度圆直径<br><span id="f87"><br>$$<br>d_1 &#x3D; \frac{m_n z_1}{cos \beta} &#x3D; \frac{f83_value \times g18_value}{cos N41_value} &#x3D; N42_value mm<br>$$<br>$$<br>d_2 &#x3D; \frac{m_n z_2}{cos \beta} &#x3D; \frac{f83_value \times f59_value}{cos N41_value} &#x3D; N43_value mm<br>$$<br></span><br>齿宽<br><span id="f88"><br>$$<br>b &#x3D; \phi_d d_l &#x3D; g20_value \times N42_value &#x3D; f88_value mm<br>$$<br></span><br>取<span id="f89">$  B_4 &#x3D; N44_value，B_3 &#x3D; B_4 + 5 &#x3D; N45_value  $</span></p>
+<h5 id="几何尺寸计算-1"><a href="#几何尺寸计算-1" class="headerlink" title="几何尺寸计算"></a>几何尺寸计算</h5><p>中心距<br><span id="f84"><br>$$<br>a &#x3D; m_n (z_1 + z_2)&#x2F;(2 cos \beta) &#x3D; f83_value \times (g18_value + f59_value)&#x2F;(2 \times cos g31_value °) mm &#x3D; f84_value mm<br>$$<br></span><br>取中心距<span id="f85">$  a &#x3D; f85_value mm  $</span><br>修正螺旋角：<br><span id="f86"><br>$$<br>\beta &#x3D; arccos[m_n (z_1+z_2)&#x2F;(2a)] &#x3D; arccos[f83_value \times (g18_value + f59_value)&#x2F;(2 \times f85_value)] &#x3D; f86_value &#x3D; N41_value<br>$$<br></span><br>分度圆直径<br><span id="f87"><br>$$<br>d_3 &#x3D; \frac{m_n z_1}{cos \beta} &#x3D; \frac{f83_value \times g18_value}{cos N41_value} &#x3D; N42_value mm<br>$$<br>$$<br>d_4 &#x3D; \frac{m_n z_2}{cos \beta} &#x3D; \frac{f83_value \times f59_value}{cos N41_value} &#x3D; N43_value mm<br>$$<br></span><br>齿宽<br><span id="f88"><br>$$<br>b &#x3D; \phi_d d_l &#x3D; g20_value \times N42_value &#x3D; f88_value mm<br>$$<br></span><br>取<span id="f89">$  B_4 &#x3D; N44_value，B_3 &#x3D; B_4 + 5 &#x3D; N45_value  $</span></p>
 <h3 id="中间轴的设计"><a href="#中间轴的设计" class="headerlink" title="中间轴的设计"></a>中间轴的设计</h3><h4 id="中间轴-选择轴的材料"><a href="#中间轴-选择轴的材料" class="headerlink" title="中间轴-选择轴的材料"></a>中间轴-选择轴的材料</h4><p>选用45钢，调质，硬度为230HBS。</p>
 <h4 id="估算轴的最小直径"><a href="#估算轴的最小直径" class="headerlink" title="估算轴的最小直径"></a>估算轴的最小直径</h4><p>由教材或设计手册中查取<span>$ A&#x3D; $</span><input value="110" type="text" class="input" id="d0" onchange="change_html(this)"><br><span id="f90"><br>$$<br>d \ge A \sqrt[3]{\frac{P}{n}} &#x3D; d0_value \times \sqrt[3]{\frac{P3_value}{n4_value}} &#x3D; f90_value mm<br>$$<br></span><br>因为中间轴两端弯矩和转矩均为零，也没有键槽，所以可选其最小直径<span id="f91">$ d&#x3D; f91_value mm $</span></p>
 <h4 id="中间轴的结构设计"><a href="#中间轴的结构设计" class="headerlink" title="中间轴的结构设计"></a>中间轴的结构设计</h4><p>考虑轴的结构及轴的刚度，取装滚动轴承处轴径<span>$ A&#x3D; $</span><select id="d1" onchange="change_html(this)"><option value=0>70</option></select>mm</p>
@@ -398,11 +400,11 @@
 <p id="warning5" class="warning"></p>
 
 <p>查表可得(网上找的表)，滚动轴承宽度<span id="f99">$ T’&#x3D; G0_value mm、B’&#x3D; G1_value mm、a’&#x3D; G2_value mm $</span> </p>
-<p>由齿轮设计可知：<span id="f93">$ 高速级大齿轮轮毂宽 N22_value &#x3D; N22_value mm，低速级小齿轮宽 B_3 &#x3D; N45_value mm $</span></p>
+<p>由齿轮设计可知：<span id="f93">$ 高速级大齿轮轮毂宽 B_1 &#x3D; N22_value mm，低速级小齿轮宽 B_3 &#x3D; N45_value mm $</span></p>
 <p>选两齿轮端面间距<span>$ Δ&#x3D; $</span><input value="10" type="text" class="input" id="d3" onchange="change_html(this)"> mm</p>
 <p>齿轮端面到箱内壁距离<span>$ Δ_1&#x3D; $</span><input value="12" type="text" class="input" id="d4" onchange="change_html(this)"> mm</p>
 <p>滚动轴承端面到箱内壁距离<span>$ Δ_2&#x3D; $</span><input value="10" type="text" class="input" id="d5" onchange="change_html(this)"> mm</p>
-<p>则箱内壁宽：<br><span id="f94"><br>$$<br>b_{内} &#x3D; B_2 + B_3 + Δ + 2Δ_1 &#x3D; N22_value + N45_value + d3_value + 2 \times d4_value &#x3D; f94_value mm<br>$$<br></span></p>
+<p>则箱内壁宽：<br><span id="f94"><br>$$<br>b_{内} &#x3D; B_2 + B_3 + Δ + 2Δ_1 &#x3D; N21_value + N45_value + d3_value + 2 \times d4_value &#x3D; f94_value mm<br>$$<br></span></p>
 <p>中间轴总长：<br><span id="f95"><br>$$<br>l_{中} &#x3D; b_{内} + 2Δ_2 + 2T’ &#x3D; f94_value + 2 \times d5_value + 2 \times G0_value &#x3D; f95_value mm<br>$$<br></span></p>
 <p>画出中间轴结构示意图(低速齿轮轴径按小齿轮齿顶圆直径算，高速齿轮轴径按轴承处轴径加5算)如图：</p>
 <div style="width: 100%; height: 300px;overflow-y: hidden;overflow-x: scroll;
@@ -465,12 +467,86 @@
 <p>其中<span>$ l_{DA} $ 取轴伸出最远处到第一个轴承中点，$ l_{AC} $ 取第一个轴承中点到小齿轮中点，$ l_{CB} $ 取小齿轮中点到第二个轴承中点</span></p>
 <span id="f135">
 $$ l_{DA} = l_s + h_1 - l_4 + T'/2 = f111_value+f97_value - f113_value + \frac{G5_value}{2} = G20_value mm $$
+$$ l_{AC} = l_4 + Δ_1 + B_2/2 - T'/2 = f113_value + d4_value + \frac{N21_value}{2} - \frac{G5_value}{2} = G21_value mm $$
+$$ l_{CB} = Δ_3 + b_{内} - Δ_1 - B_2/2 = d15_value + f94_value - d4_value - \frac{N21_value}{2} = G22_value mm $$
+$$ l_{AB} = l_{AC} + l_{CB} = G21_value + G22_value = G23_value $$
+</span>
 
-<p>$$ l_{AC} &#x3D; l_4 + Δ_1 + B_2&#x2F;2 - T’&#x2F;2 &#x3D; f113_value + d4_value + \frac{N22_value}{2} - \frac{G5_value}{2} &#x3D; G21_value mm $$</p>
-<p>$$ l_{CB} &#x3D; Δ_3 + b_{内} - Δ_1 - B_2&#x2F;2 &#x3D; d15_value + f94_value - d4_value - \frac{N22_value}{2} &#x3D; G22_value mm $$</p>
-<p>$$ l_{AB} &#x3D; l_{AC} + l_{CB} &#x3D; G21_value + G22_value &#x3D; G23_value $$<br></span></p>
+
 <p>计算作用在轴上的力：<br>轴转矩<span id="f130">$ T_1 &#x3D; T2_value N·mm $</span> </p>
-<p>高速小齿轮受力分析<br>圆周力<br><span id="f131"><br>$$<br>F_{t1} &#x3D; 2\frac{T_1}{d_1} &#x3D; \frac{2 \times f130_value}{N19_value} &#x3D; f131_value N<br>$$<br></span><br>径向力<br><span id="f132"><br>$$<br>F_{r1} &#x3D; \frac{F_{t1} tan \alpha_n}{cos \beta} &#x3D; \frac{f131_value   \times tan 20 °}{cos f54_value °} &#x3D; f132_value N<br>$$<br></span><br>轴向力<br><span id="f133"><br>$$<br>F_{a1} &#x3D; F_{t1} tan \beta &#x3D; f131_value \times tan f54_value ° &#x3D; f133_value N<br>$$<br></span><br>带传动作用在轴上的压力(压轴力)：<br><span id="f134"><br>$$<br>F_{Q} &#x3D; f25_value N<br>$$<br></span><br>计算水平面支反力(以<span>$ F_{t1} $</span>为正方向)：<br><span id="f136"><br>$$<br>R_{AH} &#x3D; \frac{F_{t1} \times l_{BC}}{l_{AB}} &#x3D; -\frac{f131_value \times G22_value}{G23_value} &#x3D; G24_value N<br>$$<br>$$<br>R_{BH} &#x3D; \frac{F_{t1} \times l_{AC}}{l_{AB}} &#x3D; -\frac{f131_value \times G21_value}{G23_value} &#x3D; G25_value N<br>$$<br></span><br>计算垂直面支反力(以<span>$ F_{r1} $</span>为正方向)：<br><span>$$ \sum M_{B}&#x3D;0 $$</span><br><span id="f137"><br>$$<br>R_{AV} &#x3D; -\frac{F_{r1} l_{BC} + F_{Q} l_{DB}}{l_{AB}} &#x3D; -\frac{f132_value \times G22_value + f134_value \times (G20_value + G23_value) }{G23_value} &#x3D; G26_value N<br>$$<br></span><br><span>$$ \sum F&#x3D;0 $$</span><br><span id="f138"><br>$$<br>R_{BV} &#x3D; -(R_{AV}+F_{Q}+F_{r1}) &#x3D; -(G26_value+f134_value+f132_value) &#x3D; G27_value N<br>$$<br></span><br>计算水平面弯矩<br><span id="f139"><br>$$<br>M_{CH} &#x3D; -R_{BH} l_{CB} &#x3D; -G25_value \times G22_value &#x3D; G28_value N·mm<br>$$<br></span><br>计算垂直面弯矩<br><span id="f140"><br>$$<br>M_{AV} &#x3D; -F_{Q} l_{DA} &#x3D; -f134_value \times G20_value &#x3D; G29_value N·mm<br>$$<br></span><br><span id="f141"><br>$$<br>M_{CV1} &#x3D; -F_{Q} (l_{DA}+l_{AC}) + R_{AV} l_{AC} &#x3D; -f134_value \times (G20_value + G21_value) + G26_value \times G21_value  &#x3D; G30_value N·mm<br>$$<br></span><br><span id="f142"><br>$$<br>M_{CV2} &#x3D; -R_{BV} l_{BC} &#x3D; G27_value \times G22_value &#x3D; G31_value N·mm<br>$$<br></span><br>计算合成弯矩<br><span id="f143"><br>$$<br>M_A &#x3D; | M_{AV} | &#x3D; G32_value N·mm<br>$$<br></span><br><span id="f144"><br>$$<br>M_{C1} &#x3D; \sqrt{M_{CH}^{2}+M_{CV1}^{2}} &#x3D; \sqrt{G28_value^2 + G30_value^2} &#x3D; G33_value N·mm<br>$$<br></span><br><span id="f145"><br>$$<br>M_{C1} &#x3D; \sqrt{M_{CH}^{2}+M_{CV2}^{2}} &#x3D; \sqrt{G28_value^2 + G31_value^2} &#x3D; G34_value N·mm<br>$$<br></span><br>轴转矩为<span id="f146">$ T_1 &#x3D; f130_value N·mm $</span> ，当扭转剪应力为脉动循环变应力时，取系数<span>$ \alpha &#x3D; $</span><input value="0.6" type="text" class="input" id="d30" onchange="change_html(this)"><br>计算* 计算弯矩 *：<br><span id="f146"><br>$$<br>M_{CaD} &#x3D; \sqrt{M_{D}^{2}+(\alpha T_1)^{2}} &#x3D; \sqrt{0 + (d30_value \times f130_value)^2} &#x3D; G35_value N·mm<br>$$<br></span><br><span id="f147"><br>$$<br>M_{CaA} &#x3D; \sqrt{M_{A}^{2}+(\alpha T_1)^{2}} &#x3D; \sqrt{G32_value^2 + (d30_value \times f130_value)^2} &#x3D; G36_value N·mm<br>$$<br></span><br><span id="f148"><br>$$<br>M_{CaC1} &#x3D; \sqrt{M_{C1}^{2}+(\alpha T_1)^{2}} &#x3D; \sqrt{G33_value^2 + (d30_value \times f130_value)^2} &#x3D; G37_value N·mm<br>$$<br></span><br><span id="f149"><br>$$<br>M_{CaC2} &#x3D; \sqrt{M_{C2}^{2}+(\alpha T_1)^{2}} &#x3D; \sqrt{G34_value^2 + 0} &#x3D; G38_value N·mm<br>$$<br></span><br>轴的材料为 45 号钢，调质，按HBS&#x3D;230查表9.2得拉伸强度极限<span>$ σ_B&#x3D;600MPa $</span>，对称循环变应力时的许用应力<span>$ [σ_{-1}]&#x3D; 60MPa” $</span><br>由计算弯矩图可见，<span id="f150">A</span>剖面的计算弯矩最大，该处轴径为<span id="f151"> $ d_A&#x3D; f151_value mm $ </span>的计算应力为：<br><span id="f152"><br>$$<br>\sigma_{caA} &#x3D; \frac{M_{caA}}{W_A} \approx \frac{M_{caA}}{0.1 d_{A}^{3}} &#x3D; \frac{G36_value}{0.1 \times f102_value^3} &#x3D; G39_value MPa &lt; [σ_{-1}] (安全)<br>$$<br></span><br><span id="f153">D</span>剖面轴径最小<span id="f154"> $ d_D&#x3D; f154_value mm $ </span>，该处的计算应力为：<br><span id="f155"><br>$$<br>\sigma_{caD} &#x3D; \frac{M_{caD}}{W_D} \approx \frac{M_{caD}}{0.1 d_{D}^{3}} &#x3D; \frac{G35_value}{0.1 \times d10_value^3} &#x3D; G40_value MPa &lt; [σ_{-1}] (安全)<br>$$<br></span></p>
+<p>高速小齿轮受力分析<br>圆周力<br><span id="f131"><br>$$<br>F_{t1} &#x3D; 2\frac{T_1}{d_1} &#x3D; \frac{2 \times f130_value}{N19_value} &#x3D; f131_value N<br>$$<br></span><br>径向力<br><span id="f132"><br>$$<br>F_{r1} &#x3D; \frac{F_{t1} tan \alpha_n}{cos \beta} &#x3D; \frac{f131_value   \times tan 20 °}{cos f54_value °} &#x3D; f132_value N<br>$$<br></span><br>轴向力<br><span id="f133"><br>$$<br>F_{a1} &#x3D; F_{t1} tan \beta &#x3D; f131_value \times tan f54_value ° &#x3D; f133_value N<br>$$<br></span></p>
+<p>带传动作用在轴上的压力(压轴力)：<br><span id="f134"><br>$$<br>F_{Q} &#x3D; f25_value N<br>$$<br></span></p>
+<p>计算水平面支反力(以<span>$ F_{t1} $</span>为正方向)：<br><span id="f136"><br>$$<br>R_{AH} &#x3D; \frac{F_{t1} \times l_{BC}}{l_{AB}} &#x3D; -\frac{f131_value \times G22_value}{G23_value} &#x3D; G24_value N<br>$$<br>$$<br>R_{BH} &#x3D; \frac{F_{t1} \times l_{AC}}{l_{AB}} &#x3D; -\frac{f131_value \times G21_value}{G23_value} &#x3D; G25_value N<br>$$<br></span></p>
+<p>计算垂直面支反力(以<span>$ F_{r1} $</span>为正方向)：<br>由<span>$ \sum M_{B}&#x3D;0 $</span>得：<br><span id="f137"><br>$$<br>R_{AV} &#x3D; -\frac{F_{r1} l_{BC} + F_{Q} l_{DB}}{l_{AB}} &#x3D; -\frac{f132_value \times G22_value + f134_value \times (G20_value + G23_value) }{G23_value} &#x3D; G26_value N<br>$$<br></span><br>由<span>$ \sum F&#x3D;0 $</span>得：<br><span id="f138"><br>$$<br>R_{BV} &#x3D; -(R_{AV}+F_{Q}+F_{r1}) &#x3D; -(G26_value+f134_value+f132_value) &#x3D; G27_value N<br>$$<br></span></p>
+<p>计算水平面弯矩<br><span id="f139"><br>$$<br>M_{CH} &#x3D; -R_{BH} l_{CB} &#x3D; -G25_value \times G22_value &#x3D; G28_value N·mm<br>$$<br></span></p>
+<p>计算垂直面弯矩<br><span id="f140"><br>$$<br>M_{AV} &#x3D; -F_{Q} l_{DA} &#x3D; -f134_value \times G20_value &#x3D; G29_value N·mm<br>$$<br></span><br><span id="f141"><br>$$<br>M_{CV1} &#x3D; -F_{Q} (l_{DA}+l_{AC}) + R_{AV} l_{AC} &#x3D; -f134_value \times (G20_value + G21_value) + G26_value \times G21_value  &#x3D; G30_value N·mm<br>$$<br></span><br><span id="f142"><br>$$<br>M_{CV2} &#x3D; -R_{BV} l_{BC} &#x3D; -G27_value \times G22_value &#x3D; G31_value N·mm<br>$$<br></span></p>
+<p>计算合成弯矩<br><span id="f143"><br>$$<br>M_A &#x3D; | M_{AV} | &#x3D; G32_value N·mm<br>$$<br></span><br><span id="f144"><br>$$<br>M_{C1} &#x3D; \sqrt{M_{CH}^{2}+M_{CV1}^{2}} &#x3D; \sqrt{G28_value^2 + G30_value^2} &#x3D; G33_value N·mm<br>$$<br></span><br><span id="f145"><br>$$<br>M_{C2} &#x3D; \sqrt{M_{CH}^{2}+M_{CV2}^{2}} &#x3D; \sqrt{G28_value^2 + G31_value^2} &#x3D; G34_value N·mm<br>$$<br></span><br>轴转矩为<span id="f156">$ T_1 &#x3D; f130_value N·mm $</span> ，当扭转剪应力为脉动循环变应力时，取系数<span>$ \alpha &#x3D; $</span><input value="0.6" type="text" class="input" id="d30" onchange="change_html(this)"><br>计算 <strong>计算弯矩</strong>：<br><span id="f146"><br>$$<br>M_{CaD} &#x3D; \sqrt{M_{D}^{2}+(\alpha T_1)^{2}} &#x3D; \sqrt{0 + (d30_value \times f130_value)^2} &#x3D; G35_value N·mm<br>$$<br></span><br><span id="f147"><br>$$<br>M_{CaA} &#x3D; \sqrt{M_{A}^{2}+(\alpha T_1)^{2}} &#x3D; \sqrt{G32_value^2 + (d30_value \times f130_value)^2} &#x3D; G36_value N·mm<br>$$<br></span><br><span id="f148"><br>$$<br>M_{CaC1} &#x3D; \sqrt{M_{C1}^{2}+(\alpha T_1)^{2}} &#x3D; \sqrt{G33_value^2 + (d30_value \times f130_value)^2} &#x3D; G37_value N·mm<br>$$<br></span><br><span id="f149"><br>$$<br>M_{CaC2} &#x3D; \sqrt{M_{C2}^{2}+(\alpha T_1)^{2}} &#x3D; \sqrt{G34_value^2 + 0} &#x3D; G38_value N·mm<br>$$<br></span></p>
+<p>轴的材料为 45 号钢，调质，按HBS&#x3D;230查表9.2得拉伸强度极限<span>$ σ_B&#x3D;600MPa $</span>，对称循环变应力时的许用应力<span>$ [σ_{-1}]&#x3D; 60MPa $</span><br>由计算弯矩图可见，<span id="f150">A</span>剖面的计算弯矩最大，该处轴径为<span id="f151"> $ d_A&#x3D; f151_value mm $ </span>的计算应力为：<br><span id="f152"><br>$$<br>\sigma_{caA} &#x3D; \frac{M_{caA}}{W_A} \approx \frac{M_{caA}}{0.1 d_{A}^{3}} &#x3D; \frac{G36_value}{0.1 \times f102_value^3} &#x3D; G39_value MPa &lt; [σ_{-1}] &#x3D; 60 MPa (安全)<br>$$<br></span><br><span id="f153">D</span>剖面轴径最小<span id="f154"> $ d_D&#x3D; f154_value mm $ </span>，该处的计算应力为：<br><span id="f155"><br>$$<br>\sigma_{caD} &#x3D; \frac{M_{caD}}{W_D} \approx \frac{M_{caD}}{0.1 d_{D}^{3}} &#x3D; \frac{G35_value}{0.1 \times d10_value^3} &#x3D; G40_value MPa &lt; [σ_{-1}] &#x3D; 60 MPa (安全)<br>$$<br></span></p>
+<p id="warning8" class="warning"></p>
+
+<div style="width: 100%; height: 300px;overflow-y: scroll;overflow-x: scroll;
+">
+<iframe src="" frameborder="no" id="zhou_tu_h" style="width: 900px; height: 1700px;transform-origin: left top; transform: scale(0.7, 0.7);"></iframe>
+</div>
+
+
+<h4 id="按弯扭组合校核中间轴的强度"><a href="#按弯扭组合校核中间轴的强度" class="headerlink" title="按弯扭组合校核中间轴的强度"></a>按弯扭组合校核中间轴的强度</h4><p><img src="/img/design_middleShaft.jpg" srcset="/img/loading.gif" lazyload alt="中间轴受力简图"></p>
+<p>其中<span>$ l_{AB} $ 取轴承中点到低速轴小齿轮中点，$ l_{BC} $ 取低速轴小齿轮中点到高速轴大齿轮中点，$ l_{CD} $ 取高速轴大齿轮中点到第轴承中点</span></p>
+<span id="f160">
+$$ l_{AB} = T'/2 + Δ_1 + B_3/2 = \frac{G0_value}{2} + d4_value + \frac{N45_value}{2} \approx G50_value mm $$
+$$ l_{BC} = B_3/2 + Δ + B_1/2  = \frac{N45_value}{2} + d3_value + \frac{N22_value}{2} \approx G51_value mm $$
+$$ l_{CD} = B_1/2 + Δ_1 + Δ_2 + T'/2 = \frac{N22_value}{2} + d4_value + d5_value + \frac{G0_value}{2} \approx G52_value mm $$
+$$ l_{AD} = l_{AB} + l_{BC} + l_{CD} = G50_value + G51_value + G52_value = G53_value mm $$
+</span>
+
+<p>计算作用在轴上的力：<br>高速大齿轮齿轮受力分析<br>圆周力<br><span id="f161"><br>$$<br>F_{t2} &#x3D; F_{t1} &#x3D; f161_value N<br>$$<br></span><br>径向力<br><span id="f162"><br>$$<br>F_{r2} &#x3D; F_{r1} &#x3D; f162_value N<br>$$<br></span><br>轴向力<br><span id="f163"><br>$$<br>F_{a2} &#x3D; F_{a1} &#x3D; f163_value N<br>$$<br></span></p>
+<p>低速小齿轮受力分析<br>圆周力<br><span id="f164"><br>$$<br>F_{t3} &#x3D; 2\frac{T_{Ⅱ}}{d_3} &#x3D; \frac{2 \times f180_value}{N42_value} &#x3D; f164_value N<br>$$<br></span><br>径向力<br><span id="f165"><br>$$<br>F_{r3} &#x3D; -\frac{F_{t3} tan \alpha_n}{cos \beta} &#x3D; \frac{f164_value  \times tan 20 °}{cos f86_value °} &#x3D; f165_value N<br>$$<br></span><br>轴向力<br><span id="f166"><br>$$<br>F_{a3} &#x3D; F_{t3} tan \beta &#x3D; f164_value \times tan f86_value ° &#x3D; f166_value N<br>$$<br></span></p>
+<p>计算水平面支反力(以<span>$ F_{t2} $</span>为正方向)：<br><span id="f167"><br>$$<br>R_{AH} &#x3D; -\frac{F_{t2} \times l_{CD} + F_{t3} \times l_{BD}}{l_{AD}} &#x3D; -\frac{f161_value \times G52_value + f164_value \times (G51_value + G52_value)}{G53_value} &#x3D; G54_value N<br>$$<br>$$<br>R_{DH} &#x3D; -(R_{AH} + F_{t2} + F_{t3}) &#x3D; -((G54_value)+f161_value+f164_value) &#x3D; G55_value N<br>$$<br></span></p>
+<p>计算垂直面支反力(以<span>$ F_{r2} $</span>为正方向)：<br>由<span>$ \sum M_{D}&#x3D;0 $</span>得：<br><span id="f168"><br>$$<br>R_{AV} &#x3D; -\frac{F_{r2} l_{CD} + F_{a2} \frac{d_2}{2} + F_{a3} \frac{d_3}{2} + F_{r3} l_{DB} }{l_{AD}} &#x3D; -\frac{f162_value \times G52_value + f163_value \times \frac{N20_value}{2} + f166_value \times \frac{N42_value}{2} + f165_value \times \frac{G51_value + G52_value}{2} }{G23_value} &#x3D; G56_value N<br>$$<br></span><br>由<span>$ \sum F&#x3D;0 $</span>得：<br><span id="f169"><br>$$<br>R_{DV} &#x3D; -(R_{AV}+F_{r3}+F_{r2}) &#x3D; -((G56_value) + f165_value + f162_value) &#x3D; G57_value N<br>$$<br></span></p>
+<p>计算水平面弯矩<br><span id="f170"><br>$$<br>M_{BH} &#x3D; - R_{AH} l_{AB} &#x3D; - G54_value \times G50_value &#x3D; G58_value N·mm<br>$$<br></span><br><span id="f171"><br>$$<br>M_{CH} &#x3D; - R_{DH} l_{CD} &#x3D; - G55_value \times G52_value &#x3D; G59_value N·mm<br>$$<br></span></p>
+<p>计算垂直面弯矩<br><span id="f172"><br>$$<br>M_{BV1} &#x3D; - R_{AV} l_{AB} &#x3D; - (G56_value) \times G50_value &#x3D; G60_value N·mm<br>$$<br></span><br><span id="f173"><br>$$<br>M_{BV2} &#x3D; - R_{AV} l_{AB} + F_{a3} \frac{d_3}{2} &#x3D; - (G56_value) \times G50_value + f166_value \times \frac{N42_value}{2} &#x3D; G61_value N·mm<br>$$<br></span><br><span id="f174"><br>$$<br>M_{CV2} &#x3D; - R_{DV} l_{CD} &#x3D; - G57_value \times G52_value &#x3D; G63_value N·mm<br>$$<br></span><br><span id="f175"><br>$$<br>M_{CV1} &#x3D; - R_{DV} l_{CD} + F_{a2} \frac{d_2}{2} &#x3D; - G57_value \times G52_value + f163_value \times \frac{N20_value}{2} &#x3D; G62_value N·mm<br>$$<br></span></p>
+<p>计算合成弯矩<br><span id="f176"><br>$$<br>M_{B1} &#x3D; \sqrt{M_{BH}^{2}+M_{BV1}^{2}} &#x3D; \sqrt{G58_value^2 + G60_value^2} &#x3D; G64_value N·mm<br>$$<br></span><br><span id="f177"><br>$$<br>M_{B2} &#x3D; \sqrt{M_{BH}^{2}+M_{BV2}^{2}} &#x3D; \sqrt{G58_value^2 + G61_value^2} &#x3D; G65_value N·mm<br>$$<br></span><br><span id="f178"><br>$$<br>M_{C1} &#x3D; \sqrt{M_{CH}^{2}+M_{CV1}^{2}} &#x3D; \sqrt{G59_value^2 + G62_value^2} &#x3D; G66_value N·mm<br>$$<br></span><br><span id="f179"><br>$$<br>M_{C2} &#x3D; \sqrt{M_{CH}^{2}+M_{CV2}^{2}} &#x3D; \sqrt{G59_value^2 + G63_value^2} &#x3D; G67_value N·mm<br>$$<br></span><br>轴转矩为<span id="f180">$ T_{Ⅱ} &#x3D; T3_value N·mm $</span><br>当扭转剪应力为脉动循环变应力时，取系数<span>$ \alpha &#x3D; $</span><input value="0.6" type="text" class="input" id="d40" onchange="change_html(this)"><br>计算 <strong>计算弯矩</strong>：<br><span id="f181"><br>$$<br>M_{CaB1} &#x3D; \sqrt{M_{B1}^{2}+(\alpha T_{Ⅱ})^{2}} &#x3D; \sqrt{ G64_value + (d40_value \times f180_value)^2} &#x3D; G68_value N·mm<br>$$<br></span><br><span id="f182"><br>$$<br>M_{CaB2} &#x3D; \sqrt{M_{B2}^{2}+(\alpha T_{Ⅱ})^{2}} &#x3D; \sqrt{ G65_value + (d40_value \times f180_value)^2} &#x3D; G69_value N·mm<br>$$<br></span><br><span id="f183"><br>$$<br>M_{CaC1} &#x3D; \sqrt{M_{C1}^{2}+(\alpha T_{Ⅱ})^{2}} &#x3D; \sqrt{ G66_value + (d40_value \times f180_value)^2} &#x3D; G70_value N·mm<br>$$<br></span><br><span id="f184"><br>$$<br>M_{CaC2} &#x3D; \sqrt{M_{C2}^{2}+(\alpha T_{Ⅱ})^{2}} &#x3D; \sqrt{ G67_value + (d40_value \times f180_value)^2} &#x3D; G71_value N·mm<br>$$<br></span></p>
+<p>轴的材料为 45 号钢，调质，按HBS&#x3D;230查表9.2得拉伸强度极限<span>$ σ_B&#x3D;600MPa $</span>，对称循环变应力时的许用应力<span>$ [σ_{-1}]&#x3D; 60MPa $</span><br>由计算弯矩图可见，<span id="f185"> G72_value </span>剖面右侧的计算弯矩最大，该处轴径为<span id="f186"> $ d_B&#x3D; G73_value mm $ </span>的计算应力为：<br><span id="f187"><br>$$<br>\sigma_{caB} &#x3D; \frac{M_{caB}}{W_B} \approx \frac{M_{caB}}{0.1 d_{B}^{3}} &#x3D; \frac{G74_value}{0.1 \times G73_value^3} &#x3D; G75_value MPa &lt; [σ_{-1}] &#x3D; 60 MPa (安全)<br>$$<br></span><br><span id="f188">G76_value</span>剖面轴径偏小<span id="f189"> $ d_D&#x3D; G77_value mm $ </span>，弯矩次大，该处的计算应力为：<br><span id="f190"><br>$$<br>\sigma_{caD} &#x3D; \frac{M_{caD}}{W_D} \approx \frac{M_{caD}}{0.1 d_{D}^{3}} &#x3D; \frac{G78_value}{0.1 \times G77_value^3} &#x3D; G79_value MPa &lt; [σ_{-1}] &#x3D; 60 MPa (安全)<br>$$<br></span></p>
+<p id="warning9" class="warning"></p>
+
+<div style="width: 100%; height: 300px;overflow-y: scroll;overflow-x: scroll;
+">
+<iframe src="" frameborder="no" id="zhou_tu_m" style="width: 900px; height: 1700px;transform-origin: left top; transform: scale(0.7, 0.7);"></iframe>
+</div>
+
+
+<h4 id="按弯扭组合校核低速轴的强度"><a href="#按弯扭组合校核低速轴的强度" class="headerlink" title="按弯扭组合校核低速轴的强度"></a>按弯扭组合校核低速轴的强度</h4><p><img src="/img/design_lowShaft.jpg" srcset="/img/loading.gif" lazyload alt="低速轴受力简图"></p>
+<p>其中<span>$ l_{DA} $ 取轴伸出最远处到第一个轴承中点，$ l_{AC} $ 取第一个轴承中点到小齿轮中点，$ l_{CB} $ 取小齿轮中点到第二个轴承中点</span></p>
+<span id="f199">
+$$ l_{DA} = l_s + h_1 - l_6 - Δ_1 + T'/2 = f126_value+f97_value - f128_value - d4_value + \frac{G9_value}{2} = G100_value mm $$
+$$ l_{AC} = l_6 + Δ_1 + B_4/2 - T'/2 = f128_value + d4_value + \frac{N44_value}{2} - \frac{G9_value}{2} = G101_value mm $$
+$$ l_{CB} = Δ_4 + b_{内} + T'/2 - Δ_1 - B_4/2 = d22_value + f94_value + \frac{G9_value}{2} - d4_value - \frac{N44_value}{2} = G102_value mm $$
+$$ l_{AB} = l_{AC} + l_{CB} = G101_value + G102_value = G103_value $$
+</span>
+
+<p>计算作用在轴上的力：<br>轴转矩<span id="f200">$ T_{Ⅲ} &#x3D; T4_value N·mm $</span> </p>
+<p>低速大齿轮受力分析<br>圆周力<br><span id="f201"><br>$$<br>F_{t4} &#x3D; 2\frac{T_{Ⅲ}}{d_4} &#x3D; \frac{2 \times f200_value}{N43_value} &#x3D; f201_value N<br>$$<br></span><br>径向力<br><span id="f202"><br>$$<br>F_{r4} &#x3D; \frac{F_{t4} tan \alpha_n}{cos \beta} &#x3D; \frac{f201_value   \times tan 20 °}{cos f86_value °} &#x3D; f202_value N<br>$$<br></span><br>轴向力<br><span id="f203"><br>$$<br>F_{a4} &#x3D; F_{t4} tan \beta &#x3D; f201_value \times tan f86_value ° &#x3D; f203_value N<br>$$<br></span></p>
+<p>计算水平面支反力(以<span>$ F_{t4} $</span>为正方向)：<br><span id="f206"><br>$$<br>R_{AH} &#x3D; \frac{F_{t4} \times l_{BC}}{l_{AB}} &#x3D; -\frac{f201_value \times G102_value}{G103_value} &#x3D; G104_value N<br>$$<br>$$<br>R_{BH} &#x3D; \frac{F_{t4} \times l_{AC}}{l_{AB}} &#x3D; -\frac{f201_value \times G101_value}{G103_value} &#x3D; G105_value N<br>$$<br></span></p>
+<p>计算垂直面支反力(以<span>$ F_{r4} $</span>为正方向)：<br>由<span>$ \sum M_{B}&#x3D;0 $</span>得：<br><span id="f207"><br>$$<br>R_{AV} &#x3D; -\frac{F_{r4} l_{BC}+ \frac{F_{a4} d_4}{2} }{l_{AB}} &#x3D; -\frac{f202_value \times G102_value }{G103_value} &#x3D; G106_value N<br>$$<br></span><br>由<span>$ \sum F&#x3D;0 $</span>得：<br><span id="f208"><br>$$<br>R_{BV} &#x3D; -(R_{AV}+F_{r4}) &#x3D; -(G106_value+f202_value) &#x3D; G107_value N<br>$$<br></span></p>
+<p>计算水平面弯矩<br><span id="f209"><br>$$<br>M_{CH} &#x3D; -R_{BH} l_{CB} &#x3D; -G105_value \times G102_value &#x3D; G108_value N·mm<br>$$<br></span></p>
+<p>计算垂直面弯矩<br><span id="f210"><br>$$<br>M_{AV} &#x3D; 0<br>$$<br></span><br><span id="f211"><br>$$<br>M_{CV1} &#x3D; R_{AV} l_{AC} &#x3D; G106_value \times G101_value  &#x3D; G110_value N·mm<br>$$<br></span><br><span id="f212"><br>$$<br>M_{CV2} &#x3D; -R_{BV} l_{BC} &#x3D; -G107_value \times G102_value &#x3D; G111_value N·mm<br>$$<br></span></p>
+<p>计算合成弯矩<br><span id="f213"><br>$$<br>M_A &#x3D; | M_{AV} | &#x3D; G112_value<br>$$<br></span><br><span id="f214"><br>$$<br>M_{C1} &#x3D; \sqrt{M_{CH}^{2}+M_{CV1}^{2}} &#x3D; \sqrt{G108_value^2 + G110_value^2} &#x3D; G113_value N·mm<br>$$<br></span><br><span id="f215"><br>$$<br>M_{C2} &#x3D; \sqrt{M_{CH}^{2}+M_{CV2}^{2}} &#x3D; \sqrt{G108_value^2 + G111_value^2} &#x3D; G114_value N·mm<br>$$<br></span><br>轴转矩为<span id="f226">$ T_{Ⅲ} &#x3D; f200_value N·mm $</span> ，当扭转剪应力为脉动循环变应力时，取系数<span>$ \alpha &#x3D; $</span><input value="0.6" type="text" class="input" id="d50" onchange="change_html(this)"><br>计算 <strong>计算弯矩</strong>：<br><span id="f216"><br>$$<br>M_{CaD} &#x3D; \sqrt{M_{D}^{2}+(\alpha T_{Ⅲ})^{2}} &#x3D; \sqrt{0 + (d50_value \times f200_value)^2} &#x3D; G115_value N·mm<br>$$<br></span><br><span id="f217"><br>$$<br>M_{CaA} &#x3D; \sqrt{M_{A}^{2}+(\alpha T_{Ⅲ})^{2}} &#x3D; \sqrt{G112_value^2 + (d50_value \times f200_value)^2} &#x3D; G116_value N·mm<br>$$<br></span><br><span id="f218"><br>$$<br>M_{CaC1} &#x3D; \sqrt{M_{C1}^{2}+(\alpha T_{Ⅲ})^{2}} &#x3D; \sqrt{G113_value^2 + (d50_value \times f200_value)^2} &#x3D; G117_value N·mm<br>$$<br></span><br><span id="f219"><br>$$<br>M_{CaC2} &#x3D; \sqrt{M_{C2}^{2}+(\alpha T_{Ⅲ})^{2}} &#x3D; \sqrt{G114_value^2 + 0} &#x3D; G118_value N·mm<br>$$<br></span></p>
+<p>轴的材料为 45 号钢，调质，按HBS&#x3D;230查表9.2得拉伸强度极限<span>$ σ_B&#x3D;600MPa $</span>，对称循环变应力时的许用应力<span>$ [σ_{-1}]&#x3D; 60MPa $</span><br>由计算弯矩图可见，<span id="f220">A</span>剖面的计算弯矩最大，该处轴径为<span id="f221"> $ d_A&#x3D; f221_value mm $ </span>的计算应力为：<br><span id="f222"><br>$$<br>\sigma_{caA} &#x3D; \frac{M_{caA}}{W_A} \approx \frac{M_{caA}}{0.1 d_{A}^{3}} &#x3D; \frac{G116_value}{0.1 \times f102_value^3} &#x3D; G119_value MPa &lt; [σ_{-1}] &#x3D; 60 MPa (安全)<br>$$<br></span><br><span id="f223">D</span>剖面轴径最小<span id="f224"> $ d_D&#x3D; f224_value mm $ </span>，该处的计算应力为：<br><span id="f225"><br>$$<br>\sigma_{caD} &#x3D; \frac{M_{caD}}{W_D} \approx \frac{M_{caD}}{0.1 d_{D}^{3}} &#x3D; \frac{G115_value}{0.1 \times d10_value^3} &#x3D; G120_value MPa &lt; [σ_{-1}] &#x3D; 60 MPa (安全)<br>$$<br></span></p>
+<p id="warning10" class="warning"></p>
+
+<div style="width: 100%; height: 300px;overflow-y: scroll;overflow-x: scroll;
+">
+<iframe src="" frameborder="no" id="zhou_tu_l" style="width: 900px; height: 1700px;transform-origin: left top; transform: scale(0.7, 0.7);"></iframe>
+</div>
+
+
+
+
+
+
+
+
+
 <script>  
 MathJax = {  
 	tex: {  
@@ -958,9 +1034,9 @@ const f136 = document.getElementById("f136");
 let G24_value = -f131_value*G22_value/G23_value;
 let G25_value = -f131_value*G21_value/G23_value;
 const f137 = document.getElementById("f137");
-let G26_value = -f132_value * G22_value + f134_value * (G20_value + G23_value)/G23_value;
+let G26_value = (f132_value * G22_value + f134_value * (G20_value + G23_value))/G23_value;
 const f138 = document.getElementById("f138");
-let G27_value = -(G26_value+f134_value+f132_value);
+let G27_value = (G26_value+f134_value+f132_value);
 const f139 = document.getElementById("f139");
 let G28_value = -G25_value * G22_value;
 const f140 = document.getElementById("f140");
@@ -995,9 +1071,150 @@ const f154 = document.getElementById("f154");
 let f154_value = d10_value;
 const f155 = document.getElementById("f155");
 let G40_value = G35_value/0.1/(d10_value**3);
+const f156 = document.getElementById("f156");
+warning8 = document.getElementById("warning8");
+let G41_value = "A";
+let G42_value = G36_value;
+let G43_value = "D";
+let G44_value = d10_value;
+
+
+let f180_value = T3_value;
+const f160 = document.getElementById("f160");
+let G50_value = Math.round(G0_value/2 + d4_value + N45_value/2);
+let G51_value = Math.round(N45_value/2 + d3_value + N22_value/2);
+let G52_value = Math.round(N22_value/2 + d4_value + d5_value + G0_value/2);
+let G53_value = G50_value + G51_value + G52_value;
+const f161 = document.getElementById("f161");
+let f161_value = f131_value;
+const f162 = document.getElementById("f162");
+let f162_value = f132_value;
+const f163 = document.getElementById("f163");
+let f163_value = f133_value;
+const f164 = document.getElementById("f164");
+let f164_value = 2*f180_value/N42_value;
+const f165 = document.getElementById("f165");
+let f165_value = f164_value * mtan(20)/mcos(f86_value);
+const f166 = document.getElementById("f166");
+let f166_value = f164_value * mtan(f86_value);
+const f167 = document.getElementById("f167");
+let G54_value = -(f161_value * G52_value + f164_value * (G51_value + G52_value))/G53_value;
+let G55_value = -(G54_value+f161_value+f164_value);
+const f168 = document.getElementById("f168");
+let G56_value = -(N20_value/2+f166_value*N42_value/2+f165_value*(G51_value+ G52_value)/2)/G23_value;
+const f169 = document.getElementById("f169");
+let G57_value = -(G56_value + f165_value + f162_value);
+const f170 = document.getElementById("f170");
+let G58_value = - G54_value * G50_value;
+const f171 = document.getElementById("f171");
+let G59_value = - G55_value * G52_value;
+const f172 = document.getElementById("f172");
+let G60_value = - G56_value * G50_value;
+const f173 = document.getElementById("f173");
+let G61_value = - G56_value * G50_value + f166_value * N42_value/2;
+const f174 = document.getElementById("f174");
+let G62_value = - G57_value * G52_value;
+const f175 = document.getElementById("f175");
+let G63_value = - G57_value * G52_value + f163_value * N20_value/2;
+const f176 = document.getElementById("f176");
+let G64_value = Math.sqrt(G58_value**2 + G60_value**2);
+const f177 = document.getElementById("f177");
+let G65_value = Math.sqrt(G58_value**2 + G61_value**2);
+const f178 = document.getElementById("f178");
+let G66_value = Math.sqrt(G59_value**2 + G62_value**2);
+const f179 = document.getElementById("f179");
+let G67_value = Math.sqrt(G59_value**2 + G63_value**2);
+const f180 = document.getElementById("f180");
+const d40 = document.getElementById("d40");
+let d40_value = parseFloat(document.getElementById("d40").value);
+const f181 = document.getElementById("f181");
+let G68_value = Math.sqrt(G64_value**2 + (d40_value * f180_value)**2);
+const f182 = document.getElementById("f182");
+let G69_value = Math.sqrt(G65_value**2 + (d40_value * f180_value)**2);
+const f183 = document.getElementById("f183");
+let G70_value = Math.sqrt(G66_value**2 + (d40_value * f180_value)**2);
+const f184 = document.getElementById("f184");
+let G71_value = Math.sqrt(G67_value**2 + (d40_value * f180_value)**2);
+const f185 = document.getElementById("f185");
+const f186 = document.getElementById("f186");
+const f187 = document.getElementById("f187");
+let G72_value = "B";
+let G73_value = 1;
+let G74_value = 10;
+let G75_value = G74_value/0.1/(f73_value**3);
+const f188 = document.getElementById("f188");
+const f189 = document.getElementById("f189");
+const f190 = document.getElementById("f190");
+let G76_value = "C";
+let G77_value = 1;
+let G78_value = 10;
+let G79_value = G78_value/0.1/(f77_value**3);
+const warning9 = document.getElementById("warning9");
 
 
 
+const f199 = document.getElementById("f199");
+let G100_value = f126_value+f97_value-f128_value+G9_value/2;
+let G101_value = f128_value+d4_value+N44_value/2-G9_value/2;
+let G102_value = d22_value+f94_value-d4_value-N44_value/2;
+let G103_value = G101_value+G102_value;
+const f200 = document.getElementById("f200");
+let f200_value = T4_value * 1000;
+const f201 = document.getElementById("f201");
+let f201_value = 2*f200_value/N19_value;
+const f202 = document.getElementById("f202");
+let f202_value = f201_value*mtan(20)/mcos(f54_value);
+const f203 = document.getElementById("f203");
+let f203_value = f201_value * mtan(f54_value);
+
+
+const f206 = document.getElementById("f206");
+let G104_value = -f201_value*G102_value/G103_value;
+let G105_value = -f201_value*G101_value/G103_value;
+const f207 = document.getElementById("f207");
+let G106_value = -(f202_value * G102_value)/G103_value;
+const f208 = document.getElementById("f208");
+let G107_value = -(G106_value+f202_value);
+const f209 = document.getElementById("f209");
+let G108_value = -G105_value * G102_value;
+const f210 = document.getElementById("f210");
+let G109_value = 0
+const f211 = document.getElementById("f211");
+let G110_value = -G106_value * G101_value;
+const f212 = document.getElementById("f212");
+let G111_value = -G107_value * G102_value;
+const f213 = document.getElementById("f213");
+let G112_value = G109_value;
+const f214 = document.getElementById("f214");
+let G113_value = Math.sqrt(G108_value**2 + G110_value**2);
+const f215 = document.getElementById("f215");
+let G114_value = Math.sqrt(G108_value**2 + G111_value**2);
+const d50 = document.getElementById("d50");
+let d50_value = parseFloat(document.getElementById("d50").value);
+const f216 = document.getElementById("f216");
+let G115_value = Math.abs(d50_value * f200_value);
+const f217 = document.getElementById("f217");
+let G116_value = Math.sqrt(G112_value**2 + (d50_value * f200_value)**2);
+const f218 = document.getElementById("f218");
+let G117_value = Math.sqrt(G113_value**2 + (d50_value * f200_value)**2);
+const f219 = document.getElementById("f219");
+let G118_value = Math.abs(G114_value);
+const f220 = document.getElementById("f220");
+const f221 = document.getElementById("f221");
+let f221_value = f102_value;
+const f222 = document.getElementById("f222");
+let G119_value = G116_value/0.1/(f221_value**3);
+const f223 = document.getElementById("f223");
+const f224 = document.getElementById("f224");
+let f224_value = d10_value;
+const f225 = document.getElementById("f225");
+let G120_value = G115_value/0.1/(d10_value**3);
+const f226 = document.getElementById("f226");
+warning10 = document.getElementById("warning10");
+let G121_value = "A";
+let G122_value = G116_value;
+let G123_value = "D";
+let G124_value = d17_value;
 
 
 const formula_chain= {
@@ -1009,6 +1226,10 @@ const formula_chain= {
 "d9":[f100,f101,f102,f103,f104,f105,f106,f107,f108,f109,f110,f111,f112,f113,f114],
 "d16":[f115,f116,f117,f118,f119,f120,f122,f125,f126,f127,f128,f129],
 "d30":[f135,f130,f131,f132,f133,f134,f136,f137,f138,f139,f140,f141,f142,f143,f144,f145,f146,f147,f148,f149,f150,f151,f152,f153,f154,f155],
+"d40":[f160,f161,f162,f163,f164,f165,f166,f167,f168,f169,f170,f171,f172,f173,f174,f175,f176,f177,f178,f179,f180,f181,f182,f183,f184,f185,f186,f187,f188,f189,f190],
+"d50":[f199,f200,f201,f202,f203,f206,f207,f208,f209,f210,f211,f212,f213,f214,f215,f216,f217,f218,f219,f220,f221,f222,f223,f224,f225],
+
+
 
 };
 </script>  
@@ -1026,90 +1247,360 @@ const formula_chain= {
 
 
 <script>
+f225.latex_update = function(){
+	G120_value = G124_value/0.1/(f224_value**3);
+	warning10.innerText = "";
+	if(G120_value > 60 || G119_value > 60 ){
+		warning10.innerText = "警告！计算应力超出许用应力！！！";
+	};
+	draw_shaft_dia_low();
+	f225.textContent = `$$ \\sigma_{ca${G123_value}} = \\frac{M_{ca${G123_value}}}{W_${G123_value}} \\approx \\frac{M_{ca${G123_value}}}{0.1 d_{${G123_value}}^{3}} = \\frac{${G124_value}}{0.1 \\times ${f224_value}^3} = ${G120_value} MPa < [σ_{-1}] = 60 MPa  (安全) $$`;
+	window.MathJax.typesetPromise([f199,f200,f201,f202,f203,f206,f207,f208,f209,f210,f211,f212,f213,f214,f215,f216,f217,f218,f219,f220,f221,f222,f223,f224,f225,f226]);
+};
+f224.latex_update = function(){
+	f224.textContent = `$ d_${G123_value}= ${f224_value} mm $`;
+};
+f223.latex_update = function(){
+	f223.textContent = `${G123_value}`;
+};
+f222.latex_update = function(){
+	G119_value = G122_value/0.1/(f221_value**3);
+	f222.textContent = `$$ \\sigma_{ca${G121_value}} = \\frac{M_{ca${G121_value}}}{W_${G121_value}} \\approx \\frac{M_{ca${G121_value}}}{0.1 d_{${G121_value}}^{3}} = \\frac{${G122_value}}{0.1 \\times ${f221_value}^3} = ${G119_value} MPa < [σ_{-1}] = 60 MPa  (安全) $$`;
+};
+f221.latex_update = function(){
+	f221.textContent = `$ d_${G121_value}= ${f221_value} mm $`;
+};
+f220.latex_update = function(){
+	find_max_moment_min_dia3();
+	f220.textContent = `${G121_value}`;
+};
+f219.latex_update = function(){
+	G118_value = Math.abs(G114_value);
+	f219.textContent = `$$ M_{CaC2} = \\sqrt{M_{C2}^{2}+(\\alpha T_1)^{2}} = \\sqrt{(${G114_value})^2 + 0} = ${G118_value} N·mm $$`;
+};
+f218.latex_update = function(){
+	G117_value = Math.sqrt(G113_value**2 + (d50_value * f200_value)**2);
+	f218.textContent = `$$ M_{CaC1} = \\sqrt{M_{C1}^{2}+(\\alpha T_1)^{2}} = \\sqrt{(${G113_value})^2 + (${d50_value} \\times ${f200_value})^2} = ${G117_value} N·mm $$`;
+};
+f217.latex_update = function(){
+	G116_value = Math.sqrt(G112_value**2 + (d50_value * f200_value)**2);
+	f217.textContent = `$$ M_{CaA} = \\sqrt{M_{A}^{2}+(\\alpha T_1)^{2}} = \\sqrt{(${G112_value})^2 + (${d50_value} \\times ${f200_value})^2} = ${G116_value} N·mm $$`;
+};
+f216.latex_update = function(){
+	G115_value = Math.abs(d50_value * f200_value);
+	f226.textContent = `$ T_1 = ${f200_value} N·mm $`;
+	f216.textContent = `$$ M_{CaD} = \\sqrt{M_{D}^{2}+(\\alpha T_1)^{2}} = \\sqrt{0 + (${d50_value} \\times ${f200_value})^2} = ${G115_value} N·mm $$`;
+};
+f215.latex_update = function(){
+	G114_value = Math.sqrt(G108_value**2 + G111_value**2);
+	f215.textContent = `$$ M_{C1} = \\sqrt{M_{CH}^{2}+M_{CV2}^{2}} = \\sqrt{(${G108_value})^2 + (${G111_value})^2} = ${G114_value} N·mm $$`;
+};
+f214.latex_update = function(){
+	G113_value = Math.sqrt(G108_value**2 + G110_value**2);
+	f214.textContent = `$$ M_{C1} = \\sqrt{M_{CH}^{2}+M_{CV1}^{2}} = \\sqrt{(${G108_value})^2 + (${G110_value})^2} = ${G113_value} N·mm $$`;
+};
+f213.latex_update = function(){
+	G112_value = Math.abs(G109_value);
+	f213.textContent = `$$ M_A = | M_{AV} | = ${G112_value} $$`;
+};
+f212.latex_update = function(){
+	G111_value = -G107_value * G102_value;
+	f212.textContent = `$$ M_{CV2} = -R_{BV} l_{BC} = -(${G107_value}) \\times ${G102_value} = ${G111_value} N·mm $$`;
+};
+f211.latex_update = function(){
+	G110_value = G106_value * G101_value;
+	f211.textContent = `$$ M_{CV1} = R_{AV} l_{AC} = ${G106_value} \\times ${G101_value}  = ${G110_value} N·mm $$`;
+};
+f210.latex_update = function(){
+	G109_value = 0;
+	f210.textContent = `$$ M_{AV} = 0 $$`;
+};
+f209.latex_update = function(){
+	G108_value = G105_value * G102_value;
+	f209.textContent = `$$ M_{CH} = R_{BH} l_{CB} = (${G105_value}) \\times ${G102_value} = ${G108_value} N·mm $$`;
+};
+f208.latex_update = function(){
+	G107_value = -(G106_value+f202_value);
+	f208.textContent = `$$ R_{BV} = -(R_{AV}+F_{r4}) = -((${G106_value})+${f202_value}) = ${G107_value} N $$`;
+};
+f207.latex_update = function(){
+	G106_value = -(f202_value * G102_value + f203_value * G100_value)/G103_value;
+	f207.textContent = `$$ R_{AV} = -\\frac{F_{r4} l_{BC} \\frac{F_{a4} d_4}{2} }{l_{AB}} = -\\frac{${f202_value} \\times ${G102_value} +  \\frac{${f203_value} \\times ${N43_value}}{2}}{${G103_value}} = ${G106_value} N $$`;
+};
+f206.latex_update = function(){
+	G104_value = -f201_value*G102_value/G103_value;
+	G105_value = -f201_value*G101_value/G103_value;
+	f206.textContent = `$$
+R_{AH} = -\\frac{F_{t4} \\times l_{BC}}{l_{AB}} = -\\frac{${f201_value} \\times ${G102_value}}{${G103_value}} = ${G104_value} N
+$$
+$$
+R_{BH} = -\\frac{F_{t4} \\times l_{AC}}{l_{AB}} = -\\frac{${f201_value} \\times ${G101_value}}{${G103_value}} = ${G105_value} N
+$$`;
+};
+
+
+f203.latex_update = function(){
+	f203_value = f201_value * mtan(f54_value);
+	f203.textContent = `$$ F_{a4} = F_{t4} tan \\beta = ${f201_value} \\times tan ${f54_value} ° = ${f203_value} N $$`;
+};
+f202.latex_update = function(){
+	f202_value = f201_value*mtan(20)/mcos(f54_value);
+	f202.textContent = `$$ F_{r4} = \\frac{F_{t4} tan \\alpha_n}{cos \\beta} = \\frac{${f201_value}   \\times tan 20 °}{cos ${f54_value} °} = ${f202_value} N $$`;
+};
+f201.latex_update = function(){
+	f201_value = 2*f200_value/N43_value;
+	f201.textContent = `$$ F_{t4} = 2\\frac{T_1}{d_4} = \\frac{2 \\times ${f200_value}}{${N43_value}} = ${f201_value} N $$`;
+};
+f200.latex_update = function(){
+	f200_value = T4_value * 1000;
+	f200.textContent = `$ T_{Ⅲ} = ${f200_value} N·mm $`;
+};
+f199.latex_update = function(){
+	G100_value = Math.round(f126_value+f97_value-f128_value-d4_value+G9_value/2);
+	G101_value = Math.round(f128_value+d4_value+N44_value/2-G9_value/2);
+	G102_value = Math.round(d22_value+f94_value+G9_value/2-d4_value-N44_value/2);
+	G103_value = G101_value+G102_value;
+	f199.textContent = `$$ l_{DA} = l_s + h_1 - l_6 - Δ_1 + T'/2 = ${f126_value}+${f97_value} - ${f128_value} - ${d4_value} + \\frac{${G9_value}}{2} \\approx  ${G100_value} mm $$ $$ l_{AC} = l_6 + Δ_1 + B_4/2 - T'/2 = ${f128_value} + ${d4_value} + \\frac{${N44_value}}{2} - \\frac{${G9_value}}{2} \\approx  ${G101_value} mm $$ $$ l_{CB} = Δ_4 + b_{内} + T'/2 - Δ_1 - B_4/2 = ${d22_value} + ${f94_value} + \\frac{${G9_value}}{2} - ${d4_value} - \\frac{${N44_value}}{2} \\approx  ${G102_value} mm $$ $$ l_{AB} = l_{AC} + l_{CB} = ${G101_value} + ${G102_value}  = ${G103_value} mm $$`;
+};
+
+
+f190.latex_update = function(){
+	G79_value = G78_value/0.1/(G77_value**3);
+	warning9.innerText = "";
+	if(G75_value > 60 || G79_value > 60 ){
+		warning9.innerText = "警告！计算应力超出许用应力！！！";
+	};
+	draw_shaft_dia_middle();
+	f190.textContent = `$$ \\sigma_{ca${G76_value}} = \\frac{M_{ca${G76_value}}}{W_${G76_value}} \\approx \\frac{M_{ca${G76_value}}}{0.1 d_{${G76_value}}^{3}} = \\frac{${G78_value}}{0.1 \\times ${G77_value}^3} = ${G79_value} MPa < [σ_{-1}] = 60 MPa (安全) $$`;
+	window.MathJax.typesetPromise([f160,f161,f162,f163,f164,f165,f166,f167,f168,f169,f170,f171,f172,f173,f174,f175,f176,f177,f178,f179,f180,f181,f182,f183,f184,f185,f186,f187,f188,f189,f190]);
+};
+f189.latex_update = function(){
+	f189.textContent = `$ d_${G76_value}= ${G77_value} mm $`;
+};
+f188.latex_update = function(){
+	f188.textContent = `${G76_value}`;
+};
+f187.latex_update = function(){
+	G75_value = G74_value/0.1/(G73_value**3);
+	f187.textContent = `$$ \\sigma_{ca${G72_value}} = \\frac{M_{ca${G72_value}}}{W_${G72_value}} \\approx \\frac{M_{ca${G72_value}}}{0.1 d_{${G72_value}}^{3}} = \\frac{${G74_value}}{0.1 \\times ${G73_value}^3} = ${G75_value} MPa < [σ_{-1}] = 60 MPa (安全) $$`;
+};
+f186.latex_update = function(){
+	f186.textContent = `$ d_${G72_value}= ${G73_value} mm $`;
+};
+f185.latex_update = function(){
+	//find_max_moment_min_dia2();
+	G72_value = "B";
+	G73_value = Math.round(N42_value+f83_value*2);
+	G74_value = Math.max(G68_value,G69_value);
+
+	G76_value = "C";
+	G77_value = d1_value+5;
+	G78_value = Math.max(G70_value,G71_value);
+	f185.textContent = `${G72_value}`;
+};
+f184.latex_update = function(){
+	G71_value = Math.sqrt(G67_value**2 + (d40_value * f180_value)**2);
+	f184.textContent = `$$ M_{CaC2} = \\sqrt{M_{C2}^{2}+(\\alpha T_{Ⅱ})^{2}} = \\sqrt{ ${G67_value} + (${d40_value} \\times ${f180_value})^2} = ${G71_value} N·mm $$`;
+};
+f183.latex_update = function(){
+	G70_value = Math.sqrt(G66_value**2 + (d40_value * f180_value)**2);
+	f183.textContent = `$$ M_{CaC1} = \\sqrt{M_{C1}^{2}+(\\alpha T_{Ⅱ})^{2}} = \\sqrt{ ${G66_value} + (${d40_value} \\times ${f180_value})^2} = ${G70_value} N·mm $$`;
+};
+f182.latex_update = function(){
+	G69_value = Math.sqrt(G65_value**2 + (d40_value * f180_value)**2);
+	f182.textContent = `$$ M_{CaB2} = \\sqrt{M_{B2}^{2}+(\\alpha T_{Ⅱ})^{2}} = \\sqrt{ ${G65_value} + (${d40_value} \\times ${f180_value})^2} = ${G69_value} N·mm $$`;
+};
+f181.latex_update = function(){
+	G68_value = Math.sqrt(G64_value**2 + (d40_value * f180_value)**2);
+	f181.textContent = `$$ M_{CaB1} = \\sqrt{M_{B1}^{2}+(\\alpha T_{Ⅱ})^{2}} = \\sqrt{ ${G64_value} + (${d40_value} \\times ${f180_value})^2} = ${G68_value} N·mm $$`;
+};
+f180.latex_update = function(){
+	f180.textContent = `$$ T_{Ⅱ} = ${f180_value} N·mm $$`;
+};
+f179.latex_update = function(){
+	G67_value = Math.sqrt(G59_value**2 + G63_value**2);
+	f179.textContent = `$$ M_{C2} = \\sqrt{M_{CH}^{2}+M_{CV2}^{2}} = \\sqrt{${G59_value}^2 + ${G63_value}^2} = ${G67_value} N·mm $$`;
+};
+f178.latex_update = function(){
+	G66_value = Math.sqrt(G59_value**2 + G62_value**2);
+	f178.textContent = `$$ M_{C1} = \\sqrt{M_{CH}^{2}+M_{CV1}^{2}} = \\sqrt{${G59_value}^2 + ${G62_value}^2} = ${G66_value} N·mm $$`;
+};
+f177.latex_update = function(){
+	G65_value = Math.sqrt(G58_value**2 + G61_value**2);
+	f177.textContent = `$$ M_{B2} = \\sqrt{M_{BH}^{2}+M_{BV2}^{2}} = \\sqrt{${G58_value}^2 + ${G61_value}^2} = ${G65_value} N·mm $$`;
+};
+f176.latex_update = function(){
+	G64_value = Math.sqrt(G58_value**2 + G60_value**2);
+	f176.textContent = `$$ M_{B1} = \\sqrt{M_{BH}^{2}+M_{BV1}^{2}} = \\sqrt{${G58_value}^2 + ${G60_value}^2} = ${G64_value} N·mm $$`;
+};
+f175.latex_update = function(){
+	G62_value = - G57_value * G52_value + f163_value * N20_value/2;
+	f175.textContent = `$$ M_{CV1} = - (R_{DV}) l_{CD} + F_{a2} \\frac{d_2}{2} = - ${G57_value} \\times ${G52_value} + ${f163_value} \\times \\frac{${N20_value}}{2} = ${G62_value} N·mm $$`;
+};
+f174.latex_update = function(){
+	G63_value = - G57_value * G52_value;
+	f174.textContent = `$$ M_{CV2} = - (R_{DV}) l_{CD} = - ${G57_value} \\times ${G52_value} = ${G63_value} N·mm $$`;
+};
+f173.latex_update = function(){
+	G61_value = - G56_value * G50_value + f166_value * N42_value/2;
+	f173.textContent = `$$ M_{BV2} = - R_{AV} l_{AB} + F_{a3} \\frac{d_3}{2} = - (${G56_value}) \\times ${G50_value} + ${f166_value} \\times \\frac{${N42_value}}{2} = ${G61_value} N·mm $$`;
+};
+f172.latex_update = function(){
+	G60_value = - G56_value * G50_value;
+	f172.textContent = `$$ M_{BV1} = - R_{AV} l_{AB} = - (${G56_value}) \\times ${G50_value} = ${G60_value} N·mm $$`;
+};
+f171.latex_update = function(){
+	G59_value = - G55_value * G52_value;
+	f171.textContent = `$$ M_{CH} = - R_{DH} l_{CD} = - (${G55_value}) \\times ${G52_value} = ${G59_value} N·mm $$`;
+};
+f170.latex_update = function(){
+	G58_value = - G54_value * G50_value;
+	f170.textContent = `$$ M_{BH} = - R_{AH} l_{AB} = - (${G54_value}) \\times ${G50_value} = ${G58_value} N·mm $$`;
+};
+f169.latex_update = function(){
+	G57_value = -(G56_value + f165_value + f162_value);
+	f169.textContent = `$$ R_{DV} = -(R_{AV}+F_{r3}+F_{r2}) = -((${G56_value}) + ${f165_value} + ${f162_value}) = ${G57_value} N $$`;
+};
+f168.latex_update = function(){
+	G56_value = -(N20_value/2+f166_value*N42_value/2+f165_value*(G51_value+ G52_value)/2)/G23_value;
+	f168.textContent = `$$ R_{AV} = -\\frac{F_{r2} l_{CD} + F_{a2} \\frac{d_2}{2} + F_{a3} \\frac{d_3}{2} + F_{r3} l_{DB} }{l_{AD}} = -\\frac{${f162_value} \\times ${G52_value} + ${f163_value} \\times \\frac{${N20_value}}{2} + ${f166_value} \\times \\frac{${N42_value}}{2} + ${f165_value} \\times \\frac{${G51_value} + ${G52_value}}{2} }{${G23_value}} = ${G56_value} N $$`;
+};
+f167.latex_update = function(){
+	G54_value = -(f161_value * G52_value + f164_value * (G51_value + G52_value))/G53_value;
+	G55_value = -(G54_value+f161_value+f164_value);
+	f167.textContent = `$$
+\R_{AH} = -\\frac{F_{t2} \\times l_{CD} + F_{t3} \\times l_{BD}}{l_{AD}} = -\\frac{${f161_value} \\times ${G52_value} + ${f164_value} \\times (${G51_value} + ${G52_value})}{${G53_value}} = ${G54_value} N
+$$
+$$
+R_{DH} = -(R_{AH} + F_{t2} + F_{t3}) = -((${G54_value})+${f161_value}+${f164_value}) = ${G55_value} N
+$$`;
+};
+f166.latex_update = function(){
+	f166_value = f164_value * mtan(f86_value);
+	f166.textContent = `$$ F_{a3} = F_{t3} tan \\beta = ${f164_value} \\times tan ${f86_value} ° = ${f166_value} N $$`;
+};
+f165.latex_update = function(){
+	f165_value = f164_value * mtan(20)/mcos(f86_value);
+	f165.textContent = `$$ F_{r3} = -\\frac{F_{t3} tan \\alpha_n}{cos \\beta} = \\frac{${f164_value}   \\times tan 20 °}{cos ${f86_value} °} = ${f165_value} N $$`;
+};
+f164.latex_update = function(){
+	f164_value = 2*f180_value/N42_value;
+	f164.textContent = `$$ F_{t3} = 2\\frac{T_{Ⅱ}}{d_3} = \\frac{2 \\times ${f180_value}}{${N42_value}} = ${f164_value} N $$`;
+};
+f163.latex_update = function(){
+	f163_value = f133_value;
+	f163.textContent = `$$ F_{a2} = F_{a1} = ${f163_value} N $$`;
+};
+f162.latex_update = function(){
+	f162_value = f132_value;
+	f162.textContent = `$$ F_{r2} = F_{r1} = ${f162_value} N $$`;
+};
+f161.latex_update = function(){
+	f161_value = f131_value;
+	f161.textContent = `$$ F_{t2} = F_{t1} = ${f161_value} N $$`;
+};
+f160.latex_update = function(){
+	G50_value = Math.round(G0_value/2 + d4_value + N45_value/2);
+	G51_value = Math.round(N45_value/2 + d3_value + N22_value/2);
+	G52_value = Math.round(N22_value/2 + d4_value + d5_value + G0_value/2);
+	G53_value = G50_value + G51_value + G52_value;
+	f180_value = T3_value * 1000;
+	f160.textContent = `$$ l_{AB} = T'/2 + Δ_1 + B_3/2 = \\frac{${G0_value}}{2} + ${d4_value} + \\frac{${N45_value}}{2} \\approx ${G50_value} mm $$
+$$ l_{BC} = B_3/2 + Δ + B_1/2  = \\frac{${N45_value}}{2} + ${d3_value} + \\frac{${N22_value}}{2} \\approx ${G51_value} mm $$
+$$ l_{CD} = B_1/2 + Δ_1 + Δ_2 + T'/2 = \\frac{${N22_value}}{2} + ${d4_value} + ${d5_value} + \\frac{${G0_value}}{2} \\approx ${G52_value} mm $$
+$$ l_{AD} = l_{AB} + l_{BC} + l_{CD} = ${G50_value} + ${G51_value} + ${G52_value} = ${G53_value} mm $$`;
+};
+
+
 
 f155.latex_update = function(){
-	G40_value = G35_value/0.1/(d10_value**3);
-	f155.textContent = `$$ \\sigma_{caD} = \\frac{M_{caD}}{W_D} \\approx \\frac{M_{caD}}{0.1 d_{D}^{3}} = \\frac{${G35_value}}{0.1 \\times ${d10_value}^3} = ${G40_value} MPa < [σ_{-1}] (安全) $$`;
-	window.MathJax.typesetPromise([f135,f130,f131,f132,f133,f134,f136,f137,f138,f139,f140,f141,f142,f143,f144,f145,f146,f147,f148,f149,f150,f151,f152,f153,f154,f155]);
+	G40_value = G44_value/0.1/(f154_value**3);
+	warning8.innerText = "";
+	if(G40_value > 60 || G39_value > 60 ){
+		warning8.innerText = "警告！计算应力超出许用应力！！！";
+	};
+	draw_shaft_dia_high();
+	f155.textContent = `$$ \\sigma_{ca${G43_value}} = \\frac{M_{ca${G43_value}}}{W_${G43_value}} \\approx \\frac{M_{ca${G43_value}}}{0.1 d_{${G43_value}}^{3}} = \\frac{${G44_value}}{0.1 \\times ${f154_value}^3} = ${G40_value} MPa < [σ_{-1}] = 60 MPa  (安全) $$`;
+	window.MathJax.typesetPromise([f135,f130,f131,f132,f133,f134,f136,f137,f138,f139,f140,f141,f142,f143,f144,f145,f146,f147,f148,f149,f150,f151,f152,f153,f154,f155,f156]);
 };
 f154.latex_update = function(){
-	f154_value = d10_value;
-	f154.textContent = `$ d_D= ${f154_value} mm $`;
+	f154.textContent = `$ d_${G43_value}= ${f154_value} mm $`;
 };
 f153.latex_update = function(){
-	f153.textContent = `D`;
+	f153.textContent = `${G43_value}`;
 };
 f152.latex_update = function(){
-	G39_value = G36_value/0.1/(f151_value**3);
-	f152.textContent = `$$ \\sigma_{caA} = \\frac{M_{caA}}{W_A} \\approx \\frac{M_{caA}}{0.1 d_{A}^{3}} = \\frac{${G36_value}}{0.1 \\times ${f102_value}^3} = ${G39_value} MPa < [σ_{-1}] (安全) $$`;
+	G39_value = G42_value/0.1/(f151_value**3);
+	f152.textContent = `$$ \\sigma_{ca${G41_value}} = \\frac{M_{ca${G41_value}}}{W_${G41_value}} \\approx \\frac{M_{ca${G41_value}}}{0.1 d_{${G41_value}}^{3}} = \\frac{${G42_value}}{0.1 \\times ${f102_value}^3} = ${G39_value} MPa < [σ_{-1}] = 60 MPa  (安全) $$`;
 };
 f151.latex_update = function(){
-	f151_value = f102_value;
-	f151.textContent = `$ d_A= ${f151_value} mm $`;
+	f151.textContent = `$ d_${G41_value}= ${f151_value} mm $`;
 };
 f150.latex_update = function(){
-	f150.textContent = `A`;
+	find_max_moment_min_dia();
+	f150.textContent = `${G41_value}`;
 };
 f149.latex_update = function(){
 	G38_value = Math.abs(G34_value);
-	f149.textContent = `$$ M_{CaC2} = \\sqrt{M_{C2}^{2}+(\\alpha T_1)^{2}} = \\sqrt{${G34_value}^2 + 0} = ${G38_value} N·mm $$`;
+	f149.textContent = `$$ M_{CaC2} = \\sqrt{M_{C2}^{2}+(\\alpha T_1)^{2}} = \\sqrt{(${G34_value})^2 + 0} = ${G38_value} N·mm $$`;
 };
 f148.latex_update = function(){
 	G37_value = Math.sqrt(G33_value**2 + (d30_value * f130_value)**2);
-	f148.textContent = `$$ M_{CaC1} = \\sqrt{M_{C1}^{2}+(\\alpha T_1)^{2}} = \\sqrt{${G33_value}^2 + (${d30_value} \\times ${f130_value})^2} = ${G37_value} N·mm $$`;
+	f148.textContent = `$$ M_{CaC1} = \\sqrt{M_{C1}^{2}+(\\alpha T_1)^{2}} = \\sqrt{(${G33_value})^2 + (${d30_value} \\times ${f130_value})^2} = ${G37_value} N·mm $$`;
 };
 f147.latex_update = function(){
 	G36_value = Math.sqrt(G32_value**2 + (d30_value * f130_value)**2);
-	f147.textContent = `$$ M_{CaA} = \\sqrt{M_{A}^{2}+(\\alpha T_1)^{2}} = \\sqrt{${G32_value}^2 + (${d30_value} \\times ${f130_value})^2} = ${G36_value} N·mm $$`;
+	f147.textContent = `$$ M_{CaA} = \\sqrt{M_{A}^{2}+(\\alpha T_1)^{2}} = \\sqrt{(${G32_value})^2 + (${d30_value} \\times ${f130_value})^2} = ${G36_value} N·mm $$`;
 };
 f146.latex_update = function(){
 	G35_value = Math.abs(d30_value * f130_value);
+	f156.textContent = `$ T_1 = ${f130_value} N·mm $`;
 	f146.textContent = `$$ M_{CaD} = \\sqrt{M_{D}^{2}+(\\alpha T_1)^{2}} = \\sqrt{0 + (${d30_value} \\times ${f130_value})^2} = ${G35_value} N·mm $$`;
 };
 f145.latex_update = function(){
 	G34_value = Math.sqrt(G28_value**2 + G31_value**2);
-	f145.textContent = `$$ M_{C1} = \\sqrt{M_{CH}^{2}+M_{CV2}^{2}} = \\sqrt{${G28_value}^2 + ${G31_value}^2} = ${G34_value} N·mm $$`;
+	f145.textContent = `$$ M_{C1} = \\sqrt{M_{CH}^{2}+M_{CV2}^{2}} = \\sqrt{(${G28_value})^2 + (${G31_value})^2} = ${G34_value} N·mm $$`;
 };
 f144.latex_update = function(){
 	G33_value = Math.sqrt(G28_value**2 + G30_value**2);
-	f144.textContent = `$$ M_{C1} = \\sqrt{M_{CH}^{2}+M_{CV1}^{2}} = \\sqrt{${G28_value}^2 + ${G30_value}^2} = ${G33_value} N·mm $$`;
+	f144.textContent = `$$ M_{C1} = \\sqrt{M_{CH}^{2}+M_{CV1}^{2}} = \\sqrt{(${G28_value})^2 + (${G30_value})^2} = ${G33_value} N·mm $$`;
 };
 f143.latex_update = function(){
-	G32_value = G29_value;
+	G32_value = Math.abs(G29_value);
 	f143.textContent = `$$ M_A = | M_{AV} | = ${G32_value} N·mm $$`;
 };
 f142.latex_update = function(){
-	G31_value = G27_value * G22_value;
-	f142.textContent = `$$ M_{CV2} = -R_{BV} l_{BC} = ${G27_value} \\times ${G22_value} = ${G31_value} N·mm $$`;
+	G31_value = -G27_value * G22_value;
+	f142.textContent = `$$ M_{CV2} = -R_{BV} l_{BC} = -(${G27_value}) \\times ${G22_value} = ${G31_value} N·mm $$`;
 };
 f141.latex_update = function(){
-	G30_value = -f134_value * (G20_value + G21_value) + G26_value * G21_value;
-	f141.textContent = `$$ M_{CV1} = -F_{Q} (l_{DA}+l_{AC}) + R_{AV} l_{AC} = -${f134_value} \\times (${G20_value} + ${G21_value}) + ${G26_value} \\times ${G21_value}  = ${G30_value} N·mm $$`;
+	G30_value = -(f134_value * (G20_value + G21_value) + G26_value * G21_value);
+	f141.textContent = `$$ M_{CV1} = -(F_{Q} (l_{DA}+l_{AC}) + R_{AV} l_{AC}) = -((${f134_value}) \\times (${G20_value} + ${G21_value}) + (${G26_value}) \\times ${G21_value})  = ${G30_value} N·mm $$`;
 };
 f140.latex_update = function(){
 	G29_value = -f134_value * G20_value;
-	f140.textContent = `$$ M_{AV} = -F_{Q} l_{DA} = -${f134_value} \\times ${G20_value} = ${G29_value} N·mm $$`;
+	f140.textContent = `$$ M_{AV} = -F_{Q} l_{DA} = (${f134_value}) \\times ${G20_value} = ${G29_value} N·mm $$`;
 };
 f139.latex_update = function(){
-	G28_value = -G25_value * G22_value;
-	f139.textContent = `$$ M_{CH} = -R_{BH} l_{CB} = -${G25_value} \\times ${G22_value} = ${G28_value} N·mm $$`;
+	G28_value = G25_value * G22_value;
+	f139.textContent = `$$ M_{CH} = R_{BH} l_{CB} = (${G25_value}) \\times ${G22_value} = ${G28_value} N·mm $$`;
 };
 f138.latex_update = function(){
 	G27_value = -(G26_value+f134_value+f132_value);
-	f138.textContent = `$$ R_{BV} = -(R_{AV}+F_{Q}+F_{r1}) = -(${G26_value}+${f134_value}+${f132_value}) = ${G27_value} N $$`;
+	f138.textContent = `$$ R_{BV} = -(R_{AV}+F_{Q}+F_{r1}) = -((${G26_value})+${f134_value}+${f132_value}) = ${G27_value} N $$`;
 };
 f137.latex_update = function(){
-	G26_value = -f132_value * G22_value + f134_value * (G20_value + G23_value)/G23_value;
-	f137.textContent = `$$ R_{AV} = -\\frac{F_{r1} l_{BC} + F_{Q} l_{DB}}{l_{AB}} = -\\frac{${f132_value} \\times ${G22_value} + ${f134_value} \\times (${G20_value} + ${G23_value}) }{${G23_value}} = ${G26_value} N $$`;
+	G26_value = -(f132_value * G22_value + f133_value*N19_value/2 + f134_value * (G20_value + G23_value))/G23_value;
+	f137.textContent = `$$ R_{AV} = -\\frac{F_{r1} l_{BC} + F_{Q} l_{DB} + \\frac{F_{a1} d_1}{2} }{l_{AB}} = -\\frac{${f132_value} \\times ${G22_value} + ${f134_value} \\times (${G20_value} + ${G23_value}) + \\frac{${f133_value} \\times ${N19_value}}{2}}{${G23_value}} = ${G26_value} N $$`;
 };
 f136.latex_update = function(){
 	G24_value = -f131_value*G22_value/G23_value;
 	G25_value = -f131_value*G21_value/G23_value;
 	f136.textContent = `$$
-R_{AH} = \\frac{F_{t1} \\times l_{BC}}{l_{AB}} = -\\frac{${f131_value} \\times ${G22_value}}{${G23_value}} = ${G24_value} N
+R_{AH} = -\\frac{F_{t1} \\times l_{BC}}{l_{AB}} = -\\frac{${f131_value} \\times ${G22_value}}{${G23_value}} = ${G24_value} N
 $$
 $$
-R_{BH} = \\frac{F_{t1} \\times l_{AC}}{l_{AB}} = -\\frac{${f131_value} \\times ${G21_value}}{${G23_value}} = ${G25_value} N
+R_{BH} = -\\frac{F_{t1} \\times l_{AC}}{l_{AB}} = -\\frac{${f131_value} \\times ${G21_value}}{${G23_value}} = ${G25_value} N
 $$`;
 };
 
@@ -1134,11 +1625,11 @@ f130.latex_update = function(){
 	f130.textContent = `$ T_1 = ${f130_value} N·mm $`;
 };
 f135.latex_update = function(){
-	G20_value = f111_value+f97_value-f113_value+G5_value/2;
-	G21_value = f113_value+d4_value+N22_value/2-G5_value/2;
-	G22_value = d15_value+f94_value-d4_value-N22_value/2;
+	G20_value = Math.round(f111_value+f97_value-f113_value+G5_value/2);
+	G21_value = Math.round(f113_value+d4_value+N21_value/2-G5_value/2);
+	G22_value = Math.round(d15_value+f94_value+G5_value/2-d4_value-N21_value/2);
 	G23_value = G21_value+G22_value;
-	f135.textContent = `$$ l_{DA} = l_s + h_1 - l_4 + T'/2 = ${f111_value}+${f97_value} - ${f113_value} + \\frac{${G5_value}}{2} = ${G20_value} mm $$ $$ l_{AC} = l_4 + Δ_1 + B_2/2 - T'/2 = ${f113_value} + ${d4_value} + \\frac{${N22_value}}{2} - \\frac{${G5_value}}{2} = ${G21_value} mm $$ $$ l_{CB} = Δ_3 + b_{内} - Δ_1 - B_2/2 = ${d15_value} + ${f94_value} - ${d4_value} - \\frac{${N22_value}}{2} = ${G22_value} mm $$ $$ l_{AB} = l_{AC} + l_{CB} = ${G21_value} + ${G22_value} = ${G23_value} mm $$`;
+	f135.textContent = `$$ l_{DA} = l_s + h_1 - l_4 + T'/2 = ${f111_value}+${f97_value} - ${f113_value} + \\frac{${G5_value}}{2} \\approx  ${G20_value} mm $$ $$ l_{AC} = l_4 + Δ_1 + B_2/2 - T'/2 = ${f113_value} + ${d4_value} + \\frac{${N21_value}}{2} - \\frac{${G5_value}}{2} \\approx  ${G21_value} mm $$ $$ l_{CB} = Δ_3 + b_{内} + T'/2 - Δ_1 - B_2/2 = ${d15_value} + ${f94_value} + \\frac{${G5_value}}{2} - ${d4_value} - \\frac{${N21_value}}{2} \\approx  ${G22_value} mm $$ $$ l_{AB} = l_{AC} + l_{CB} = ${G21_value} + ${G22_value} = ${G23_value} mm $$`;
 };
 
 
@@ -1310,11 +1801,11 @@ f95.latex_update = function(){
 	f95.textContent = `$$ l_{中} = b_{内} + 2Δ_2 + 2T' = ${f94_value} + 2 \\times ${d5_value} + 2 \\times ${G0_value} = ${f95_value} mm $$`;
 };
 f94.latex_update = function(){
-	f94_value = N22_value + N45_value + d3_value + 2 * d4_value;
-	f94.textContent = `$$ b_{内} = B_2 + B_3 + Δ + 2Δ_1 = ${N22_value} + ${N45_value} + ${d3_value} + 2 \\times ${d4_value} = ${f94_value} mm $$`;
+	f94_value = N21_value + N45_value + d3_value + 2 * d4_value;
+	f94.textContent = `$$ b_{内} = B_2 + B_3 + Δ + 2Δ_1 = ${N21_value} + ${N45_value} + ${d3_value} + 2 \\times ${d4_value} = ${f94_value} mm $$`;
 };
 f93.latex_update = function(){
-	f93.textContent = `$ 高速级大齿轮轮毂宽 B_2 = ${N22_value} mm，低速级小齿轮宽 B_3 = ${N45_value} mm $`;
+	f93.textContent = `$ 高速级大齿轮轮毂宽 B_2 = ${N21_value} mm，低速级小齿轮宽 B_3 = ${N45_value} mm $`;
 };
 f99.latex_update = function(){
 	G0_value = fit_bearing[d2.options[d2.selectedIndex].value][3];
@@ -1362,10 +1853,10 @@ f87.latex_update = function(){
 	N42_value = f83_value*g18_value/mcos(f86_value);
 	N43_value = f83_value*f59_value/mcos(f86_value);
 	f87.textContent = `$$
-    d_1 = \\frac{m_n z_1}{cos \\beta} = \\frac{${f83_value} \\times ${g18_value}}{cos ${N41_value}} = ${N42_value} mm
+    d_3 = \\frac{m_n z_1}{cos \\beta} = \\frac{${f83_value} \\times ${g18_value}}{cos ${N41_value}} = ${N42_value} mm
     $$
     $$
-    d_2 = \\frac{m_n z_2}{cos \\beta} = \\frac{${f83_value} \\times ${f59_value}}{cos ${N41_value}} = ${N43_value} mm
+    d_4 = \\frac{m_n z_2}{cos \\beta} = \\frac{${f83_value} \\times ${f59_value}}{cos ${N41_value}} = ${N43_value} mm
     $$`;
 };
 f86.latex_update = function(){
@@ -1894,7 +2385,23 @@ function change_html(e){
     var the_id = e.getAttribute("id");
 	console.log(the_id);
     if(the_id.slice(0,1) == "d"){
-		if(parseInt(the_id.slice(1))>29){
+		if(parseInt(the_id.slice(1))>49){
+			//update_d49();
+			d50_value = parseFloat(document.getElementById("d50").value);
+			for (let i of formula_chain["d50"]) {
+				//console.log(i.id);
+				i.latex_update();
+			};
+			return;
+		}else if(parseInt(the_id.slice(1))>39){
+			//update_d39();
+			d40_value = parseFloat(document.getElementById("d40").value);
+			for (let i of formula_chain["d40"]) {
+				//console.log(i.id);
+				i.latex_update();
+			};
+			return;
+		}else if(parseInt(the_id.slice(1))>29){
 			//update_d29();
 			d30_value = parseFloat(document.getElementById("d30").value);
 			for (let i of formula_chain["d30"]) {
@@ -2066,6 +2573,8 @@ function dealMessage(data){
 		change_html(d9);
 		change_html(d16);
 		change_html(d30);
+		change_html(d40);
+		change_html(d50);
 		return;
 	}
 	
@@ -2287,8 +2796,8 @@ function draw_shaft_middle(){
 		{ len: d4_value, dia: d1_value+10 },
 		{ len: N45_value, dia: Math.round((N42_value+f83_value*2)*100)/100 }, 
 		{ len: d3_value, dia: d1_value+10 }, 
-		{ len: N22_value, dia: d1_value+5 }, 
-		{ len: d4_value, dia: d1_value }, 
+		{ len: N22_value-2, dia: d1_value+5 }, 
+		{ len: d4_value+2, dia: d1_value }, 
 		{ len: d5_value, dia: d1_value },
 		{ len: G0_value, dia: d1_value } // 无台阶
 	];
@@ -2377,9 +2886,9 @@ function draw_shaft_low(){
 		{ len: d23_value, dia: d17_value },
 		{ len: f126_value+f97_value-(d23_value+d4_value+f128_value), dia: f116_value }, 
 		{ len: d4_value+f128_value, dia: f117_value },
-		{ len: N45_value, dia: f117_value+5 }, 
+		{ len: N44_value, dia: f117_value+5 }, 
 		{ len: d3_value, dia: G12_value }, 
-		{ len: f94_value-d3_value*2-N45_value, dia: f117_value }, 
+		{ len: f94_value-d4_value-d3_value*2-N44_value, dia: f117_value }, 
 		{ len: d3_value, dia: G12_value }, 
 		{ len: f128_value, dia: f117_value },
 	];	
@@ -2391,6 +2900,290 @@ function draw_shaft_low(){
 		};
 	}
 }
+function find_max_moment_min_dia(){
+	const names = ["D","A","C"];
+	const moments = [G35_value,G36_value,Math.max(G37_value,G38_value)];
+	const dias = [d10_value,f102_value,Math.round((N19_value+2 * f51_value)*100)/100];
+	let maxindex = moments.indexOf(Math.max(...moments));
+	let minindex = dias.indexOf(Math.min(...dias));
+	// console.log(maxindex);
+	// console.log(minindex);
+
+	f151_value = dias[maxindex];
+	G41_value = names[maxindex];
+	G42_value = moments[maxindex];
+
+	f154_value = dias[minindex];
+	G43_value = names[minindex];
+	G44_value = moments[minindex];
+}
+// function find_max_moment_min_dia2(){
+// 	const names = ["B","C"];
+// 	const moments = [Math.max(G68_value,G69_value),Math.max(G70_value,G71_value)];
+// 	const dias = [Math.round(N42_value+f83_value*2),d1_value+5];
+// 	let maxindex = moments.indexOf(Math.max(...moments));
+// 	let minindex = dias.indexOf(Math.min(...dias));
+// 	// console.log(maxindex);
+// 	// console.log(minindex);
+	
+// 	G72_value = names[maxindex];
+// 	G73_value = dias[maxindex];
+// 	G74_value = moments[maxindex];
+
+// 	G75_value = names[minindex];
+// 	G76_value = dias[minindex];
+// 	G77_value = moments[minindex];
+// };
+function find_max_moment_min_dia3(){
+	const names = ["D","A","C"];
+	const moments = [G115_value,G116_value,Math.max(G117_value,G118_value)];
+	const dias = [d17_value,f117_value,f117_value+5];
+	let maxindex = moments.indexOf(Math.max(...moments));
+	let minindex = dias.indexOf(Math.min(...dias));
+	// console.log(maxindex);
+	// console.log(minindex);
+
+	f221_value = dias[maxindex];
+	G121_value = names[maxindex];
+	G122_value = moments[maxindex];
+
+	f224_value = dias[minindex];
+	G123_value = names[minindex];
+	G124_value = moments[minindex];
+}
+function draw_shaft_dia_high(){
+	// 轴参数 (mm) - 使用有序数组
+	const points = [
+		{ name: 'D', x_mm: 0 },
+		{ name: 'A', x_mm: G20_value },
+		{ name: 'C', x_mm: G20_value + G21_value },
+		{ name: 'B', x_mm: G20_value + G21_value + G22_value }
+	];
+
+	// 受力数据 (N) - 使用点名称作为键，方便查找
+	const forces = {
+		'D': [
+			{ value: f134_value, direction: 'down', plane: 'vertical', name: 'F_Q' }
+		],
+		'A': [
+			{ value: G24_value, direction: 'up', plane: 'horizontal', name: 'R_AH' },
+			{ value: G26_value, direction: 'down', plane: 'vertical', name: 'R_AV' } ,
+			{ value: -f133_value, direction: 'left', plane: 'vertical', name: 'R_AV2' } ,
+		],
+		'C': [
+			{ value: f131_value, direction: 'up', plane: 'horizontal', name: 'F_t1' },
+			{ value: f132_value, direction: 'down', plane: 'vertical', name: 'F_r1' } ,
+			{ value: f133_value, direction: 'left', plane: 'vertical', name: 'F_a1' } ,
+			{ value: f133_value*N19_value/2, direction: 'clockwise', plane: 'vertical', name: 'M_aC' } ,
+		],
+		'B': [
+			{ value: G25_value, direction: 'up', plane: 'horizontal', name: 'R_BH' },
+			{ value: G27_value, direction: 'down', plane: 'vertical', name: 'R_BV' }
+		]
+	};
+
+	// 弯矩/转矩/计算弯矩值 (N·mm) - 使用 { x_mm: value } 数组形式
+	const values = {
+		horizontalMoment: [ 
+			{ x_mm: points[0].x_mm, value: 0 , name: "M_DH"}, // D
+			{ x_mm: points[1].x_mm, value: 0 , name: "M_AH"}, // A
+			{ x_mm: points[2].x_mm, value: G28_value , name: "M_CH"}, // C
+			{ x_mm: points[3].x_mm, value: 0 , name: "M_BH"}  // B
+		],
+		verticalMoment: [ 
+			{ x_mm: points[0].x_mm, value: 0 , name: "M_DV"}, // D
+			{ x_mm: points[1].x_mm, value: G29_value , name: "M_AV"}, // A
+			{ x_mm: points[2].x_mm, value: G30_value , name: "M_CV1"}, // C1
+			{ x_mm: points[2].x_mm, value: G31_value , name: "M_CV2"}, // C2
+			{ x_mm: points[3].x_mm, value: 0 , name: "M_BV"}  // B
+		],
+		resultantMoment: [ 
+			{ x_mm: points[0].x_mm, value: 0 , name: "M_D"}, // D
+			{ x_mm: points[1].x_mm, value: G32_value , name: "M_A"}, // A
+			{ x_mm: points[2].x_mm, value: G33_value , name: "M_C1"}, // C
+			{ x_mm: points[2].x_mm, value: G34_value , name: "M_C2"}, // C
+			{ x_mm: points[3].x_mm, value: 0 , name: "M_B"}  // B
+		],
+		torque: [ 
+			{ x_mm: points[0].x_mm, value: f130_value , name: "T_D"}, // D
+			{ x_mm: points[2].x_mm, value: f130_value , name: "T_C1"}, // C before
+			{ x_mm: points[2].x_mm, value: 0 , name: "T_C2"},    // C after
+			{ x_mm: points[3].x_mm, value: 0 , name: "T_B"}     // B
+		],
+		equivalentMoment: [ 
+			{ x_mm: points[0].x_mm, value: G35_value , name: "M_caD"}, // D (M_caD)
+			{ x_mm: points[1].x_mm, value: G36_value , name: "M_caA"}, // A (M_caA)
+			{ x_mm: points[2].x_mm, value: G37_value , name: "M_caC1"}, // C (M_caC1)
+			{ x_mm: points[2].x_mm, value: G38_value , name: "M_caC2"}, // C (M_caC1)
+			{ x_mm: points[3].x_mm, value: 0 , name: "M_caB"}  // B
+		]
+	};
+	if (zhou_tu_h.onload){
+        zhou_tu_h.contentWindow.postMessage([points,forces,values,"high"], "*");
+	} else {
+		zhou_tu_h.onload = function(){
+			zhou_tu_h.contentWindow.postMessage([points,forces,values,"high"], "*");
+		};
+	}
+}
+function draw_shaft_dia_middle(){
+	// 轴参数 (mm) - 使用有序数组
+	const points = [
+		{ name: 'A', x_mm: 0 },
+		{ name: 'B', x_mm: G50_value },
+		{ name: 'C', x_mm: G50_value + G51_value }, 
+		{ name: 'D', x_mm: G53_value } 
+	];
+
+	// 受力数据 (N) - 使用点名称作为键，方便查找
+	const forces = {
+		'A': [
+			{ value: G54_value, direction: 'up', plane: 'horizontal', name: 'R_AH' },
+			{ value: G56_value, direction: 'down', plane: 'vertical', name: 'R_AV' } ,
+			{ value: f166_value, direction: 'left', plane: 'vertical', name: 'F_a3A' } ,
+		],
+		'B': [
+			{ value: f164_value, direction: 'up', plane: 'horizontal', name: 'F_t3' },
+			{ value: f165_value, direction: 'down', plane: 'vertical', name: 'F_r3' } ,
+			{ value: -f166_value, direction: 'left', plane: 'vertical', name: 'F_a3' } ,
+			{ value: f166_value * N42_value/2, direction: 'counterclockwise', plane: 'vertical', name: 'M_a3C' } ,
+		],
+		'C': [
+			{ value: f161_value, direction: 'up', plane: 'horizontal', name: 'F_t2' },
+			{ value: f162_value, direction: 'down', plane: 'vertical', name: 'F_r2' } ,
+			{ value: f163_value, direction: 'left', plane: 'vertical', name: 'F_a2' } ,
+			{ value: f163_value* N20_value/2, direction: 'counterclockwise', plane: 'vertical', name: 'M_a2C' } ,
+		],
+		'D': [
+			{ value: G55_value, direction: 'up', plane: 'horizontal', name: 'R_DH' },
+			{ value: G57_value, direction: 'down', plane: 'vertical', name: 'R_DV' },
+			{ value: -f163_value, direction: 'left', plane: 'vertical', name: 'F_a2D' } ,
+		]
+	};
+
+	// 弯矩/转矩/计算弯矩值 (N·mm) - 使用 { x_mm: value } 数组形式
+	const values = {
+		horizontalMoment: [ 
+			{ x_mm: points[0].x_mm, value: 0 , name: "M_AH"},
+			{ x_mm: points[1].x_mm, value: G58_value , name: "M_BH"}, 
+			{ x_mm: points[2].x_mm, value: G59_value , name: "M_CH"},
+			{ x_mm: points[3].x_mm, value: 0 , name: "M_DH"}
+		],
+		verticalMoment: [ 
+			{ x_mm: points[0].x_mm, value: 0 , name: "M_AV"}, 
+			{ x_mm: points[1].x_mm, value: G60_value , name: "M_BV1"}, 
+			{ x_mm: points[1].x_mm, value: G61_value , name: "M_BV2"}, 
+			{ x_mm: points[2].x_mm, value: G62_value , name: "M_CV1"}, 
+			{ x_mm: points[2].x_mm, value: G63_value, name: "M_CV2"}, 
+			{ x_mm: points[3].x_mm, value: 0 , name: "M_DV"}  
+		],
+		resultantMoment: [ 
+			{ x_mm: points[0].x_mm, value: 0 , name: "M_A"}, 
+			{ x_mm: points[1].x_mm, value: G64_value , name: "M_B1"}, 
+			{ x_mm: points[1].x_mm, value: G65_value , name: "M_B2"}, 
+			{ x_mm: points[2].x_mm, value: G66_value , name: "M_C1"}, 
+			{ x_mm: points[2].x_mm, value: G67_value , name: "M_C2"}, 
+			{ x_mm: points[3].x_mm, value: 0 , name: "M_D"} 
+		],
+		torque: [ 
+			//{ x_mm: points[0].x_mm, value: 0 , name: "T_A"}, 
+			{ x_mm: points[1].x_mm, value: 0 , name: "T_B1"}, 
+			{ x_mm: points[1].x_mm, value: f180_value , name: "T_B2"}, 
+			{ x_mm: points[2].x_mm, value: f180_value , name: "T_C1"}, 
+			{ x_mm: points[2].x_mm, value: 0 , name: "T_C2"},
+			//{ x_mm: points[3].x_mm, value: 0 , name: "T_D"}, 
+		],
+		equivalentMoment: [ 
+			{ x_mm: points[0].x_mm, value: 0 , name: "M_A"}, 
+			{ x_mm: points[1].x_mm, value: G68_value , name: "M_B1"}, 
+			{ x_mm: points[1].x_mm, value: G69_value , name: "M_B2"}, 
+			{ x_mm: points[2].x_mm, value: G70_value , name: "M_C1"}, 
+			{ x_mm: points[2].x_mm, value: G71_value , name: "M_C2"}, 
+			{ x_mm: points[3].x_mm, value: 0 , name: "M_D"} 
+		]
+	};
+	if (zhou_tu_m.onload){
+        zhou_tu_m.contentWindow.postMessage([points,forces,values,"middle"], "*");
+	} else {
+		zhou_tu_m.onload = function(){
+			zhou_tu_m.contentWindow.postMessage([points,forces,values,"middle"], "*");
+		};
+	}
+}
+function draw_shaft_dia_low(){
+	// 轴参数 (mm) - 使用有序数组
+	const points = [
+		{ name: 'D', x_mm: 0 },
+		{ name: 'A', x_mm: G100_value },
+		{ name: 'C', x_mm: G100_value + G101_value },
+		{ name: 'B', x_mm: G100_value + G101_value + G102_value }
+	];
+
+	// 受力数据 (N) - 使用点名称作为键，方便查找
+	const forces = {
+		'D': [
+		],
+		'A': [
+			{ value: G104_value, direction: 'up', plane: 'horizontal', name: 'R_AH' },
+			{ value: G106_value, direction: 'down', plane: 'vertical', name: 'R_AV' } ,
+			{ value: -f203_value, direction: 'left', plane: 'vertical', name: 'R_AV2' } ,
+		],
+		'C': [
+			{ value: f201_value, direction: 'up', plane: 'horizontal', name: 'F_t4' },
+			{ value: f202_value, direction: 'down', plane: 'vertical', name: 'F_r4' } ,
+			{ value: f203_value, direction: 'left', plane: 'vertical', name: 'F_a4' } ,
+			{ value: f203_value*N19_value/2, direction: 'clockwise', plane: 'vertical', name: 'M_aC' } ,
+		],
+		'B': [
+			{ value: G105_value, direction: 'up', plane: 'horizontal', name: 'R_BH' },
+			{ value: G107_value, direction: 'down', plane: 'vertical', name: 'R_BV' }
+		]
+	};
+
+	// 弯矩/转矩/计算弯矩值 (N·mm) - 使用 { x_mm: value } 数组形式
+	const values = {
+		horizontalMoment: [ 
+			{ x_mm: points[0].x_mm, value: 0 , name: "M_DH"}, // D
+			{ x_mm: points[1].x_mm, value: 0 , name: "M_AH"}, // A
+			{ x_mm: points[2].x_mm, value: G108_value , name: "M_CH"}, // C
+			{ x_mm: points[3].x_mm, value: 0 , name: "M_BH"}  // B
+		],
+		verticalMoment: [ 
+			{ x_mm: points[0].x_mm, value: 0 , name: "M_DV"}, // D
+			{ x_mm: points[1].x_mm, value: G109_value , name: "M_AV"}, // A
+			{ x_mm: points[2].x_mm, value: G110_value , name: "M_CV1"}, // C1
+			{ x_mm: points[2].x_mm, value: G111_value , name: "M_CV2"}, // C2
+			{ x_mm: points[3].x_mm, value: 0 , name: "M_BV"}  // B
+		],
+		resultantMoment: [ 
+			{ x_mm: points[0].x_mm, value: 0 , name: "M_D"}, // D
+			{ x_mm: points[1].x_mm, value: G112_value , name: "M_A"}, // A
+			{ x_mm: points[2].x_mm, value: G113_value , name: "M_C1"}, // C
+			{ x_mm: points[2].x_mm, value: G114_value , name: "M_C2"}, // C
+			{ x_mm: points[3].x_mm, value: 0 , name: "M_B"}  // B
+		],
+		torque: [ 
+			{ x_mm: points[0].x_mm, value: f200_value , name: "T_D"}, // D
+			{ x_mm: points[2].x_mm, value: f200_value , name: "T_C1"}, // C before
+			{ x_mm: points[2].x_mm, value: 0 , name: "T_C2"},    // C after
+			{ x_mm: points[3].x_mm, value: 0 , name: "T_B"}     // B
+		],
+		equivalentMoment: [ 
+			{ x_mm: points[0].x_mm, value: G115_value , name: "M_caD"}, // D (M_caD)
+			{ x_mm: points[1].x_mm, value: G116_value , name: "M_caA"}, // A (M_caA)
+			{ x_mm: points[2].x_mm, value: G117_value , name: "M_caC1"}, // C (M_caC1)
+			{ x_mm: points[2].x_mm, value: G118_value , name: "M_caC2"}, // C (M_caC1)
+			{ x_mm: points[3].x_mm, value: 0 , name: "M_caB"}  // B
+		]
+	};
+	if (zhou_tu_l.onload){
+        zhou_tu_l.contentWindow.postMessage([points,forces,values,"low"], "*");
+	} else {
+		zhou_tu_l.onload = function(){
+			zhou_tu_l.contentWindow.postMessage([points,forces,values,"low"], "*");
+		};
+	}
+}
 window.onload = function() {
 	window.addEventListener('message',function(e){
     	dealMessage(e.data);
@@ -2398,6 +3191,9 @@ window.onload = function() {
 	zhou_m.src = "/external/zhou.html";
 	zhou_h.src = "/external/zhou.html";
 	zhou_l.src = "/external/zhou.html";
+	zhou_tu_h.src = "/external/zhou_tu.html";
+	zhou_tu_m.src = "/external/zhou_tu.html";
+	zhou_tu_l.src = "/external/zhou_tu.html";
     change_html(F0);
     change_html(g0);
     change_html(g18);
