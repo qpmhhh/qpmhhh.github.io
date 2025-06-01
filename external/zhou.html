@@ -301,8 +301,13 @@ function drawShaft(segments,type="middle") {
         
         if(type=="middle"){
             if(dashLineMiddleIndex.includes(index)){
-                dashLineX_mm.push(tempDashLen);
+                if(index==5){
+                    dashLineX_mm.push(tempDashLen+2);
+                }else{
+                    dashLineX_mm.push(tempDashLen);
+                }
             }
+            
         }
     });
     // console.log(segments);
