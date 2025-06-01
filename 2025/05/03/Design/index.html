@@ -35,7 +35,7 @@
 <meta property="og:image" content="https://qpmhhh.github.io/img/design_middleBearing.jpg">
 <meta property="og:image" content="https://qpmhhh.github.io/img/design_highBearing.jpg">
 <meta property="article:published_time" content="2025-05-03T08:55:56.000Z">
-<meta property="article:modified_time" content="2025-06-01T09:03:50.672Z">
+<meta property="article:modified_time" content="2025-06-01T09:42:02.153Z">
 <meta property="article:author" content="qpm">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://qpmhhh.github.io/img/design_yi1.png">
@@ -1749,7 +1749,7 @@ f421.latex_update = function(){
 5.总效率$ \\eta = ${f2_value} $<br>
 6.计算功率$ P_c = ${f3_value} $kW<br>
 7.电机工况系数$ K_A = ${K0_value} $<br>
-8.电机额定功率$ P_{ed} = ${P1_value} $kW<br>
+8.电机额定功率$ P_{ed} = ${P0_value} $kW<br>
 9.电动机转速$ n_d = ${n1_value} $rpm<br>
 10.带传动比$ i_{带} = ${i0_value} $<br>
 11.高速级齿轮传动比$ i_{齿轮} = ${i1_value} $<br>
@@ -1768,7 +1768,7 @@ f421.latex_update = function(){
 24.齿轮轴Ⅲ转矩$ T_{Ⅲ} = ${T4_value} $Nm<br>
 <br>
 25.V带工况系数$ K_A = ${K0_value} $<br>
-26.带型(普通V带)为$ ${f9_value} $<br>
+26.带型(普通V带)为$ ${f9_value.slice(0,1)} $<br>
 27.小带轮基准直径$ D_1 = ${f10_value} $mm<br>
 28.大带轮基准直径$ D_2 = ${f12_value} $mm<br>
 29.基准带长$ L_d = ${f16_value} $mm<br>
@@ -1859,7 +1859,7 @@ f421.latex_update = function(){
 <br>
 111.联轴器型号$ ${fit_coupling[g40.options[g40.selectedIndex].value][0]} $<br>
 112.联轴器孔径$ d_{联轴器}= ${fit_coupling[g40.options[g40.selectedIndex].value][3]} $mm<br>
-113.联轴器宽$ B_{联轴器}= ${fit_coupling[g40.options[g40.selectedIndex].value][5]} $mm<br>
+113.联轴器宽$ B_{联轴器}= ${fit_coupling[g40.options[g40.selectedIndex].value][5]} $mm(用的外径，不知道哪个是宽)<br>
 114.低速轴联轴器键型号$ ${f400_value} $<br>
 115.低速轴联轴器键（宽x长）$ ${f404_value} x ${f403_value} $mmxmm<br>
 116.减速箱内总长$ l_{内总} = ${Math.round(0.5*f322_value+f53_value+N20_value+2*f51_value+2*N120_value)} $mm<br>
@@ -3675,7 +3675,10 @@ f1.latex_update = function(){
 
 function change_html(e){
     var the_id = e.getAttribute("id");
-	console.log(the_id);
+	//console.log(the_id);
+	if(defense_dog){
+		return;
+	}
     if(the_id.slice(0,1) == "d"){
 		if(parseInt(the_id.slice(1))>49){
 			//update_d49();低速轴
@@ -4782,14 +4785,14 @@ window.addEventListener('scroll', throttle(function() {
     // 获取视窗高度
     const clientHeight = document.documentElement.clientHeight;
 
-	console.log(scrollTop);
+	//console.log(scrollTop);
     
 	
-    if (scrollTop >= 45000) {
+    if (scrollTop >= 43000) {
 		f420.latex_update();
 		f421.latex_update();
 		return;
-    }else if (scrollTop >= 42000) {
+    }else if (scrollTop >= 40000) {
 		f420.latex_update();
 		change_html(g40);
 		return;
