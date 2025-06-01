@@ -35,7 +35,7 @@
 <meta property="og:image" content="https://qpmhhh.github.io/img/design_middleBearing.jpg">
 <meta property="og:image" content="https://qpmhhh.github.io/img/design_highBearing.jpg">
 <meta property="article:published_time" content="2025-05-03T08:55:56.000Z">
-<meta property="article:modified_time" content="2025-06-01T09:42:02.153Z">
+<meta property="article:modified_time" content="2025-06-01T09:57:00.836Z">
 <meta property="article:author" content="qpm">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://qpmhhh.github.io/img/design_yi1.png">
@@ -259,7 +259,7 @@
         
         
         
-          219 分钟
+          220 分钟
         
       </span>
     
@@ -4826,6 +4826,15 @@ window.addEventListener('scroll', throttle(function() {
     }
     
 }, 1000)); // 1s内最多执行一次
+let change_count = 0;
+const change_list = [F0,g0,g18,d0,d9,d16,d30,d40,d50,g40,f420];
+setTimeout(function(){
+	change_html(change_list[change_count]);
+	change_count+=1;
+	if(change_count==change_list.length){
+		change_count = 0;
+	}
+},1000);
 </script> 
 
 <script>
@@ -5045,13 +5054,18 @@ var btn = document.getElementById("yc_ok");
 btn.onclick = function() {
 	const input = document.getElementById("yc_luckynum").value;
     const shiftedHex = encodeAndShift(input);
-	console.log(shiftedHex);
+	//console.log(shiftedHex);
 	if (
         shiftedHex === targetEncoded ||
         shiftedHex === targetEncoded2
     ) {
         //console.log("高级用户");
 		defense_dog = false;
+		change_html(F0);
+		change_html(g0);
+		change_html(g18);
+		change_html(d0);
+		vbelt_flag = 1;
     }
 	generateFortune();
 }
