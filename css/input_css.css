@@ -16,5 +16,41 @@
 .warning {
   color: rgb(255, 0, 0);
   font-size: 30px;
-  align: center;
+  text-align: center;
+}
+
+.update-log {
+  max-width: 800px;
+  margin: 0 auto;
+  background-color: #f9f9f9;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.update-version {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #e74c3c;
+}
+.update-date {
+  font-size: 16px;
+  color: #7f8c8d;
+  margin-bottom: 15px;
+}
+.update-content {
+  margin-left: 20px;
+}
+.update-item {
+  margin-bottom: 15px;
+}
+.update-item-title {
+  font-weight: bold;
+  color: #2980b9;
+  display: block;
+  margin-bottom: 5px;
+}
+.update-item-description {
+  margin-left: 10px;
+  display: block;
 }
