@@ -19,12 +19,12 @@
   <meta name="author" content="qpm">
   <meta name="keywords" content="">
   
-    <meta name="description" content="点击展开&#x2F;折叠更新日志  	 		版本 1.0.1 		2025 年 6 月 2 日 		 			 				新增功能： 				● 使用cookies保存输入的数据 			 		 	 	 		版本 1.0.0 		2025 年 6 月 1 日 		 			 				基本功能： 				● 提供一种辅助设计二级齿轮减速器的方案 				● 针对机械设计网上作业系统的填空进行整合并放在正文最后">
+    <meta name="description" content="点击展开&#x2F;折叠更新日志  	 		版本 1.0.1 		2025 年 6 月 2 日 		 			 				新增功能： 				● 使用cookies保存输入的数据 				● 添加更新日志，拒绝哑巴设计师 			 			 				修复bug： 				● 之前的老黄历接口坏了，于是干脆不显示宜忌了 			 		 	 	 		版本 1.0.0 		2025 年 6 月 1 日">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Design">
 <meta property="og:url" content="https://qpmhhh.github.io/2025/05/03/Design/index.html">
-<meta property="og:site_name" content="qpm&#39;s blog123">
-<meta property="og:description" content="点击展开&#x2F;折叠更新日志  	 		版本 1.0.1 		2025 年 6 月 2 日 		 			 				新增功能： 				● 使用cookies保存输入的数据 			 		 	 	 		版本 1.0.0 		2025 年 6 月 1 日 		 			 				基本功能： 				● 提供一种辅助设计二级齿轮减速器的方案 				● 针对机械设计网上作业系统的填空进行整合并放在正文最后">
+<meta property="og:site_name" content="qpm&#39;s blog">
+<meta property="og:description" content="点击展开&#x2F;折叠更新日志  	 		版本 1.0.1 		2025 年 6 月 2 日 		 			 				新增功能： 				● 使用cookies保存输入的数据 				● 添加更新日志，拒绝哑巴设计师 			 			 				修复bug： 				● 之前的老黄历接口坏了，于是干脆不显示宜忌了 			 		 	 	 		版本 1.0.0 		2025 年 6 月 1 日">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://qpmhhh.github.io/img/design_yi1.png">
 <meta property="og:image" content="https://qpmhhh.github.io/img/design_ji1.png">
@@ -35,14 +35,14 @@
 <meta property="og:image" content="https://qpmhhh.github.io/img/design_middleBearing.jpg">
 <meta property="og:image" content="https://qpmhhh.github.io/img/design_highBearing.jpg">
 <meta property="article:published_time" content="2025-05-03T08:55:56.000Z">
-<meta property="article:modified_time" content="2025-06-02T08:09:18.337Z">
+<meta property="article:modified_time" content="2025-06-02T15:57:05.728Z">
 <meta property="article:author" content="qpm">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://qpmhhh.github.io/img/design_yi1.png">
   
   
   
-  <title>Design - qpm&#39;s blog123</title>
+  <title>Design - qpm&#39;s blog</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -311,6 +311,11 @@
 			<div class="update-item">
 				<span class="update-item-title">新增功能：</span>
 				<span class="update-item-description">● 使用cookies保存输入的数据</span>
+				<span class="update-item-description">● 添加更新日志，拒绝哑巴设计师</span>
+			</div>
+			<div class="update-item">
+				<span class="update-item-title">修复bug：</span>
+				<span class="update-item-description">● 之前的老黄历接口坏了，于是干脆不显示宜忌了</span>
 			</div>
 		</div>
 	</div>
@@ -5107,21 +5112,23 @@ function getNowFormatDate() {
   document.getElementById("yc_date").innerText = `${year}年${month}月${strDate}日`;
   return `${year}-${month}-${strDate}`
 }
-var xhr = new XMLHttpRequest();
-// 设置请求的方法、URL 和异步标志
-xhr.open('GET',`https://www.36jxs.com/api/Commonweal/almanac?sun=${getNowFormatDate()}`, 'true');
-// 注册监听函数来处理响应
-xhr.onreadystatechange = function() {
-  if (xhr.readyState === 4 && xhr.status === 200) {
-    var response = JSON.parse(xhr.responseText);
-    // 处理响应数据
-    // console.log(response);
-	document.getElementById("yc_yi").innerText = response["data"]["Yi"];
-	document.getElementById("yc_ji").innerText = response["data"]["Ji"];
-  }
-};
-// 发送请求
-xhr.send();
+// var xhr = new XMLHttpRequest();
+// // 设置请求的方法、URL 和异步标志
+// // xhr.open('GET',`https://www.36jxs.com/api/Commonweal/almanac?sun=${getNowFormatDate()}`, 'true');
+// xhr.open('GET',`https://www.sojson.com/open/api/lunar/json.shtml?date=${getNowFormatDate()}`, 'true');
+
+// // 注册监听函数来处理响应
+// xhr.onreadystatechange = function() {
+//   if (xhr.readyState === 4 && xhr.status === 200) {
+//     var response = JSON.parse(xhr.responseText);
+//     // 处理响应数据
+//     console.log(response);
+// 	document.getElementById("yc_yi").innerText = response["data"]["Yi"];
+// 	document.getElementById("yc_ji").innerText = response["data"]["Ji"];
+//   }
+// };
+// // 发送请求
+// xhr.send();
 var btn = document.getElementById("yc_ok");
 btn.onclick = function() {
 	const input = document.getElementById("yc_luckynum").value;
