@@ -1,3 +1,12 @@
+@font-face {
+    font-family:"sakura";
+    src:url('/fortune/font/sakura_1.ttf');
+}
+@font-face {
+    font-family:"Mamelon";
+    src:url('/fortune/font/Mamelon_1.otf');
+}
+
 .input {
   padding: 10px;
   border: 2px solid #ccc;
@@ -54,3 +63,25 @@
   margin-left: 10px;
   display: block;
 }
+ 
+.static-rainbow{
+	background: linear-gradient(90deg, blue, red);
+	-webkit-text-fill-color: transparent;
+	-webkit-background-clip: text;// 以区块内的文字作为裁剪区域向外裁剪，文字的背景即为区块的背景，文字之外的区域都将被裁剪掉
+}
+.dynamic-rainbow{
+	background-image: -webkit-linear-gradient(left, #f83600 0%, #f9d423 25%, #f83600 50%, #f9d423 75%, #f83600 100%);
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+    -webkit-background-size: 200% 100%;
+    -webkit-animation:  maskedAnimation 4s infinite linear;
+}
+@keyframes maskedAnimation {
+	0% {
+    background-position: 0 0;
+	}
+	100% {
+	    background-position: -100% 0;
+	}
+}
+
