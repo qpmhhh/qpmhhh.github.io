@@ -69,6 +69,16 @@
 	-webkit-text-fill-color: transparent;
 	-webkit-background-clip: text;// 以区块内的文字作为裁剪区域向外裁剪，文字的背景即为区块的背景，文字之外的区域都将被裁剪掉
 }
+.static-rainbow1{
+	background-image: linear-gradient(-180deg, #50cc7f 0%, #f5d100 100%);
+	-webkit-text-fill-color: transparent;
+	-webkit-background-clip: text;// 以区块内的文字作为裁剪区域向外裁剪，文字的背景即为区块的背景，文字之外的区域都将被裁剪掉
+}
+.static-rainbow2{
+	background: linear-gradient(-225deg, #00FFFF 0%, #00FFFF 100%);
+	-webkit-text-fill-color: transparent;
+	-webkit-background-clip: text;// 以区块内的文字作为裁剪区域向外裁剪，文字的背景即为区块的背景，文字之外的区域都将被裁剪掉
+}
 .dynamic-rainbow{
 	background-image: -webkit-linear-gradient(left, #f83600 0%, #f9d423 25%, #f83600 50%, #f9d423 75%, #f83600 100%);
     -webkit-text-fill-color: transparent;
@@ -84,4 +94,68 @@
 	    background-position: -100% 0;
 	}
 }
+/* From Uiverse.io by Shoh2008 */ 
+.loader {
+  width: 64px;
+  height: 64px;
+  position: relative;
+  background-image: linear-gradient(to top, #43c3f6 0%, #1089ec 100%);
+  border-radius: 4px;
+  overflow: hidden;
+}
 
+.loader:before {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 40px;
+  height: 40px;
+  transform: rotate(45deg) translate(30%, 40%);
+  background: #3DCBF5;
+  box-shadow: 32px -34px 0 5px #0990e4;
+  animation: slide 2s infinite ease-in-out alternate;
+}
+
+.loader:after {
+  content: "";
+  position: absolute;
+  left: 10px;
+  top: 10px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #72bfef;
+  transform: rotate(0deg);
+  transform-origin: 35px 145px;
+  animation: rotate 2s infinite ease-in-out;
+}
+
+@keyframes slide {
+  0% , 100% {
+    bottom: -35px
+  }
+
+  25% , 75% {
+    bottom: -2px
+  }
+
+  20% , 80% {
+    bottom: 2px
+  }
+}
+@keyframes rotate {
+  0% {
+    transform: rotate(-15deg)
+  }
+
+  25% , 75% {
+    transform: rotate(0deg)
+  }
+}
+
+  100% {
+    transform: rotate(25deg)
+  }
+}
+  
