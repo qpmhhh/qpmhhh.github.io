@@ -96,11 +96,7 @@
     	text-shadow: 2px 2px 5px rgb(109, 174, 180);
 }
 .static-rainbow_ssy{
-	background: ＃00FF00;
-	-webkit-text-fill-color: transparent;
-	-webkit-background-clip: text;
-    	background-clip: text;
-    	text-shadow: 2px 2px 5px rgb(109, 174, 180);
+	color: green;
 }
 .dynamic-rainbow{
 	background-image: -webkit-linear-gradient(left, #f83600 0%, #f9d423 25%, #f83600 50%, #f9d423 75%, #f83600 100%);
