@@ -27,7 +27,9 @@
   font-size: 30px;
   text-align: center;
 }
-
+.logger_new {
+  color: rgb(255, 0, 0);
+}
 .update-log {
   max-width: 800px;
   margin: 0 auto;
@@ -67,20 +69,58 @@
 .static-rainbow{
 	background: linear-gradient(90deg, blue, red);
 	-webkit-text-fill-color: transparent;
-	-webkit-background-clip: text;// 以区块内的文字作为裁剪区域向外裁剪，文字的背景即为区块的背景，文字之外的区域都将被裁剪掉
+// 以区块内的文字作为裁剪区域向外裁剪，文字的背景即为区块的背景，文字之外的区域都将被裁剪掉
+	-webkit-background-clip: text;
+	background-clip: text;
 }
-.static-rainbow1{
-	background-image: linear-gradient(-180deg, #50cc7f 0%, #f5d100 100%);
-	-webkit-text-fill-color: transparent;
-	-webkit-background-clip: text;// 以区块内的文字作为裁剪区域向外裁剪，文字的背景即为区块的背景，文字之外的区域都将被裁剪掉
+.static-rainbow_qs {background-image: linear-gradient(to right, #56ab2f 0%, #a8e063  51%, #56ab2f  100%)}
+.static-rainbow_qs {
+  text-align: center;
+  text-transform: uppercase;
+  transition: 0.5s;
+  background-size: 200% auto;
+  color: white;            
+  box-shadow: 0 0 20px #eee;
+  border-radius: 10px;
 }
-.static-rainbow2{
-	background: linear-gradient(-225deg, #00FFFF 0%, #00FFFF 100%);
+.static-rainbow_qs:hover {
+  background-position: right center; 
+  color: #fff;
+  text-decoration: none;
+}
+.static-rainbow_sy{
+	background: #00FFFF;
 	-webkit-text-fill-color: transparent;
-	-webkit-background-clip: text;// 以区块内的文字作为裁剪区域向外裁剪，文字的背景即为区块的背景，文字之外的区域都将被裁剪掉
+	-webkit-background-clip: text;
+    	background-clip: text;
+    	text-shadow: 2px 2px 5px rgb(109, 174, 180);
+}
+.static-rainbow_ssy{
+	background: ＃00FF00;
+	-webkit-text-fill-color: transparent;
+	-webkit-background-clip: text;
+    	background-clip: text;
+    	text-shadow: 2px 2px 5px rgb(109, 174, 180);
 }
 .dynamic-rainbow{
 	background-image: -webkit-linear-gradient(left, #f83600 0%, #f9d423 25%, #f83600 50%, #f9d423 75%, #f83600 100%);
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+    -webkit-background-size: 200% 100%;
+    -webkit-animation:  maskedAnimation 4s infinite linear;
+}
+.dynamic-rainbow_zp{
+	background-image: -webkit-linear-gradient(left, #50cc7f 0%, #f5d100 25%, #50cc7f 50%, #f5d100 75%, #50cc7f 100%);
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-background-size: 200% 100%;
+    background-size: 200% 100%;
+    -webkit-animation:  maskedAnimation 4s infinite linear;
+    animation:  maskedAnimation 4s infinite linear;
+}
+.dynamic-rainbow_bw{
+	background-image: -webkit-linear-gradient(left, #4776E6 0%, #8E54E9 25%, #4776E6 50%, #8E54E9 75%, #4776E6 100%);
     -webkit-text-fill-color: transparent;
     -webkit-background-clip: text;
     -webkit-background-size: 200% 100%;

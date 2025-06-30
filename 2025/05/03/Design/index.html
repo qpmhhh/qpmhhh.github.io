@@ -19,12 +19,12 @@
   <meta name="author" content="qpm">
   <meta name="keywords" content="">
   
-    <meta name="description" content="点击展开&#x2F;折叠更新日志   	 		版本 1.0.3 		2025 年 6 月 29 日 		 			 				新增功能： 				● 更新口令（输入img可以导出抽签图片） 				● 增加抽签图片加载动画 			 			 				修复bug： 				● 感谢右手抓住左车把改正了低速轴和高速轴轴长不正确的问题(增加凸缘厚度；增加凸台厚度；增加轴与齿轮间距离；增加齿轮间距离) 				● 感谢">
+    <meta name="description" content="点击展开&#x2F;折叠更新日志   	 		版本 1.0.4 		2025 年 6 月 30 日 		 			 				新增功能： 				● 更新版本后更新日志有提醒 				● 更新口令：输入clear可以清除所有缓存，意思是所有数据都被设置为默认值 			 			 				修复bug： 				● 修改刷新数据逻辑：每5s检测一次滑动，滑到底端时刷新所有数据。所以有什么显示问题，滑倒底部再滑回来就">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Design">
 <meta property="og:url" content="https://qpmhhh.github.io/2025/05/03/Design/index.html">
 <meta property="og:site_name" content="qpm&#39;s blog">
-<meta property="og:description" content="点击展开&#x2F;折叠更新日志   	 		版本 1.0.3 		2025 年 6 月 29 日 		 			 				新增功能： 				● 更新口令（输入img可以导出抽签图片） 				● 增加抽签图片加载动画 			 			 				修复bug： 				● 感谢右手抓住左车把改正了低速轴和高速轴轴长不正确的问题(增加凸缘厚度；增加凸台厚度；增加轴与齿轮间距离；增加齿轮间距离) 				● 感谢">
+<meta property="og:description" content="点击展开&#x2F;折叠更新日志   	 		版本 1.0.4 		2025 年 6 月 30 日 		 			 				新增功能： 				● 更新版本后更新日志有提醒 				● 更新口令：输入clear可以清除所有缓存，意思是所有数据都被设置为默认值 			 			 				修复bug： 				● 修改刷新数据逻辑：每5s检测一次滑动，滑到底端时刷新所有数据。所以有什么显示问题，滑倒底部再滑回来就">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://qpmhhh.github.io/img/design_yi1.png">
 <meta property="og:image" content="https://qpmhhh.github.io/img/design_ji1.png">
@@ -35,7 +35,7 @@
 <meta property="og:image" content="https://qpmhhh.github.io/img/design_middleBearing.jpg">
 <meta property="og:image" content="https://qpmhhh.github.io/img/design_highBearing.jpg">
 <meta property="article:published_time" content="2025-05-03T08:55:56.000Z">
-<meta property="article:modified_time" content="2025-06-29T16:09:24.881Z">
+<meta property="article:modified_time" content="2025-06-30T08:57:32.854Z">
 <meta property="article:author" content="qpm">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://qpmhhh.github.io/img/design_yi1.png">
@@ -248,7 +248,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          35k 字
+          24k 字
         
       </span>
     
@@ -259,7 +259,7 @@
         
         
         
-          294 分钟
+          202 分钟
         
       </span>
     
@@ -301,10 +301,31 @@
             
               <div class="markdown-body">
                 
-                <details>
+                <details id="logger_details" onclick="check_new_logger(1)">
 <summary id="logger">点击展开/折叠更新日志</summary>
 <div class="update-log">
 <div class="update-entry">
+	<div class="update-entry">
+		<div class="update-version">版本 1.0.4</div>
+		<div class="update-date">2025 年 6 月 30 日</div>
+		<div class="update-content">
+			<div class="update-item">
+				<span class="update-item-title">新增功能：</span>
+				<span class="update-item-description">● 更新版本后更新日志有提醒</span>
+				<span class="update-item-description">● 更新口令：输入clear可以清除所有缓存，意思是所有数据都被设置为默认值</span>
+			</div>
+			<div class="update-item">
+				<span class="update-item-title">修复bug：</span>
+				<span class="update-item-description">● 修改刷新数据逻辑：每5s检测一次滑动，滑到底端时刷新所有数据。所以有什么显示问题，滑倒底部再滑回来就对了</span>
+				<span class="update-item-description">● 修复最小转速错误的问题（较为智能地选择带传动比）</span>
+				<span class="update-item-description">● 修复齿轮分度圆直径错误的问题（较为智能地选择齿轮齿数）</span>
+				<span class="update-item-description">● 感谢<span class="static-rainbow_ssy">咸鱼</span>提出带效率和工作效率取反了的问题</span>
+				<span class="update-item-description">● 感谢<span class="static-rainbow_qs">翔翔不爱未成年</span>修改部分bug</span>
+				<span class="update-item-description">● 感谢<span class="dynamic-rainbow_bw">秦兵马俑王者</span>修改部分bug并添加调整垫片</span>
+				<span class="update-item-description">● 感谢<span class="dynamic-rainbow_zp">左手抓住右车把</span>提出键宽计算逻辑错误的bug<span class="logger_new">(重大bug，建议清除缓存重算)</span>并对退刀槽部分提出见解</span>
+			</div>
+		</div>
+	</div>
 	<div class="update-entry">
 		<div class="update-version">版本 1.0.3</div>
 		<div class="update-date">2025 年 6 月 29 日</div>
@@ -316,8 +337,8 @@
 			</div>
 			<div class="update-item">
 				<span class="update-item-title">修复bug：</span>
-				<span class="update-item-description">● 感谢<span class="static-rainbow1">右手抓住左车把</span>改正了低速轴和高速轴轴长不正确的问题(增加凸缘厚度；增加凸台厚度；增加轴与齿轮间距离；增加齿轮间距离)</span>
-				<span class="update-item-description">● 感谢<span class="static-rainbow2">EliraSolstice</span>为下版本更新提出建设性的意见</span>
+				<span class="update-item-description">● 感谢<span class="dynamic-rainbow_zp">右手抓住左车把</span>改正了低速轴和高速轴轴长不正确的问题(增加凸缘厚度；增加凸台厚度；增加轴与齿轮间距离；增加齿轮间距离)</span>
+				<span class="update-item-description">● 感谢<span class="static-rainbow_sy">EliraSolstice</span>为下版本更新提出建设性的意见</span>
 				<span class="update-item-description">● 修复中间轴大齿轮宽度不正确和低速轴大齿轮宽度不正确的问题</span>
 				<span class="update-item-description">● 修复减速箱整体高不正确的问题</span>
 			</div>
@@ -431,10 +452,10 @@
 
 
 
-<h2 id="原始数据"><a href="#原始数据" class="headerlink" title="原始数据"></a>原始数据</h2><p>输送带工作拉力F：<input value="9340" type="text" class="input" id="F0" onchange="input_update(this)"> N<br>输送带工作速度v：<input value="1.05" type="text" class="input" id="v0" onchange="input_update(this)"> m&#x2F;s<br>滚筒直径D：<input value="620" type="text" class="input" id="D0" onchange="input_update(this)"> mm<br>滚筒及输送带效率<span>$ \eta_{带}&#x3D; $</span><input value="0.96" type="text" class="input" id="e0" onchange="input_update(this)"></p>
+<h2 id="原始数据"><a href="#原始数据" class="headerlink" title="原始数据"></a>原始数据</h2><p>输送带工作拉力F：<input value="9340" type="text" class="input" id="F0" onchange="input_update(this)"> N<br>输送带工作速度v：<input value="1.05" type="text" class="input" id="v0" onchange="input_update(this)"> m&#x2F;s<br>滚筒直径D：<input value="620" type="text" class="input" id="D0" onchange="input_update(this)"> mm<br>滚筒及输送带效率(其实是工作效率)<span>$ \eta_{工}&#x3D; $</span><input value="0.96" type="text" class="input" id="e4" onchange="input_update(this)"></p>
 <p>以下所有查表若无特殊说明均是《机械设计课程设计(第3版)》里面的。</p>
 <h2 id="电机型号选择"><a href="#电机型号选择" class="headerlink" title="电机型号选择"></a>电机型号选择</h2><h3 id="电动机功率选择"><a href="#电动机功率选择" class="headerlink" title="电动机功率选择"></a>电动机功率选择</h3><p>计算工作机所需的功率<br><span id="f1"><br>$$<br>P_w &#x3D; Fv &#x3D; F0_value \times v0_value W&#x3D;f1_value kW<br>$$<br></span></p>
-<p>初选：联轴器为弹性连轴器，滚动轴承为圆锥滚子滚动轴承，齿轮为精度等级为 7 的闭式圆柱斜齿轮，带传动为普通 V 带传动。根据查表(表2.3，P8)，分效率为：<br><span id="fe0">$ \eta_{带}&#x3D;e0_value $</span><br><span>$ \eta_{齿轮}&#x3D; $</span><input value="0.98" type="text" class="input" id="e1" onchange="input_update(this)"><br><span>$ \eta_{轴承}&#x3D; $</span><input value="0.98" type="text" class="input" id="e2" onchange="input_update(this)"><br><span>$ \eta_{联轴器}&#x3D; $</span><input value="0.99" type="text" class="input" id="e3" onchange="input_update(this)"><br><span>$ \eta_{工}&#x3D; $</span><input value="0.94" type="text" class="input" id="e4" onchange="input_update(this)"><br>总效率为:<br><span id="f2"><br>$$<br>\eta_{总}&#x3D;\eta_{带} \eta_{齿轮}^2 \eta_{轴承}^3 \eta_{联轴器} \eta_{工} &#x3D; e0_value \times e1_value^2 \times e2_value^3 \times e3_value \times e4_value &#x3D; f2_value<br>$$<br></span></p>
+<p>初选：联轴器为弹性连轴器，滚动轴承为圆锥滚子滚动轴承，齿轮为精度等级为 7 的闭式圆柱斜齿轮，带传动为普通 V 带传动。根据查表(表2.3，P8)，分效率为：<br><span>$ \eta_{带}&#x3D; $</span><input value="0.95" type="text" class="input" id="e0" onchange="input_update(this)"><br><span>$ \eta_{齿轮}&#x3D; $</span><input value="0.98" type="text" class="input" id="e1" onchange="input_update(this)"><br><span>$ \eta_{轴承}&#x3D; $</span><input value="0.98" type="text" class="input" id="e2" onchange="input_update(this)"><br><span>$ \eta_{联轴器}&#x3D; $</span><input value="0.99" type="text" class="input" id="e3" onchange="input_update(this)"><br><span id="fe0">$ \eta_{工}&#x3D;e4_value $</span><br>总效率为:<br><span id="f2"><br>$$<br>\eta_{总}&#x3D;\eta_{带} \eta_{齿轮}^2 \eta_{轴承}^3 \eta_{联轴器} \eta_{工} &#x3D; e0_value \times e1_value^2 \times e2_value^3 \times e3_value \times e4_value &#x3D; f2_value<br>$$<br></span></p>
 <p>计算电机所需的功率：<br><span id="f3"><br>$$<br>P_d &#x3D; \frac{P_w}{\eta_{总}} &#x3D; \frac{f1_value}{f2_value} &#x3D; f3_value kW<br>$$<br></span></p>
 <p>考虑到在各零件设计时需要有一定的工况参数(《机械设计》表2.6，P350，原因见下面带传动设计)为<span>$ K_A&#x3D; $</span><input value="1.3" type="text" class="input" id="K0" onchange="input_update(this)"><br>，则电动机的额定功率：<br><span id="f4"><br>$$<br>P_{ed} \ge K_A \times P_d &#x3D; K0_value \times f3_value kW &#x3D; f4_value kW<br>$$<br></span><br>查表(表18.1，P199)，选取电动机额定功率。后面和电机转速一起确定电机型号。</p>
 <h3 id="选择电动机转速"><a href="#选择电动机转速" class="headerlink" title="选择电动机转速"></a>选择电动机转速</h3><p>计算工作机主轴转速：<br><span id="f5"><br>$$<br>n_w &#x3D; \frac{60 \times 1000v}{\pi D}&#x3D;\frac{60 \times 1000 \times v0_value}{\pi \times D0_value} r&#x2F;min &#x3D; f5_value r&#x2F;min<br>$$<br></span><br>传动比<span>$ i_{带}&#x3D; $</span>2 ~ 4,一级圆柱齿轮传动比<span>$ i_{1}&#x3D;i_{2}&#x3D; $</span>3 ~ 6，可计算电动机转速的合理范围为：<br><span id="f6"><br>$$<br>n_d &#x3D; n_w i_1 i_2 i_{带} &#x3D; n00_value \sim n01_value rpm<br>$$<br></span><br>依照前面算的额定功率和转速，选择的电机型号为：<select id="s1" onchange="input_update(this)"><option value=0>占位符</option><option value=1> 占位符</option></select></p>
@@ -480,7 +501,7 @@
 <h4 id="带的根数"><a href="#带的根数" class="headerlink" title="带的根数"></a>带的根数</h4><p>由带的参数<span id="f19">$  n &#x3D; n2_value rpm, D_1 &#x3D; f10_value mm, i &#x3D; i0_value  $</span><br><span id="f20">查附表2.5a和附表2.5b(《机械设计》，P347)得：$  P_0 &#x3D; P50_value kW, \Delta P_0 &#x3D; P51_value kW  $<br>查附表2.8(《机械设计》，P351)得：$  K_{\alpha} &#x3D; K2_value   $<br>查附表2.9得：$  K_L&#x3D; K3_value   $<br></span><br>则带的根数为：<br><span id="f21"><br>$$<br>z &#x3D; \frac{P_{ca}}{(P_0+\Delta P_0) K_{\alpha} k_L} &#x3D; \frac{f8_value}{(P50_value+P51_value) \times K2_value \times K3_value} &#x3D; f21_value<br>$$<br></span><br>取<span id="f22">$  z &#x3D; f22_value  $</span>根</p>
 <h4 id="预紧力计算"><a href="#预紧力计算" class="headerlink" title="预紧力计算"></a>预紧力计算</h4><p>查附表2.2(《机械设计》，P346)得<span id="f23">$  q &#x3D; f23_value  kg&#x2F;m $</span>，则预紧力为：<br><span id="f24"><br>$$<br>F_0 &#x3D; 500 \frac{P_{ca}}{v_{带} z}( \frac{2.5}{K_{ \alpha }}-1) + q v_{带}^{2} &#x3D; 500 \times \frac{f8_value}{f13_value \times f22_value}( \frac{2.5}{K2_value} - 1) + f23_value \times f13_value^{2} &#x3D; f24_value N<br>$$<br></span></p>
 <h4 id="压轴力计算"><a href="#压轴力计算" class="headerlink" title="压轴力计算"></a>压轴力计算</h4><p>压轴力为：<br><span id="f25"><br>$$<br>F_Q &#x3D; 2 z F_0 sin\frac{\alpha_1}{2} &#x3D; 2 \times f22_value \times f24_value \times sin\frac{f18_value}{2} &#x3D; f25_value N<br>$$<br></span></p>
-<h3 id="齿轮传动设计"><a href="#齿轮传动设计" class="headerlink" title="齿轮传动设计"></a>齿轮传动设计</h3><h4 id="高速齿轮传动设计"><a href="#高速齿轮传动设计" class="headerlink" title="高速齿轮传动设计"></a>高速齿轮传动设计</h4><p><del>齿轮部分有bug，需要改一下齿数后面的数据才会刷新，等改好bug再删这一行。</del><br>大、小齿轮都选用硬齿面。选大、小齿轮的材料均为 45 钢，并经调质后表面淬火，齿面硬度为HRC1&#x3D;HRC2&#x3D;45 。初选 7 级精度（GB&#x2F;T 10095.1—2001）。选用<strong>斜齿轮</strong>。<br>选小齿轮齿数为：<input value="23" type="text" class="input" id="g0" onchange="input_update(this)"><br>则大齿轮齿数<span id="f26">$  z_2 &#x3D; i z_1 &#x3D; f26_value $</span><br>取大齿轮齿数为<span id="f27">$  z_2 &#x3D; f27_value $</span><br>初选螺旋角为<span>$  \beta &#x3D;  $</span><input value="15" type="text" class="input" id="g13" onchange="input_update(this)">°<br>齿轮压力角为<span>$  \alpha_n &#x3D; 20° $</span></p>
+<h3 id="齿轮传动设计"><a href="#齿轮传动设计" class="headerlink" title="齿轮传动设计"></a>齿轮传动设计</h3><h4 id="高速齿轮传动设计"><a href="#高速齿轮传动设计" class="headerlink" title="高速齿轮传动设计"></a>高速齿轮传动设计</h4><p><del>齿轮部分有bug，需要改一下齿数后面的数据才会刷新，等改好bug再删这一行。</del><br>大、小齿轮都选用硬齿面。选大、小齿轮的材料均为 45 钢，并经调质后表面淬火，齿面硬度为HRC1&#x3D;HRC2&#x3D;45 。初选 7 级精度（GB&#x2F;T 10095.1—2001）。选用<strong>斜齿轮</strong>。<br>选小齿轮齿数为：<input value="25" type="text" class="input" id="g0" onchange="input_update(this)"><br>则大齿轮齿数<span id="f26">$  z_2 &#x3D; i z_1 &#x3D; f26_value $</span><br>取大齿轮齿数为<span id="f27">$  z_2 &#x3D; f27_value $</span><br>初选螺旋角为<span>$  \beta &#x3D;  $</span><input value="15" type="text" class="input" id="g13" onchange="input_update(this)">°<br>齿轮压力角为<span>$  \alpha_n &#x3D; 20° $</span></p>
 <h5 id="按齿面接触强度设计"><a href="#按齿面接触强度设计" class="headerlink" title="按齿面接触强度设计"></a>按齿面接触强度设计</h5><p>载荷系数<span>$  K_t $</span>：<input value="1.5" type="text" class="input" id="g1" onchange="input_update(this)"></p>
 <p>齿宽系数<span>$  \phi_d $</span>：<input value="1" type="text" class="input" id="g2" onchange="input_update(this)">(查《机械设计》表12.5,p384)</p>
 <p>弹性影响系数<span>$  Z_E $</span>：<input value="189.8" type="text" class="input" id="g3" onchange="input_update(this)"><span>$  MPa^{\frac{1}{2}} $</span>(查《机械设计》表12.4,p384)</p>
@@ -488,11 +509,11 @@
 <p>端面重合度按下式计算：<br><span id="f40"><br>$$<br>\alpha_{at1} &#x3D; arccos(\frac{Z_1 cos \alpha_t}{z_1 + 2h_{an}^{<em>} cos \beta}) &#x3D; arccos(\frac{g0_value cos N4_value °}{g0_value + 2  cos g13_value °}) &#x3D; N6_value °<br>$$<br>$$<br>\alpha_{at2} &#x3D; arccos(\frac{Z_2 cos \alpha_t}{z_2 + 2h_{an}^{</em>} cos \beta}) &#x3D; arccos(\frac{f27_value cos N4_value °}{f27_value + 2  cos g13_value °}) &#x3D; N7_value °<br>$$<br>$$<br>\varepsilon_{\alpha } &#x3D; \frac{z_1 (tan \alpha_{at1} - tan \alpha_{t}) + z_2 (tan \alpha_{at2} - tan \alpha_{t})}{2 \pi } &#x3D; \frac{g0_value \times (tan N6_value ° - tan N4_value ° ) + f27_value \times (tan tan N7_value ° - tan N4_value ° )}{2 \times ${Math.PI}} &#x3D; f40_value<br>$$<br></span></p>
 <p>接触疲劳强度极限<span>$  \sigma_{Hlim1} &#x3D; \sigma_{Hlim2}&#x3D; $</span><input value="1000" type="text" class="input" id="g5" onchange="input_update(this)">MPa(查《机械设计》图12.6,p390)</p>
 <p>小齿轮传递转矩为<span id="f28">$  T_{Ⅰ} &#x3D; T2_value $</span><br>应力循环次数为<br><span id="f29"><br>$$<br>N_1 &#x3D; 60n_1 j L_h &#x3D; 60 \times n3_value \times 1 \times (2 \times 8 \times 300 \times 10) &#x3D; N0_value<br>$$<br>$$<br>N_2 &#x3D; \frac{N_1}{i_1} &#x3D; \frac{N_1}{i1_value} &#x3D; N1_value<br>$$<br></span><br>接触疲劳寿命系数<span>$  K_{HN1} &#x3D; $</span><input value="0.92" type="text" class="input" id="g6" onchange="input_update(this)"><br><span>$  K_{HN2} &#x3D; $</span><input value="0.96" type="text" class="input" id="g7" onchange="input_update(this)">(查《机械设计》图12.4,p387，这个一定要查表改！！！！！！！！！！！！！！！！！！！！！！！！！不改其实也看不出来)<br>接触疲劳许用应力(取失效概率为1%，安全系数<span>$  S_H &#x3D; 1 $</span>)<br><span id="f30"><br>$$<br>[\sigma_{H}]<em>1 &#x3D; \frac{K</em>{HN1} \sigma_{Hlim1}}{S_H} &#x3D; \frac{g6_value \times g5_value}{1} &#x3D; N2_value MPa<br>$$<br>$$<br>[\sigma_{H}]<em>2 &#x3D; \frac{K</em>{HN2} \sigma_{Hlim2}}{S_H} &#x3D; \frac{g7_value \times g5_value}{1} &#x3D; N3_value MPa<br>$$<br></span><br>取<span id="f31">$ [\sigma_{H}] &#x3D; f31_value MPa $</span></p>
-<p>试算小齿轮分度圆直径：<br><span id="f32"><br>$$<br>d_{1t} \ge \sqrt[3]{\frac{2 K_t T_1}{\phi_d \varepsilon_{\alpha }} \times \frac{i_i+1}{i_1} \times (\frac{Z_H Z_E}{[\sigma_H ]} )^2 } &#x3D; \sqrt[3]{\frac{2 \times g1_value \times f28_value \times 1000}{g2_value \times f40_value} \times \frac{i1_value+1}{i1_value} \times (\frac{f39_value \times g3_value}{f31_value} )^2 } &#x3D; f32_value mm<br>$$<br></span><br>计算圆周速度：<br><span id="f33"><br>$$<br>v &#x3D; \frac{\pi d_{1t} n_1}{60 \times 1000} &#x3D; \frac{${Math.PI} \times f32_value \times n3_value}{60 \times 1000} &#x3D; f33_value m&#x2F;s<br>$$<br></span><br>计算齿宽：<br><span id="f34"><br>$$<br>b &#x3D; \phi_d d_{1t} &#x3D; g2_value \times f32_value &#x3D; f34_value mm<br>$$<br></span><br>计算齿宽与齿高之比：<br><span id="f35"><br>$$<br>\frac{b}{h} &#x3D; \frac{\phi_d z_1}{2.25 cos \beta} &#x3D; \frac{g2_value \times g0_value}{2.25 \times g13_value} &#x3D; f35_value<br>$$<br></span><br>计算载荷系数K:<br>由圆周速度和精度查得<span>$  K_v &#x3D; $</span><input value="1.06" type="text" class="input" id="g8" onchange="input_update(this)">(查《机械设计》图12.1,p385)<br>齿间载荷分配系数<span>$ K_{\alpha}  &#x3D; $</span><input value="1.2" type="text" class="input" id="g9" onchange="input_update(this)">(查《机械设计》表12.2,p383)<br>使用系数<span>$  K_A &#x3D; $</span><input value="1.25" type="text" class="input" id="g10" onchange="input_update(this)">(查《机械设计》表12.1,p382)<br>不知道叫什么系数<span>$  K_{H\beta} &#x3D; $</span><input value="1.55" type="text" class="input" id="g11" onchange="input_update(this)">(查《机械设计》表12.3,p383)<br>则载荷系数为<br><span id="f36"><br>$$<br>K &#x3D; K_A K_v K_{\alpha} K_{H\beta}&#x3D; g10_value \times g8_value \times g9_value \times g11_value &#x3D; f36_value<br>$$<br></span><br>按实际的载荷系数修正分度圆直径：<br><span id="f37"><br>$$<br>d_1 &#x3D; d_{1t} \sqrt[3]{\frac{K}{K_t}} &#x3D; f32_value \times \sqrt[3]{\frac{f36_value}{g1_value}} &#x3D; f37_value mm<br>$$<br></span><br>计算模数<br><span id="f38"><br>$$<br>m &#x3D; \frac{d_1 cos\beta}{z_1} &#x3D; \frac{f37_value \times cos g13_value}{g0_value} &#x3D; f38_value<br>$$<br></span><br><span id="f51"><br>则取模数为$ m &#x3D; f51_value $<br></span></p>
+<p>试算小齿轮分度圆直径：<br><span id="f32"><br>$$<br>d_{1t} \ge \sqrt[3]{\frac{2 K_t T_1}{\phi_d \varepsilon_{\alpha }} \times \frac{i_i+1}{i_1} \times (\frac{Z_H Z_E}{[\sigma_H ]} )^2 } &#x3D; \sqrt[3]{\frac{2 \times g1_value \times f28_value \times 1000}{g2_value \times f40_value} \times \frac{i1_value+1}{i1_value} \times (\frac{f39_value \times g3_value}{f31_value} )^2 } &#x3D; f32_value mm<br>$$<br></span><br>计算圆周速度：<br><span id="f33"><br>$$<br>v &#x3D; \frac{\pi d_{1t} n_1}{60 \times 1000} &#x3D; \frac{${Math.PI} \times f32_value \times n3_value}{60 \times 1000} &#x3D; f33_value m&#x2F;s<br>$$<br></span><br>计算齿宽：<br><span id="f34"><br>$$<br>b &#x3D; \phi_d d_{1t} &#x3D; g2_value \times f32_value &#x3D; f34_value mm<br>$$<br></span><br>计算齿宽与齿高之比：<br><span id="f35"><br>$$<br>\frac{b}{h} &#x3D; \frac{\phi_d z_1}{2.25 cos \beta} &#x3D; \frac{g2_value \times g0_value}{2.25 \times g13_value} &#x3D; f35_value<br>$$<br></span><br>计算载荷系数K:<br>由圆周速度和精度查得<span>$  K_v &#x3D; $</span><input value="1.06" type="text" class="input" id="g8" onchange="input_update(this)">(查《机械设计》图12.1,p385)<br>齿间载荷分配系数<span>$ K_{\alpha}  &#x3D; $</span><input value="1.2" type="text" class="input" id="g9" onchange="input_update(this)">(查《机械设计》表12.2,p383)<br>使用系数<span>$  K_A &#x3D; $</span><input value="1.25" type="text" class="input" id="g10" onchange="input_update(this)">(查《机械设计》表12.1,p382)<br>齿向载荷分布系数<span>$  K_{H\beta} &#x3D; $</span><input value="1.55" type="text" class="input" id="g11" onchange="input_update(this)">(查《机械设计》表12.3,p383)<br>则载荷系数为<br><span id="f36"><br>$$<br>K &#x3D; K_A K_v K_{\alpha} K_{H\beta}&#x3D; g10_value \times g8_value \times g9_value \times g11_value &#x3D; f36_value<br>$$<br></span><br>按实际的载荷系数修正分度圆直径：<br><span id="f37"><br>$$<br>d_1 &#x3D; d_{1t} \sqrt[3]{\frac{K}{K_t}} &#x3D; f32_value \times \sqrt[3]{\frac{f36_value}{g1_value}} &#x3D; f37_value mm<br>$$<br></span><br>计算模数<br><span id="f38"><br>$$<br>m &#x3D; \frac{d_1 cos\beta}{z_1} &#x3D; \frac{f37_value \times cos g13_value}{g0_value} &#x3D; f38_value<br>$$<br></span><br><span id="f51"><br>则取模数为$ m &#x3D; f51_value $<br></span></p>
 <h5 id="按齿根弯曲疲劳强度校核"><a href="#按齿根弯曲疲劳强度校核" class="headerlink" title="按齿根弯曲疲劳强度校核"></a>按齿根弯曲疲劳强度校核</h5><p>齿向载荷分布系数<span>$  K_{F\beta} &#x3D; $</span><input value="1.38" type="text" class="input" id="g12" onchange="input_update(this)">(查《机械设计》图12.2,p386)<br>载荷系数为<br><span id="f41"><br>$$<br>K &#x3D; K_A K_v K_{\alpha} K_{F \beta } &#x3D;  g10_value \times g8_value \times g9_value \times g12_value &#x3D; f41_value<br>$$<br></span><br>当量齿数为<br><span id="f42"><br>$$<br>z_{v1} &#x3D; \frac{z_1}{c_os^3 \beta} &#x3D; \frac{g0_value}{cos^3 g13_value} &#x3D; N8_value<br>$$<br>$$<br>z_{v2} &#x3D; \frac{z_2}{c_os^3 \beta} &#x3D; \frac{f27_value}{cos^3 g13_value} &#x3D; N9_value<br>$$<br></span><br>齿形系数和应力校正系数：<br><span id="f43"><br>$$<br>Y_{Fa1} &#x3D; N10_value,Y_{sa1} &#x3D; N11_value<br>$$<br>$$<br>Y_{Fa2} &#x3D; N12_value,Y_{sa2} &#x3D; N13_value<br>$$<br></span><br>轴面重合度：<br><span id="f44"><br>$$<br>\varepsilon_{\beta} &#x3D; 0.318 \phi_{d} z_1 tan \beta &#x3D; 0.318 \times g2_value \times g0_value \times tan g13_value ° &#x3D; f44_value<br>$$<br></span><br>取<span id="f45">$ \varepsilon_{\beta} &#x3D; f45_value $</span>，计算螺旋角影响系数：<br><span id="f46"><br>$$<br>Y_{\beta} &#x3D; 1- \varepsilon_{\beta} \times \beta &#x2F; 120 ° &#x3D; 1- f45_value \times g13_value ° &#x2F; 120 ° &#x3D; f46_value<br>$$<br></span><br>弯曲疲劳强度极限<span>$  \sigma_{Flim1} &#x3D; \sigma_{Flim2}&#x3D; $</span><input value="500" type="text" class="input" id="g14" onchange="input_update(this)">MPa(查《机械设计》图12.5,p387)<br>弯曲疲劳寿命系数<span>$  K_{FN1} &#x3D; $</span><input value="0.86" type="text" class="input" id="g15" onchange="input_update(this)"><br><span>$  K_{FN2} &#x3D; $</span><input value="0.88" type="text" class="input" id="g16" onchange="input_update(this)">(查《机械设计》图12.3,p386)<br>取安全系数<span>$  S_F &#x3D; $</span><input value="1.4" type="text" class="input" id="g17" onchange="input_update(this)"><br><span id="f47"><br>$$<br>[\sigma_{F}]<em>1 &#x3D; \frac{K</em>{FN1} \sigma_{Flim1}}{S_F} &#x3D; \frac{g15_value \times g14_value}{g17_value} &#x3D; N14_value MPa<br>$$<br>$$<br>[\sigma_{F}]<em>2 &#x3D; \frac{K</em>{FN2} \sigma_{Flim2}}{S_F} &#x3D; \frac{g16_value \times g14_value}{g17_value} &#x3D; N15_value MPa<br>$$<br></span></p>
 <p>校核小齿轮：<br><span id="f48"><br>$$<br>\frac{2KT_1 Y_{\beta} cos^2 \beta}{\phi_d \varepsilon_{\alpha} z_1^{2} m_n^{3}} Y_{Fa1} Y_{sa1} &#x3D; \frac{2 \times f36_value \times f28_value \times 1000 \times f46_value \times cos^2 g13_value°}{g2_value \times f44_value \times g0_value ^{2} \times f51_value ^{3}} \times N10_value \times N11_value &#x3D; f48_value \le [\sigma_{F}]_1 &#x3D; N14_value MPa<br>$$<br></span><br>校核大齿轮：<br><span id="f49"><br>$$<br>0<br>$$<br></span><br><strong>校核合格（请看一眼上面两式是不是真的合格）</strong></p>
 <h5 id="几何尺寸计算"><a href="#几何尺寸计算" class="headerlink" title="几何尺寸计算"></a>几何尺寸计算</h5><p>中心距<br><span id="f52"><br>$$<br>a &#x3D; m_n (z_1 + z_2)&#x2F;(2 cos \beta) &#x3D; f51_value \times (g0_value + f27_value)&#x2F;(2 \times cos g13_value °) mm &#x3D; f52_value mm<br>$$<br></span><br>取中心距<span id="f53">$  a &#x3D; f53_value mm  $</span><br>修正螺旋角：<br><span id="f54"><br>$$<br>\beta &#x3D; arccos[m_n (z_1+z_2)&#x2F;(2a)] &#x3D; arccos[f51_value \times (g0_value + f27_value)&#x2F;(2 \times f53_value)] &#x3D; f54_value &#x3D; N18_value<br>$$<br></span><br>分度圆直径<br><span id="f55"><br>$$<br>d_1 &#x3D; \frac{m_n z_1}{cos \beta} &#x3D; \frac{f51_value \times g0_value}{cos N18_value} &#x3D; N19_value mm<br>$$<br>$$<br>d_2 &#x3D; \frac{m_n z_2}{cos \beta} &#x3D; \frac{f51_value \times f27_value}{cos N18_value} &#x3D; N20_value mm<br>$$<br></span><br>齿宽<br><span id="f56"><br>$$<br>b &#x3D; \phi_d d_l &#x3D; g2_value \times N19_value &#x3D; f56_value mm<br>$$<br></span><br>取<span id="f57">$  B_2 &#x3D; N21_value，B_1 &#x3D; B_2 + 5 &#x3D; N22_value  $</span></p>
-<h4 id="低速齿轮传动设计"><a href="#低速齿轮传动设计" class="headerlink" title="低速齿轮传动设计"></a>低速齿轮传动设计</h4><p>低速齿轮设计同理，于是我CV了一下，有问题请随时提出。<br>大、小齿轮都选用硬齿面。选大、小齿轮的材料均为 45 钢，并经调质后表面淬火，齿面硬度为HRC1&#x3D;HRC2&#x3D;45 。初选 7 级精度（GB&#x2F;T 10095.1—2001）。选用<strong>斜齿轮</strong>。<br>选小齿轮齿数为：<input value="27" type="text" class="input" id="g18" onchange="input_update(this)"><br>则大齿轮齿数<span id="f58">$  z_2 &#x3D; i z_1 &#x3D; f58_value $</span><br>取大齿轮齿数为<span id="f59">$  z_2 &#x3D; f59_value $</span><br>初选螺旋角为<span>$  \beta &#x3D;  $</span><input value="15" type="text" class="input" id="g31" onchange="input_update(this)">°<br>齿轮压力角为<span>$  \alpha_n &#x3D; 20° $</span></p>
+<h4 id="低速齿轮传动设计"><a href="#低速齿轮传动设计" class="headerlink" title="低速齿轮传动设计"></a>低速齿轮传动设计</h4><p>低速齿轮设计同理，于是我CV了一下，有问题请随时提出。<br>大、小齿轮都选用硬齿面。选大、小齿轮的材料均为 45 钢，并经调质后表面淬火，齿面硬度为HRC1&#x3D;HRC2&#x3D;45 。初选 7 级精度（GB&#x2F;T 10095.1—2001）。选用<strong>斜齿轮</strong>。<br>选小齿轮齿数为：<input value="26" type="text" class="input" id="g18" onchange="input_update(this)"><br>则大齿轮齿数<span id="f58">$  z_2 &#x3D; i z_1 &#x3D; f58_value $</span><br>取大齿轮齿数为<span id="f59">$  z_2 &#x3D; f59_value $</span><br>初选螺旋角为<span>$  \beta &#x3D;  $</span><input value="15" type="text" class="input" id="g31" onchange="input_update(this)">°<br>齿轮压力角为<span>$  \alpha_n &#x3D; 20° $</span></p>
 <h5 id="按齿面接触强度设计-1"><a href="#按齿面接触强度设计-1" class="headerlink" title="按齿面接触强度设计"></a>按齿面接触强度设计</h5><p>载荷系数<span>$  K_t $</span>：<input value="1.5" type="text" class="input" id="g19" onchange="input_update(this)"></p>
 <p>齿宽系数<span>$  \phi_d $</span>：<input value="1" type="text" class="input" id="g20" onchange="input_update(this)">(查《机械设计》表12.5,p384)</p>
 <p>弹性影响系数<span>$  Z_E $</span>：<input value="189.8" type="text" class="input" id="g21" onchange="input_update(this)"><span>$  MPa^{\frac{1}{2}} $</span>(查《机械设计》表12.4,p384)</p>
@@ -500,13 +521,13 @@
 <p>端面重合度按下式计算：<br><span id="f72"><br>$$<br>\alpha_{at1} &#x3D; arccos(\frac{Z_1 cos \alpha_t}{z_1 + 2h_{an}^{<em>} cos \beta}) &#x3D; arccos(\frac{g18_value cos N27_value °}{g18_value + 2  cos g31_value °}) &#x3D; N29_value °<br>$$<br>$$<br>\alpha_{at2} &#x3D; arccos(\frac{Z_2 cos \alpha_t}{z_2 + 2h_{an}^{</em>} cos \beta}) &#x3D; arccos(\frac{f59_value cos N27_value °}{f59_value + 2  cos g31_value °}) &#x3D; N30_value °<br>$$<br>$$<br>\varepsilon_{\alpha } &#x3D; \frac{z_1 (tan \alpha_{at1} - tan \alpha_{t}) + z_2 (tan \alpha_{at2} - tan \alpha_{t})}{2 \pi } &#x3D; \frac{g18_value \times (tan N29_value ° - tan N27_value ° ) + f59_value \times (tan tan N30_value ° - tan N27_value ° )}{2 \times ${Math.PI}} &#x3D; f72_value<br>$$<br></span></p>
 <p>接触疲劳强度极限<span>$  \sigma_{Hlim1} &#x3D; \sigma_{Hlim2}&#x3D; $</span><input value="1000" type="text" class="input" id="g23" onchange="input_update(this)">MPa(查《机械设计》图12.6,p390)</p>
 <p>小齿轮传递转矩为<span id="f60">$  T_{Ⅰ} &#x3D; T2_value $</span><br>应力循环次数为<br><span id="f61"><br>$$<br>N_1 &#x3D; 60n_2 j L_h &#x3D; 60 \times n4_value \times 1 \times (2 \times 8 \times 300 \times 10) &#x3D; N23_value<br>$$<br>$$<br>N_2 &#x3D; \frac{N_1}{i_1} &#x3D; \frac{N_1}{i2_value} &#x3D; N24_value<br>$$<br></span><br>接触疲劳寿命系数<span>$  K_{HN24} &#x3D; $</span><input value="0.92" type="text" class="input" id="g24" onchange="input_update(this)"><br><span>$  K_{HN25} &#x3D; $</span><input value="0.96" type="text" class="input" id="g25" onchange="input_update(this)">(查《机械设计》图12.4,p387，这个一定要查表改！！！！！！！！！！！！！！！！！！！！！！！！！不改其实也看不出来)<br>接触疲劳许用应力(取失效概率为1%，安全系数<span>$  S_H &#x3D; 1 $</span>)<br><span id="f62"><br>$$<br>[\sigma_{H}]<em>1 &#x3D; \frac{K</em>{HN24} \sigma_{Hlim1}}{S_H} &#x3D; \frac{g24_value \times g23_value}{1} &#x3D; N25_value MPa<br>$$<br>$$<br>[\sigma_{H}]<em>2 &#x3D; \frac{K</em>{HN25} \sigma_{Hlim2}}{S_H} &#x3D; \frac{g25_value \times g23_value}{1} &#x3D; N26_value MPa<br>$$<br></span><br>取<span id="f63">$ [\sigma_{H}] &#x3D; f63_value MPa $</span></p>
-<p>试算小齿轮分度圆直径：<br><span id="f64"><br>$$<br>d_{1t} \ge \sqrt[3]{\frac{2 K_t T_1}{\phi_d \varepsilon_{\alpha }} \times \frac{i_i+1}{i_1} \times (\frac{Z_H Z_E}{[\sigma_H ]} )^2 } &#x3D; \sqrt[3]{\frac{2 \times g19_value \times f60_value \times 1000}{g20_value \times f72_value} \times \frac{i1_value+1}{i1_value} \times (\frac{f71_value \times g21_value}{f63_value} )^2 } &#x3D; f64_value mm<br>$$<br></span><br>计算圆周速度：<br><span id="f65"><br>$$<br>v &#x3D; \frac{\pi d_{1t} n_1}{60 \times 1000} &#x3D; \frac{${Math.PI} \times f64_value \times n3_value}{60 \times 1000} &#x3D; f65_value m&#x2F;s<br>$$<br></span><br>计算齿宽：<br><span id="f66"><br>$$<br>b &#x3D; \phi_d d_{1t} &#x3D; g20_value \times f64_value &#x3D; f66_value mm<br>$$<br></span><br>计算齿宽与齿高之比：<br><span id="f67"><br>$$<br>\frac{b}{h} &#x3D; \frac{\phi_d z_1}{2.25 cos \beta} &#x3D; \frac{g20_value \times g18_value}{2.25 \times g31_value} &#x3D; f67_value<br>$$<br></span><br>计算载荷系数K:<br>由圆周速度和精度查得<span>$  K_v &#x3D; $</span><input value="1.06" type="text" class="input" id="g26" onchange="input_update(this)">(查《机械设计》图12.1,p385)<br>齿间载荷分配系数<span>$ K_{\alpha}  &#x3D; $</span><input value="1.2" type="text" class="input" id="g27" onchange="input_update(this)">(查《机械设计》表12.2,p383)<br>使用系数<span>$  K_A &#x3D; $</span><input value="1.25" type="text" class="input" id="g28" onchange="input_update(this)">(查《机械设计》表12.1,p382)<br>不知道叫什么系数<span>$  K_{H\beta} &#x3D; $</span><input value="1.55" type="text" class="input" id="g29" onchange="input_update(this)">(查《机械设计》表12.3,p383)<br>则载荷系数为<br><span id="f68"><br>$$<br>K &#x3D; K_A K_v K_{\alpha} K_{H\beta}&#x3D; g28_value \times g26_value \times g27_value \times g29_value &#x3D; f68_value<br>$$<br></span><br>按实际的载荷系数修正分度圆直径：<br><span id="f69"><br>$$<br>d_1 &#x3D; d_{1t} \sqrt[3]{\frac{K}{K_t}} &#x3D; f64_value \times \sqrt[3]{\frac{f68_value}{g19_value}} &#x3D; f69_value mm<br>$$<br></span><br>计算模数<br><span id="f70"><br>$$<br>m &#x3D; \frac{d_1 cos\beta}{z_1} &#x3D; \frac{f69_value \times cos g31_value}{g18_value} &#x3D; f70_value<br>$$<br></span><br><span id="f83">则最终模数为$ m &#x3D; f83_value $</span></p>
+<p>试算小齿轮分度圆直径：<br><span id="f64"><br>$$<br>d_{1t} \ge \sqrt[3]{\frac{2 K_t T_1}{\phi_d \varepsilon_{\alpha }} \times \frac{i_i+1}{i_1} \times (\frac{Z_H Z_E}{[\sigma_H ]} )^2 } &#x3D; \sqrt[3]{\frac{2 \times g19_value \times f60_value \times 1000}{g20_value \times f72_value} \times \frac{i1_value+1}{i1_value} \times (\frac{f71_value \times g21_value}{f63_value} )^2 } &#x3D; f64_value mm<br>$$<br></span><br>计算圆周速度：<br><span id="f65"><br>$$<br>v &#x3D; \frac{\pi d_{1t} n_1}{60 \times 1000} &#x3D; \frac{${Math.PI} \times f64_value \times n3_value}{60 \times 1000} &#x3D; f65_value m&#x2F;s<br>$$<br></span><br>计算齿宽：<br><span id="f66"><br>$$<br>b &#x3D; \phi_d d_{1t} &#x3D; g20_value \times f64_value &#x3D; f66_value mm<br>$$<br></span><br>计算齿宽与齿高之比：<br><span id="f67"><br>$$<br>\frac{b}{h} &#x3D; \frac{\phi_d z_1}{2.25 cos \beta} &#x3D; \frac{g20_value \times g18_value}{2.25 \times g31_value} &#x3D; f67_value<br>$$<br></span><br>计算载荷系数K:<br>由圆周速度和精度查得<span>$  K_v &#x3D; $</span><input value="1.06" type="text" class="input" id="g26" onchange="input_update(this)">(查《机械设计》图12.1,p385)<br>齿间载荷分配系数<span>$ K_{\alpha}  &#x3D; $</span><input value="1.2" type="text" class="input" id="g27" onchange="input_update(this)">(查《机械设计》表12.2,p383)<br>使用系数<span>$  K_A &#x3D; $</span><input value="1.25" type="text" class="input" id="g28" onchange="input_update(this)">(查《机械设计》表12.1,p382)<br>齿向载荷分布系数<span>$  K_{H\beta} &#x3D; $</span><input value="1.55" type="text" class="input" id="g29" onchange="input_update(this)">(查《机械设计》表12.3,p383)<br>则载荷系数为<br><span id="f68"><br>$$<br>K &#x3D; K_A K_v K_{\alpha} K_{H\beta}&#x3D; g28_value \times g26_value \times g27_value \times g29_value &#x3D; f68_value<br>$$<br></span><br>按实际的载荷系数修正分度圆直径：<br><span id="f69"><br>$$<br>d_1 &#x3D; d_{1t} \sqrt[3]{\frac{K}{K_t}} &#x3D; f64_value \times \sqrt[3]{\frac{f68_value}{g19_value}} &#x3D; f69_value mm<br>$$<br></span><br>计算模数<br><span id="f70"><br>$$<br>m &#x3D; \frac{d_1 cos\beta}{z_1} &#x3D; \frac{f69_value \times cos g31_value}{g18_value} &#x3D; f70_value<br>$$<br></span><br><span id="f83">则最终模数为$ m &#x3D; f83_value $</span></p>
 <h5 id="按齿根弯曲疲劳强度校核-1"><a href="#按齿根弯曲疲劳强度校核-1" class="headerlink" title="按齿根弯曲疲劳强度校核"></a>按齿根弯曲疲劳强度校核</h5><p>齿向载荷分布系数<span>$  K_{F\beta} &#x3D; $</span><input value="1.38" type="text" class="input" id="g30" onchange="input_update(this)">(查《机械设计》图12.2,p386)<br>载荷系数为<br><span id="f73"><br>$$<br>K &#x3D; K_A K_v K_{\alpha} K_{F \beta } &#x3D;  g28_value \times g26_value \times g27_value \times g30_value &#x3D; f73_value<br>$$<br></span><br>当量齿数为<br><span id="f74"><br>$$<br>z_{v1} &#x3D; \frac{z_1}{c_os^3 \beta} &#x3D; \frac{g18_value}{cos^3 g31_value} &#x3D; N31_value<br>$$<br>$$<br>z_{v2} &#x3D; \frac{z_2}{c_os^3 \beta} &#x3D; \frac{f59_value}{cos^3 g31_value} &#x3D; N32_value<br>$$<br></span><br>齿形系数和应力校正系数：<br><span id="f75"><br>$$<br>Y_{Fa1} &#x3D; N33_value,Y_{sa1} &#x3D; N34_value<br>$$<br>$$<br>Y_{Fa2} &#x3D; N35_value,Y_{sa2} &#x3D; N36_value<br>$$<br></span><br>轴面重合度：<br><span id="f76"><br>$$<br>\varepsilon_{\beta} &#x3D; 0.318 \phi_{d} z_1 tan \beta &#x3D; 0.318 \times g20_value \times g18_value \times tan g31_value ° &#x3D; f76_value<br>$$<br></span><br>取<span id="f77">$ \varepsilon_{\beta} &#x3D; f77_value $</span>，计算螺旋角影响系数：<br><span id="f78"><br>$$<br>Y_{\beta} &#x3D; 1- \varepsilon_{\beta} \times \beta &#x2F; 120 ° &#x3D; 1- f77_value \times g31_value ° &#x2F; 120 ° &#x3D; f78_value<br>$$<br></span><br>弯曲疲劳强度极限<span>$  \sigma_{Flim1} &#x3D; \sigma_{Flim2}&#x3D; $</span><input value="500" type="text" class="input" id="g32" onchange="input_update(this)">MPa(查《机械设计》图12.5,p387)<br>弯曲疲劳寿命系数<span>$  K_{FN24} &#x3D; $</span><input value="0.86" type="text" class="input" id="g33" onchange="input_update(this)"><br><span>$  K_{FN25} &#x3D; $</span><input value="0.88" type="text" class="input" id="g34" onchange="input_update(this)">(查《机械设计》图12.3,p386)<br>取安全系数<span>$  S_F &#x3D; $</span><input value="1.4" type="text" class="input" id="g35" onchange="input_update(this)"><br><span id="f79"><br>$$<br>[\sigma_{F}]<em>1 &#x3D; \frac{K</em>{FN24} \sigma_{Flim1}}{S_F} &#x3D; \frac{g33_value \times g32_value}{g35_value} &#x3D; N37_value MPa<br>$$<br>$$<br>[\sigma_{F}]<em>2 &#x3D; \frac{K</em>{FN25} \sigma_{Flim2}}{S_F} &#x3D; \frac{g34_value \times g32_value}{g35_value} &#x3D; N38_value MPa<br>$$<br></span></p>
 <p>校核小齿轮：<br><span id="f80"><br>$$<br>\frac{2KT_1 Y_{\beta} cos^2 \beta}{\phi_d \varepsilon_{\alpha} z_1^{2} m_n^{3}} Y_{Fa1} Y_{sa1} &#x3D; \frac{2 \times f68_value \times f60_value \times 1000 \times f78_value \times cos^2 g31_value°}{g20_value \times f76_value \times g18_value ^{2} \times f83_value ^{3}} \times N33_value \times N34_value &#x3D; f80_value \le [\sigma_{F}]_1 &#x3D; N37_value MPa<br>$$<br></span><br>校核大齿轮：<br><span id="f81"><br>$$<br>0<br>$$<br></span><br><strong>校核合格（请看一眼上面两式是不是真的合格）</strong></p>
 <h5 id="几何尺寸计算-1"><a href="#几何尺寸计算-1" class="headerlink" title="几何尺寸计算"></a>几何尺寸计算</h5><p>中心距<br><span id="f84"><br>$$<br>a &#x3D; m_n (z_1 + z_2)&#x2F;(2 cos \beta) &#x3D; f83_value \times (g18_value + f59_value)&#x2F;(2 \times cos g31_value °) mm &#x3D; f84_value mm<br>$$<br></span><br>取中心距<span id="f85">$  a &#x3D; f85_value mm  $</span><br>修正螺旋角：<br><span id="f86"><br>$$<br>\beta &#x3D; arccos[m_n (z_1+z_2)&#x2F;(2a)] &#x3D; arccos[f83_value \times (g18_value + f59_value)&#x2F;(2 \times f85_value)] &#x3D; f86_value &#x3D; N41_value<br>$$<br></span><br>分度圆直径<br><span id="f87"><br>$$<br>d_3 &#x3D; \frac{m_n z_1}{cos \beta} &#x3D; \frac{f83_value \times g18_value}{cos N41_value} &#x3D; N42_value mm<br>$$<br>$$<br>d_4 &#x3D; \frac{m_n z_2}{cos \beta} &#x3D; \frac{f83_value \times f59_value}{cos N41_value} &#x3D; N43_value mm<br>$$<br></span><br>齿宽<br><span id="f88"><br>$$<br>b &#x3D; \phi_d d_l &#x3D; g20_value \times N42_value &#x3D; f88_value mm<br>$$<br></span><br>取<span id="f89">$  B_4 &#x3D; N44_value，B_3 &#x3D; B_4 + 5 &#x3D; N45_value  $</span></p>
 <h3 id="中间轴的设计"><a href="#中间轴的设计" class="headerlink" title="中间轴的设计"></a>中间轴的设计</h3><h4 id="中间轴-选择轴的材料"><a href="#中间轴-选择轴的材料" class="headerlink" title="中间轴-选择轴的材料"></a>中间轴-选择轴的材料</h4><p>选用45钢，调质，硬度为230HBS。</p>
 <h4 id="估算轴的最小直径"><a href="#估算轴的最小直径" class="headerlink" title="估算轴的最小直径"></a>估算轴的最小直径</h4><p>由教材或设计手册中查取<span>$ A&#x3D; $</span><input value="110" type="text" class="input" id="d0" onchange="input_update(this)"><br><span id="f90"><br>$$<br>d \ge A \sqrt[3]{\frac{P}{n}} &#x3D; d0_value \times \sqrt[3]{\frac{P3_value}{n4_value}} &#x3D; f90_value mm<br>$$<br></span><br>因为中间轴两端弯矩和转矩均为零，也没有键槽，所以可选其最小直径<span id="f91">$ d&#x3D; f91_value mm $</span></p>
-<h4 id="中间轴的结构设计"><a href="#中间轴的结构设计" class="headerlink" title="中间轴的结构设计"></a>中间轴的结构设计</h4><p>考虑轴的结构及轴的刚度，取装滚动轴承处轴径<span>$ A&#x3D; $</span><select id="d1" onchange="input_update(this)"><option value=0>70</option></select>mm</p>
+<h4 id="中间轴的结构设计"><a href="#中间轴的结构设计" class="headerlink" title="中间轴的结构设计"></a>中间轴的结构设计</h4><p>考虑轴的结构及轴的刚度，取装滚动轴承处轴径<span>$ d&#x3D; $</span><select id="d1" onchange="input_update(this)"><option value=0>70</option></select>mm</p>
 <p>根据轴的直径初选滚动轴承，选定圆锥滚子轴承，由轴颈<span id="f92">$ d&#x3D; d1_value mm $</span>选定圆锥滚子轴承<select id="d2" onchange="input_update(this)"><option value=0>“30214”</option></select>，正装布置。</p>
 <p id="warning5" class="warning"></p>
 
@@ -540,14 +561,13 @@
 <p id="warning6" class="warning"></p>
 
 <p>查表可得(网上找的表)，滚动轴承宽度<span id="f104">$ T’&#x3D; G5_value mm、B’&#x3D; G6_value mm、a’&#x3D; G7_value mm $ 滚动轴承的安装尺寸为 $ d_a &#x3D; G8_value mm $ </span> </p>
-<p><span id="f105">$ 高速齿轮的分度圆直径为d1&#x3D; ${N19_value} mm，齿根圆直径为df1 &#x3D; ${N19_value-2.5 * f51_value} mm。 $</span></p>
-<p>因此(我不知道怎么就”因此”了，于是取滚动轴承安装尺寸和齿根圆直径最小值向下圆整)，选带退刀槽结构的齿轮轴，退刀槽直径为<span id="f106">$ d_{退} &#x3D; f106_value $</span>mm </p>
+<p><span id="f105">$ 高速齿轮的分度圆直径为d1&#x3D; ${N19_value} mm，齿根圆直径为df1 &#x3D; ${N19_value-2.5 * f51_value} mm。 $</span><br><span id="f422"> $ d_{f1} &lt; d_a $ ，选带退刀槽结构的齿轮轴，退刀槽直径为(齿根圆直径向下圆整)</span><br><span id="f106">$ d_{退} &#x3D; f106_value mm $</span> </p>
 <p>选带轮侧端面据端盖螺钉距离为<span>$ l_3 &#x3D; $</span><input value="20" type="text" class="input" id="d12" onchange="input_update(this)"> mm；</p>
 <p>端盖螺钉为<span>$ M $</span><select id="d13" onchange="input_update(this)"><option value=0>8</option></select> mm，对应的螺栓头高度<span id="f107">$ k &#x3D; f107_value $</span> mm；</p>
-<p>轴承端盖厚度<span>$ t &#x3D; $</span><input value="12" type="text" class="input" id="d14" onchange="input_update(this)"> mm；并由前面已知计算：带轮宽度至少为<br><span id="f108"><br>$$<br>d_{带轮} &#x3D; (z-1)e+2f &#x3D; (${f22_value} - 1) \times ${T2_1[f9_value.slice(0, 1)][0]} + 2 \times ${T2_1[f9_value.slice(0, 1)][1]} &#x3D; ${f108_value} mm<br>$$<br></span><br>(z为带的根数，e和f由《机械设计》表2.1查得，P346)<br>取带轮宽度为<span id="f109">$ d_{带轮} &#x3D; f109_value $</span> mm</p>
-<p>高速轴伸出段长为：<br><span id="f110"><br>$$<br>l_s &#x3D; d_{带轮} + l_3 + k + t &#x3D; f109_value + d12_value + f106_value + d14_value &#x3D; f110_value mm<br>$$<br></span><br>圆整为<span id="f111">$ l_s &#x3D; f111_value mm $</span><br>即取<span id="f112">$ l_3 &#x3D; f112_value mm $</span> </p>
+<p>轴承端盖厚度<span>$ t &#x3D; $</span><input value="10" type="text" class="input" id="d14" onchange="input_update(this)"> mm；（一般取端盖螺钉直径×1.5并圆整）<br>端盖调整垫片厚度为1mm；<br>并由前面已知计算：带轮宽度至少为<br><span id="f108"><br>$$<br>d_{带轮} &#x3D; (z-1)e+2f &#x3D; (${f22_value} - 1) \times ${T2_1[f9_value.slice(0, 1)][0]} + 2 \times ${T2_1[f9_value.slice(0, 1)][1]} &#x3D; ${f108_value} mm<br>$$<br></span><br>(z为带的根数，e和f由《机械设计》表2.1查得，P346)<br>取带轮宽度为<span id="f109">$ d_{带轮} &#x3D; f109_value $</span> mm</p>
+<p>高速轴伸出段长为：<br><span id="f110"><br>$$<br>l_s &#x3D; d_{带轮} + l_3 + k + t + 1 &#x3D; f109_value + d12_value + f106_value + d14_value + 1 &#x3D; f110_value mm<br>$$<br></span><br>圆整为<span id="f111">$ l_s &#x3D; f111_value mm $</span><br>即取<span id="f112">$ l_3 &#x3D; f112_value mm $</span> </p>
 <p>取滚动轴承端面到箱内壁距离<span>$ Δ_3 &#x3D; $</span><input value="20" type="text" class="input" id="d15" onchange="input_update(this)"> mm</p>
-<p>则另一未伸出端在箱体凸缘内的长度为：<br><span id="f113"><br>$$<br>l_4 &#x3D; T + Δ_3 &#x3D; G5_value + d15_value &#x3D; f113_value mm<br>$$<br></span><br>高速轴总长为：<br><span id="f114"><br>$$<br>l_高 &#x3D; l_s + h_1 + b_{内} + l_4 &#x3D; f109_value + f97_value + f94_value + f113_value &#x3D; f114_value mm<br>$$<br></span><br>取轴端倒角为C1.5,各轴肩处的圆角半径则由各轴肩决定<br>画出高速轴结构示意图(右边轴承挡板按5mm算，退刀槽宽度按”齿轮端面到箱内壁距离-5”算)如图：</p>
+<p>则另一未伸出端在箱体凸缘内的长度为：<br><span id="f113"><br>$$<br>l_4 &#x3D; T + Δ_3 &#x3D; G5_value + d15_value &#x3D; f113_value mm<br>$$<br></span><br>高速轴总长为：<br><span id="f114"><br>$$<br>l_高 &#x3D; l_s + h_1 + b_{内} + l_4 &#x3D; f109_value + f97_value + f94_value + f113_value &#x3D; f114_value mm<br>$$<br></span><br>取轴端倒角为C1.5,各轴肩处的圆角半径则由各轴肩决定<br><span id="f423">画出高速轴结构示意图(右边轴承挡板按5mm算，退刀槽宽度按”齿轮端面到箱内壁距离-5”算)如图：</span></p>
 <div style="width: 100%; height: 300px;overflow-y: hidden;overflow-x: scroll;
 ">
 <iframe src="" frameborder="no" id="zhou_h" style="width: 1400px; height: 550px;transform-origin: left top; transform: scale(0.5, 0.5);"></iframe>
@@ -565,8 +585,8 @@
 <p><span id="f120"> 低速齿轮的分度圆直径为 $ d_1&#x3D; ${N43_value} mm $ ，齿根圆直径为 $ d_{f1} &#x3D; ${N43_value-2.5 * f83_value} mm $ </span></p>
 <p>选带轮侧端面据端盖螺钉距离为<span>$ l_5 &#x3D; $</span><input value="20" type="text" class="input" id="d19" onchange="input_update(this)"> mm；</p>
 <p>端盖螺钉为<span>$ M $</span><select id="d20" onchange="input_update(this)"><option value=0>8</option></select> mm，对应的螺栓头高度<span id="f122">$ k &#x3D; f122_value $</span> mm；</p>
-<p>轴承端盖厚度<span>$ t &#x3D; $</span><input value="12" type="text" class="input" id="d21" onchange="input_update(this)"> mm；<br>预留联轴器配合长度为<span>$ B_5&#x3D; $</span><input value="150" type="text" class="input" id="d23" onchange="input_update(this)"> mm；</p>
-<p>低速轴伸出段长为：<br><span id="f125"><br>$$<br>l_s &#x3D; d_{带轮} + l_5 + k + t &#x3D; d23_value + d19_value + f121_value + d21_value &#x3D; f125_value mm<br>$$<br></span><br>圆整为<span id="f126">$ l_s &#x3D; f126_value mm $</span><br>即取<span id="f127">$ l_5 &#x3D; f127_value mm $</span> </p>
+<p>轴承端盖厚度<span>$ t &#x3D; $</span><input value="10" type="text" class="input" id="d21" onchange="input_update(this)"> mm；（一般取端盖螺钉直径×1.5并圆整）<br>端盖调整垫片厚度为1mm；<br>预留联轴器配合长度为<span>$ B_5&#x3D; $</span><input value="150" type="text" class="input" id="d23" onchange="input_update(this)"> mm；</p>
+<p>低速轴伸出段长为：<br><span id="f125"><br>$$<br>l_s &#x3D; d_{带轮} + l_5 + k + t + 1 &#x3D; d23_value + d19_value + f121_value + d21_value + 1 &#x3D; f125_value mm<br>$$<br></span><br>圆整为<span id="f126">$ l_s &#x3D; f126_value mm $</span><br>即取<span id="f127">$ l_5 &#x3D; f127_value mm $</span> </p>
 <p>取滚动轴承端面到箱内壁距离<span>$ Δ_4 &#x3D; $</span><input value="20" type="text" class="input" id="d22" onchange="input_update(this)"> mm</p>
 <p>则另一未伸出端在箱体凸缘内的长度为：<br><span id="f128"><br>$$<br>l_6 &#x3D; T + Δ_4 &#x3D; G9_value + d22_value &#x3D; f128_value mm<br>$$<br></span><br>低速轴总长为：<br><span id="f129"><br>$$<br>l_{低} &#x3D; l_s + h_1 + b_{内} + l_6 &#x3D; f126_value + f97_value + f94_value + f128_value &#x3D; f129_value mm<br>$$<br></span><br>取轴端倒角为C1.5,各轴肩处的圆角半径则由各轴肩决定<br>画出低速轴结构示意图(齿轮轴径按轴承处轴径加5算；齿轮虽然是大齿轮，但轴长仍取小齿轮齿宽，便于齿轮啮合；齿轮挡板和未伸出部分轴承挡板按中间轴里面的齿轮端面间距算)如图：</p>
 <div style="width: 100%; height: 300px;overflow-y: hidden;overflow-x: scroll;
@@ -669,7 +689,7 @@ $$
 </span>
 
 <p>计算轴承当量载荷，因为<br><span id="f242"><br>$$<br>\frac{A_A}{R_A} &#x3D; \frac{f240_value}{f232_value} &#x3D; f242_value &lt; e &#x3D; N50_value<br>$$<br></span><br><span id="f243"><br>$$<br>\frac{A_A}{R_B} &#x3D; \frac{f240_value}{f234_value} &#x3D; f243_value &gt; e &#x3D; N50_value<br>$$<br></span></p>
-<p>所以(查《机械设计》表9.1，P373)<span id="f244"> $ X_A &#x3D; N55_value、Y_A &#x3D; N56_value；X_B &#x3D; N57_value、Y_B &#x3D; N58_value $ </span><br><span id="f245"><br>$$<br>P_A &#x3D; X_A R_A + Y_A A_A &#x3D; N55_value \times f232_value + N56_value \times f240_value &#x3D; f245_value N<br>$$<br></span><br><span id="f246"><br>$$<br>P_B &#x3D; X_B R_B + Y_B A_B &#x3D; N57_value \times f234_value + N58_value \times f241_value &#x3D; f246_value N<br>$$<br></span><br>由于<span id="f247"> $ P_A &gt; P_B $ </span>，按轴承<span id="f248"> $ A $ </span> 验算寿命<br><span id="f249"><br>$$<br>L_n &#x3D; \frac{10^6}{60 n_{Ⅰ}} (\frac{Cr}{P_f247_value})^{\frac{10}{3}} &#x3D; \frac{10^6}{60 n3_value} (\frac{N52_value*1000}{f248_value})^{\frac{10}{3}} &#x3D; f249_value h &gt; 15000 h<br>$$<br></span></p>
+<p>所以(查《机械设计》表9.1，P373)<span id="f244"> $ X_A &#x3D; N55_value、Y_A &#x3D; N56_value；X_B &#x3D; N57_value、Y_B &#x3D; N58_value $ </span><br><span id="f245"><br>$$<br>P_A &#x3D; X_A R_A + Y_A A_A &#x3D; N55_value \times f232_value + N56_value \times f240_value &#x3D; f245_value N<br>$$<br></span><br><span id="f246"><br>$$<br>P_B &#x3D; X_B R_B + Y_B A_B &#x3D; N57_value \times f234_value + N58_value \times f241_value &#x3D; f246_value N<br>$$<br></span><br>由于<span id="f247"> $ P_A &gt; P_B $ </span>，按轴承<span id="f248"> $ A $ </span> 验算寿命(在轻微冲击，室温下，ft，fp都取1)：<br><span id="f249"><br>$$<br>L_n &#x3D; \frac{10^6}{60 n_{Ⅰ}} (\frac{Cr}{P_f247_value})^{\frac{10}{3}} &#x3D; \frac{10^6}{60 n3_value} (\frac{N52_value*1000}{f248_value})^{\frac{10}{3}} &#x3D; f249_value h &gt; 15000 h<br>$$<br></span></p>
 <p id="warning12" class="warning"></p>
 因此，初选的轴承<span id="f250"> $ 30211 $ </span>满足使用寿命的要求。
 
@@ -692,7 +712,7 @@ $$
 </span>
 
 <p>计算轴承当量载荷，因为<br><span id="f272"><br>$$<br>\frac{A_A}{R_A} &#x3D; \frac{f270_value}{f262_value} &#x3D; f272_value &lt; e &#x3D; N60_value<br>$$<br></span><br><span id="f273"><br>$$<br>\frac{A_A}{R_D} &#x3D; \frac{f270_value}{f264_value} &#x3D; f273_value &gt; e &#x3D; N60_value<br>$$<br></span></p>
-<p>所以(查《机械设计》表9.1，P373)<span id="f274"> $ X_A &#x3D; N65_value、Y_A &#x3D; N66_value；X_D &#x3D; N67_value、Y_D &#x3D; N68_value $ </span><br><span id="f275"><br>$$<br>P_A &#x3D; X_A R_A + Y_A A_A &#x3D; N65_value \times f262_value + N66_value \times f270_value &#x3D; f275_value N<br>$$<br></span><br><span id="f276"><br>$$<br>P_D &#x3D; X_D R_D + Y_D A_D &#x3D; N67_value \times f264_value + N68_value \times f271_value &#x3D; f276_value N<br>$$<br></span><br>由于<span id="f277"> $ P_A &gt; P_D $ </span>，按轴承<span id="f278"> $ A $ </span> 验算寿命<br><span id="f279"><br>$$<br>L_n &#x3D; \frac{10^6}{60 n_{Ⅱ}} (\frac{Cr}{P_f277_value})^{\frac{10}{3}} &#x3D; \frac{10^6}{60 n4_value} (\frac{N62_value*1000}{f278_value})^{\frac{10}{3}} &#x3D; f279_value h &gt; 15000 h<br>$$<br></span></p>
+<p>所以(查《机械设计》表9.1，P373)<span id="f274"> $ X_A &#x3D; N65_value、Y_A &#x3D; N66_value；X_D &#x3D; N67_value、Y_D &#x3D; N68_value $ </span><br><span id="f275"><br>$$<br>P_A &#x3D; X_A R_A + Y_A A_A &#x3D; N65_value \times f262_value + N66_value \times f270_value &#x3D; f275_value N<br>$$<br></span><br><span id="f276"><br>$$<br>P_D &#x3D; X_D R_D + Y_D A_D &#x3D; N67_value \times f264_value + N68_value \times f271_value &#x3D; f276_value N<br>$$<br></span><br>由于<span id="f277"> $ P_A &gt; P_D $ </span>，按轴承<span id="f278"> $ A $ </span> 验算寿命(在轻微冲击，室温下，ft，fp都取1)：<br><span id="f279"><br>$$<br>L_n &#x3D; \frac{10^6}{60 n_{Ⅱ}} (\frac{Cr}{P_f277_value})^{\frac{10}{3}} &#x3D; \frac{10^6}{60 n4_value} (\frac{N62_value*1000}{f278_value})^{\frac{10}{3}} &#x3D; f279_value h &gt; 15000 h<br>$$<br></span></p>
 <p id="warning14" class="warning"></p>
 因此，初选的轴承<span id="f280"> $ 30211 $ </span>满足使用寿命的要求。
 
@@ -716,7 +736,7 @@ $$
 </span>
 
 <p>计算轴承当量载荷，因为<br><span id="f302"><br>$$<br>\frac{A_A}{R_A} &#x3D; \frac{f300_value}{f292_value} &#x3D; f302_value &lt; e &#x3D; N70_value<br>$$<br></span><br><span id="f303"><br>$$<br>\frac{A_A}{R_B} &#x3D; \frac{f300_value}{f294_value} &#x3D; f303_value &gt; e &#x3D; N70_value<br>$$<br></span></p>
-<p>所以(查《机械设计》表9.1，P373)<span id="f304"> $ X_A &#x3D; N75_value、Y_A &#x3D; N76_value；X_B &#x3D; N77_value、Y_B &#x3D; N78_value $ </span><br><span id="f305"><br>$$<br>P_A &#x3D; X_A R_A + Y_A A_A &#x3D; N75_value \times f292_value + N76_value \times f300_value &#x3D; f305_value N<br>$$<br></span><br><span id="f306"><br>$$<br>P_B &#x3D; X_B R_B + Y_B A_B &#x3D; N77_value \times f294_value + N78_value \times f301_value &#x3D; f306_value N<br>$$<br></span><br>由于<span id="f307"> $ P_A &gt; P_B $ </span>，按轴承<span id="f308"> $ A $ </span> 验算寿命<br><span id="f309"><br>$$<br>L_n &#x3D; \frac{10^6}{60 n_{Ⅲ}} (\frac{Cr}{P_f307_value})^{\frac{10}{3}} &#x3D; \frac{10^6}{60 n5_value} (\frac{N72_value*1000}{f308_value})^{\frac{10}{3}} &#x3D; f309_value h &gt; 15000 h<br>$$<br></span></p>
+<p>所以(查《机械设计》表9.1，P373)<span id="f304"> $ X_A &#x3D; N75_value、Y_A &#x3D; N76_value；X_B &#x3D; N77_value、Y_B &#x3D; N78_value $ </span><br><span id="f305"><br>$$<br>P_A &#x3D; X_A R_A + Y_A A_A &#x3D; N75_value \times f292_value + N76_value \times f300_value &#x3D; f305_value N<br>$$<br></span><br><span id="f306"><br>$$<br>P_B &#x3D; X_B R_B + Y_B A_B &#x3D; N77_value \times f294_value + N78_value \times f301_value &#x3D; f306_value N<br>$$<br></span><br>由于<span id="f307"> $ P_A &gt; P_B $ </span>，按轴承<span id="f308"> $ A $ </span> 验算寿命(在轻微冲击，室温下，ft，fp都取1)：<br><span id="f309"><br>$$<br>L_n &#x3D; \frac{10^6}{60 n_{Ⅲ}} (\frac{Cr}{P_f307_value})^{\frac{10}{3}} &#x3D; \frac{10^6}{60 n5_value} (\frac{N72_value*1000}{f308_value})^{\frac{10}{3}} &#x3D; f309_value h &gt; 15000 h<br>$$<br></span></p>
 <p id="warning16" class="warning"></p>
 因此，初选的轴承<span id="f310"> $ 30211 $ </span>满足使用寿命的要求。
 
@@ -1216,7 +1236,7 @@ let f108_value = 1;
 const f109 = document.getElementById("f109");
 let f109_value = 1;
 const f110 = document.getElementById("f110");
-let f110_value = f109_value + d12_value + f106_value + d14_value;
+let f110_value = f109_value + d12_value + f106_value + d14_value + 1;
 const f111 = document.getElementById("f111");
 let f111_value = Math.ceil(f110_value);
 const f112 = document.getElementById("f112");
@@ -1258,7 +1278,7 @@ let f120_value = N19_value-2.5 * f51_value;
 const f122 = document.getElementById("f122");
 let f122_value = 5.3;
 const f125 = document.getElementById("f125");
-let f125_value = d23_value + d19_value + f122_value + d21_value;
+let f125_value = d23_value + d19_value + f122_value + d21_value + 1;
 const f126 = document.getElementById("f126");
 let f126_value = Math.ceil(f125_value);
 let f127_value = f126_value-(d23_value + f122_value + d21_value);
@@ -1775,7 +1795,9 @@ const f420 = document.getElementById("f420");
 let f420_value = Math.PI * N19_value * n3_value/60/1000;
 const warning24 = document.getElementById("warning24");
 const f421 = document.getElementById("f421");
-
+const f422 = document.getElementById("f422");
+const f423 = document.getElementById("f423");
+let high_withdrawal_flag = 0;
 
 // const h2_ids = ["电机型号选择","传动零件的设计计算","滚动轴承的选择与计算","铸造减速器箱体的主要结构尺寸","联轴器的选择","键连接的选择和强度校核","减速器的润滑","机械设计网站"];
 let vbelt_flag = 1;
@@ -1783,6 +1805,7 @@ let change_all_flag = 1;
 const warning30 = document.getElementById("warning30");
 let lot_pic_loading = 0;
 let lot_pic_save_request = 0;
+
 
 
 const formula_chain= {
@@ -2003,7 +2026,7 @@ f403.latex_update = function(){
 		}
 	}
 	for(i in T12_20){
-		if(f402_value<=T12_20[i][0]){
+		if(f401_value<=T12_20[i][0]){
 			f404_value = T12_20[i][1];
 			f405_value = T12_20[i][2];
 			break;
@@ -2069,7 +2092,7 @@ f383.latex_update = function(){
 		}
 	}
 	for(i in T12_20){
-		if(f382_value<=T12_20[i][0]){
+		if(f381_value<=T12_20[i][0]){
 			f384_value = T12_20[i][1];
 			f385_value = T12_20[i][2];
 			break;
@@ -2132,7 +2155,7 @@ f363.latex_update = function(){
 		}
 	}
 	for(i in T12_20){
-		if(f362_value<=T12_20[i][0]){
+		if(f361_value<=T12_20[i][0]){
 			f364_value = T12_20[i][1];
 			f365_value = T12_20[i][2];
 			break;
@@ -2197,7 +2220,7 @@ f343.latex_update = function(){
 		}
 	}
 	for(i in T12_20){
-		if(f342_value<=T12_20[i][0]){
+		if(f341_value<=T12_20[i][0]){
 			f344_value = T12_20[i][1];
 			f345_value = T12_20[i][2];
 			break;
@@ -3008,8 +3031,8 @@ f126.latex_update = function(){
 	f126.textContent = `$ l_s = ${f126_value} mm $`;
 };
 f125.latex_update = function(){
-	f125_value = d23_value + d19_value + f122_value + d21_value;
-	f125.textContent = `$$ l_s = B_5 + l_5 + k + t = ${d23_value} + ${d19_value} + ${f122_value} + ${d21_value} = ${f125_value} mm $$`;
+	f125_value = d23_value + d19_value + f122_value + d21_value + 1;
+	f125.textContent = `$$ l_s = B_5 + l_5 + k + t + 1 = ${d23_value} + ${d19_value} + ${f122_value} + ${d21_value} + 1 = ${f125_value} mm $$`;
 };
 f122.latex_update = function(){
 	f122_value = 5.3;
@@ -3061,7 +3084,7 @@ f114.latex_update = function(){
 	f114_value = f111_value + f97_value + f94_value + f113_value;
 	f114.textContent = `$$ l_高 = l_s + h_1 + b_{内} + l_4 = ${f111_value} + ${f97_value} + ${f94_value} + ${f113_value} = ${f114_value} mm $$`;
 	draw_shaft_high();
-	window.MathJax.typesetPromise([f100,f101,f102,f103,f104,f105,f106,f107,f108,f109,f110,f111,f112,f113,f114]);
+	window.MathJax.typesetPromise([f100,f101,f102,f103,f104,f105,f106,f422,f107,f108,f109,f110,f111,f112,f113,f114]);
 };
 f113.latex_update = function(){
 	f113_value = G5_value + d15_value;
@@ -3076,8 +3099,8 @@ f111.latex_update = function(){
 	f111.textContent = `$ l_s = ${f111_value} mm $`;
 };
 f110.latex_update = function(){
-	f110_value = f109_value + d12_value + f107_value + d14_value;
-	f110.textContent = `$$ l_s = d_{带轮} + l_3 + k + t = ${f109_value} + ${d12_value} + ${f107_value} + ${d14_value} = ${f110_value} mm $$`;
+	f110_value = f109_value + d12_value + f107_value + d14_value + 1;
+	f110.textContent = `$$ l_s = d_{带轮} + l_3 + k + t + 1 = ${f109_value} + ${d12_value} + ${f107_value} + ${d14_value} + 1 = ${f110_value} mm $$`;
 };
 f109.latex_update = function(){
 	f109_value = Math.ceil(f108_value/5)*5;
@@ -3092,8 +3115,20 @@ f107.latex_update = function(){
 	f107.textContent = `$ k = ${f107_value} $`;
 };
 f106.latex_update = function(){
-	f106_value = Math.floor(Math.min(f105_value,G8_value)/5)*5;
-	f106.textContent = `$ d_{退} = ${f106_value} $`;
+	if(f105_value<G8_value){
+		f106_value = Math.floor(f105_value/5)*5;
+		high_withdrawal_flag = 1;
+		f422.textContent = `$ d_{f1} < d_a $ ，选带退刀槽结构的齿轮轴，退刀槽直径为(齿根圆直径向下圆整)`
+		f423.textContent = `画出高速轴结构示意图(右边轴承挡板按5mm算，退刀槽宽度按"齿轮端面到箱内壁距离-5"算)如图：`
+		f106.textContent = `$ d_{退} = ${f106_value} mm $`;
+	}else{
+		f106_value = 0;
+		high_withdrawal_flag = 0;
+		f422.textContent = `$ d_{f1} >= d_a $ ，选不带退刀槽结构的齿轮轴`
+		f423.textContent = `画出高速轴结构示意图如图：`
+		f106.textContent = ``;
+	}
+	
 };
 f105.latex_update = function(){
 	f105_value = N19_value-2.5 * f51_value;
@@ -3407,11 +3442,11 @@ f51.latex_update = function(){
 
 f49.latex_update = function(){
 	f49_value = 2*f36_value*f28_value*1000*f46_value*mcos(g13_value)**2/g2_value/f44_value/(f27_value**2*f51_value**3)*N12_value*N13_value;
-	f49.textContent = `$$ \\frac{2KT_1 Y_{\\beta} cos^2 \\beta}{\\phi_d \\varepsilon_{\\alpha} z_2^{2} m_n^{3}} Y_{Fa2} Y_{sa2} = \\frac{2 \\times ${f36_value} \\times ${f28_value} \\times 1000 \\times ${f46_value} \\times cos^2 ${g13_value}°}{${g2_value} \\times ${f44_value} \\times ${f27_value} ^{2} \\times ${f51_value} ^{3}} \\times ${N12_value} \\times ${N13_value} = ${f49_value} MPa \\le [\\sigma_{F}]_1 = ${N15_value} MPa $$`;
+	f49.textContent = `$$ \\frac{2KT_1 Y_{\\beta} cos^2 \\beta}{\\phi_d \\varepsilon_{\\alpha} z_2^{2} m_n^{3}} Y_{Fa2} Y_{sa2} = \\frac{2 \\times ${f36_value} \\times ${f28_value} \\times 1000 \\times ${f46_value} \\times cos^2 ${g13_value}°}{${g2_value} \\times ${f44_value} \\times ${f27_value} ^{2} \\times ${f51_value} ^{3}} \\times ${N12_value} \\times ${N13_value} = ${f49_value} MPa \\le [\\sigma_{F}]_2 = ${N15_value} MPa $$`;
 };
 f48.latex_update = function(){
 	f48_value = 2*f36_value*f28_value*1000*f46_value*mcos(g13_value)**2/g2_value/f44_value/(g0_value**2*f51_value**3)*N10_value*N11_value;
-	f48.textContent = `$$ \\frac{2KT_1 Y_{\\beta} cos^2 \\beta}{\\phi_d \\varepsilon_{\\alpha} z_1^{2} m_n^{3}} Y_{Fa1} Y_{sa1} = \\frac{2 \\times ${f36_value} \\times ${f28_value} \\times 1000 \\times ${f46_value} \\times cos^2 ${g13_value}°}{${g2_value} \\times ${f44_value} \\times ${g0_value} ^{2} \\times ${f51_value} ^{3}} \\times ${N10_value} \\times ${N11_value} = ${f48_value} MPa \\le [\\sigma_{F}]_2 = ${N14_value} MPa $$`;
+	f48.textContent = `$$ \\frac{2KT_1 Y_{\\beta} cos^2 \\beta}{\\phi_d \\varepsilon_{\\alpha} z_1^{2} m_n^{3}} Y_{Fa1} Y_{sa1} = \\frac{2 \\times ${f36_value} \\times ${f28_value} \\times 1000 \\times ${f46_value} \\times cos^2 ${g13_value}°}{${g2_value} \\times ${f44_value} \\times ${g0_value} ^{2} \\times ${f51_value} ^{3}} \\times ${N10_value} \\times ${N11_value} = ${f48_value} MPa \\le [\\sigma_{F}]_1 = ${N14_value} MPa $$`;
 };
 f47.latex_update = function(){
 	N14_value = g15_value * g14_value / g17_value;
@@ -3736,7 +3771,7 @@ f3.latex_update = function(){
     f3.textContent = `$$ P_d = \\frac{P_w}{\\eta_{总}}= \\frac{${f1_value}}{${f2_value}} = ${f3_value} kW $$`;
 };
 fe0.latex_update = function(){
-    fe0.textContent = `$ \\eta_{带}=${e0_value} $`;
+    fe0.textContent = `$ \\eta_{工}=${e4_value} $`;
 };
 f2.latex_update = function(){
 	f2_value = e0_value*(e1_value**2)*(e2_value**3)*e3_value*e4_value;
@@ -3888,7 +3923,35 @@ function change_html(e){
         i.latex_update();
     };
 };
-
+function try_choose_gear(){
+	const low_gear = getCookie("g0_value");
+	const high_gear = getCookie("g18_value");
+	const threshold = 0.2;
+	let i = 18;
+	
+	if(!low_gear){
+		if(Math.abs(f27_value-f26_value)>threshold){
+			for(i;i<35;i++){
+				if(Math.abs(Math.ceil(i1_value * i) - i1_value * i)<=threshold){
+					g0.value = i;
+					g0_value = i;
+					change_html(g0);
+				}
+			}
+		}
+	}
+	if(!high_gear){
+		if(Math.abs(f59_value-f58_value)>threshold){
+			for(i;i<35;i++){
+				if(Math.abs(Math.ceil(i2_value * i) - i2_value * i)<=threshold){
+					g18.value = i;
+					g18_value = i;
+					change_html(g18);
+				}
+			}
+		}
+	}
+}
 function choose_motor(){
 	warning0.innerText = "";
 	i0_value = parseFloat(document.getElementById("i0").value);
@@ -3958,18 +4021,43 @@ function update_motor_var_and_t1(){
 };
 function choose_trans_ratio(){
 	warning1.innerText = "";
-	i0_value = parseFloat(document.getElementById("i0").value);
-	var gear_ratio = f7_value/i0_value;
-	var best_item = T2_4[0];
-	var delta_ratio = T2_4[0][0]-gear_ratio;
-	T2_4.forEach(a_item => {
-            if(Math.abs(a_item[0]-gear_ratio)<Math.abs(delta_ratio)){
-                best_item = a_item;
-                delta_ratio = a_item[0]-gear_ratio;
-                i1_value = a_item[1];
-            	i2_value = a_item[2];
-            }
-        });
+	i0_cookie = getCookie("i0_value");
+	const threshold = 0.3;
+	if(!i0_cookie){
+		for(i=20;i<=35;i++){
+			const temp_value = i/10;
+			var gear_ratio = f7_value/temp_value;
+			var best_item = T2_4[0];
+			var delta_ratio = Math.abs(T2_4[0][0]-gear_ratio);
+			T2_4.forEach(a_item=>{
+				if(Math.abs(a_item[0]-gear_ratio)<delta_ratio){
+					best_item = a_item;
+					delta_ratio = Math.abs(a_item[0]-gear_ratio);
+					i1_value = a_item[1];
+					i2_value = a_item[2];
+				}
+			});
+			if(Math.abs(temp_value*best_item[0]-f7_value)<=threshold){
+				i0.value = temp_value;
+				i0_value = temp_value;
+				break;
+			}
+		}
+	}else{
+		i0_value = parseFloat(i0.value);
+		var gear_ratio = f7_value/i0_value;
+		var best_item = T2_4[0];
+		var delta_ratio = Math.abs(T2_4[0][0]-gear_ratio);
+		T2_4.forEach(a_item=>{
+			if(Math.abs(a_item[0]-gear_ratio)<delta_ratio){
+				best_item = a_item;
+				delta_ratio = Math.abs(a_item[0]-gear_ratio);
+				i1_value = a_item[1];
+				i2_value = a_item[2];
+			}
+		});
+	}
+	
     //console.log(i1_value);
     //console.log(i2_value);
     if(Math.abs(delta_ratio)>1){
@@ -3994,6 +4082,7 @@ function dealMessage(data){
 			f9.textContent = "错误";
 			warning2.innerText = "没有合适的带型，可能要选窄V带，请联系作者添加";
 		};
+		try_choose_gear();
 		change_html(v_belt);
 		change_html(d9);
 		change_html(d16);
@@ -4001,6 +4090,8 @@ function dealMessage(data){
 		change_html(d40);
 		change_html(d50);
 		change_html(g40);
+		f420.latex_update();
+		f421.latex_update();
 		return;
 	}
 	
@@ -4285,17 +4376,30 @@ function choose_bearing2(){
 	update_d9();
 };
 function draw_shaft_high(){
-	const high_segments = [
-		{ len: f113_value, dia: f102_value },
-		{ len: d4_value, dia: G8_value }, 
-		{ len: f94_value-d4_value-N22_value-d4_value, dia: f102_value },
-		{ len: N22_value, dia: Math.round((N19_value+2 * f51_value)*100)/100 }, 
-		{ len: d4_value-5, dia: f106_value }, 
-		{ len: 5, dia: G8_value }, 
-		{ len: f113_value, dia: f102_value }, 
-		{ len: f111_value+f97_value-f109_value-f113_value, dia: f101_value },
-		{ len: f109_value, dia: d10_value },
-	];	
+	if(high_withdrawal_flag){
+		high_segments = [
+			{ len: f113_value, dia: f102_value },
+			{ len: d4_value, dia: G8_value }, 
+			{ len: f94_value-d4_value-N22_value-d4_value, dia: f102_value },
+			{ len: N22_value, dia: Math.round((N19_value+2 * f51_value)*100)/100 }, 
+			{ len: d4_value-5, dia: f106_value }, 
+			{ len: 5, dia: G8_value }, 
+			{ len: f113_value, dia: f102_value }, 
+			{ len: f111_value+f97_value-f109_value-f113_value, dia: f101_value },
+			{ len: f109_value, dia: d10_value },
+		];	
+	}else{
+		high_segments = [
+			{ len: f113_value, dia: f102_value },
+			{ len: d4_value, dia: G8_value }, 
+			{ len: f94_value-d4_value-N22_value-d4_value, dia: f102_value },
+			{ len: N22_value, dia: Math.round((N19_value+2 * f51_value)*100)/100 }, 
+			{ len: d4_value, dia: G8_value }, 
+			{ len: f113_value, dia: f102_value }, 
+			{ len: f111_value+f97_value-f109_value-f113_value, dia: f101_value },
+			{ len: f109_value, dia: d10_value },
+		];	
+	}
 	if (zhou_h.onload){
         zhou_h.contentWindow.postMessage([high_segments,"high"], "*");
 	} else {
@@ -4880,6 +4984,7 @@ window.onload = function() {
 	zhou_tu_m.src = "/external/zhou_tu.html";
 	zhou_tu_l.src = "/external/zhou_tu.html";
     change_html_all();
+	check_new_logger(0);
 };
 
 
@@ -4899,6 +5004,7 @@ function throttle(func, limit) {
 
 // 使用节流函数包装滚动监听器
 window.addEventListener('scroll', throttle(function() {
+	//change_html_all();
     // 获取页面滚动的垂直距离
     const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
     
@@ -4907,61 +5013,62 @@ window.addEventListener('scroll', throttle(function() {
     
     // 获取视窗高度
     const clientHeight = document.documentElement.clientHeight;
+	const persentage = parseInt(scrollTop/scrollHeight*100);
 
-	//console.log(scrollTop);
+	console.log(persentage);
     if(change_all_flag){
 		change_html_all();
 		change_all_flag = 0;
 		return;
 	}
 	
-    if (scrollTop >= 43000) {
-		f420.latex_update();
-		f421.latex_update();
-		return;
-    }else if (scrollTop >= 40000) {
-		f420.latex_update();
-		change_html(g40);
-		return;
-    }else if (scrollTop >= 31000) {
-		change_html(d50);
-		return;
-    }else if (scrollTop >= 26600) {
-		change_html(d40);
-		return;
-    }else if (scrollTop >= 22800) {
-		change_html(d30);
-		return;
-    }else if (scrollTop >= 21000) {
-		change_html(d16);
-		return;
-    }else if (scrollTop >= 19000) {
-		change_html(d9);
-		return;
-    }else if (scrollTop >= 17000) {
-		change_html(d0);
-		return;
-    }else if (scrollTop >= 11800) {
-		change_html(g18);
-		return;
-    }else if (scrollTop >= 6500) {
-		change_html(g0);
-		return;
-    }else if (scrollTop >= 500) {
-		change_html(F0);
+    if (persentage >= 80) {
+		change_html_all();
 		return;
     }
+	//else if (scrollTop >= 40000) {
+	// 	f420.latex_update();
+	// 	change_html(g40);
+	// 	return;
+    // }else if (scrollTop >= 31000) {
+	// 	change_html(d50);
+	// 	return;
+    // }else if (scrollTop >= 26600) {
+	// 	change_html(d40);
+	// 	return;
+    // }else if (scrollTop >= 22800) {
+	// 	change_html(d30);
+	// 	return;
+    // }else if (scrollTop >= 21000) {
+	// 	change_html(d16);
+	// 	return;
+    // }else if (scrollTop >= 19000) {
+	// 	change_html(d9);
+	// 	return;
+    // }else if (scrollTop >= 17000) {
+	// 	change_html(d0);
+	// 	return;
+    // }else if (scrollTop >= 11800) {
+	// 	change_html(g18);
+	// 	return;
+    // }else if (scrollTop >= 6500) {
+	// 	change_html(g0);
+	// 	return;
+    // }else if (scrollTop >= 500) {
+	// 	change_html(F0);
+	// 	return;
+    // }
     
-}, 2000)); // 2s内最多执行一次
-let change_count = 0;
-const change_list = [F0,g0,g18,d0,d9,d16,d30,d40,d50,g40,f420];
-setTimeout(function(){
-	change_html(change_list[change_count]);
-	change_count+=1;
-	if(change_count==change_list.length){
-		change_count = 0;
-	}
-},5000);
+}, 5000)); // 5s内最多执行一次
+// let change_count = 0;
+// const change_list = [F0,g0,g18,d0,d9,d16,d30,d40,d50,g40,f420];
+// setTimeout(function(){
+// 	change_html(change_list[change_count]);
+// 	change_count+=1;
+// 	if(change_count==change_list.length){
+// 		change_count = 0;
+// 	}
+// },5000);
 </script> 
 
 <script>
@@ -5174,30 +5281,39 @@ const targetEncoded = "385acd76";
 const targetEncoded2 = "9251a65212194a389949a86329e47225210d";
 const targetEncoded3 = "32db6c87";
 const targetEncoded4 = "b45bec";
+const targetEncoded5 = "b11bac1693";
 
-// const logger = document.getElementById("logger");
-// logger.οnclick=function(){
-// 	const expires = new Date();
-// 	latest_logger_version = getCookie("latest_logger_version");
-// 	llv = logger.querySelector('#board > article > div.markdown-body > details:nth-child(1) > div > div:nth-child(1) > div.update-entry > div.update-version').innerText;
-// 	if(!latest_logger_version){
-// 		setCookie("latest_logger_version",
-// 		llv,
-// 		expires.setDate(expires.getDate() + 365));
-// 		logger.innerText = "点击展开/折叠更新日志(new!)";
-// 	}else if(llv !== latest_logger_version){
-// 		logger.innerText = "点击展开/折叠更新日志(new!)";
-// 	}
-// }
-// function clearAllCookiesExcept(e) {
-// 	var cookies = document.cookie.split(";");
-// 	for (var i = 0; i < cookies.length; i++) {
-// 		var cookie = cookies[i];
-// 		var eqPos = cookie.indexOf("=");
-// 		var name = eqPos > -1 ? cookie.substr(0, eqPos) : cookie;
-// 		document.cookie = name + "=;expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/";
-// 	}
-// }
+const logger_details = document.getElementById("logger_details");
+const logger = document.getElementById("logger");
+function check_new_logger(setCookitFlag=0){
+	const expires = new Date();
+	latest_logger_version = getCookie("latest_logger_version");
+	llv = logger_details.getElementsByClassName("update-version")[0].innerHTML;
+	if(!latest_logger_version){
+		if(setCookitFlag){
+			expires.setDate(expires.getDate() + 365)
+			setCookie("latest_logger_version",
+			llv,
+			expires);
+			logger.innerHTML = '点击展开/折叠更新日志';
+		}else{
+			logger.innerHTML = '点击展开/折叠更新日志<span class="logger_new">(new!)</span>';
+		}
+	}else if(llv !== latest_logger_version){
+		// console.log(llv);
+		// console.log(latest_logger_version);
+		logger.innerHTML = '点击展开/折叠更新日志<span class="logger_new">(new!)</span>';
+	}
+}
+function clearAllCookiesExcept() {
+	var cookies = document.cookie.split(";");
+	for (var i = 0; i < cookies.length; i++) {
+		var cookie = cookies[i];
+		var eqPos = cookie.indexOf("=");
+		var name = eqPos > -1 ? cookie.substr(0, eqPos) : cookie;
+		document.cookie = name + "=;expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/";
+	}
+}
 
 //获取当前日期函数
 function getNowFormatDate() {
@@ -5243,18 +5359,18 @@ btn.onclick = function() {
         //console.log("高级用户");
 		defense_dog = false;
 		change_html_all();
-    }else if(shiftedHex === targetEncoded3){
+    }else if(shiftedHex === targetEncoded3){//docx
 		htmlToWord(document.querySelector(".markdown-body"));
-		// let html  = getModelHtml(getHtml(document.querySelector(".markdown-body")),getStyle());
-		// let blob = new Blob([html],{type:"application/msword;charset=utf-8"});
-		// saveAs(blob, "导出word的名字.doc");
-	}else if(shiftedHex === targetEncoded4){
+	}else if(shiftedHex === targetEncoded4){//img
 		try{
 			document.getElementById('yc_lot').querySelector("canvas").toBlob(function(blob) {saveAs(blob, '今日幸运.png');});
 		}catch(error){
 			console.log("请抽签后再保存图片");
 			lot_pic_save_request = 1;
 		}
+	}else if(shiftedHex === targetEncoded5){//clear
+		document.getElementById("yc_lot_cue").innerText="恭喜你发现bug，没错，用clear就能无限抽签：";
+		clearAllCookiesExcept();
 	}
 
 	if(!lot_pic_loading){
