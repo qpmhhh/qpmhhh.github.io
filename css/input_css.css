@@ -22,6 +22,15 @@
   box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
 }
 
+.text-annotation {
+  color: rgb(0, 87, 55);
+}
+.title-fig-form {
+  text-align: center;
+  font-size: 18px;
+  display: block;
+}
+
 .warning {
   color: rgb(255, 0, 0);
   font-size: 30px;

@@ -32,10 +32,12 @@ function drawShaft(segments,type="middle") {
 
     // 根据分段长度计算总长度 (以几何形状为准)
     const totalLength = segments.reduce((sum, seg) => sum + seg.len, 0); 
-    let scale = 2.5;
+    let scale = 2.5; // 比例尺： 1 毫米对应多少像素
     // --- 绘图参数 ---
-    if(totalLength*2.5>1000){
-        scale = 2; // 比例尺： 1 毫米对应多少像素
+    if(totalLength*2>1000){
+        scale = 1.8; 
+    }else if(totalLength*2.5>1000){
+        scale = 2;
     }
     const padding = 80; // 留白边距
 
@@ -107,7 +109,7 @@ function drawShaft(segments,type="middle") {
     }
 
     // 绘制水平尺寸标注
-    function drawHorizontalDimension(ctx, x1_mm, x2_mm, y_mm, y_offset_mm, text) {
+    function drawHorizontalDimension(ctx, x1_mm, x2_mm, y_mm, y_offset_mm, text, x_offset = 0) {
         const x1 = startX + x1_mm * scale;
         const x2 = startX + x2_mm * scale;
         const y = centerLineY + y_offset_mm * scale; // 标注线 Y 坐标
@@ -146,7 +148,7 @@ function drawShaft(segments,type="middle") {
         drawFilledArrowhead(ctx, x2, y, 0); // 指向右侧
 
         // 文字
-        ctx.fillText(text, (x1 + x2) / 2, textY);
+        ctx.fillText(text, (x1 + x2 + x_offset) / 2, textY);
 
         ctx.restore();
     }
@@ -372,13 +374,29 @@ function drawShaft(segments,type="middle") {
      // 水平长度标注 (下方)
      drawHorizontalDimension(ctx, 0, totalLength, segments[0].dia/2, maxDia_mm/2+ymm_padding*2, `(${totalLength})`);
 
-    const box_inner_start_mm = segments[0].len + segments[1].len; 
-    const box_inner_end_mm = totalLength - segments[segments.length-1].len - segments[segments.length-2].len;
-    const box_inner_len_mm =  box_inner_end_mm - box_inner_start_mm;
+    var box_inner_start_mm = 0; 
+    var box_inner_end_mm = 0;
+    var box_inner_len_mm =  0;
     if(type=="middle"){
-    // 标注 (从左侧 φ70 台阶开始到右侧 φ60 台阶前 - 按图纸位置)
-        drawHorizontalDimension(ctx, box_inner_start_mm, box_inner_end_mm, segments[0].dia/2, -(maxDia_mm/2+ymm_padding*3), `${box_inner_len_mm}`); 
+        box_inner_start_mm = segments[0].len + segments[1].len - 2; 
+        box_inner_end_mm = totalLength - segments[segments.length-1].len - segments[segments.length-2].len + 2;
+        box_inner_len_mm =  box_inner_end_mm - box_inner_start_mm;
+    }else if(type=="high"){
+        box_inner_start_mm = segments[0].len - 2; 
+        box_inner_end_mm = totalLength - segments[segments.length-1].len - segments[segments.length-2].len - segments[segments.length-3].len + 2;
+        box_inner_len_mm =  box_inner_end_mm - box_inner_start_mm;
+    }else if(type=="low"){
+        box_inner_start_mm = segments[0].len + segments[1].len + segments[segments.length-1].len - 2; 
+        box_inner_end_mm = totalLength - segments[segments.length-1].len + 2;
+        box_inner_len_mm =  box_inner_end_mm - box_inner_start_mm;
     }
+    // 标注 (从左侧 φ70 台阶开始到右侧 φ60 台阶前 - 按图纸位置)
+    drawHorizontalDimension(ctx, box_inner_start_mm, box_inner_end_mm, segments[0].dia/2, -(maxDia_mm/2+ymm_padding*3), `${box_inner_len_mm}`);
+    // 2mm标注
+    if(type!=="low"){
+        drawHorizontalDimension(ctx, box_inner_start_mm, box_inner_start_mm+2, segments[0].dia/2, -(maxDia_mm/2-ymm_padding), `2`, -8*scale);
+    }
+    drawHorizontalDimension(ctx, box_inner_end_mm-2, box_inner_end_mm, segments[0].dia/2, -(maxDia_mm/2-ymm_padding), `2`, 8*scale);
      
     let xmm_padding = 6;
      // 垂直直径标注 (分散标注，避免拥挤)
@@ -396,13 +414,11 @@ function drawShaft(segments,type="middle") {
     const bearingLeftLabelX1_mm = dashLineX_mm[0];
     const bearingLeftLabelY_mm = maxDia_mm/2;
     const bearingLeftLabelX2_mm = dashLineX_mm[dashLineX_mm.length-1];
+    // "箱内壁" (左侧)
+    drawLabel(ctx, "箱内壁", boxWallLabelX1_mm, boxWallLabelY_mm);
+    // "箱内壁" (右侧)
+    drawLabel(ctx, "箱内壁", boxWallLabelX2_mm, boxWallLabelY_mm, 0);
     if(type=="middle"){
-        // "箱内壁" (左侧)
-        drawLabel(ctx, "箱内壁", boxWallLabelX1_mm, boxWallLabelY_mm);
-
-        // "箱内壁" (右侧)
-        drawLabel(ctx, "箱内壁", boxWallLabelX2_mm, boxWallLabelY_mm, 0);
-
         // "轴承端面" (左侧)
         drawLabel(ctx, "轴承端面", bearingLeftLabelX1_mm, bearingLeftLabelY_mm,0);
 
@@ -456,7 +472,7 @@ function drawShaft(segments,type="middle") {
 
 window.onload = function(){
     window.addEventListener('message',function(e){
-        // console.log(e.data);
+        //console.log(e.data);
         drawShaft(e.data[0],e.data[1]);
     })
     

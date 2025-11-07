@@ -7539,9 +7539,9 @@ var __async = (__this, __arguments, generator) => {
           if (typeof parser !== "object" || !(parser instanceof SAXParser)) {
             throw new Error("bad call to strictFail");
           }
-          if (parser.strict) {
-            error(parser, message);
-          }
+          // if (parser.strict) {
+          //   error(parser, message);
+          // }
         }
         function newTag(parser) {
           if (!parser.strict) parser.tagName = parser.tagName[parser.looseCase]();

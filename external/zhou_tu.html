@@ -407,7 +407,7 @@ function drawAllDiagram(points,forces,values,type = "high"){
              ctx.moveTo(endX, dimLineY); ctx.lineTo(endX - dimArrowSize, dimLineY - dimArrowSize);
              ctx.moveTo(endX, dimLineY); ctx.lineTo(endX - dimArrowSize, dimLineY + dimArrowSize);
              ctx.stroke();
-             ctx.fillText(segment.length.toFixed(0), (startX + endX) / 2, dimLineY - 5); // Text above line
+             ctx.fillText(segment.length.toFixed(3), (startX + endX) / 2, dimLineY - 5); // Text above line
          });
     }
 
