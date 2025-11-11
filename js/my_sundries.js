@@ -256,7 +256,8 @@ btn.onclick = function() {
 		DesignData.latex_update_all(true);
     }else if(shiftedHex === targetEncoded3){//docx
         if(!defense_dog){
-            htmlToWord(document.querySelector(".markdown-body"));
+            DesignData.latex_update_all(true);
+            setTimeout(()=>{htmlToWord(document.querySelector(".markdown-body"))},3000);
         }
 	}else if(shiftedHex === targetEncoded4){//img
 		try{
@@ -272,6 +273,7 @@ btn.onclick = function() {
 		if(!defense_dog){
             jxsj_web();
             htmlToWord(document.getElementById("f421"));
+            htmlToWord(document.querySelector(".markdown-body"),["data-t-only"]);
         }
 	}
 

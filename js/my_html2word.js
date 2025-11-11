@@ -5,7 +5,7 @@ let h2Numbering = 0;
 let h3Numbering = 0;
 let h4Numbering = 0;
 let h5Numbering = 0;
-async function htmlToWord(dom) {
+async function htmlToWord(dom,only_list_class=[]) {
 	let _dom = dom || document;
 	let temp_list = [];
 	let p_list = [];
@@ -13,7 +13,7 @@ async function htmlToWord(dom) {
 	h3Numbering = 0;
 	h4Numbering = 0;
 	h5Numbering = 0;
-	await extract_nodes(_dom,temp_list,p_list);
+	await extract_nodes(_dom,temp_list,p_list,only_list_class);
 	const doc = new docx.Document({
 	styles: {
         default: {
@@ -270,7 +270,7 @@ async function eleIframeToChildren(f){
 }
 
 
-async function extract_nodes(nodes,temp_list,p_list){
+async function extract_nodes(nodes,temp_list,p_list,only_list_class=[]){
 	// if(!["P","SPAN","H2","H3","H4"].includes(nodes.nodeName)){
 	// 	console.log(nodes.nodeName);
 	// }
@@ -282,10 +282,26 @@ async function extract_nodes(nodes,temp_list,p_list){
 	}else if(nodes.nodeName == "SCRIPT"){
 		return;
 	}
+	var can_save = true;
+
+	if(only_list_class.length!=0){
+		can_save = false;
+		if(nodes.classList){
+			for(var c of nodes.classList){
+				if(only_list_class.includes(c)){
+					can_save = true;
+				}
+			}
+		}
+	}
+
 	//特殊含子元素标签处理
 	if(nodes.nodeName == "DETAILS"){
 		return;
 	}else if(nodes.nodeName == "H2"){
+		if(!can_save){
+			return;
+		}
 		nextParagraph(temp_list,p_list);
 		h2Numbering+=1;
 		h3Numbering=0;
@@ -296,6 +312,9 @@ async function extract_nodes(nodes,temp_list,p_list){
 			heading: docx.HeadingLevel.HEADING_1}));
 		return;
 	}else if(nodes.nodeName == "H3"){
+		if(!can_save){
+			return;
+		}
 		nextParagraph(temp_list,p_list);
 		h3Numbering+=1;
 		h4Numbering=0;
@@ -305,6 +324,9 @@ async function extract_nodes(nodes,temp_list,p_list){
 			heading: docx.HeadingLevel.HEADING_2}));
 		return;
 	}else if(nodes.nodeName == "H4"){
+		if(!can_save){
+			return;
+		}
 		nextParagraph(temp_list,p_list);
 		h4Numbering+=1;
 		h5Numbering=0;
@@ -313,6 +335,9 @@ async function extract_nodes(nodes,temp_list,p_list){
 			heading: docx.HeadingLevel.HEADING_3}));
 		return;
 	}else if(nodes.nodeName == "H5"){
+		if(!can_save){
+			return;
+		}
 		nextParagraph(temp_list,p_list);
 		h5Numbering+=1;
 		p_list.push(new docx.Paragraph({
@@ -320,29 +345,47 @@ async function extract_nodes(nodes,temp_list,p_list){
 			heading: docx.HeadingLevel.HEADING_4}));
 		return;
 	}else if(nodes.nodeName == "FIGCAPTION"){
+		if(!can_save){
+			return;
+		}
 		nextParagraph(temp_list,p_list);
 		p_list.push(new docx.Paragraph({
 			text: nodes.innerText,
 			style: "figAndTable"}));
 		return;
 	}else if(nodes.nodeName == "TABLE"){
+		if(!can_save){
+			return;
+		}
 		nextParagraph(temp_list,p_list);
 		p_list.push(eleTableToChildren(nodes));
 		return;
 	}else if(nodes.nodeName == "SELECT"){
+		if(!can_save){
+			return;
+		}
 		temp_list.push(new docx.TextRun(nodes.options[nodes.selectedIndex].text));
 		return;
 	}else if(nodes.nodeName == "IMG"){
+		if(!can_save){
+			return;
+		}
 		nextParagraph(temp_list,p_list);
 		p_list.push(await eleImageToChildren(nodes));
 		return;
 	}else if(nodes.nodeName == "IFRAME"){
+		if(!can_save){
+			return;
+		}
 		if(nodes.id.slice(0,7)=="zhou_tu"){
 			nextParagraph(temp_list,p_list);
 			p_list.push(await eleIframeToChildren(nodes));
 		}
 		return;
 	}else if(nodes.nodeName == "MJX-CONTAINER"){
+		if(!can_save){
+			return;
+		}
 		omml_text = "";
 		try{
 			mml_nodes = nodes.getElementsByTagName("mjx-assistive-mml");
@@ -362,19 +405,31 @@ async function extract_nodes(nodes,temp_list,p_list){
 	//无子元素标签处理
 	if (nodes.childNodes.length!==0){
 		for (var node of nodes.childNodes){
-			await extract_nodes(node,temp_list,p_list);
+			await extract_nodes(node,temp_list,p_list,only_list_class);
 		}
 	}else{
 		if(nodes.nodeName == "#text"){
+			if(!can_save){
+				return;
+			}
 			if(nodes.nodeValue.trim()==""){
 				return;
 			}
 			temp_list.push(new docx.TextRun(nodes.nodeValue))
 		}else if(nodes.nodeName == "BR"){
+			if(!can_save){
+				return;
+			}
 			nextParagraph(temp_list,p_list);
 		}else if(nodes.nodeName == "INPUT"){
+			if(!can_save){
+				return;
+			}
 			temp_list.push(new docx.TextRun(nodes.value));
 		}else if(nodes.nodeName == "SPAN"){
+			if(!can_save){
+				return;
+			}
 			//console.log(nodes);
 			nextParagraph(temp_list,p_list);
 		}else{
