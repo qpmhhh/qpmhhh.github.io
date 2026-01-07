@@ -19,12 +19,12 @@
   <meta name="author" content="qpm">
   <meta name="keywords" content="">
   
-    <meta name="description" content="点击展开&#x2F;折叠更新日志  	 		版本 2.0.0 		2025 年 11 月 7 日 		 			 				主要更新： 				● 重构整个框架，更加容易维护 				● 更换报告模板，更贴合课程要求 				● 修复若干bug 			 		 	 	 		版本 1.0.4 		2025 年 6 月 30 日 		 			 				新增功能： 				● 更新版本后更新日志有提醒 				● 更">
+    <meta name="description" content="点击展开&#x2F;折叠更新日志  	 		版本 2.0.1 		2026 年 1 月 7 日 		 			 				修复bug： 				● 感谢xikus修复找不到电机的bug  				● 感谢鱼大大修复传动比计算错误的bug  			 		 	 	 		版本 2.0.0 		2025 年 11 月 7 日 		 			 				主要更新： 				● 重构整个框架，更加容易维护 				● 更换报">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Design">
 <meta property="og:url" content="https://qpmhhh.github.io/2025/05/03/Design/index.html">
 <meta property="og:site_name" content="qpm&#39;s blog">
-<meta property="og:description" content="点击展开&#x2F;折叠更新日志  	 		版本 2.0.0 		2025 年 11 月 7 日 		 			 				主要更新： 				● 重构整个框架，更加容易维护 				● 更换报告模板，更贴合课程要求 				● 修复若干bug 			 		 	 	 		版本 1.0.4 		2025 年 6 月 30 日 		 			 				新增功能： 				● 更新版本后更新日志有提醒 				● 更">
+<meta property="og:description" content="点击展开&#x2F;折叠更新日志  	 		版本 2.0.1 		2026 年 1 月 7 日 		 			 				修复bug： 				● 感谢xikus修复找不到电机的bug  				● 感谢鱼大大修复传动比计算错误的bug  			 		 	 	 		版本 2.0.0 		2025 年 11 月 7 日 		 			 				主要更新： 				● 重构整个框架，更加容易维护 				● 更换报">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://qpmhhh.github.io/img/design_yi1.png">
 <meta property="og:image" content="https://qpmhhh.github.io/img/design_ji1.png">
@@ -38,7 +38,7 @@
 <meta property="og:image" content="https://qpmhhh.github.io/img/design_middleBearing.jpg">
 <meta property="og:image" content="https://qpmhhh.github.io/img/design_highBearing.jpg">
 <meta property="article:published_time" content="2025-05-03T08:55:56.000Z">
-<meta property="article:modified_time" content="2025-11-11T15:09:33.646Z">
+<meta property="article:modified_time" content="2026-01-07T05:08:40.970Z">
 <meta property="article:author" content="qpm">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://qpmhhh.github.io/img/design_yi1.png">
@@ -262,7 +262,7 @@
         
         
         
-          123 分钟
+          124 分钟
         
       </span>
     
@@ -307,6 +307,17 @@
                 <details id="logger_details" onclick="check_new_logger(1)">
 <summary id="logger">点击展开/折叠更新日志</summary>
 <div class="update-log">
+	<div class="update-entry">
+		<div class="update-version">版本 2.0.1</div>
+		<div class="update-date">2026 年 1 月 7 日</div>
+		<div class="update-content">
+			<div class="update-item">
+				<span class="update-item-title">修复bug：</span>
+				<span class="update-item-description">● 感谢<span class="static-rainbow_xikes">xikus</span>修复找不到电机的bug </span>
+				<span class="update-item-description">● 感谢<span class="static-rainbow_yuda">鱼大大</span>修复传动比计算错误的bug </span>
+			</div>
+		</div>
+	</div>
 	<div class="update-entry">
 		<div class="update-version">版本 2.0.0</div>
 		<div class="update-date">2025 年 11 月 7 日</div>
@@ -577,7 +588,7 @@ V带轮采用HT200制造，允许最大圆周速度为25m/s。
 <p id="warning5" class="warning"></p>
 <br>查《机械设计课程设计》表15.1可得<span class="text-annotation">(P175)</span>，滚动轴承宽度<span id="f99_1">$ T_m^{'} $</span> 、<span id="f99_2">$ B_m^{'} $</span> 、<span id="f99_3">$ a_m^{'} $</span> 、<span id="f99_4">$ D_m^{'} $</span>
 <br>由齿轮设计可知：高速级大齿轮轮毂宽 <span id="f93_1">$ B_2 $</span>，低速级小齿轮宽<span id="f93_2">$ B_3 $</span>
-<br>选两齿轮端面间距<span>$ \Delta_m= $</span><input value="10.5" type="text" class="input" id="d3" onchange="input_update(this)"> mm
+<br>选两齿轮端面间距<span>$ \Delta_m= $</span><input value="10" type="text" class="input" id="d3" onchange="input_update(this)"> mm
 <br>齿轮端面到箱内壁距离<span>$ \Delta_{1m}= $</span><input value="12" type="text" class="input" id="d4" onchange="input_update(this)"> mm
 <br>滚动轴承端面到箱内壁距离<span>$ \Delta_{2m}= $</span><input value="15" type="text" class="input" id="d5" onchange="input_update(this)"> mm
 <br>则箱内壁宽(加2.5是为了对齐齿轮)：
@@ -590,10 +601,10 @@ V带轮采用HT200制造，允许最大圆周速度为25m/s。
 <br>
 <div style="width: 100%; height: 300px;overflow-y: hidden;overflow-x: scroll;
 ">
-<iframe src="" frameborder="no" id="zhou_m" style="width: 1400px; height: 550px;transform-origin: left top; transform: scale(0.5, 0.5);"></iframe>
+<iframe src="" frameborder="no" id="zhou_m" style="width: 1400px; height: 550px;transform-origin: left top; transform: scale(0.5, 0.5);" class="data-zhou-pic-only"></iframe>
 </div>
 <br>端盖螺钉为<span>$ M $</span><select id="d6" onchange="input_update(this)"><option value=0>8</option></select> mm，对应的螺栓头高度<span id="f404">$ k $</span> ；
-<br>轴承端盖厚度<span>$ t = $</span><input value="10" type="text" class="input" id="d6_1" onchange="input_update(this)"> mm；（一般取端盖螺钉直径×1.5并圆整）
+<br>轴承端盖厚度<span>$ t = $</span><input value="10" type="text" class="input" id="d6_1" onchange="input_update(this)"> mm；（一般取端盖螺钉直径×1.2并圆整）
 <br>查表3.15<span class="text-annotation">(P32)</span>选择箱体连接螺钉直径<span>$ d_{4m}=16mm $</span>
 <br>查表3.16<span class="text-annotation">(P34)</span>得<span id="f96">$ c_1=26mm, c_2=21mm $</span>
 <br>按壁厚为<span>$ \delta_1 =   $</span><input value="8" type="text" class="input" id="d7" onchange="input_update(this)"> mm
@@ -614,7 +625,7 @@ V带轮采用HT200制造，允许最大圆周速度为25m/s。
 <br><span id="f106">$ d_{退} $</span>
 <br>选带轮侧端面据端盖螺钉距离为<span>$ l_3 = $</span><input value="20" type="text" class="input" id="d12" onchange="input_update(this)"> mm；
 <br>端盖螺钉为<span>$ M $</span><select id="d13" onchange="input_update(this)"><option value=0>8</option></select> mm，对应的螺栓头高度<span id="f107">$ k $</span> ;
-<br>轴承端盖厚度<span>$ t = $</span><input value="10" type="text" class="input" id="d14" onchange="input_update(this)"> mm；（一般取端盖螺钉直径×1.5并圆整）
+<br>轴承端盖厚度<span>$ t = $</span><input value="10" type="text" class="input" id="d14" onchange="input_update(this)"> mm；（一般取端盖螺钉直径×1.2并圆整）
 <br>端盖调整垫片厚度为1mm；
 <br>并由前面已知计算：带轮宽度至少为
 <span id="f108"> </span>
@@ -632,7 +643,7 @@ V带轮采用HT200制造，允许最大圆周速度为25m/s。
 <span id="f423" class="text-annotation">画出高速轴结构示意图(右边轴承<br>挡板按5mm算，退刀槽宽度按"齿轮端面到箱内壁距离-5"算)如图：</span>
 <div style="width: 100%; height: 300px;overflow-y: hidden;overflow-x: scroll;
 ">
-<iframe src="" frameborder="no" id="zhou_h" style="width: 1400px; height: 550px;transform-origin: left top; transform: scale(0.5, 0.5);"></iframe>
+<iframe src="" frameborder="no" id="zhou_h" style="width: 1400px; height: 550px;transform-origin: left top; transform: scale(0.5, 0.5);" class="data-zhou-pic-only"></iframe>
 </div>
 
 <h3 id="低速轴的设计"><a href="#低速轴的设计" class="headerlink" title="低速轴的设计"></a>低速轴的设计</h3><h4 id="低速轴-选择轴的材料"><a href="#低速轴-选择轴的材料" class="headerlink" title="低速轴-选择轴的材料"></a>低速轴-选择轴的材料</h4><p>选用45钢，调质，硬度为230HBS。</p>
@@ -642,7 +653,7 @@ V带轮采用HT200制造，允许最大圆周速度为25m/s。
 <br>查《机械设计课程设计》表15.1可得<span class="text-annotation">(P175)</span>，滚动轴承宽度<span id="f119_1">$ T_l^{'} $ </span> 、<span id="f119_2">$ B_l^{'} $ </span> 、<span id="f119_3">$ a_l^{'} $ </span> <span id="f119_4">$ D_l^{'} $ </span>，滚动轴承的安装尺寸为 <span id="f119_5">$ d_{al}^{'} $ </span> 
 <br>选带轮侧端面据端盖螺钉距离为<span>$ l_5 = $</span><input value="20" type="text" class="input" id="d19" onchange="input_update(this)"> mm；
 <br>端盖螺钉为<span>$ M $</span><select id="d20" onchange="input_update(this)"><option value=0>8</option></select> mm，对应的螺栓头高度<span id="f122">$ k  $</span> ；
-<br>轴承端盖厚度<span>$ t = $</span><input value="10" type="text" class="input" id="d21" onchange="input_update(this)"> mm；（一般取端盖螺钉直径×1.5并圆整）
+<br>轴承端盖厚度<span>$ t = $</span><input value="10" type="text" class="input" id="d21" onchange="input_update(this)"> mm；（一般取端盖螺钉直径×1.2并圆整）
 <br>端盖调整垫片厚度为1mm；
 <br>预留联轴器配合长度为<span>$ B_5= $</span><input value="172" type="text" class="input" id="d23" onchange="input_update(this)"> mm；
 <br>低速轴伸出段长为： 
@@ -658,7 +669,7 @@ V带轮采用HT200制造，允许最大圆周速度为25m/s。
 <span class="text-annotation">画出低速轴结构示意图(齿轮轴径按轴承处轴径加5算；齿轮挡板和未伸出部分轴承挡板按中间轴里面的齿轮端面间距算)如图：</span>
 <div style="width: 100%; height: 300px;overflow-y: hidden;overflow-x: scroll;
 ">
-<iframe src="" frameborder="no" id="zhou_l" style="width: 1400px; height: 550px;transform-origin: left top; transform: scale(0.5, 0.5);"></iframe>
+<iframe src="" frameborder="no" id="zhou_l" style="width: 1400px; height: 550px;transform-origin: left top; transform: scale(0.5, 0.5);" class="data-zhou-pic-only"></iframe>
 </div>
 
 <p><img src="/img/design_three_shafts.jpg" alt="图3 三轴在减速箱中的装配简图"></p>
@@ -892,7 +903,7 @@ function formatDegree(value) {
     var v3 = Math.round((value - v1) * 3600 % 60);
     return v1 + '°' + v2 + '\'' + v3 + '\'\'';
 };
-let defense_dog = true;// 原为防狗标志位，后狗得到密码，但仍保留作为彩蛋吧。现在换了个密码，嘻嘻。
+let defense_dog = false;// 原为防狗标志位，后狗得到密码，但仍保留作为彩蛋吧。现在换了个密码，嘻嘻。
 DesignData.DP = 3;// 保留小数位数
 let change_all_flag = 1;// 改变所有数据标志
 
@@ -974,8 +985,11 @@ s1.after_update = function(){
 	t1_torquelocked.value = s1_result[s1.selected][4];
 	t1_torquemax.value = s1_result[s1.selected][5];
 
+	const regex_ms = /[0-9]{2,3}[A-Z]/;
+	const match = s1_result[s1.selected][0].match(regex_ms);
+	console.log(match);
 	for(var i of T18_2){
-		if(s1_result[s1.selected][0].slice(1,-2)==i[0]){
+		if(match[0]==i[0]){
 			motor_size = i;
 			break;
 		}
@@ -997,6 +1011,7 @@ s1.after_update = function(){
 
 const f7 = new DataFormula("f7","i","=","\\frac{n_d}{n_w}","");
 const i0 = new DataInput("i0","i_{带}");
+t13.add_child(i0);
 const i1 = new DataMiddle("i_gear1","i_1");
 const i2 = new DataMiddle("i_gear2","i_2");
 i0.add_child(i1);
@@ -1016,11 +1031,11 @@ i0.after_update = function(){
 			var best_item = T2_4[0];
 			var delta_ratio = Math.abs(T2_4[0][0]-gear_ratio);
 			T2_4.forEach(a_item=>{
-				if(Math.abs(a_item[0]-gear_ratio)<delta_ratio){
+				if(Math.abs(a_item[0]-gear_ratio)<=delta_ratio){
 					best_item = a_item;
 					delta_ratio = Math.abs(a_item[0]-gear_ratio);
-					i1.value = a_item[1];
-					i2.value = a_item[2];
+					i1.set_value(a_item[1]);
+					i2.set_value(a_item[2]);
 				}
 			});
 			if(Math.abs(temp_value*best_item[0]-f7.value)<=threshold){
@@ -1037,8 +1052,8 @@ i0.after_update = function(){
 			if(Math.abs(a_item[0]-gear_ratio)<delta_ratio){
 				best_item = a_item;
 				delta_ratio = Math.abs(a_item[0]-gear_ratio);
-				i1.value = a_item[1];
-				i2.value = a_item[2];
+				i1.set_value(a_item[1]);
+				i2.set_value(a_item[2]);
 			}
 		});
 	}
@@ -1345,6 +1360,20 @@ const f29_2 = new DataFormula("f29_2", "N_2", "=", "\\frac{N_1}{i_1}");
 
 const g6 = new DataInput("g6","K_{HN1}");
 const g7 = new DataInput("g7","K_{HN2}");
+f29_1.add_child(g6);
+f29_2.add_child(g7);
+g6.after_update = function(){
+	if(!g6.cookie_flag){
+		g6.value = Math.round(((5*(10**7)/f29_1.value)**0.0306)*100)/100;
+		g6.ele.value = g6.value;
+	}
+}
+g7.after_update = function(){
+	if(!g7.cookie_flag){
+		g7.value = Math.round(((5*(10**7)/f29_2.value)**0.0306)*100)/100;
+		g7.ele.value = g7.value;
+	}
+}
 const S_H = new DataConst("S_H","S_H",1);
 const f30_1 = new DataFormula("f30_1", "[\\sigma_{H}]_1", "=", "\\frac{K_{HN1} \\sigma_{Hlim1}}{S_H}","MPa");
 const f30_2 = new DataFormula("f30_2", "[\\sigma_{H}]_2", "=", "\\frac{K_{HN2} \\sigma_{Hlim2}}{S_H}","MPa");
@@ -1536,6 +1565,20 @@ const f61_2 = new DataFormula("f61_2", "N_4", "=", "\\frac{N_3}{i_2}");
 
 const g24 = new DataInput("g24","K_{HN3}");
 const g25 = new DataInput("g25","K_{HN4}");
+f61_1.add_child(g24);
+f61_2.add_child(g25);
+g24.after_update = function(){
+	if(!g24.cookie_flag){
+		g24.value = Math.round(((5*(10**7)/f61_1.value)**0.0306)*100)/100;
+		g24.ele.value = g24.value;
+	}
+}
+g25.after_update = function(){
+	if(!g25.cookie_flag){
+		g25.value = Math.round(((5*(10**7)/f61_2.value)**0.0306)*100)/100;
+		g25.ele.value = g25.value;
+	}
+}
 const f62_1 = new DataFormula("f62_1", "[\\sigma_{H}]_3", "=", "\\frac{K_{HN3} \\sigma_{Hlim3}}{S_H}","MPa");
 const f62_2 = new DataFormula("f62_2", "[\\sigma_{H}]_4", "=", "\\frac{K_{HN4} \\sigma_{Hlim4}}{S_H}","MPa");
 const f63 = new DataMiddle("f63","[\\sigma_{H}]_{g3}", 0, "MPa");
@@ -1798,6 +1841,7 @@ const f404_11 = new DataMiddle("f404_11","k_m",0,"mm");
 const f404 = new DataDisplay("f404",f404_11);
 d2.add_child(d6);
 d6.add_child(f404_11);
+d6.add_child(d6_1);
 d6.before_update = function(){
 	d6.options = [];
 	let temp = 0;
@@ -1817,7 +1861,8 @@ d6.before_update = function(){
 	d6.options_change_flag = true;
 }
 d6_1.before_update = function(){
-	d6_1.value = 1.5*d6.value;
+	d6_1.value = Math.round(1.2*d6.value);
+	d6_1.ele.value = Math.round(1.2*d6.value);
 }
 
 const c1 = new DataMiddle("c1","c_1",26,"mm");
@@ -1962,6 +2007,7 @@ const f107 = new DataDisplay("f107",f107_11);
 
 d11.add_child(d13);
 d13.add_child(f107);
+d13.add_child(d14);
 d13.before_update = function(){
 	d13.options = [];
 	let temp = 0;
@@ -1981,7 +2027,8 @@ d13.before_update = function(){
 	d13.options_change_flag = true;
 }
 d14.before_update = function(){
-	d14.value = 1.5*d13.value;
+	d14.value = Math.round(1.2*d13.value);
+	d14.ele.value = Math.round(1.2*d13.value);
 }
 
 
@@ -2097,6 +2144,7 @@ const f122_11 = new DataMiddle("f122_11","k_l",0,"mm");
 const f122 = new DataDisplay("f122",f122_11);
 d18.add_child(d20);
 d20.add_child(f122_11);
+d20.add_child(f21);
 d20.before_update = function(){
 	d20.options = [];
 	let temp = 0;
@@ -2116,7 +2164,8 @@ d20.before_update = function(){
 	d20.options_change_flag = true;
 }
 d21.before_update = function(){
-	d21.value = 1.5*d20.value;
+	d21.value = Math.round(1.2*d20.value);
+	d21.ele.value = Math.round(1.2*d20.value);
 }
 
 //联轴器的设计

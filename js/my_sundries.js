@@ -254,28 +254,30 @@ btn.onclick = function() {
         //console.log("高级用户");
 		defense_dog = false;
 		DesignData.latex_update_all(true);
-    }else if(shiftedHex === targetEncoded3){//docx
-        if(!defense_dog){
-            DesignData.latex_update_all(true);
-            setTimeout(()=>{htmlToWord(document.querySelector(".markdown-body"))},3000);
-        }
-	}else if(shiftedHex === targetEncoded4){//img
-		try{
-			document.getElementById('yc_lot').querySelector("canvas").toBlob(function(blob) {saveAs(blob, '今日幸运.png');});
-		}catch(error){
-			console.log("请抽签后再保存图片");
-			lot_pic_save_request = 1;
-		}
-	}else if(shiftedHex === targetEncoded5){//clear
-		// document.getElementById("yc_lot_cue").innerText="恭喜你发现bug，没错，用clear就能无限抽签：";
-		clearAllCookiesExcept();
-	}else if(shiftedHex === targetEncoded6){//data
-		if(!defense_dog){
-            jxsj_web();
-            htmlToWord(document.getElementById("f421"));
-            htmlToWord(document.querySelector(".markdown-body"),["data-t-only"]);
-        }
-	}
+    }
+    // else if(shiftedHex === targetEncoded3){//docx
+    //     if(!defense_dog){
+    //         DesignData.latex_update_all(true);
+    //         setTimeout(()=>{htmlToWord(document.querySelector(".markdown-body"))},3000);
+    //     }
+	// }else if(shiftedHex === targetEncoded4){//img
+	// 	try{
+	// 		document.getElementById('yc_lot').querySelector("canvas").toBlob(function(blob) {saveAs(blob, '今日幸运.png');});
+	// 	}catch(error){
+	// 		console.log("请抽签后再保存图片");
+	// 		lot_pic_save_request = 1;
+	// 	}
+	// }else if(shiftedHex === targetEncoded5){//clear
+	// 	// document.getElementById("yc_lot_cue").innerText="恭喜你发现bug，没错，用clear就能无限抽签：";
+	// 	clearAllCookiesExcept();
+	// }else if(shiftedHex === targetEncoded6){//data
+	// 	if(!defense_dog){
+    //         jxsj_web();
+    //         // htmlToWord(document.getElementById("f421"),[],"数据.docx");
+    //         // htmlToWord(document.querySelector(".markdown-body"),["data-t-only"],"表格数据.docx");
+    //         htmlToWord(document.querySelector(".markdown-body"),["data-zhou-pic-only"],"轴的图.docx");
+    //     }
+	// }
 
 	if(!lot_pic_loading){
 		generateFortune();

@@ -5,7 +5,8 @@ let h2Numbering = 0;
 let h3Numbering = 0;
 let h4Numbering = 0;
 let h5Numbering = 0;
-async function htmlToWord(dom,only_list_class=[]) {
+let zhou_flag = false;
+async function htmlToWord(dom,only_list_class=[],fileName="output.docx") {
 	let _dom = dom || document;
 	let temp_list = [];
 	let p_list = [];
@@ -13,6 +14,10 @@ async function htmlToWord(dom,only_list_class=[]) {
 	h3Numbering = 0;
 	h4Numbering = 0;
 	h5Numbering = 0;
+	zhou_flag = false;
+	if(only_list_class[0]==="data-zhou-pic-only"){
+		zhou_flag = true;
+	}
 	await extract_nodes(_dom,temp_list,p_list,only_list_class);
 	const doc = new docx.Document({
 	styles: {
@@ -169,7 +174,7 @@ async function htmlToWord(dom,only_list_class=[]) {
 		],
 	});
 	docx.Packer.toBlob(doc).then(blob => {
-		saveAs(blob, "output.docx");
+		saveAs(blob, fileName);
 	});
 }
 let stop_count = 0;
@@ -264,7 +269,10 @@ async function eleImageToChildren(img,src="",width=0,height=0){
 }
 
 async function eleIframeToChildren(f){
-    const canvas = f.contentWindow.document.getElementById('shaftDiagramCanvas');
+    let canvas = f.contentWindow.document.getElementById('shaftDiagramCanvas');
+	if(zhou_flag && canvas==null){
+		canvas = f.contentWindow.document.getElementById('shaftCanvas');
+	}
     var dataUrl = canvas.toDataURL("image/png");
     return await eleImageToChildren("",dataUrl,canvas.width,canvas.height);
 }
@@ -378,6 +386,10 @@ async function extract_nodes(nodes,temp_list,p_list,only_list_class=[]){
 			return;
 		}
 		if(nodes.id.slice(0,7)=="zhou_tu"){
+			nextParagraph(temp_list,p_list);
+			p_list.push(await eleIframeToChildren(nodes));
+		}
+		if(zhou_flag && nodes.id.slice(0,4)=="zhou"){
 			nextParagraph(temp_list,p_list);
 			p_list.push(await eleIframeToChildren(nodes));
 		}
