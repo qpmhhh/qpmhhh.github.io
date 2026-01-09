@@ -19,12 +19,12 @@
   <meta name="author" content="qpm">
   <meta name="keywords" content="">
   
-    <meta name="description" content="点击展开&#x2F;折叠更新日志  	 		版本 2.0.1 		2026 年 1 月 7 日 		 			 				注意事项： 				● JOJO主题新增签底 				● 更新后需要自己选择齿数，但使用默认齿数也行 			 			 				修复bug： 				● 感谢xikus修复找不到电机的bug  				● 感谢鱼大大修复传动比计算错误的bug并找到某个滚子外径错误的问题">
+    <meta name="description" content="点击展开&#x2F;折叠更新日志  	 		版本 2.0.2 		2026 年 1 月 9 日 		 			 				修复bug： 				● 感谢A波不会吃辣找到轴承动载荷查表数据错误的bug  			 		 	 	 		版本 2.0.1 		2026 年 1 月 7 日 		 			 				注意事项： 				● JOJO主题新增签底 				● 更新后需要自己选择齿数，但使用默认齿数也行">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Design">
 <meta property="og:url" content="https://qpmhhh.github.io/2025/05/03/Design/index.html">
 <meta property="og:site_name" content="qpm&#39;s blog">
-<meta property="og:description" content="点击展开&#x2F;折叠更新日志  	 		版本 2.0.1 		2026 年 1 月 7 日 		 			 				注意事项： 				● JOJO主题新增签底 				● 更新后需要自己选择齿数，但使用默认齿数也行 			 			 				修复bug： 				● 感谢xikus修复找不到电机的bug  				● 感谢鱼大大修复传动比计算错误的bug并找到某个滚子外径错误的问题">
+<meta property="og:description" content="点击展开&#x2F;折叠更新日志  	 		版本 2.0.2 		2026 年 1 月 9 日 		 			 				修复bug： 				● 感谢A波不会吃辣找到轴承动载荷查表数据错误的bug  			 		 	 	 		版本 2.0.1 		2026 年 1 月 7 日 		 			 				注意事项： 				● JOJO主题新增签底 				● 更新后需要自己选择齿数，但使用默认齿数也行">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://qpmhhh.github.io/img/design_yi1.png">
 <meta property="og:image" content="https://qpmhhh.github.io/img/design_ji1.png">
@@ -39,7 +39,7 @@
 <meta property="og:image" content="https://qpmhhh.github.io/img/design_highBearing.jpg">
 <meta property="og:image" content="https://qpmhhh.github.io/img/weixin_ds.png">
 <meta property="article:published_time" content="2025-05-03T08:55:56.000Z">
-<meta property="article:modified_time" content="2026-01-07T06:03:01.964Z">
+<meta property="article:modified_time" content="2026-01-09T13:51:04.365Z">
 <meta property="article:author" content="qpm">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://qpmhhh.github.io/img/design_yi1.png">
@@ -308,6 +308,16 @@
                 <details id="logger_details" onclick="check_new_logger(1)">
 <summary id="logger">点击展开/折叠更新日志</summary>
 <div class="update-log">
+	<div class="update-entry">
+		<div class="update-version">版本 2.0.2</div>
+		<div class="update-date">2026 年 1 月 9 日</div>
+		<div class="update-content">
+			<div class="update-item">
+				<span class="update-item-title">修复bug：</span>
+				<span class="update-item-description">● 感谢<span class="dynamic-rainbow_ab">A波不会吃辣</span>找到轴承动载荷查表数据错误的bug </span>
+			</div>
+		</div>
+	</div>
 	<div class="update-entry">
 		<div class="update-version">版本 2.0.1</div>
 		<div class="update-date">2026 年 1 月 7 日</div>
@@ -2801,13 +2811,13 @@ d18.add_child(f296_11);
 d18.add_child(f296_21);
 d18.add_child(f296_31);
 f296_11.before_update = function(){
-	f296_11.value = fit_bearing2[d18.ele.options[d18.selected].value][7];
+	f296_11.value = fit_bearing3[d18.ele.options[d18.selected].value][7];
 }
 f296_21.before_update = function(){
-	f296_21.value = fit_bearing2[d18.ele.options[d18.selected].value][8];
+	f296_21.value = fit_bearing3[d18.ele.options[d18.selected].value][8];
 }
 f296_31.before_update = function(){
-	f296_31.value = fit_bearing2[d18.ele.options[d18.selected].value][10];
+	f296_31.value = fit_bearing3[d18.ele.options[d18.selected].value][10];
 }
 const f297 = new DataFormula("f297","S_{Al}","=","\\frac{R_{Al}}{2Y_l}", "N");
 const f298 = new DataFormula("f298","S_{Bl}","=","\\frac{R_{Bl}}{2Y_l}", "N");

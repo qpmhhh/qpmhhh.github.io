@@ -74,24 +74,32 @@
   margin-left: 10px;
   display: block;
 }
+.dynamic-rainbow_ab {
+background: linear-gradient(90deg, red, orange, yellow, green, cyan, blue, indigo);
+background-size: 400% 400%;
+animation: moveRainbow 2.5s linear infinite;
+background-clip: text;
+}
+
+@keyframes moveRainbow {
+0% { background-position: 0% 50%; }
+100% { background-position: 100% 50%; }
+}
 .static-rainbow_xikes{
 	background: linear-gradient(90deg, green, black);
 	-webkit-text-fill-color: transparent;
-// 以区块内的文字作为裁剪区域向外裁剪，文字的背景即为区块的背景，文字之外的区域都将被裁剪掉
 	-webkit-background-clip: text;
 	background-clip: text;
 }
 .static-rainbow_yuda{
 	background: linear-gradient(90deg, yellow, red);
 	-webkit-text-fill-color: transparent;
-// 以区块内的文字作为裁剪区域向外裁剪，文字的背景即为区块的背景，文字之外的区域都将被裁剪掉
 	-webkit-background-clip: text;
 	background-clip: text;
 }
 .static-rainbow{
 	background: linear-gradient(90deg, blue, red);
 	-webkit-text-fill-color: transparent;
-// 以区块内的文字作为裁剪区域向外裁剪，文字的背景即为区块的背景，文字之外的区域都将被裁剪掉
 	-webkit-background-clip: text;
 	background-clip: text;
 }
@@ -210,7 +218,6 @@
   25% , 75% {
     transform: rotate(0deg)
   }
-}
 
   100% {
     transform: rotate(25deg)
